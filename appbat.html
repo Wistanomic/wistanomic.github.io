@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html>
+    <head>
+          
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          
+          <link rel="icon" href="appbt(2).png" sizes="32x32" type="image/png">
+        <title>Appbatroz - Easy Launch Tools</title>
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <meta name="keywords" content="open app,multiple launch,multiple open,make icon,linux desktop,windows desktop,software,application" />
+          <meta name="description" content="Free and Open-Source, Appbatroz is designed to facilitate the opening of single or up to a maximum of 10 applications, files, and websites." />
+  <style>
+    html{
+        overflow: hidden;
+        height: 100%;
+width: 100%;
+font-family: sans-serif;
+    }
+    body{
+        margin: 0;
+        height: 100%;
+width: 100%;
+background: #e7e7e7;
+    }
+    #grids{
+        height: 100%;
+width: 100%;
+        display: grid;
+grid-template-columns:    repeat(10, 10%);
+grid-template-rows: 150px auto 100px;
+background: #e7e7e7;
+gap:20px 20px;
+
+    }
+    .dvc{
+     
+        border-radius: 50px;
+  background: #e7e7e7;
+    box-shadow: 5px 5px 10px #d2ccdf, -5px -5px 10px #f6f0ff;
+    overflow: hidden;
+    border: 1px solid #dfdcdcfa;
+    }
+    #ttl{
+        grid-column: span 6;
+display: flex;
+align-items: center;
+margin-top: 5px;
+margin-left: 9px;
+    }
+    #dld{
+        grid-column: span 3; 
+        display: flex;
+align-items: center;
+margin-top: 5px;
+cursor:pointer;
+width: 92%;
+    }
+    #exm{
+        grid-column: span 2; 
+        display: block;
+        margin-left: 9px;
+     
+    }
+    #limg{
+        grid-column: span 8; 
+        display: flex;
+        width: 84.5%;
+    }
+    #ft1{
+        grid-column: span 4; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 5px;
+        margin-left: 9px;
+        padding: 10px;
+    }
+    #ft2{
+        grid-column: span 1; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 5px;
+    }
+    #ft3{
+        grid-column: span 2; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 5px;
+        cursor:pointer;
+    }
+    #ft4{
+        grid-column: span 2; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 5px;
+        width: 88%;
+        cursor:pointer;
+    }
+    #ft4:hover {
+        
+        scale: 0.95;
+        
+    }
+    #ft3:hover {
+        
+        scale: 0.95;
+        
+    }
+    #dld:hover {
+        
+        scale: 0.95;
+        
+    }
+    .apbex:hover {
+        
+        font-size: medium;
+        
+    }
+    #lblttl{
+        font-size: 6vw;
+font-weight: bolder;
+margin-left: 3%;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(to top, #555,#605f5e,#6b6967,#75726f,#807c78,#8b8681);
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+    }
+    #dlic{
+   font-size: 150px;
+   color: #9f9f9f;
+   opacity: 25%;
+   cursor:pointer;
+    }
+    #dltl{
+        font-size: 3vw;
+font-weight: lighter;
+font-family: sans-serif;
+margin-left: 3%;
+color: #9f9f9f;
+cursor:pointer;
+    }
+    .apbex{
+        
+        height: 20%;
+        width: 100%;
+        border-style:none ;
+     
+        font-size: large;
+   cursor:pointer;
+  
+    }
+    .apbex:hover{
+        background: #9f9f9f;
+color: #e7e7e7;
+    }
+   
+    #mlex{
+       margin-top: 0;
+        border-style: none;
+       
+    }
+    #nbmex{
+        border-style: none;
+      
+    }
+    #imgapp{
+        height: 100%;
+        width: 30%;
+        border-style: none;
+        border-radius: 50px 0 0 50px;
+    }
+    .diexp{
+        height: 100%;
+        width: 60%;
+word-wrap: break-word;
+font-size: larger;
+text-align: justify;
+margin-top: 10px;
+margin-left: 10px;
+
+    }
+    #separator{
+        height: 100%;
+        width: 13px;
+        background: #e7e7e7;
+box-shadow: inset 6px -6px 12px #d2d2d2,
+            inset -6px 6px 12px #fcfcfc;
+    }
+    #ttlex{
+font-size: x-large;
+color: #9f9f9f;
+font-weight: lighter;
+font-family: sans-serif;
+cursor:pointer;
+    }
+    #askex{
+font-size: xx-large;
+color: #9f9f9f;
+font-weight: lighter;
+font-family: sans-serif;
+    }
+    #fbex{
+font-size: xx-large;
+cursor:pointer;
+color: #9f9f9f;
+font-weight: lighter;
+font-family: sans-serif;
+    }
+    .spr{
+        background: linear-gradient(to right, #e7e7e7,#9f9f9f,#e7e7e7);
+
+             width: 100%;
+             height: 1px;
+    }
+    #comm{
+        font-size: medium;
+        text-transform: uppercase;
+font-weight: bolder;
+font-family: sans-serif; 
+animation: flow 30s ease-in-out infinite;
+background: linear-gradient(-60deg,#DA22FF,#9733EE,#02AAB0,#00CDAC);
+background-size: 300%;
+-webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+
+    }
+    @keyframes flow{
+        0%{
+            background-position:0 50% ;
+        }
+      
+        50%{
+            background-position:100% 50% ;
+        }
+        
+        100%{
+            background-position:0 50% ;
+        }
+    }
+    @media only screen and (max-width : 1000px) {
+        .apbex{
+        
+        height: 20%;
+        width: 100%;
+        border-style:none ;
+     
+        font-size: small;
+        padding: 6px;
+    }
+    #dlic{
+   font-size: 13vh;
+   color: #9f9f9f;
+   opacity: 25%;
+    }
+    #grids{
+        height: 100%;
+width: 100%;
+        display: block;
+        grid-template-columns: repeat(1, 30vh);
+        grid-auto-rows: 30vh;
+background: #e7e7e7;
+gap:20px;
+overflow: scroll;
+    }
+    #ttl{
+       
+display: flex;
+align-items: center;
+margin: 9px;
+
+    }
+    #dld {
+  grid-column: span 3;
+  display: flex;
+  align-items: center;
+  margin: 9px;
+  width: 97%;
+  height: 13%;
+}
+    #exm{
+        grid-column: span 2; 
+        display: flex;
+        margin: 9px;
+     
+    }
+    #limg{
+        grid-column: span 8; 
+        display: block;
+        margin: 9px;
+        width: 70%;
+        height: 900px;
+        margin-left: 15%;
+    }
+    #ft1{
+        grid-column: span 4; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 9px;
+        padding: 10px;
+        height: 15%;
+width: 93%;
+    }
+    #ft2{
+        grid-column: span 1; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 9px;
+        width: 95%;
+    }
+    #ft3{
+        grid-column: span 2; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 9px;
+        width: 95%;
+    }
+    #ft4{
+        grid-column: span 2; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 9px;
+        width: 95%;
+    }
+    #separator{
+        height: 13px;
+        width: 100%;
+        background: #e7e7e7;
+box-shadow: inset 6px -6px 12px #d2d2d2,
+            inset -6px 6px 12px #fcfcfc;
+    }
+    #imgapp{
+        height: 40%;
+        width: 100%;
+        border-style: none;
+        border-radius: 0px 0px 0px 0px;
+    }
+    .diexp{
+        height: 100%;
+        width: 90%;
+word-wrap: break-word;
+font-size: medium;
+text-align: justify;
+margin-top: 10px;
+margin-left: 10px;
+    }
+  
+    .spr{
+        display: none;
+    }
+    #dltl {
+  font-size: xx-large;
+  font-weight: lighter;
+  font-family: sans-serif;
+  margin-left: 3%;
+  color: #9f9f9f;
+}
+    }
+@media only screen and (min-width : 768px) {
+ 
+    }
+@media only screen and (min-width : 992px) {
+    }
+@media only screen and (min-width : 1200px) {
+
+}
+  </style>
+  </head>
+<body>
+    <div id="grids">
+<div id="ttl" class="dvc">
+    <img src="appbt(2).png" style="scale: 0.7;">
+<h1 id="lblttl">Appbatroz</h1>
+
+</div>
+<div id="dld" class="dvc">
+    <label id="dlic">&#11015;</label>
+<label id="dltl">Download</label>
+</div>
+<div id="exm" class="dvc">
+<button class="apbex" id="mlex">Multi Launch</button>
+<div class="spr"></div>
+<button class="apbex" id="slex">Set Launch</button>
+<div class="spr"></div>
+<button class="apbex" id="bmex">Bookmark</button>
+<div class="spr"></div>
+<button class="apbex" id="srex">Search</button>
+<div class="spr"></div>
+<button id="nbmex" class="apbex">New Bookmark</button>
+</div>
+<div id="limg" class="dvc">
+<img id="imgapp">
+<div id="separator">
+
+</div>
+<div id="mlep" class="diexp" hidden>
+    Multi launch is useful for creating an icon that can run multiple programs or open multiple files.
+</div>
+<div id="slep" class="diexp" hidden>
+    Set launch is useful for creating an icon that can run many programs, or open many files similar to multi launch, except that set launch can set conditions for running programs or opening files.
+    <br>
+    <br>
+    The condition for set launch is "After", which functions to run the program after clicking "Next" on the application or pressing any button to continue on the terminal (if running through an icon).
+    the next condition is "Fail", which is useful for running the next program if the previous program failed to run.
+    The last condition is "None", which means running the program at the same time.
+</div>
+<div id="srep" class="diexp" hidden>
+    Search is useful for finding exec commands on Linux, or .exe files on Windows
+</div>
+<div id="nbep" class="diexp" hidden>
+    New bookmarks are useful for storing filepaths or website addresses, along with titles, groups, and comments from bookmarks.
+</div>
+<div id="bmep" class="diexp" hidden>
+    Bookmarks are storage places for bookmark data that users create
+</div>
+</div>
+<div id="ft1" class="dvc">
+    <a id="comm">Make it easy to launch applications with Appbatroz</a>
+</div>
+<div id="ft2" class="dvc">
+    <label id="askex">V.1.0</label>
+</div>
+<div id="ft3" class="dvc">
+    <label id="fbex">Contact Us</label>
+</div>
+<div id="ft4" class="dvc">
+<label id="ttlex">About & Tutorial</label>
+</div>
+    </div>
+    <script>
+
+var mlep =document.getElementById("mlep");
+var slep =document.getElementById("slep");
+var srep =document.getElementById("srep");
+var nbep =document.getElementById("nbep");
+var bmep =document.getElementById("bmep");
+var diexp=document.getElementsByClassName('diexp');
+
+var imgapp =document.getElementById("imgapp");
+var dld =document.getElementById("dld");
+var ft4 =document.getElementById("ft4");
+var ft3 =document.getElementById("ft3");
+
+var mlex =document.getElementById("mlex");
+var slex =document.getElementById("slex");
+var srex =document.getElementById("srex");
+var nbmex =document.getElementById("nbmex");
+var bmex =document.getElementById("bmex");
+var apbex=document.getElementsByClassName('apbex');
+
+function mles(){
+
+    for (var i = 0; i < diexp.length; i++) {
+  diexp[i].hidden=true;  
+}
+mlep.hidden=false;
+for (var i = 0; i < apbex.length; i++) {
+  apbex[i].style.backgroundColor="#e7e7e7";
+  apbex[i].style.color="black"; 
+}
+mlex.style.backgroundColor="#9f9f9f";
+mlex.style.color="#e7e7e7"; 
+imgapp.src="multiln.png";
+}
+
+function sles(){
+    for (var i = 0; i < diexp.length; i++) {
+  diexp[i].hidden=true;  
+}
+slep.hidden=false;
+for (var i = 0; i < apbex.length; i++) {
+  apbex[i].style.backgroundColor="#e7e7e7";
+  apbex[i].style.color="black"; 
+}
+slex.style.backgroundColor="#9f9f9f";
+slex.style.color="#e7e7e7"; 
+imgapp.src="sln.png";
+}
+function sres(){
+
+    for (var i = 0; i < diexp.length; i++) {
+  diexp[i].hidden=true;  
+}
+srep.hidden=false;
+for (var i = 0; i < apbex.length; i++) {
+  apbex[i].style.backgroundColor="#e7e7e7";
+  apbex[i].style.color="black"; 
+}
+srex.style.backgroundColor="#9f9f9f";
+srex.style.color="#e7e7e7"; 
+imgapp.src="srch.png";
+}
+
+function bmes(){
+
+    for (var i = 0; i < diexp.length; i++) {
+  diexp[i].hidden=true;  
+}
+bmep.hidden=false;
+for (var i = 0; i < apbex.length; i++) {
+  apbex[i].style.backgroundColor="#e7e7e7";
+  apbex[i].style.color="black"; 
+}
+bmex.style.backgroundColor="#9f9f9f";
+bmex.style.color="#e7e7e7"; 
+imgapp.src="bmk.png";
+}
+
+function nbes(){
+
+    for (var i = 0; i < diexp.length; i++) {
+  diexp[i].hidden=true;  
+}
+nbep.hidden=false;
+for (var i = 0; i < apbex.length; i++) {
+  apbex[i].style.backgroundColor="#e7e7e7";
+  apbex[i].style.color="black"; 
+}
+nbmex.style.backgroundColor="#9f9f9f";
+nbmex.style.color="#e7e7e7"; 
+imgapp.src="nbm.png";
+}
+
+mlex.addEventListener("click", function () {
+mles();
+dsp1 = setTimeout(interval1, 3000);
+myStopFunction5();
+myStopFunction2();
+myStopFunction3();
+myStopFunction4();
+
+});
+
+slex.addEventListener("click", function () {
+sles();
+dsp2 = setTimeout(interval2, 3000);
+myStopFunction1();
+myStopFunction5();
+myStopFunction3();
+myStopFunction4();
+});
+
+srex.addEventListener("click", function () {
+sres();
+dsp4 = setTimeout(interval4, 3000);
+myStopFunction1();
+myStopFunction2();
+myStopFunction3();
+myStopFunction5();
+});
+
+bmex.addEventListener("click", function () {
+bmes();
+dsp3 = setTimeout(interval3, 3000);
+myStopFunction1();
+myStopFunction2();
+myStopFunction5();
+myStopFunction4();
+});
+
+nbmex.addEventListener("click", function () {
+nbes();
+dsp5 = setTimeout(interval5, 3000);
+myStopFunction1();
+myStopFunction2();
+myStopFunction3();
+myStopFunction4();
+});
+var dsp1,dsp2,dsp3,dsp4,dsp5;
+dsp1 = setTimeout(interval1, 50);
+ 
+function interval1() {
+ 
+mles();  
+dsp2 = setTimeout(interval2, 3000);
+}
+ 
+function myStopFunction1() {
+  clearTimeout(dsp1);
+}
+ 
+
+
+function interval2() {
+    dsp3 = setTimeout(interval3, 3000); 
+sles(); 
+
+}
+function myStopFunction2() {
+  clearTimeout(dsp2);
+}
+
+
+ 
+function interval3() {
+  
+bmes();  
+dsp4 = setTimeout(interval4, 3000);
+}
+function myStopFunction3() {
+  clearTimeout(dsp3);
+}
+function interval4() {
+  
+  sres();  
+  dsp5 = setTimeout(interval5, 3000);
+  }
+  function myStopFunction4() {
+  clearTimeout(dsp4);
+}
+  function interval5() {
+  
+  nbes();  
+  dsp1 = setTimeout(interval1, 3000);
+  }
+  function myStopFunction5() {
+  clearTimeout(dsp5);
+}
+dld.addEventListener("click", function () {
+  window.location.href = 'download2.html';
+});
+ft4.addEventListener("click", function () {
+    window.location.href = 'tutorial.html';
+});
+ft3.addEventListener("click", function () {
+    window.location.href = 'asf.html';
+});
+</script>
+</body>
+  </html>

@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+     
+     <title>Wistanomic</title>
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <meta name="keywords" content="data processing,table,html table,data analytics,pivot table,chart,graph,software,application" />
+          <meta name="description" content="Try it for free, Pinasi Professional is a user-friendly array data processing application that is useful for analyzing and visualizing both overall and specific data." />
+          <link rel="icon" href="wiscl.png" sizes="32x32" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    html
+    {
+    height: 100%;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    
+    }
+    body{
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        display: block;
+        background: #e5ccf469;
+    }
+    #top{
+        width: 100%;
+        height: 25%;
+        display: flex;
+    }
+    #mdl{
+        width: 100%;
+        height: auto;
+        display: flex;
+   
+    }
+
+    #btm{
+        width: 100%;
+        height: 15%;
+        display: flex;
+        justify-content: center;
+    }
+    #lft{
+        width: 40%;
+        height: 100%;
+        display: flex;
+        
+    }
+    #rgt{
+        width: 60%;
+        height: 100%;
+        display: block;
+  }
+    .crd{
+        width: 250px;
+  height: 360px;
+        border-radius: 50px;
+        
+        margin: 1%;
+        padding: 1%;
+   
+    }
+    #emd{
+        width: 100%;
+        height: 250px;
+        margin: 1%;
+        
+        display: flex;
+    }
+    #nws{
+        width: 95%;
+        height: 100px;
+        margin: 1%;
+        margin-top: 0;
+        background: #ceddf4c9;
+        display: block;
+        overflow: hidden;
+    }
+.ifr{
+    height: 200px;
+    width: 360px;
+    margin: 1%;
+}
+.mid{
+    height: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#img1{
+    height: 60px;
+    width: 60px;
+}
+#img2{
+    height: 80px;
+    width: 80px;
+}
+.ttl{
+    text-align: center;
+    font-size: x-large;
+    font-weight: bold;
+    width: 100%;
+}
+.smb{
+    text-align: center;
+    font-size: small;
+}
+#pinas{
+    background: #48b088;
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 18px );
+-webkit-backdrop-filter: blur( 18px );
+
+border: 3px solid rgb(9, 9, 9);
+}
+#appb{
+    background: #e7e7e7;
+    box-shadow: 5px 5px 10px #d2ccdf, -5px -5px 10px #f6f0ff;
+    
+    border: 1px solid #dfdcdcfa;
+}
+.crd:hover{
+    scale: 0.95;
+}
+#ptl{
+
+    background: white;
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            -webkit-text-stroke: 1px black;
+}
+#aptl{
+    font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(to top, #555,#605f5e,#6b6967,#75726f,#807c78,#8b8681);
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            font-weight: bold;
+}
+#tlf{
+    height: 100%;
+    width: 73%;
+}
+#trg{
+    height: 100%;
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.p1{
+    width: 100px;
+  height: 100px;
+  background: #f4eafa;
+  opacity: 0.8;
+  background-image: radial-gradient( ellipse farthest-corner at 10px 10px , #e5ccf4, #e5ccf4 50%, #f4eafa 50%);
+  background-size: 10px 10px;
+  border-radius: 50%;
+  margin: 1% 20%;
+  position: absolute;
+}
+.p2{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: #f4eafa;
+opacity: 0.8;
+background-size: 10px 10px;
+background-image: repeating-linear-gradient(45deg, #382d72 0, #382d72 1px, #f4eafa 0, #f4eafa 50%);
+}
+.p3{
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    background-color: #f4eafa;
+opacity: 0.4;
+background-image: radial-gradient(#a080e1 2px, #f4eafa 2px);
+
+background-size: 40px 40px;
+margin: 8% 69%;
+  z-index: -3;
+    
+}
+.p4{
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    background-color: #f4eafa;
+opacity: 0.4;
+background-image: radial-gradient(#a080e1 1.2000000000000002px, #f4eafa 1.2000000000000002px);
+background-size: 24px 24px;
+margin: 25% 45%;
+  z-index: -3;
+}
+.p5
+{
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    background-color: #f4eafa;
+opacity: 0.4;
+background-size: 5px 5px;
+background-image: repeating-linear-gradient(45deg, #382d72 0, #382d72 0.5px, #f4eafa 0, #f4eafa 50%);
+margin: 38% 0;
+  z-index: -3;
+}
+.p6{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: #f4eafa;
+opacity: 0.8;
+background-size: 10px 10px;
+background-image: repeating-linear-gradient(45deg, #382d72 0, #382d72 1px, #f4eafa 0, #f4eafa 50%);
+margin: 35% 85%;
+  z-index: -3;
+}
+.p7{
+    position: absolute;
+  width: 300px;
+  height: 150px;
+  background-color: #5c509c;
+  opacity: 0.2;
+  background-image: linear-gradient(135deg, #f4eafa 25%, transparent 25%), linear-gradient(225deg, #f4eafa 25%, transparent 25%), linear-gradient(45deg, #f4eafa 25%, transparent 25%), linear-gradient(315deg, #f4eafa 25%, #5c509c 25%);
+  background-position: 37px 0, 37px 0, 0 0, 0 0;
+  background-size: 74px 74px;
+  background-repeat: repeat;
+  margin: 0 40%;
+  z-index: -3;
+  transform: rotate(30deg);
+}
+.p8{
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    background-color: #f4eafa;
+opacity: 0.4;
+background-image: radial-gradient(#a080e1 2px, #f4eafa 2px);
+
+background-size: 40px 40px;
+margin: 10% 2%;
+  z-index: -3;
+}
+#p42{
+    margin: 38% 40%; 
+}
+#p12{
+    background-color: #e7d1f5;
+opacity: 0.8;
+background-image: radial-gradient( ellipse farthest-corner at 13px 13px , #f4eafa, #f4eafa 50%, #e7d1f5 50%);
+
+margin: 40% 72%;
+z-index: -3;
+}
+#txw{
+    text-shadow: 0px 1px #785a7b, -3px 0px white;
+   
+  
+}
+.scm{
+    height: 50px;
+    width: 250px;
+    border-radius: 50px;
+    background-color: #7d79848f;
+    background-color: #f4eafa;
+opacity: 0.8;
+background: linear-gradient(135deg, #9bc9dc55 25%, transparent 25%) -37px 0/ 74px 74px, linear-gradient(225deg, #9bc9dc 25%, transparent 25%) -37px 0/ 74px 74px, linear-gradient(315deg, #9bc9dc55 25%, transparent 25%) 0px 0/ 74px 74px, linear-gradient(45deg, #9bc9dc 25%, #f4eafa 25%) 0px 0/ 74px 74px;
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+.lbsc{
+    color: #382d72;
+  font-weight: bold;
+    margin-left: 13px;
+}
+.lsc{
+    margin-left: 4px;
+}
+.icon{
+    margin-left: 10px;
+}
+#news{
+    margin-top: -0.8%;
+  position: absolute;
+  font-size: large;
+  margin-left: 10px;
+  font-weight: bold;
+  font-family: arial;
+  color: #2f8b95;
+}
+#artc{
+height: 90%;
+width: 100%;
+overflow-y: scroll;
+
+}
+.ars{
+    display: flex;
+    width: 100%;
+}
+.mtar{
+    margin: 0;
+    margin-left: 5px;
+
+}
+.artx{
+    margin-left: 6px;
+    font-size: medium;
+    word-break: break-word;
+  display: block;
+ 
+  white-space: pre-wrap;
+}
+
+ /* Extra small devices (phones, 600px and down) */
+ @media only screen and (max-width: 600px) {
+    body{
+    background-image: url('revbackg.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    height: 100vh;
+    margin: 3px auto 0;
+   } 
+   .p1, .p2, .p3, .p4, .p5, .p6, .p7, .p8{
+    display: none;
+   }
+   #mdl{
+    display: block;
+   }
+  .scm{
+    width: 100%;
+    margin-right: 5px;
+    margin-top: 5px;
+  }
+   .crd{
+ scale: 0.85;  
+ font-size: medium;
+
+}
+#emd{
+    display: block;
+    height: auto;
+}
+#tlf{
+    width: 50%;
+}
+#mdl{
+    display: block;
+   }
+  
+ 
+#emd{
+    display: block;
+    height: auto;
+}
+#tlf{
+    width: 45%;
+}
+#lft{
+    width: 100%;
+  height: 40%;
+  display: flex;
+  justify-content: center;
+}
+#rgt{
+    width: 100%;
+
+}
+.lsc{
+    margin-left: 2px;
+  font-size: medium;
+}
+.lbsc{
+    margin-left: 4px;
+  font-size: medium;
+}
+.ifr{
+    margin-left: 0%;
+    width: 340px;
+}
+#btm{
+    display: block;
+}
+#imwis{
+    height: 80%;
+    margin-left: -50%;
+}
+#txw{
+    font-size: xx-large;
+}
+
+ }
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    body{
+    background-image: url('backg.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 100vh;
+    margin: 3px auto 0;
+    background-attachment: fixed;
+   } 
+   .p1, .p2, .p3, .p4, .p5, .p6, .p7, .p8{
+    display: none;
+   }
+   
+   #mdl{
+    display: block;
+   }
+   #imwis{
+    height: 100%;
+    margin-left: -5%;
+}
+#txw{
+    font-size: xxx-large;
+}
+  
+   .crd{
+ scale: 0.85;  
+ font-size: medium;
+
+}
+#emd{
+    display: block;
+    height: auto;
+}
+#tlf{
+    width: 60%;
+}
+#lft{
+    width: 100%;
+  height: 40%;
+  display: flex;
+  justify-content: center;
+}
+#rgt{
+    width: 100%;
+
+}
+.lsc{
+    margin-left: 2px;
+  font-size: small;
+}
+.lbsc{
+    margin-left: 4px;
+  font-size: small;
+}
+.ifr{
+    margin-left: 20%;
+}
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+   body{
+    background-image: url('backg.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 100vh;
+    margin: 3px auto 0;
+    background-attachment: fixed;
+   } 
+   .p1, .p2, .p3, .p4, .p5, .p6, .p7, .p8{
+    display: none;
+   }
+   .crd{
+ scale: 0.90;  
+ font-size: small;
+
+}
+#emd{
+    display: block;
+    height: auto;
+}
+#tlf{
+    width: 66%;
+}
+#mdl{
+    display: flex;
+   }
+  
+   .crd{
+ scale: 0.85;  
+ font-size: medium;
+
+}
+
+#lft{
+        width: 50%;
+        height: 100%;
+        display: flex;
+        
+    }
+    #rgt{
+        width: 50%;
+        height: 100%;
+        
+  }
+
+  .lbsc{
+  
+  margin-left: 13px;
+  font-size: medium;
+}
+.lsc{
+  margin-left: 4px;
+  font-size: medium;
+}
+.ifr{
+    margin: 1%;
+}
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  
+    #top{
+        width: 100%;
+        height: 25%;
+    }
+    #mdl{
+        width: 100%;
+   
+    }
+
+    #btm{
+        width: 100%;
+        height: 15%;
+    }
+    #lft{
+        width: 40%;
+        height: 100%;
+        
+        
+    }
+    #rgt{
+        width: 60%;
+        height: 100%;
+        
+  }
+    .crd{
+        width: 250px;
+  height: 360px;
+        scale: 1;
+        font-size: medium;
+        margin: 1%;
+        padding: 1%;
+   
+    }
+    #emd{
+        width: 100%;
+        height: 250px;
+        margin: 1%;
+        display: flex;
+        
+    }
+    #nws{
+        width: 95%;
+        height: 100px;
+        margin: 1%;
+        margin-top: 0;
+        
+    }
+.ifr{
+    height: 200px;
+    width: 360px;
+    margin: 1%;
+}
+.mid{
+    height: 10px;
+    width: 100%;
+   
+}
+#img1{
+    height: 60px;
+    width: 60px;
+}
+#img2{
+    height: 80px;
+    width: 80px;
+}
+.ttl{
+    
+    font-size: x-large;
+    
+    width: 100%;
+}
+.smb{
+    font-size: small;
+}
+#pinas{
+ 
+border: 3px solid rgb(9, 9, 9);
+}
+#appb{
+    border: 1px solid #dfdcdcfa;
+}
+.crd:hover{
+    scale: 0.95;
+}
+#ptl{
+
+   
+}
+#aptl{
+}
+#tlf{
+    height: 100%;
+    width: 73%;
+}
+#trg{
+    height: 100%;
+    width: 25%;
+  
+}
+.p1{
+    width: 100px;
+  height: 100px;
+  background-size: 10px 10px;
+  border-radius: 50%;
+  margin: 1% 20%;
+  
+}
+.p2{
+    width: 200px;
+    height: 200px;
+background-size: 10px 10px;
+}
+.p3{
+    width: 300px;
+    height: 200px;
+
+background-size: 40px 40px;
+margin: 8% 69%;
+    
+}
+.p4{
+    width: 300px;
+    height: 200px;
+background-size: 24px 24px;
+margin: 25% 45%;
+ 
+}
+.p5
+{
+    position: absolute;
+    width: 300px;
+    height: 200px;
+background-size: 5px 5px;
+margin: 38% 0;
+  
+}
+.p6{
+    
+    width: 200px;
+    height: 200px;
+    
+opacity: 0.8;
+background-size: 10px 10px;
+margin: 35% 85%;
+  
+}
+.p7{
+    
+  width: 300px;
+  height: 150px;
+  background-position: 37px 0, 37px 0, 0 0, 0 0;
+  background-size: 74px 74px;
+  
+  margin: 0 40%;
+ 
+}
+#p42{
+    margin: 38% 40%; 
+}
+#p12{
+
+margin: 40% 72%;
+
+}
+#txw{
+    
+   
+  
+}
+.scm{
+    height: 50px;
+    width: 250px;
+  
+    margin-right: 20px;
+}
+.lbsc{
+  
+    margin-left: 13px;
+}
+.lsc{
+    margin-left: 4px;
+}
+.icon{
+    margin-left: 10px;
+}
+#news{
+    margin-top: -0.8%;
+  
+  font-size: large;
+  margin-left: 10px;
+ 
+}
+#artc{
+height: 90%;
+width: 100%;
+
+
+}
+.ars{
+    
+    width: 100%;
+}
+.mtar{
+    margin: 0;
+    margin-left: 5px;
+
+}
+.artx{
+    margin-left: 6px;
+   
+}
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1300px) {
+    html{
+        overflow-x: hidden;
+        
+    }
+} 
+</style>
+</head>
+<body>
+    <div class="p1"></div>
+    <div class="p1" id="p12"></div>
+    <div class="p2"></div>
+    <div class="p3"></div>
+    <div class="p4"></div>
+    <div class="p7" id="p42"></div>
+    <div class="p5"></div>
+    <div class="p6"></div>
+    <div class="p7"></div>
+    <div class="p8"></div>
+    <div id="top">
+     <div id="tlf">
+  
+     </div>
+     <div id="trg">
+        <label id="txw" style="font-family: arial;color: #b7c2c6;font-weight: bold;">Wistanomic</label>
+        <img  style="" id="imwis" src="wiscl.png">
+     </div>
+    </div>
+    <div id="mdl">
+<div id="lft">
+<div class="crd" id="pinas">
+<div class="mid">
+    <img id="img1" src="pinasi_logo.png">
+</div>
+<br>
+<p class="ttl" id="ptl">Pinasi</p>
+
+<label>Array Data Processing Application</label>
+<br>
+<br>
+<label >Features :</label>
+<ul>
+    <li><label>Table</label></li>
+    <li><label>Pivot Table</label></li>
+    <li><label>Graph</label></li>
+    <li><label>Input Form</label></li>
+    <li><label>Custom Page</label></li>
+    <li><label>Display On Website</label></li>
+</ul>
+<p class="smb">Click To Go</p>
+</div>
+<div class="crd" id="appb">
+    <div class="mid">
+        <img id="img2" src="appbt(2).png">
+    </div>
+    <br>
+<p class="ttl" id="aptl">Appbatroz</p>
+
+<label>Desktop Icon Maker Application</label>
+<br>
+<br>
+<label>Features :</label>
+<ul>
+    <li><label>Multi Launch</label></li>
+    <li><label>Set Launch</label></li>
+    <li><label>Bookmark</label></li>
+    <li><label>New Bookmark</label></li>
+   
+</ul>
+<br>
+<p class="smb">Click To Go</p>
+</div>
+</div>
+<div id="rgt">
+    <div id="emd">
+       
+        <iframe id="if1" class="ifr" width="560" height="315" src="https://www.youtube.com/embed/i7UmZJ55mF0?si=ZLC_pJFrp4ANAonT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+       <iframe id="if2" class="ifr" width="560" height="315" src="https://www.youtube.com/embed/8xczUGCxRHY?si=zUg9Z2BZO9QmSmXW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+
+<div id="nws">
+<span id="news">News</span>
+<br>
+<div id="artc">
+<div class="ars"><h1 class="mtar">Pinasi Professional</h1> <label class="artx">-Multiple File
+-Grouping Data
+-Real-Time Page
+-Online Team Working</label></div>
+</div>
+</div>
+</div>
+    </div>
+    <div id="btm">
+<div class="scm"><svg xmlns="http://www.w3.org/2000/svg" class="icon" height="1em" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg><label class="lbsc">Youtube : </label> <a class="lsc" href="https://www.youtube.com/@Wistanomic">@Wistanomic</a> </div>
+<div class="scm"><svg xmlns="http://www.w3.org/2000/svg" class="icon" height="1em" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M180.5,74.262C80.813,74.262,0,155.633,0,256S80.819,437.738,180.5,437.738,361,356.373,361,256,280.191,74.262,180.5,74.262Zm288.25,10.646c-49.845,0-90.245,76.619-90.245,171.095s40.406,171.1,90.251,171.1,90.251-76.619,90.251-171.1H559C559,161.5,518.6,84.908,468.752,84.908Zm139.506,17.821c-17.526,0-31.735,68.628-31.735,153.274s14.2,153.274,31.735,153.274S640,340.631,640,256C640,171.351,625.785,102.729,608.258,102.729Z"/></svg><label class="lbsc">Medium : </label> <a class="lsc" href="https://wistanomic.medium.com/">wistanomic</a> </div>
+<div class="scm"><svg xmlns="http://www.w3.org/2000/svg" class="icon" height="1em" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg><label class="lbsc">Github : </label> <a class="lsc" href="https://github.com/Wistanomic">Wistanomic</a> </div>
+
+    </div>
+    <script>
+        var pinas =document.getElementById("pinas");
+var appb =document.getElementById("appb");
+
+
+pinas.addEventListener("click", function () {
+    window.location.href = './Pinasi/';
+});
+appb.addEventListener("click", function () {
+    window.location.href = 'appbat.html';
+});
+        </script>
+</body>

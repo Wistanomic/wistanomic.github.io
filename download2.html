@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Download</title>
+        <link rel="icon" href="appbt(2).png" sizes="32x32" type="image/png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <meta charset="UTF-8"> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    html{
+        overflow: hidden;
+        font-family: Arial, Helvetica, sans-serif;
+        height: 100%;
+width: 100%;
+    }
+    body{
+        margin: 0;
+        overflow: hidden;
+        height: 100%;
+width: 100%;
+    }
+    #main{
+        height: 100%;
+width: 100%;
+    }
+    #headttl{
+        height: 30%;
+width: 100%;
+background: #e7e7e7;
+    box-shadow: 5px 5px 10px #d2ccdf, -5px -5px 10px #f6f0ff;
+    }
+    #dwnl{
+        height: 70%;
+width: 100%;
+background: #e7e7e7;
+    
+display: flex;
+    }
+    #free{
+height: 100%;
+width: 100%;
+background: #e7e7e7;
+display: block;
+
+
+    }
+    #premium{
+        height: 100%;
+width: 49%;
+background: #e7e7e7;
+
+
+    }
+    .justxt{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+font-weight: bold;
+border: 1px solid #dfdcdcfa;
+    }
+    .headtxt{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+       
+
+
+    }
+    .expl{
+        height: 70%;
+        width: 100%;
+        display: flex;
+    }
+    .dwnbtn{
+height: 100%;
+width: 50%;
+background: #e7e7e7;
+    
+    }
+    .prcn{
+height: 100%;
+width: 50%;
+background: #e7e7e7;
+border: 1px solid #dfdcdcfa;
+    }
+    #lnxfrb{
+    height: 50%;
+    width: 100%;
+    background: #e7e7e7;
+    border: 1px solid #dfdcdcfa;
+    
+    }
+    #wndfrb{
+        height: 50%;
+    width: 100%;
+    background: #e7e7e7;
+    border: 1px solid #dfdcdcfa;
+    
+    }
+    #lnxpmb{
+    height: 50%;
+    width: 100%;
+    background: #e7e7e7;
+    border: 1px solid #dfdcdcfa;
+    
+    }
+    #wndpmb{
+        height: 50%;
+    width: 100%;
+    background: #e7e7e7;
+    border: 1px solid #dfdcdcfa;
+    
+    }
+    .btndwn{
+        height: 30%;
+        width: 100%;
+        border-style:none ;
+     cursor:pointer;
+        font-size: large;
+    }
+    .btndwnwin{
+        height: 30%;
+        width: 100%;
+        border-style:none ;
+     cursor:pointer;
+        font-size: large;
+    }
+    .listpr{
+       
+    }
+   .listpr li::marker{
+  content: "✅   ";
+  margin: 0 16px 0 0;
+}
+.listcn li::marker{
+  content: "❌   ";
+  margin: 0 16px 0 0;
+}
+.prc{
+    width: 80%;
+height: 150px;
+border-radius: 50px;
+background: #e7e7e7;
+box-shadow:  -6px 6px 12px #d5d5d5,
+             6px -6px 12px #f9f9f9;
+             border: 1px solid #dfdcdcfa;
+            
+}
+.prcl{
+    width: 80%;
+height: 150px;
+border-radius: 50px;
+background: #e7e7e7;
+
+             box-shadow:  6px 6px 12px #d5d5d5,
+             -6px -6px 12px #f9f9f9;
+             border: 1px solid #dfdcdcfa;
+}
+.mdl{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 100%;
+    margin-top: 40%;
+}
+.mds{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 100%;
+    margin-top: 39%;
+}
+.txtdwn{
+    font-size: large;
+    margin-left: 5px;
+}
+.dvcen{
+    width: 100%;
+    display: flex;
+    margin-bottom: 5px;
+    padding-top: 5px;
+}
+   .spr{
+        background: linear-gradient(to right, #e7e7e7,#9f9f9f,#e7e7e7);
+
+             width: 100%;
+             height: 1px;
+    }
+    .separator{
+        height: 100%;
+        width:1%;
+        
+    }
+    .sprzn{
+        box-shadow: inset 6px -6px 12px #d2d2d2,
+            inset -6px 6px 12px #fcfcfc;
+    }
+    .sprznud{
+        box-shadow: inset -6px 6px 12px #d5d5d5,
+            inset 6px -6px 12px #f9f9f9;
+    }
+    .lhz{
+        width: 100%;
+        height:3%;
+    }
+    .lvz{
+        height: 100%;
+        width:3%;
+    }
+    #nots{
+        font-size: larger;
+        margin-left: 5px;
+    }
+</style>
+    </head>
+    <body>
+<div id="main">
+    <div id="headttl">
+        <div style="display: flex;height: 40px;" >
+            <img src="appbt(2).png" style="scale: 1;margin-left: 5px;margin-top: 5px;"> <label style="font-size: 40px; font-weight: bold;">Appbatroz</label></div>
+            <div style="margin-top: 5px;">
+                <label style="font-size: 30px; font-weight: lighter;margin-left: 6px;">For Multi Launch In 1 Icon</label></div>
+        <div class="headtxt">
+<label style="font-size: 50px; font-weight: bold;">DOWNLOAD</label></div>
+
+    
+    <div class="headtxt">
+    <label>Try Appbatroz For Free</label></div>
+    </div>
+    
+    <div id="dwnl">
+<div id="free">
+    <div class="sprznud lhz" ></div>
+    <div class="justxt">
+<label>Free</label></div>
+<div class="sprzn lhz" ></div>
+<div class="expl">
+    <div class="dwnbtn">
+<div id="lnxfrb">
+<div class="dvcen"><i class="fa fa-linux" style="font-size:20px;margin-left: 5px;"></i><label class="txtdwn">Linux </label><small style="margin-left: 5px;">   (.deb)</small></div>
+<div class="spr"></div>
+<button title="To Install via terminal: sudo dpkg -i Appbatroz_v1.0_amd64.deb &#013;To Uninstall via terminal: sudo dpkg -r Appbatroz" onclick="downloadfilesf('https://sourceforge.net/projects/appbatroz-linux/')" class="btndwn">Linux-AMD64</button>
+<button title="To Install via terminal: sudo dpkg -i AppbatrozLite_v1.0_amd64.deb &#013;To Uninstall via terminal: sudo dpkg -r Appbatroz" onclick="downloadfilesf('https://www.mediafire.com/file/8mnt2o5n0v3p2dq/AppbatrozLite_v1.1_amd64.deb/file')" class="btndwn">Linux-AMD64 Lite</button>
+<button onclick="downloadfile('')" hidden class="btndwn">Linux-ARM64</button>
+<button onclick="downloadfile('')" hidden class="btndwn">Linux-musl-x64</button>
+</div>
+
+
+
+    </div>
+    <div class="sprzn lvz" ></div>
+    <div class="prcn">
+        <div id="wndfrb">
+            <div class="dvcen"><i class="fa fa-windows" style="font-size:20px;margin-left: 5px;"></i> <label class="txtdwn">Windows</label><small style="margin-left: 5px;">   (.exe)</small></div>
+            <div class="spr"></div>
+            <button onclick="downloadfilesf('https://sourceforge.net/projects/appbatroz-windows/')" class="btndwnwin">Win-x64</button>
+             <button onclick="downloadfilesf('https://www.mediafire.com/file/ux3feird7c1jixt/AppbatrozLite_64bit.zip/file')" class="btndwnwin">Win-x64 Lite</button>
+            <button onclick="downloadfilesf('https://sourceforge.net/projects/appbatroz-windows-32bit/')" class="btndwnwin">Win-x86</button>
+            <button onclick="downloadfilesf('https://www.mediafire.com/file/12g99tly126sd1t/AppbatrozLite_32bit.zip/file')" class="btndwnwin">Win-x86 Lite</button>
+            <button hidden onclick="downloadfile('./Appbatroz_arm64/Appbatroz_arm64.zip')" class="btndwnwin">Win-ARM64</button>
+            <button hidden onclick="downloadfile('./Appbatroz_arm64/lite/AppbatrozLite_arm64.zip')" class="btndwnwin">Win-ARM64 Lite</button>
+        </div>
+        
+        
+    </div>
+    
+</div>
+<div class="sprznud lhz" ></div>
+<label id="nots">Note: there may be information about updates, promos or advertisements in the application.</label>
+<div class="sprzn lhz" ></div>
+</div>
+
+
+    </div>
+</div>
+
+<script>
+function sen(data){
+   $.ajax({
+   url: 'count.php',
+   type: 'post',
+   data: data,
+   processData: false,
+   contentType: false,
+   success: function(response){
+   }
+   });  
+   }
+    function downloadfile(url,pos){
+        
+  const anchor = document.createElement('a')
+  anchor.href = url
+  anchor.download = url.split('/').pop()
+  document.body.appendChild(anchor)
+  anchor.click()
+  document.body.removeChild(anchor)
+  const formData = new FormData();
+  formData.append(pos,1);
+  sen(formData);
+    }
+       function downloadfilesf(url){
+        
+  const anchor = document.createElement('a')
+  anchor.href = url
+  anchor.download = url.split('/').pop()
+  document.body.appendChild(anchor)
+  anchor.click()
+  document.body.removeChild(anchor)
+
+    }
+</script>
+    </body>
+</html>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+   <url>
+      <loc>https://wistanomic.com/</loc>
+      <priority>1</priority>
+   </url>
+   <url>
+      <loc>https://wistanomic.com/FileyTale/</loc>      
+      <priority>0.8</priority>
+   </url>
+    <url>
+      <loc>https://wistanomic.com/FileyTale/#ftr</loc>      
+   </url>
+   <url>
+      <loc>https://wistanomic.com/FileyTale/#download</loc>      
+   </url>
+    <url>
+      <loc>https://wistanomic.com/Pinasi/</loc>      
+      <priority>0.8</priority>
+   </url>
+    <url>
+      <loc>https://wistanomic.com/Pinasi/#ftr</loc>      
+   </url>
+   <url>
+      <loc>https://wistanomic.com/Pinasi/#download</loc>      
+   </url>
+   <url>
+      <loc>https://wistanomic.com/Pinasi/tutopina.html</loc>      
+   </url>
+    <url>
+      <loc>https://wistanomic.com/appbat.html</loc>
+      <lastmod>2024-04-15</lastmod>  
+      <priority>0.8</priority>          
+   </url>
+    <url>
+      <loc>https://wistanomic.com/tutorial.html</loc>
+      <lastmod>2023-09-07</lastmod>            
+   </url>
+    <url>
+      <loc>https://wistanomic.com/download2.html</loc>
+      <lastmod>2024-04-03</lastmod>            
+   </url>
+</urlset> 
