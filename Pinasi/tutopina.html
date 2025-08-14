@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tutorial</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+    html{
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+    }
+    body{
+        height: 100%;
+        width: 100%;
+        margin: 0;
+    }
+    #fbd{
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        display: flex;
+    }
+    #chs{
+        height: 100%;
+        width: 25%;
+        margin: 0;
+        background-color: #f2efda;
+    }
+    #exp{
+        height: 100%;
+        width: 70%;
+        margin: 0;
+        background-color: #f2efda;
+        display: block;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    #spr{
+        height: 100%;
+        width: 5%;
+        margin: 0;
+        background-color: #48b088;
+        border: 2px solid black;
+    }
+    #srchdv{
+        height: 10%;
+        width: 100%;
+        margin: 0;
+        background-color: #f2efda;
+        justify-content: center;
+  align-content: center;
+  display: flex;
+  padding: 3px; 
+    }
+    #btnlst{
+        height: 90%;
+        width: 100%;
+        margin: 0;
+        background-color: #f2efda; 
+        display: block;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    #srcbtn{
+        height: 70%;
+  width: 90%;
+    }
+    .btnch{
+        width: 70%;
+        height: 10%;
+        margin-left:12% ;
+        width: 70%;
+  height: 10%;
+  margin-left: 12%;
+  background-color: #f2efda;
+  border-style: solid;
+  color: black;
+  border-color: #48b088;
+  margin-bottom: 2px;
+  cursor: pointer;
+    }
+    .btnch:hover{
+        background-color: #48b088;
+        color: black;
+        font-weight: bold;
+        border: 1px solid black;
+    }
+            header{
+        
+    }
+    .dvtl{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+  font-size: larger;
+  font-weight: bold;
+    }
+    .dvhd{
+        width: 100%;
+        padding-left: 2%;
+        margin-bottom:1% ;
+    }
+    .dvim
+    {
+width: 100%;
+display: block;
+
+    }
+    .dvimsp{
+        width: 100%;
+justify-content: center;
+align-items: center;
+display: flex;
+    }
+    .mhd{
+        font-size: large;
+        font-weight: bold;
+        width: 90%;
+        word-break: break-word;
+  display: block;
+  text-align: justify;
+  text-justify: inter-word;
+  white-space: pre-wrap;
+    }
+    .shd{
+        font-size: medium;
+        font-weight: 700;
+    }
+    .sptx{
+        font-size: medium;
+        width: 90%;
+        word-break: break-word;
+  display: block;
+  text-align: justify;
+  text-justify: inter-word;
+  white-space: pre-wrap;
+    }
+    .dvtp{
+        width: 100%;
+        padding-left: 2%;
+        margin-bottom:1% ;
+        background-color: #95949291;
+    }
+</style>
+    </head>
+<body>
+<div id="fbd">
+<div id="chs">
+<div id="srchdv">
+    <input type="text" id="srcbtn">
+
+</div>
+<div id="btnlst">
+
+</div>
+</div>
+<div id="spr"></div>
+<div id="exp">
+
+</div>
+
+</div>
+<script>
+  
+   $.ajax({
+                  url: "tutor.json",
+             type: 'GET',
+    cache: false,
+                  beforeSend: function(xhr){
+                    if (xhr.overrideMimeType)
+                    {
+                      xhr.overrideMimeType("application/json");
+                    }
+                  },
+                  dataType: 'json',
+                  data: null,
+                  success:  function(data, textStatus, request) {
+              
+                  
+                    var btnlst =document.getElementById('btnlst');
+var exp =document.getElementById('exp');
+var srcbtn =document.getElementById('srcbtn');
+var jstr=data;
+for(var i=0;i<jstr.length;i++){
+    var btn=document.createElement('button');
+    btn.innerHTML=jstr[i]['title'];
+    btn.className='btnch';
+    btn.id=i;
+    btn.addEventListener('click', () => { 
+        var button = event.target;
+        console.log(button.id);
+        mkhead(button.id);
+    });
+    btnlst.appendChild(btn);
+}
+/////////////////////////
+function mkhead(j){
+    var hd=0;
+    var shd=0;
+    var spn=0;
+    var img=0;
+    var ifr = 0;
+    exp.innerHTML="";
+            var ttl= document.createElement('header');
+            var dvttl= document.createElement('div');
+            ttl.innerHTML=jstr[j]["title"];
+            dvttl.className='dvtl';
+            ttl.className='ttl';
+            dvttl.appendChild(ttl);
+            exp.appendChild(dvttl);
+        var srt=jstr[j]["sort"];
+        console.log(srt);
+        for(var p=0;p<srt.length;p++){
+        if(srt[p]=="header"){
+            var tl=jstr[j]["header"];
+            if(hd>jstr[j]["header"].length-1){
+                hd=0;
+            }
+            
+            var hdr= document.createElement('header');
+            hdr.innerHTML=tl[hd];
+            hdr.className="mhd";
+            var dvttl= document.createElement('div');
+            dvttl.className='dvtp';
+            dvttl.appendChild(hdr);
+            exp.appendChild(dvttl);
+         hd++;
+        }
+        if(srt[p]=="subhead"){
+            var hdr= document.createElement('header');
+            if(shd>jstr[j]["subhead"].length-1){
+                shd=0;
+            }
+            hdr.innerHTML=jstr[j]['subhead'][shd];
+            hdr.className="shd";
+            var dvttl= document.createElement('div');
+            dvttl.className='dvhd';
+            dvttl.appendChild(hdr);
+            exp.appendChild(dvttl);
+            shd++;
+        }
+        
+        if(srt[p]=="spn"){
+            var tl=jstr[j]["spn"];
+            if(spn>jstr[j]["spn"].length-1){
+                spn=0;
+            }
+            console.log(spn);
+            var hdr= document.createElement('span');
+            hdr.innerHTML=tl[spn];
+            hdr.className="sptx";
+            var dvttl= document.createElement('div');
+            dvttl.className='dvhd';
+            dvttl.appendChild(hdr);
+            exp.appendChild(dvttl);
+            spn++;
+        }
+        if(srt[p]=="img"){
+            var tl=jstr[j]["img"];
+            if(img>jstr[j]["img"].length-1){
+                img=0;
+            }
+            var hdr= document.createElement('img');
+            var sml= document.createElement('small');
+            var br= document.createElement('br');
+            hdr.src=tl[img];
+            hdr.style.width=jstr[j]['imgsz'][img]["w"];
+            hdr.style.height=jstr[j]['imgsz'][img]["h"];
+            var dvttl= document.createElement('div');
+            var dvttl1= document.createElement('div');
+            var dvttl2= document.createElement('div');
+            dvttl.className='dvim';
+            dvttl1.className='dvimsp';
+            dvttl2.className='dvimsp';
+            if(jstr[j]['imgsml'][img]==null){
+                sml.innerHTML="";
+            }
+            else{
+            sml.innerHTML=jstr[j]['imgsml'][img];
+        }
+            dvttl1.appendChild(hdr);
+            dvttl2.appendChild(sml);
+            dvttl.appendChild(dvttl1);
+            dvttl.appendChild(dvttl2);
+            exp.appendChild(dvttl);
+            exp.appendChild(br);
+            img++;
+        }
+        if(srt[p]=="iframe"){
+            var tl=jstr[j]["iframe"];
+            if(ifr>jstr[j]["iframe"].length-1){
+                ifr=0;
+            }
+            var hdr= document.createElement('iframe');
+            var sml= document.createElement('small');
+            var br= document.createElement('br');
+            hdr.src=tl[ifr];
+            hdr.style.width=jstr[j]['ifsz'][ifr]["w"];
+            hdr.style.height=jstr[j]['ifsz'][ifr]["h"];
+            var dvttl= document.createElement('div');
+            var dvttl1= document.createElement('div');
+            var dvttl2= document.createElement('div');
+            dvttl.className='dvim';
+            dvttl1.className='dvimsp';
+            dvttl2.className='dvimsp';
+            if(jstr[j]['ifsml'][ifr]==null){
+                sml.innerHTML="";
+            }
+            else{
+            sml.innerHTML=jstr[j]['ifsml'][ifr];
+            }
+            dvttl1.appendChild(hdr);
+            dvttl2.appendChild(sml);
+            dvttl.appendChild(dvttl1);
+            dvttl.appendChild(dvttl2);
+            exp.appendChild(dvttl);
+            exp.appendChild(br);
+            ifr++;
+        }
+    }
+    hd=0;
+     shd=0;
+     spn=0;
+     img=0;
+     ifr = 0;
+}
+                  }
+                }); 
+  
+
+srcbtn.addEventListener("keyup", function () {
+    var input, filter, table, td, i, txtValue;
+    input = this.value;
+    filter = input.toUpperCase();
+   
+        li = document.getElementsByClassName("btnch");
+        for (i = 0; i < li.length; i++) {
+            td = li[i];
+            if (td) {
+                txtValue = td.textContent || td.innerText ;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } 
+            else {
+                li[i].style.display = "none";}
+            }}
+});
+</script>
+
+</body>
+</html>
+
+    
