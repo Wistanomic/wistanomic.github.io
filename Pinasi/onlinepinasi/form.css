@@ -1,0 +1,98 @@
+
+html{
+    height: 100%;
+    width: 100%;
+    font-family: sans-serif;
+    
+}
+body{
+    height: 100%;
+    width: 100%;
+}
+#frm{
+   
+height: auto;
+display: block;
+position: relative;
+}
+#bod{
+    justify-content: center;
+    display: flex;
+    height: 100%;
+}
+#forms{
+    height: auto;
+display: block;
+position: relative;
+}
+
+br{
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+#btnsubmit{
+    margin-top: 20px;
+margin-left: 10px;
+padding-bottom: 20px;
+padding-top: 5px;
+height: 30px;
+font-size: 15px;
+width: 90%;
+border-radius: 10px;
+border: 0px solid;
+background-color: #009879;
+color: white;
+cursor: pointer;
+margin-bottom: 20px;
+}
+#delete{
+   display: none; 
+margin-left: 10px;
+padding-bottom: 20px;
+padding-top: 5px;
+height: 30px;
+font-size: 15px;
+width: 43%;
+border-radius: 10px;
+border: 0px solid;
+background-color: #009879;
+color: white;
+cursor: pointer;
+margin-bottom: 20px;
+}
+#cancel{
+  
+margin-left: 10px;
+padding-bottom: 20px;
+padding-top: 5px;
+height: 30px;
+font-size: 15px;
+width: 90%;
+border-radius: 10px;
+border: 0px solid;
+background-color: #009879;
+color: white;
+cursor: pointer;
+margin-bottom: 20px;
+}
+#divex2{
+    display: flex;
+    width: 30%;
+    height: 60%;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+}
+#hdtitle{
+    font-size: larger;
+    }
+    #hddiv{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        padding: 5px;
+        overflow: hidden;
+        font-weight: bold;
+}

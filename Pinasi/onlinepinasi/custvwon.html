@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <link rel="stylesheet" href="search.css">  
+  </head>
+  <style>
+   html { 
+    height:100%;
+    width: 100%;
+}
+body{
+    height:100%;
+    width: 100%;
+    margin:0;
+    overflow: hidden;
+}
+#homes{
+  width: 100%;
+    height: 100%;
+    position: relative;
+    margin-top: 1%;
+}
+#opt{
+    height: auto;
+    width: 5%;
+    background-color: blanchedalmond;
+    overflow-x: auto;
+}
+#page{
+    height: 100%;
+    width: 100%;
+    background-color: aqua;
+}
+#frame{
+   width: 100%;
+   height: 100%; 
+   border: 0px solid;
+   background-color: rgb(50, 51, 50);
+}
+.btnopt{
+    width: 100px;
+    height: 100%;
+    overflow: hidden;
+}
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  height: auto;
+    width: 5%;
+  border: none;
+  cursor: pointer;
+  min-width: 50px;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+#tdiv{
+  width: 100%;
+height: 89%;
+background-color: rgb(76, 80, 75);
+display: inline-block;
+
+margin-bottom: 2%;
+margin-top: -1%;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 3;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+
+
+
+
+  </style>
+  
+  <body>
+    
+    <div id="homes">
+      
+    
+        <div id="tdiv" >
+           
+              <div id="plu"  style="width: 100%; height: 100%; overflow: hidden;z-index: 2;position: relative;">
+              
+            <iframe id="frame" style="width: 100%; height: 100%; position: absolute;transform-origin: left top;"></iframe>
+          
+        </div>
+    </div>
+    </div>
+    <script src="jquery/jquery.min.js"></script>
+    <script src="argrida.js"></script>
+    <script src="argridas.js"></script>
+<script>
+ 
+ 
+
+var idx=0;
+var ifrm=document.getElementById('frame');
+var paper=document.getElementById('paper');
+var zomn= document.getElementById('zomn');
+        var zomm= document.getElementById('zomm');
+        var zomp= document.getElementById('zomp');
+
+ // document.getElementById("searcttxt").addEventListener("keyup", myFunction );
+
+var arfile=[];
+var src=sessionStorage.getItem("custype");
+frame.src="./"+src;
+
+var statdata=document.getElementById("statdata");
+var rtdata=document.getElementById("rtdata");
+var uniqu=[];
+var zom=100;
+zomn.addEventListener('click', function() {
+  frame.style.transform='scale(1)';
+  frame.style.height="150%";
+  frame.style.width="150%";
+zom=100;
+
+
+});
+zomm.addEventListener('click', function() {
+  var vl=zom-=10;
+  frame.style.transform='scale('+(vl)/100+')';
+  if((50+(100*((vl)/100)))<=150){
+  frame.style.width=50+(100)+"%";
+ frame.style.height=50+(100)+"%";
+  }
+  else{
+    frame.style.width=50+(100*((vl)/100))+"%";
+  frame.style.height=50+(100*((vl)/100))+"%";
+  }
+ 
+});
+zomp.addEventListener('click', function() {
+  var vl=zom+=10;
+  
+  frame.style.transform='scale('+(vl)/100+')';
+  if((50+(100*((vl)/100)))>=150){
+  frame.style.width=50+(100*((vl)/100))+"%";
+  frame.style.height=50+(100*((vl)/100))+"%";
+}
+ 
+});
+if(sessionStorage.getItem("gridastatus")=="active"){
+  document.getElementById('frame').addEventListener("load", hidebar);
+}
+if(sessionStorage.getItem("gridastatus")=="none"){
+  
+}
+if(sessionStorage.getItem("gridasstatus")=="active"){
+  document.getElementById('frame').addEventListener("load", hidebar);
+}
+if(sessionStorage.getItem("gridasstatus")=="none"){
+  
+}
+function dropbtn() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+function hidebar(){
+  document.getElementById('frame').contentWindow.hide() ;
+}
+function refr(){
+  document.getElementById('frame').contentWindow.refresh() ;
+}
+
+
+function printPageArea(){
+ 
+            window.print(); 
+}
+function backward(){
+ 
+  history.back();
+}
+
+window.onerror = function(error, url, line) {
+    
+};
+</script>
+  </body></html>

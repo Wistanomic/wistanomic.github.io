@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <link rel="stylesheet" href="search.css">  
+  </head>
+  <style>
+    
+   html { 
+    height:100%;
+    width: 100%;
+}
+body{
+    height:100%;
+    width: 100%;
+    margin:0;
+    overflow: hidden;
+}
+#homes{
+  width: 100%;
+    height: 100%;
+    position: relative;
+    margin-top: 1%;
+}
+#opt{
+    height: auto;
+    width: 5%;
+    background-color: blanchedalmond;
+    overflow-x: auto;
+}
+#page{
+    height: 100%;
+    width: 100%;
+    background-color: aqua;
+}
+#frame{
+   width: 100%;
+   height: 100%; 
+   border: 0px solid;
+   background-color: white;
+}
+.btnopt{
+    width: 100px;
+    height: 100%;
+    overflow: hidden;
+}
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  height: auto;
+    width: 5%;
+  border: none;
+  cursor: pointer;
+  min-width: 50px;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+#tdiv{
+  width: 100%;
+height: 92%;
+background-color: white;
+display: inline-block;
+
+margin-bottom: 2%;
+margin-top: -1%;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+
+
+
+
+  </style>
+  
+  <body>
+    
+    <div id="homes">
+        <div id="set"  >
+            <button onclick="dropbtn()" class="dropbtn" >Copy</button>
+
+            <button id="refresh" onclick="refr();" >&#8635;</button>
+            <button id="setting"  ><div id="leftchev"></div></button>
+            <button id="search" ><div id="rightchev"></div></button>
+            <label   id="slid" class="switch">
+              <input id="slid1" type="checkbox">
+              <span id ="slid2"class="slider round"></span>
+            </label>
+            <input type="text" id="searcttxt"  > 
+            
+            </div>
+    
+        <div id="tdiv" >
+            <div id="myDropdown" class="dropdown-content">
+                <a href="#rtime" style="display: none;" id="rtdata">Real-Time</a>
+                <a href="#static" id="statdata">Static</a>
+                <a href="#"  id="ohtml">Page Only</a>
+              </div>
+            <iframe id="frame"></iframe>
+     
+    </div>
+    </div>
+    <script src="jquery/jquery.min.js"></script>
+    <script src="argrida.js"></script>
+    <script src="argridas.js"></script>
+<script>
+ const testFolder = sessionStorage.getItem("project");
+ 
+// const fs = require('fs');
+// var path = require("path");
+
+var frame=document.getElementById('frame');
+
+var ohtml=document.getElementById('ohtml');
+  document.getElementById("searcttxt").addEventListener("keyup", myFunction );
+  var lbtn=document.getElementById('setting');
+  var rbtn=document.getElementById('search');
+  var pagbtn=document.getElementById('slid1');
+var arfile=[];
+var src=sessionStorage.getItem("type");
+frame.srcdoc=sessionStorage.getItem(src);
+
+var statdata=document.getElementById("statdata");
+var rtdata=document.getElementById("rtdata");
+var uniqu=[];
+document.getElementById("searcttxt").addEventListener("click", function () {
+    sc();
+});
+ohtml.addEventListener("click", function () {
+ 
+  document.getElementById('frame').contentWindow.PrintElem2();
+ 
+});
+if(sessionStorage.getItem("gridasstatus")=="active"){
+  document.getElementById('frame').addEventListener("load", hidebar);
+}
+if(sessionStorage.getItem("gridasstatus")=="none"){
+  
+}
+if(sessionStorage.getItem("gridasstatus")=="active"){
+  document.getElementById('frame').addEventListener("load", hidebar);
+}
+if(sessionStorage.getItem("gridasstatus")=="none"){
+  
+}
+function dropbtn() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+function hidebar(){
+  document.getElementById('frame').contentWindow.hide() ;
+}
+function sc(){
+  document.getElementById('frame').contentWindow.src() ;
+}
+function refr(){
+  document.getElementById('frame').contentWindow.refresh() ;
+}
+function myFunction() {
+    var val=document.getElementById('searcttxt');
+   
+    document.getElementById('frame').contentWindow.srchout(val);
+    
+}
+function nextp(){
+ document.getElementById('frame').contentWindow.next() ;
+
+}
+function prevp(){
+ document.getElementById('frame').contentWindow.prev() ;
+
+}
+function prip(){
+ document.getElementById('frame').contentWindow.dd() ;
+ 
+
+}
+function pag(){
+
+document.getElementById('frame').contentWindow.pagbt();
+}
+function normal(){
+
+document.getElementById('frame').contentWindow.norm();
+}
+rbtn.addEventListener("click", nextp);
+lbtn.addEventListener("click", prevp);
+pagbtn.addEventListener('change', function() {if(pagbtn.checked == true){pag();document.getElementById("searcttxt").disabled=true;} else{normal();document.getElementById("searcttxt").disabled=false;}});
+
+// const homedir = require('os').homedir();
+// if (!fs.existsSync(homedir+"/Pinasi")){
+//             fs.mkdirSync(homedir+"/Pinasi");
+
+//            }
+//            const { promises: fls } = require("fs")
+//             async function copyDir(src, dest) {
+//     await fls.mkdir(dest, { recursive: true });
+//     let entries = await fls.readdir(src, { withFileTypes: true });
+
+//     for (let entry of entries) {
+//         let srcPath = path.join(src, entry.name);
+//         let destPath = path.join(dest, entry.name);
+
+//         entry.isDirectory() ?
+//             await copyDir(srcPath, destPath) :
+//             await fls.copyFile(srcPath, destPath);
+//     }
+// }
+var spnm = src.replace('gridasmaster.html','');
+
+var s = document.createElement("script");
+s.type = "text/javascript";
+s.src = spnm+"argridas.js";
+$("head").append(s);
+var urfile="./project/"+testFolder+"/file.json";
+statdata.addEventListener("click", function () {
+
+$.ajax({url: urfile,type: 'GET',cache: false,beforeSend: function(xhr){if (xhr.overrideMimeType){xhr.overrideMimeType("application/json");}},dataType: 'json',data: null,success:  function(data, textStatus, request) {l=data; 
+ 
+
+
+ 
+  var gridaspath=homedir+"/Pinasi/"+testFolder+"/"+spnm+"gridasstatis";
+    if (!fs.existsSync(gridaspath)){
+            fs.mkdirSync(gridaspath, { recursive: true });
+
+           }
+    fs.writeFileSync(gridaspath+"/gridasfile.json", JSON.stringify(l));
+    fs.copyFileSync("./etc/fr.js", gridaspath+"/fr.js");
+              fs.copyFileSync("./etc/ls.js", gridaspath+"/ls.js");
+              fs.copyFileSync("./etc/search.css",gridaspath+"/search.css");
+              fs.copyFileSync("./project/"+testFolder+"/"+spnm+"preview.html",gridaspath+"/"+spnm+"preview.html");
+              fs.copyFileSync("./project/"+testFolder+"/arayast.js",gridaspath+"/arayast.js");
+              fs.copyFileSync("./project/"+testFolder+"/"+spnm+"spedata.js",gridaspath+"/"+spnm+"spedata.js");
+              fs.copyFileSync("./project/"+testFolder+"/"+spnm+"gridas.html",gridaspath+"/"+spnm+"gridas.html");
+              
+              copyDir("./jquery", gridaspath+"/jquery");
+              copyDir("./project/"+testFolder+"/"+spnm+"gridas", gridaspath+"/"+spnm+"gridas");
+              copyDir("./project/"+testFolder+"/uploads", gridaspath+"/uploads");
+              copyDir("./project/"+testFolder+"/"+spnm+"pinimg", gridaspath+"/"+spnm+"pinimg");
+    alert("Success");
+  // } 
+    }});
+});
+rtdata.addEventListener("click", function () {
+  //
+  var gridaspath=homedir+"/Pinasi/"+testFolder+"/"+spnm+"gridasbydatabase";
+    if (!fs.existsSync(gridaspath)){
+            fs.mkdirSync(gridaspath, { recursive: true });
+
+           }
+    fs.copyFileSync("./etc/fr.js", gridaspath+"/fr.js");
+              fs.copyFileSync("./etc/ls.js", gridaspath+"/ls.js");
+              fs.copyFileSync("./etc/search.css",gridaspath+"/search.css");
+              fs.copyFileSync("./project/"+testFolder+"/"+spnm+"preview.html",gridaspath+"/"+spnm+"preview.html");
+              
+              fs.copyFileSync("./project/"+testFolder+"/"+spnm+"gridasmaster.html",gridaspath+"/"+spnm+"gridasmaster.html");
+              fs.copyFileSync("./project/"+testFolder+"/araya.js",gridaspath+"/araya.js");
+              fs.copyFileSync("./project/"+testFolder+"/"+spnm+"spedata.js",gridaspath+"/"+spnm+"spedata.js");
+              copyDir("./jquery", gridaspath+"/jquery");
+              copyDir("./project/"+testFolder+"/"+spnm+"gridas", gridaspath+"/"+spnm+"gridas");
+              copyDir("./project/"+testFolder+"/uploads", gridaspath+"/uploads");
+              copyDir("./project/"+testFolder+"/"+spnm+"pinimg", gridaspath+"/"+spnm+"pinimg");
+    alert("Success");
+  // } 
+});   
+
+function PrintElem2(elem)
+   {
+       var mywindow = window.open('', 'PRINT','height=400,width=600');
+   mywindow.document.write(elem.document.getElementsByTagName('html')[0].innerHTML);
+ 
+   var actContents = mywindow.document.getElementById('grid').innerHTML;
+  // mywindow.document.body.innerHTML = actContents;  
+   const myTimeout = setTimeout(myGreeting, 5000);
+
+function myGreeting() {
+  var actContents = mywindow.document.getElementById('grid').innerHTML;
+  if (confirm("Print ?")) {
+ 
+      
+  mywindow.focus();
+    mywindow.print();  
+               mywindow.document.body.style.margin=0;
+                
+                              
+                myStopFunction();  
+              }
+}
+
+function myStopFunction() {
+  clearTimeout(myTimeout);
+}
+       mywindow.document.close(); // necessary for IE >= 10
+       mywindow.focus(); // necessary for IE >= 10*/
+   
+      // mywindow.print();
+      //mywindow.close();
+   
+       return true;
+   }
+function printPageArea(){
+ 
+            window.print(); 
+}
+
+function PrintElem(elem){var mywindow = window.open('', 'PRINT', 'height=400,width=600');
+mywindow.document.write(elem.document.getElementsByTagName('html')[0].innerHTML);
+mywindow.document.write('<link rel=stylesheet href=./project/'+testFolder+'/gridas/gridas.css type=text/css />');
+mywindow.document.write('<script src=`jquery/jquery.min.js`><\/script><script src=`./project/'+testFolder+'/gridas/gridasmaster.js`><\/script><script src=`./project/'+testFolder+'/gridas/grid.js`><\/script><script src=`fr.js`><\/script><script src=`ls.js`><\/script>');
+mywindow.document.write(`<button onclick=" var actContents = document.getElementById('grid').innerHTML;
+   var lld=document.body.innerHTML;
+               document.body.innerHTML = actContents;
+               const myTimeout = setTimeout(myGreeting, 5000);
+
+function myGreeting() {
+  window.focus();
+                window.print();
+                document.body.innerHTML = lld;
+                myStopFunction();  
+}
+
+function myStopFunction() {
+  clearTimeout(myTimeout);
+}
+              
+            
+               
+                 
+            " style="z-index: 2; position: absolute; top:0;">Print</button>`);
+mywindow.document.close(); mywindow.focus(); return true;}
+//function print() {
+ //document.getElementById('tdiv').contentWindow.print();
+//};
+window.onerror = function(error, url, line) {
+    
+};
+</script>
+  </body></html>

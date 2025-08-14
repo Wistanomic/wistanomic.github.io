@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="table.css">
+    <title></title>
+    <style>
+      .dropset
+      {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        overflow: auto;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        margin-left: 20%;
+      }
+      
+      .dropset a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+      
+      .dropset a:hover {background-color: #ddd;}
+      .show {display: block;position: fixed;}
+      .dropseting{
+        width: 5%;
+          height: 100%;
+          background-color: #ccc;
+          margin-top: 0px;
+          border: 0px solid ;
+          align-items: center;
+          margin-left: 5px;
+          border-radius: 5px ;
+          min-width: 40px;
+          display: none;
+      justify-content: center;
+      cursor: pointer;
+      font-size: larger;
+      }
+          </style>
+    <div id="set" style="z-index: 100;"   >
+      
+      <button id="setfr" onclick="divover();" ></button>
+      <button id="refresh" onclick="refresh();" hidden>&#8635;</button>
+      <button id="setting"  hidden><div id="leftchev"></div></button>
+      <button id="search" hidden><div id="rightchev"></div></button>
+      <button onclick="dropsett()" id="drpbtn"  class="dropseting" >&#9881;</button>
+      <input type="color" id="hglcolor"  value="#DFD77C" hidden>
+      <label   id="slid" class="switch" style="margin-left: 45%;">
+        <input hidden id="slid1" type="checkbox">
+        <span hidden id ="slid2"class="slider round"></span>
+      </label>
+      <input type="text" id="searcttxt" onkeyup="tablesrch();"  hidden> 
+      
+      </div><br>
+      <button id="setcl" onclick="divout();" hidden></button>
+      <div id="setdrop" class="dropset">
+               
+        <input type="checkbox" id="scrc" name="scrc" value="scrc">
+        <label for="scrc">Scroll Cell</label>
+        <br>
+        <input type="checkbox" id="cwb" name="cwb" value="cwb">
+        <label for="cwb">Cell Fit</label>
+        
+      </div>
+     
+      
+</head>
+    
+<body onload="ru();">
+        
+        <script src="jquery/jquery.min.js"></script>
+       
+        <script src="math.js"></script>
+<script>
+ const testFolder = sessionStorage.getItem("project");
+ 
+
+    function dltnum(indx){
+   
+      if (indx > -1) {
+                              // only splice array when item is found
+l.splice(indx, 1); // 2nd parameter means remove one item only
+
+                            }
+          sessionStorage.setItem('datajson',JSON.stringify(l));
+   }       
+  
+   //
+   
+   //
+           var l =[];
+           var foot=true;
+           var k=[];
+           var fst=false;
+           const pageSize = 10;
+           var curPage = 1;
+           var idrow=false;
+           var pagi=document.getElementById('slid1');
+           var nextPage=document.getElementById('search');
+  var prevPage=document.getElementById('setting');
+  var scrolldiv =false;
+       var cfit =false;
+       var colhgl = sessionStorage.getItem('hglcol');
+       var scrc=document.getElementById('scrc');
+       var cwb=document.getElementById('cwb');
+       var formData = new FormData();
+       function next(){nextPage.click();}
+       function prev(){prevPage.click();}
+       function page(){pagi.checked=true;idrow=true;}
+       function scd(){scrolldiv=true;cwb.disabled=true;if(pagi.checked==true){fst=true;}pagi.checked=false;idrow=false; srefc();}
+       function scdnorm(){scrolldiv=false;cwb.disabled=false;if(pagi.checked==true){fst=true;}pagi.checked=false;idrow=false;srefc();}
+       function celfit(){cfit=true;scrc.disabled=true;if(pagi.checked==true){fst=true;}pagi.checked=false;idrow=false;srefc();}
+       function celfitnorm(){cfit=false;scrc.disabled=false;if(pagi.checked==true){fst=true;}pagi.checked=false;idrow=false;srefc();}
+       function hglcol(val){colhgl=val;}
+       function dropsett(){
+  document.getElementById("setdrop").classList.toggle("show");
+}
+  function norm(){src();pagi.checked=false;idrow=false;}
+function pagbt(){pagination();pagi.checked=true;idrow=true;}
+ ///
+
+ scrc.addEventListener('change', function() {
+  if(scrc.checked==true){scd();}
+else{scdnorm();}});   
+cwb.addEventListener('change', function() {
+  if(cwb.checked==true){celfit();}
+else{celfitnorm();}}); 
+ ///
+ var sjs=document.createElement('script');
+ sjs.innerHTML=sessionStorage.getItem('tmathjs');
+document.head.appendChild(sjs);
+ ///
+
+           function pagination(){
+            
+            idrow=true;
+    const pageSize = 10;
+$('#excelDataTable').html("");   
+                   k=  l.filter((row, index) => {
+      let start = (curPage-1)*pageSize;
+      let end =curPage*pageSize;
+      if(index >= start && index < end) return true;
+});
+buildHtmlTable(k); 
+    if(fst==true){
+  return
+}else{
+
+  idrow=true;
+    const pageSize = 10;
+$('#excelDataTable').html("");   
+                   k=  l.filter((row, index) => {
+      let start = (curPage-1)*pageSize;
+      let end =curPage*pageSize;
+      if(index >= start && index < end) return true;
+});
+buildHtmlTable(k); 
+
+
+nextPage.addEventListener("click", function () { 
+  if((curPage * pageSize) < l.length) curPage++;
+  k=  l.filter((row, index) => {
+      let start = (curPage-1)*pageSize;
+      let end =curPage*pageSize;
+      if(index >= start && index < end) return true;
+});
+
+$('#excelDataTable').html("");
+buildHtmlTable(k); 
+
+},false);  
+//
+prevPage.addEventListener("click", function () { 
+  if(curPage > 1) curPage--;
+  k=  l.filter((row, index) => {
+      let start = (curPage-1)*pageSize;
+      let end =curPage*pageSize;
+      if(index >= start && index < end) return true;
+});
+
+$('#excelDataTable').html("");
+buildHtmlTable(k); 
+
+},false); 
+
+}
+//   
+}
+//
+
+ 
+//
+function ru(){
+ 
+   l = sessionStorage.getItem("datajson");
+   l =JSON.parse(l);
+  
+                        if (l== "[]" || (typeof l == "object" && l.length == 0)){
+    l = JSON.parse(sessionStorage.getItem("headerjson"));
+             
+    foot=false;
+                       buildHtmlTable(l);
+  }
+  else{
+    buildHtmlTable(l);
+            //
+            pagi.addEventListener('change', function() { 
+               
+              if(pagi.checked == true){
+          pagination();
+  //   
+} 
+else{
+  idrow=false;
+  fst=true;
+  $('#excelDataTable').html("");
+  buildHtmlTable(l); 
+
+}
+});                                                                              
+  }             
+            }
+            var index ;
+// Builds the HTML Table out of myList.
+
+
+//
+var obhgl={};
+var arhg={};
+function buildHtmlTable(ll) {
+  
+ var selector = document.getElementById("excelDataTable");
+  var columns = addAllColumnHeaders(ll, selector);
+  
+var tbod=$('<tbody/>');
+var trs = document.querySelectorAll("tr");
+var idx =0;
+  for (var i = 0; i < ll.length; i++) {
+    var row$ = $('<tr/>');
+    
+    if(scrolldiv==true){
+    for (var colIndex = 0; colIndex < columns.length; colIndex++) {
+      var dr=document.createElement('div');
+      var cellValue = ll[i][columns[colIndex]];
+      if (cellValue == null) cellValue = "";
+      dr.append(cellValue);
+      row$.append($('<td/>').html(dr));
+      
+
+    }
+   
+    $(selector).append(tbod.append(row$));
+    $("table td").css("width", "150px");
+  }
+  if(cfit==true){
+    for (var colIndex = 0; colIndex < columns.length; colIndex++) {
+      var dr=document.createElement('div');
+      var cellValue = ll[i][columns[colIndex]];
+      if (cellValue == null) cellValue = "";
+      dr.append(cellValue);
+      row$.append($('<td/>').html(dr));
+      
+
+    }
+   
+    $(selector).append(tbod.append(row$));
+    $("table td").css("word-break", "break-all");
+    $("table td").css("width", "150px");
+  }
+  if(cfit==false && scrolldiv==false){
+    for (var colIndex = 0; colIndex < columns.length; colIndex++) {
+      var cellValue = ll[i][columns[colIndex]];
+      if (cellValue == null) cellValue = "";
+      row$.append($('<td/>').html(cellValue));
+    }
+    $(selector).append(tbod.append(row$));
+  }
+    var btndl=document.createElement("button");
+  btndl.innerHTML="&#10005;";
+  btndl.style.border="0px solid";
+  btndl.className='btnetc';
+  btndl.style.backgroundColor="rgba(190, 192, 191, 0.788)";
+  btndl.id=ll.indexOf(ll[i]);
+  btndl.title="Delete";
+    btndl.addEventListener('click', () => { 
+      var button = event.target;
+      
+  var indx = location.search.substring(1);
+  var ids;
+  if(idrow==true){
+  if((curPage)>1){
+    
+    ids=(~~button.id+1)+((curPage-1)*10);
+    
+ 
+  dltnum(~~button.id+((curPage-1)*10));
+  formData =new FormData();
+
+  var dkey=Object.keys(arhg);       
+    for(s=0;s<dkey.length;s++){     
+       if(~~dkey[s]>=(~~button.id+((curPage-1)*10))){
+        if(~~dkey[s]==(~~button.id+((curPage-1)*10))){                           
+     delete arhg[~~button.id+((curPage-1)*10)];      
+       }
+       else{        
+         arhg[~~dkey[s]-1] = arhg[dkey[s]];      
+    delete arhg[dkey[s]];    
+  }
+       }  
+      }
+ 
+ 
+      sendhgl2(JSON.stringify(arhg));
+      formData=new FormData();
+  }
+  if(curPage==1){
+    ids=~~button.id+1;
+    
+  dltnum(button.id);
+  formData =new FormData();
+  var dkey=Object.keys(arhg);       
+    for(s=0;s<dkey.length;s++){     
+       if(~~dkey[s]>=(~~button.id)){
+        if(~~dkey[s]==(~~button.id)){                           
+     delete arhg[button.id];      
+       }
+       else{        
+         arhg[~~dkey[s]-1] = arhg[dkey[s]];      
+    delete arhg[dkey[s]];    
+  }
+       }  
+      }
+     
+       
+      sendhgl2(JSON.stringify(arhg));
+      formData=new FormData();
+  }
+}
+else{
+
+  ids=~~button.id+1;
+  
+  dltnum(button.id);
+  formData =new FormData();
+  var dkey=Object.keys(arhg);       
+    for(s=0;s<dkey.length;s++){     
+       if(~~dkey[s]>=(~~button.id)){
+        if(~~dkey[s]==(~~button.id)){                           
+     delete arhg[button.id];      
+       }
+       else{        
+         arhg[~~dkey[s]-1] = arhg[dkey[s]];      
+    delete arhg[dkey[s]];    
+  }
+       }  
+      }
+      
+      
+      sendhgl2(JSON.stringify(arhg));
+      formData=new FormData();
+}
+
+  
+  
+  var dkey=Object.keys(obhgl);
+  for(s=0;s<dkey.length;s++){
+     if(~~dkey[s]>=(ids)){
+      if(~~dkey[s]==(ids)){
+      delete obhgl[dkey[s]];
+     
+     }
+     else{
+      obhgl[~~dkey[s]-1] = obhgl[dkey[s]];   
+  delete obhgl[dkey[s]];
+}
+     }
+
+    }
+  
+    
+        sendhgl(formData);
+     formData= new FormData();
+    
+  alert("Deleted");
+  
+  refresh();
+  
+    
+   });
+   var btned=document.createElement("button");
+   btned.innerHTML="&#9999;";
+   btned.id=ll.indexOf(ll[i]);
+   btned.style.border="0px solid";
+   btned.className='btnetc';
+   btned.style.fontSize="larger";
+
+btned.title="Edit";
+  btned.style.backgroundColor="rgba(190, 192, 191, 0.788)";
+   btned.addEventListener('click', () => { 
+      var button = event.target;
+      
+      if(idrow==true){
+
+  if(curPage>1){
+    sessionStorage.setItem('edit',(~~button.id+((curPage-1)*10))+'&ontbm') 
+   window.location.href = 'edit.html?'+(~~button.id+((curPage-1)*10))+'&ontbm';
+   
+  }
+  if(curPage==1){
+    sessionStorage.setItem('edit',button.id+'&ontbm') 
+    window.location.href = 'edit.html?'+button.id+'&ontbm';
+    
+  }
+}
+else{
+  sessionStorage.setItem('edit',button.id+'&ontbm') 
+
+  // var lld=document.body.innerHTML;
+  // document.body.innerHTML = sessionStorage.getItem('edit.html');
+  // window.location.href = 'blnk.html';
+  var myCustomData = "edit";
+var evnt = new CustomEvent('myEvent', { detail: myCustomData })
+window.parent.document.dispatchEvent(evnt)
+
+  
+}
+   
+   });
+   var btnpr=document.createElement("button");
+   btnpr.innerHTML="&#10063;";
+   btnpr.id=ll.indexOf(ll[i]);
+   btnpr.className='btnetc';
+   btnpr.style.border="0px solid";
+   btnpr.title="Preview";
+   btnpr.style.backgroundColor="rgba(190, 192, 191, 0.788)";
+   btnpr.addEventListener('click', () => { 
+      var button = event.target;
+      if(idrow==true){
+  if((curPage)>1){
+     
+    sessionStorage.setItem("idxpv",~~button.id+((curPage-1)*10));
+  }
+  if(curPage==1){
+    sessionStorage.setItem("idxpv",button.id);
+  }
+}
+else{
+  sessionStorage.setItem("idxpv",button.id); 
+}
+     
+var myCustomData = "prev";
+var evnt = new CustomEvent('myEvent', { detail: myCustomData })
+window.parent.document.dispatchEvent(evnt)
+sessionStorage.setItem('prevname',"ontbm")
+        // window.location.href = "/pagevw.html?ontbm";
+   });
+   var btnmrk=document.createElement("button");
+   btnmrk.innerHTML="&#10002;";
+   
+   btnmrk.id=ll.indexOf(ll[i]);
+   btnmrk.className='btnetc';
+   btnmrk.style.border="0px solid";
+   btnmrk.title="Mark";
+   btnmrk.style.fontSize="large";
+   btnmrk.style.backgroundColor="rgba(190, 192, 191, 0.788)";
+   btnmrk.addEventListener('click', () => { 
+      var button = event.target;
+      var x = document.getElementById("excelDataTable").getElementsByTagName("tbody")[0].getElementsByTagName('tr');
+      var ids=~~button.id+1;
+    
+        x[ids-1].id="x"+ids;
+        var dkey=Object.keys(ll[0]);
+var dval=Object.values(dkey[0]);
+      document.getElementById("x"+ids).style.backgroundColor = hglcolor.value ;
+      //let result = ll[ids-1][dkey[0]];
+      
+      if(idrow==true){
+  if((curPage)>1){
+    
+    obhgl[ids+((curPage-1)*10)]=hglcolor.value;
+  }
+  if(curPage==1){
+    obhgl[ids]=hglcolor.value; 
+  }
+
+}
+else{
+  obhgl[ids]=hglcolor.value;
+
+}
+console.log(obhgl)
+
+          
+          sendhgl(formData);
+       formData= new FormData();
+     
+    
+  
+   });
+   var cucol=document.createElement('button');
+   cucol.innerHTML=" &#10001;";  
+  cucol.id=ll.indexOf(ll[i]);
+   cucol.className='btnetc';
+   cucol.style.fontSize="large";
+   cucol.style.border="0px solid";
+  cucol.value="#f3f3f3"
+  cucol.title="Unmark";
+
+   cucol.style.backgroundColor="rgba(190, 192, 191, 0.788)";
+   cucol.addEventListener('click', () => { 
+    var button = event.target;
+      var x = document.getElementById("excelDataTable").getElementsByTagName("tbody")[0].getElementsByTagName('tr');
+
+      var ids=~~button.id+1;
+      var dkey=Object.keys(obhgl);
+var dval=Object.values(dkey[0]);
+      x[ids-1].style.backgroundColor = getComputedStyle(document.documentElement)
+    .getPropertyValue('--bgc'); 
+    let result = ll[ids-1][dkey[0]];
+    if(idrow==true){
+  if((curPage)>1){
+    delete obhgl[ids+((curPage-1)*10)];  
+  }
+  if(curPage==1){
+    delete obhgl[ids];  
+  }
+}
+else{
+  delete obhgl[ids];  
+}
+    
+
+        sendhgl(formData);
+     formData= new FormData();
+   })
+   var dl=document.createElement('div');
+   dl.className='divetc';
+   dl.appendChild(btndl);
+   dl.appendChild(btned);
+   dl.appendChild(btnpr);
+   dl.appendChild(btnmrk);
+   dl.appendChild(cucol);
+
+   var ind=~~ll.indexOf(ll[i])+1;
+    row$.append($('<td/>').html(dl));
+    
+    $(selector).append(tbod.append(row$));
+    
+    
+ idx++
+
+  }
+  
+    if(foot==true){
+    var fn = window['cr_foot']; 
+if(typeof fn === 'function') {
+  cr_foot(ll);
+}
+}
+  var dd=[];
+ 
+  
+
+  const secondKey = Object.keys(ll[0]);
+ 
+for (var i = 0; i < trs.length; i++){
+ 
+  (function (e) {
+    trs[e].addEventListener("click", function () {
+     
+     
+      index = $(this).closest('tr').index();
+    }, false);
+  })(i);}
+  markhgl();
+  markhgl2();
+}
+
+// Adds a header row to the table and returns the set of columns.
+// Need to do union of keys from all records as some records may not contain
+// all records.
+function addAllColumnHeaders(myList, selector) {
+  var columnSet = [];
+  var headerTr$ = $('<tr/>');
+ var theads=$('<thead/>');
+
+  for (var i = 0; i < myList.length; i++) {
+    var rowHash = myList[i];
+    for (var key in rowHash) {
+      if ($.inArray(key, columnSet) == -1) {
+        columnSet.push(key);
+        
+        headerTr$.append($('<th/>').html(key));
+        
+      }
+    }
+  }
+  headerTr$.append($('<th/>').html("Edit"));
+ 
+  $(selector).append(theads.append(headerTr$));
+
+  return columnSet;
+}
+
+
+
+function divover(){
+  document.getElementById("setfr").hidden=true;
+  document.getElementById("setcl").hidden=false;
+  document.getElementById("refresh").hidden=false;
+  document.getElementById("slid").hidden=false;
+  document.getElementById("slid1").hidden=false;
+  document.getElementById("slid2").hidden=false;
+  document.getElementById("setting").hidden=false;
+  document.getElementById("search").hidden=false;
+  document.getElementById("searcttxt").hidden=false;
+  document.getElementById("hglcolor").hidden=false;
+  document.getElementById("set").style.height="30px";
+  document.getElementById("set").style.backgroundColor="rgba(148, 158, 151, 0.767)";
+  document.getElementById("setting").style.display="flex";
+  document.getElementById("search").style.display="flex";
+  document.getElementById("refresh").style.display="flex";
+  document.getElementById("slid").style.display="inline-block";
+  document.getElementById('drpbtn').hidden=false;
+  document.getElementById('drpbtn').style.display="flex";
+ 
+}
+function divout(){
+  document.getElementById("refresh").hidden=true;
+  document.getElementById("setting").hidden=true;
+  document.getElementById('drpbtn').hidden=true;
+  document.getElementById("search").hidden=true;
+  document.getElementById("searcttxt").hidden=true;
+  document.getElementById("slid").hidden=true;
+  document.getElementById("slid1").hidden=true;
+  document.getElementById("slid2").hidden=true;
+  document.getElementById("setfr").hidden=false;
+  document.getElementById("setcl").hidden=true;
+  document.getElementById("hglcolor").hidden=true;
+  document.getElementById("set").style.height="10px";
+  document.getElementById("set").style.backgroundColor="transparent";
+  document.getElementById("setting").style.display="none";
+  document.getElementById("search").style.display="none";
+  document.getElementById("refresh").style.display="none";
+  document.getElementById("slid").style.display="none";
+  document.getElementById('drpbtn').style.display="none";
+} 
+
+function refresh(){
+  cwb.checked =false;scrc.checked =false;
+  if(pagi.checked==true){
+    fst=true;
+  pagi.checked=false;}
+  location.reload(); 
+  
+  
+} 
+window.addEventListener("click", function(event) {
+  
+  if (!event.target.matches('.dropseting')) {
+    var dropdowns = document.getElementsByClassName("dropset");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+
+});
+function src(){
+  $('#excelDataTable').html("");
+  buildHtmlTable(l); 
+  idrow=false;
+  fst=true;
+}
+function srefc(){
+  $('#excelDataTable').html("");
+  buildHtmlTable(l); 
+  
+}
+function srchout(input) {
+  // Declare variables
+  var  filter, table, tr, td, i, txtValue;
+  
+  filter = input.value.toUpperCase();
+  if(pagi.checked==true){
+    if(filter==""){
+      pagination();      
+    }
+    else{
+src();
+table = document.getElementById("excelDataTable");
+tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    tds = tr[i].getElementsByTagName("td")
+    var foundInRow = false
+    for(j=0; j<tds.length; j++){
+    if(foundInRow)
+        continue
+    td = tr[i].getElementsByTagName("td")[j];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        foundInRow = true
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }      
+    }
+  }
+}
+  }
+  else{
+    table = document.getElementById("excelDataTable");
+    tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    tds = tr[i].getElementsByTagName("td")
+    var foundInRow = false
+    for(j=0; j<tds.length; j++){
+    if(foundInRow)
+        continue
+    td = tr[i].getElementsByTagName("td")[j];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        foundInRow = true
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }      
+    }
+  }
+
+  }
+  
+} 
+function tablesrch() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("searcttxt");
+  filter = input.value.toUpperCase();
+  if(pagi.checked==true){
+    if(filter==""){
+      pagination();
+    }
+    else{
+src();
+table = document.getElementById("excelDataTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    tds = tr[i].getElementsByTagName("td")
+    var foundInRow = false
+    for(j=0; j<tds.length; j++){
+    if(foundInRow)
+        continue
+    td = tr[i].getElementsByTagName("td")[j];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        foundInRow = true
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }      
+    }
+  }
+    }
+  }
+  else{
+    table = document.getElementById("excelDataTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    tds = tr[i].getElementsByTagName("td")
+    var foundInRow = false
+    for(j=0; j<tds.length; j++){
+    if(foundInRow)
+        continue
+    td = tr[i].getElementsByTagName("td")[j];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        foundInRow = true
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }      
+    }
+  }
+  }
+}   
+
+function getallcss() {
+  var css= [];
+
+for (var sheeti= 0; sheeti<document.styleSheets.length; sheeti++) {
+    var sheet= document.styleSheets[sheeti];
+    var rules= ('cssRules' in sheet)? sheet.cssRules : sheet.rules;
+    for (var rulei= 0; rulei<rules.length; rulei++) {
+        var rule= rules[rulei];
+        if ('cssText' in rule)
+            css.push(rule.cssText);
+        else
+            css.push(rule.selectorText+' {\n'+rule.style.cssText+'\n}\n');
+    }
+}
+
+return css.join('\n');
+}
+function sendhgl(data){
+  sessionStorage.setItem('hgljson',JSON.stringify(obhgl));
+   markhgl();
+   markhgl2();
+  
+
+}
+
+function markhgl(){
+  
+                  
+                       hgl=JSON.parse(sessionStorage.getItem('hgljson'));
+                  if(hgl==null){
+                    
+                  } else{    
+                  obhgl=hgl;                
+                       var hjs="";
+                       var horg="";
+                       
+                       var dkey=Object.keys(hgl);
+                       
+                  for(var s=0;s<dkey.length;s++){
+                   
+                    
+                    hjs=dkey[s];
+                    var x = document.getElementById("excelDataTable").getElementsByTagName("tbody")[0].getElementsByTagName('tr');
+                             
+     if(idrow==true){
+      
+      if(x.length<12){
+        if((~~hjs)<=(curPage)*10 &&(~~hjs)>(curPage-1)*10 ){
+      var newnum= (~~hjs)-((curPage-1)*10);
+      
+    
+    if(newnum<=x.length){
+    x[newnum-1].style.backgroundColor = hgl[hjs] ;
+    }
+    }
+    if((curPage)*10<11){
+       var newnum= (~~hjs);
+      
+    
+    if(newnum<=x.length){
+    x[newnum-1].style.backgroundColor = hgl[hjs] ;
+    }
+    }
+  }
+ 
+  
+     }else{
+      
+    
+    x[~~hjs-1].style.backgroundColor = hgl[hjs] ;
+
+     }
+      
+                  
+                  }
+                }
+}
+function sendhgl2(data){
+  sessionStorage.setItem('minhgljson',JSON.stringify(arhg));
+   markhgl();
+   markhgl2();
+  
+
+
+
+}
+function markhgl2(){
+  
+                  
+                       arhg=JSON.parse(sessionStorage.getItem('minhgljson'));
+                     if(arhg==null){
+                      arhg={};
+                     }
+                     
+                     }
+
+ window.onerror = function(error, url, line) {
+   
+};
+</script>
+        <table id="excelDataTable" class="styled-table" >
+          
+          <tfoot id="tfot">
+        
+          </tfoot>
+  </table>
+</body>
+</html>

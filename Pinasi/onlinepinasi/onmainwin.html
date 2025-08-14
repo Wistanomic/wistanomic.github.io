@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+     
+        <link rel="stylesheet" href="mainwindow.css">
+        <link rel="stylesheet" href="search.css"> 
+        
+        
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+  
+      </head>
+    <header>
+      
+    </header>
+    <body >
+      
+        <div id="paneltab">
+ 
+<button id="maintab">Main</button>
+<button id="addtab">+</button>
+<div id="pnaddbtn"></div>
+        </div>
+        
+        <div id="act">
+          
+          <div id="menu" class="tabpage">
+            <img id="adsif" class="ads" style="object-fit: contain;position: fixed; height: 100%; width: 20%;"></img>
+            <div id="menugrid">
+              <div class="gridmenu">
+                <button id="customize" >Table Header & Footer</button></div>
+                <div class="gridmenu"><button id="grid">Pivot</button></div>
+                <div class="gridmenu"> <button id="list" >Grid</button></div>
+                <div class="gridmenu"><button id="graph">Graph</button></div>
+                <div class="gridmenu"><button id="spage">View</button></div>
+                <div class="gridmenu"><button id="pview" >Custom Page</button></div>
+                <div class="gridmenu"><button id="tbmin">Table Min</button></div>
+                <div class="gridmenu"><button id="tbmas" title="Comming soon" disabled>Table Min Master</button></div>
+                <div class="gridmenu"><button id="cfol">Copy Project</button></div>
+                <div class="gridmenu"><button id="rtd" disabled>Card</button></div>
+                <div class="gridmenu"><button id="ssr" title="Download Desktop Version" disabled>Send Serial</button></div>
+                <div class="gridmenu"><button id="prm" title="Coming Soon" disabled>Premium</button></div>
+                
+          </div>
+          <img id="adsif2" class="ads" style="right:0;object-fit: contain;position: fixed; height: 100%; width: 20%;"></img>
+          </div>
+          <div id="mainpage" class="tabpage">
+          
+            <div id="leftside">
+              <div id="leftset">
+                <button id="mathbut">MATH</button>
+                <button id="form">Form</button>
+              </div>
+                <div id="leftpage">
+                    <iframe id="lpweb" partition="persist:trusted" ></iframe>
+                    <div id="mathpage">
+                      <label id="flbl">Formula</label><br>
+                      <label>Name :</label><br>
+                      <input type="text" id="formulaname" class="formula"/><br>
+                      <label>Name Column :</label><br>
+                      <input type="text" id="clformulaname"class="formula"/>
+                      <br>
+                      <label>Formula :</label><br>
+                      <textarea id="formula" class="formula"></textarea><br>
+                      <label>Formula Column :</label><br>
+                      <textarea type="text" id="clformula" class="formula"></textarea>
+                      <button id="addformula">+</button><button id="dltsfm">-</button><br>
+                      
+                      <button id="saveformula">SAVE</button><button id="dltformula">DELETE</button><button id="clrformula">CLEAR</button>
+                      <input type="text" id="dltob" placeholder="Delete Column"><button id="dltobtn">Delete</button>
+                      <div id="dispmath" style="height: 60px;width: 90%;overflow: auto;"></div><br>
+                      <label>Saved Formula :</label><br><div id="savedformula" style="height: 60px;width: 90%;overflow: auto;"></div>
+                      
+                      
+        
+                    </div> 
+                  </div>
+            
+            </div>
+            <div id="rightside">
+                <div id="rightpage">
+                  
+                    <iframe id="rpweb"  partition="persist:trusted" ></iframe>
+                    <img id="adsif3" class="ads"  style="object-fit: contain;position: fixed;  width: 100%;bottom: 5px;"></img>
+            </div>
+            </div>
+          </div>
+        </div>
+        <script src="math.js"></script> 
+        <script src="jquery/jquery.min.js"></script>
+        <script>
+
+//
+
+
+ 
+ 
+
+var rightpage=document.getElementById("rpweb");
+var rltime=document.getElementById("rltime");
+var leftpage=document.getElementById("lpweb");
+var mathpage=document.getElementById("mathpage");
+var mathbut=document.getElementById("mathbut");
+var addtab=document.getElementById("addtab");
+var paneltab=document.getElementById("paneltab");
+var pnaddbtn=document.getElementById("pnaddbtn");
+var mainpage=document.getElementById("mainpage");
+//
+var pjpath=sessionStorage.getItem("project");
+var folderpath=sessionStorage.getItem("project");
+
+var tform=sessionStorage.getItem("form.html");
+
+var uploadpath="./uploads/";
+var filepath;
+var headpath="./header.json";
+leftpage.srcdoc=tform;
+rightpage.src="./tablemaster.html";
+document.title="Online";
+   //
+ rightpage.style.height="79%";
+ document.getElementById("adsif3").style.height="18%";
+
+//
+//
+const testFolder = 'listfile.json';
+// var l= [];
+var  head=JSON.parse(sessionStorage.getItem('headerjson'));
+ var fileNames = [];
+ var p=[];
+//  sessionStorage.setItem('datajson',JSON.stringify(l));
+ p.push("tabledb.html");
+ p.push("form.html");
+//  p.push("papr.json");
+ sessionStorage.setItem("filear", JSON.stringify(p));
+    // $.ajax({
+    //   url: testFolder,
+    //   type: 'GET',
+    // cache: false,
+    //               beforeSend: function(xhr){
+    //                 if (xhr.overrideMimeType)
+    //                 {
+    //                   xhr.overrideMimeType("application/json");
+    //                 }
+    //               },
+    //               dataType: 'json',
+    //               data: null,
+    //   success: function(data){
+        
+         
+         
+    //      for(var i=0;i<data.length;i++){
+          
+    //         fileNames.push(data[i]['fm']);
+    //      }
+    //      sessionStorage["filear"] = JSON.stringify(fileNames);
+    //     }});
+        
+        
+
+
+//
+function refr(){
+  document.getElementById('rpweb').contentWindow.refresh() ;
+  
+}
+
+ads();
+
+//
+
+////
+
+
+//
+var menu = document.getElementById("menu");
+var menubtn = document.getElementById("mainmenu");
+var maintab= document.getElementById("maintab");
+var lside = document.getElementById("leftside");
+var rside = document.getElementById("rightside");
+
+var dispmath = document.getElementById("dispmath");
+var labelmath = document.createElement("label");
+var grid = document.getElementById("grid");
+var graph = document.getElementById("graph");
+var list = document.getElementById("list");
+var spage = document.getElementById("spage");
+var pview = document.getElementById("pview");
+var ix = document.getElementById("ix");
+var act = document.getElementById("act");
+var newp = document.getElementById("newp");
+var improtp = document.getElementById("improtp");
+var openp = document.getElementById("openp");
+var closep = document.getElementById("closep");
+var uppro =document.getElementById("uppro");
+var tutorialp = document.getElementById("tutorialp");
+var licensep = document.getElementById("licensep");
+var formbtn = document.getElementById("form");
+var customize = document.getElementById("customize");
+
+var tbmin = document.getElementById("tbmin");
+var tbmas = document.getElementById("tbmas");
+
+var upno = document.getElementById("upno");
+var updt = document.getElementById("updt");
+
+var arfn=[];
+var fmname=[];
+//
+
+window.document.addEventListener('myEvent', handleEvent, false)
+function handleEvent(e) {
+  if(e.detail=="refr"){
+  refr()
+}
+if(e.detail=="edit"){
+  rightpage.srcdoc=sessionStorage.getItem('edit.html');
+}
+if(e.detail=="tblms"){
+  try{rightpage.removeAttribute('srcdoc');}catch(e){}
+
+  
+  rightpage.src="tablemaster.html";
+}
+if(e.detail=="prev"){
+  
+  rightpage.src="pagevw.html";
+}
+}
+//
+function menutab(){
+  var gridmenu=document.createElement("div");
+  var gridmenubtn=document.createElement("button");
+  var gridmenulbl=document.createElement("label");
+
+}
+//
+function dropbtn() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+    maintab.addEventListener("click", function () {
+      var  tabcontent = document.getElementsByClassName("tabpage");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+      mainpage.style.display = "block";
+            
+		});
+   
+    var tabc=0;
+    var btun="";
+    addtab.addEventListener("click", function () {
+      var menutabtn = document.createElement("div");
+        var addtabbtn = document.createElement("div");
+        var clsbtn = document.createElement("button");
+        var addbtn = document.createElement("button");
+        clsbtn.className="clsbtn";
+        addbtn.className="addbtn";
+        
+        var ik=tabc++;
+        
+          addbtn.innerHTML = "New";
+          addtabbtn.id="tbtn"+ik;
+        
+          addtabbtn.className="pgbtn";
+          addbtn.addEventListener('click', () => { 
+            btun="tbtn"+ik;
+            var  tabcontent = document.getElementsByClassName("tabpage");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+        menu.style.display = "flex";
+      
+        act.appendChild(menu);
+      });
+      clsbtn.addEventListener('click', () => { 
+        btun="tbtn"+ik;
+      pnaddbtn.removeChild(document.getElementById(btun));
+        
+      var  tabcontent = document.getElementsByClassName("tabpage");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  
+      mainpage.style.display = "block";
+       
+      
+      });
+      addtabbtn.appendChild(addbtn);
+      addtabbtn.appendChild(clsbtn);
+      pnaddbtn.append(addtabbtn);
+        
+      
+     
+      
+			
+      
+            
+		});
+    //
+    var idbt="";
+    list.addEventListener("click", function () {
+      var addtabbtn = document.createElement("div");
+        var clsbtn = document.createElement("button");
+        var iks=tabc++;
+        clsbtn.className="clsbtn";
+       
+      var pagebtn = document.createElement("button");
+        var menutabtn = document.createElement("div");
+        
+        menutabtn.className="tabpage";
+        addtabbtn.className="pgbtn";
+        addtabbtn.id="pgtn"+iks;
+        
+        pagebtn.className="addbtn";
+      var  tabcontent = document.getElementsByClassName("tabpage");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  menutabtn.style.display = "block";
+        menutabtn.style.position="absolute";
+        var wbv=document.createElement("iframe");
+        
+        menutabtn.style.width="100%";
+        menutabtn.style.height="100%";
+       
+        wbv.src="./gridbypre.html?"+folderpath+"";
+        wbv.style.width="100%";
+        wbv.style.height="100%";
+        menutabtn.appendChild(wbv);
+        act.appendChild(menutabtn);
+        pagebtn.innerHTML = "Grid";
+      pagebtn.addEventListener('click', () => { 
+          menutabtn.className="tabpage";
+          pagebtn.className="addbtn";
+        var  tabcontent = document.getElementsByClassName("tabpage");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  menutabtn.style.display = "block";
+        
+   
+      });
+      clsbtn.addEventListener('click', () => { 
+      
+      addtabbtn.parentNode.removeChild(document.getElementById("pgtn"+iks));
+      menutabtn.remove();
+      var  tabcontent = document.getElementsByClassName("tabpage");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  
+      mainpage.style.display = "block";
+       
+      
+      });
+     var btnid= document.getElementById(btun);
+     addtabbtn.appendChild(pagebtn);
+      addtabbtn.appendChild(clsbtn);
+      btnid.parentNode.replaceChild(addtabbtn, btnid);
+       
+     
+            
+		});
+    //
+  var idbt="";
+   
+    //
+    grid.addEventListener("click", function () {
+      var addtabbtn = document.createElement("div");
+        var clsbtn = document.createElement("button");
+        var iks=tabc++;
+        clsbtn.className="clsbtn";
+       
+      var pagebtn = document.createElement("button");
+        var menutabtn = document.createElement("div");
+        
+        menutabtn.className="tabpage";
+        addtabbtn.className="pgbtn";
+        addtabbtn.id="pgtn"+iks;
+        
+        pagebtn.className="addbtn";
+      var  tabcontent = document.getElementsByClassName("tabpage");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  menutabtn.style.display = "block";
+        menutabtn.style.position="absolute";
+        var wbv=document.createElement("iframe");
+        
+        menutabtn.style.width="100%";
+        menutabtn.style.height="100%";
+       
+      //  wbv.src="./gridcreate.html?"+folderpath+"";
+      //wbv.src="./webapp/toolbost.html";
+      wbv.src="./pivotmaker.html";
+        wbv.style.width="100%";
+        wbv.style.height="100%";
+        menutabtn.appendChild(wbv);
+        act.appendChild(menutabtn);
+        pagebtn.innerHTML = "Pivot";
+      pagebtn.addEventListener('click', () => { 
+          menutabtn.className="tabpage";
+          pagebtn.className="addbtn";
+        var  tabcontent = document.getElementsByClassName("tabpage");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  menutabtn.style.display = "block";
+        
+   
+      });
+      clsbtn.addEventListener('click', () => { 
+      
+      addtabbtn.parentNode.removeChild(document.getElementById("pgtn"+iks));
+      menutabtn.remove();
+      var  tabcontent = document.getElementsByClassName("tabpage");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  
+      mainpage.style.display = "block";
+       
+      
+      });
+     var btnid= document.getElementById(btun);
+     addtabbtn.appendChild(pagebtn);
+      addtabbtn.appendChild(clsbtn);
+      btnid.parentNode.replaceChild(addtabbtn, btnid);
+      
+            
+		});
+    //
+
+    rtd.addEventListener("click", function () {
+      var addtabbtn = document.createElement("div");
+        var clsbtn = document.createElement("button");
+        var iks=tabc++;
+        clsbtn.className="clsbtn";
+       
+      var pagebtn = document.createElement("button");
+        var menutabtn = document.createElement("div");
+        
+        menutabtn.className="tabpage";
+        addtabbtn.className="pgbtn";
+        addtabbtn.id="pgtn"+iks;
+        
+        pagebtn.className="addbtn";
+      var  tabcontent = document.getElementsByClassName("tabpage");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  menutabtn.style.display = "block";
+        menutabtn.style.position="absolute";
+        var wbv=document.createElement("iframe");
+        
+        menutabtn.style.width="100%";
+        menutabtn.style.height="100%";
+       
+      //  wbv.src="./gridcreate.html?"+folderpath+"";
+      //wbv.src="./webapp/toolbost.html";
+      wbv.src="./realcusd.html";
+        wbv.style.width="100%";
+        wbv.style.height="100%";
+        menutabtn.appendChild(wbv);
+        act.appendChild(menutabtn);
+        pagebtn.innerHTML = "Card";
+      pagebtn.addEventListener('click', () => { 
+          menutabtn.className="tabpage";
+          pagebtn.className="addbtn";
+        var  tabcontent = document.getElementsByClassName("tabpage");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  menutabtn.style.display = "block";
+        
+   
+      });
+      clsbtn.addEventListener('click', () => { 
+      
+      addtabbtn.parentNode.removeChild(document.getElementById("pgtn"+iks));
+      menutabtn.remove();
+      var  tabcontent = document.getElementsByClassName("tabpage");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  
+      mainpage.style.display = "block";
+       
+      
+      });
+     var btnid= document.getElementById(btun);
+     addtabbtn.appendChild(pagebtn);
+      addtabbtn.appendChild(clsbtn);
+      btnid.parentNode.replaceChild(addtabbtn, btnid);
+      
+            
+		});
+    //
+    cfol.addEventListener("click", function () {
+      var addtabbtn = document.createElement("div");
+        var clsbtn = document.createElement("button");
+        var iks=tabc++;
+        clsbtn.className="clsbtn";
+       
+      var pagebtn = document.createElement("button");
+        var menutabtn = document.createElement("div");
+        
+        menutabtn.className="tabpage";
+        addtabbtn.className="pgbtn";
+        addtabbtn.id="pgtn"+iks;
+        
+        pagebtn.className="addbtn";
+      var  tabcontent = document.getElementsByClassName("tabpage");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  menutabtn.style.display = "block";
+        menutabtn.style.position="absolute";
+        var wbv=document.createElement("iframe");
+        
+        menutabtn.style.width="100%";
+        menutabtn.style.height="100%";
+       
+      //  wbv.src="./gridcreate.html?"+folderpath+"";
+      //wbv.src="./webapp/toolbost.html";
+      wbv.src="./copro.html";
+        wbv.style.width="100%";
+        wbv.style.height="100%";
+        menutabtn.appendChild(wbv);
+        act.appendChild(menutabtn);
+        pagebtn.innerHTML = "Copy";
+      pagebtn.addEventListener('click', () => { 
+          menutabtn.className="tabpage";
+          pagebtn.className="addbtn";
+        var  tabcontent = document.getElementsByClassName("tabpage");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  menutabtn.style.display = "block";
+        
+   
+      });
+      clsbtn.addEventListener('click', () => { 
+      
+      addtabbtn.parentNode.removeChild(document.getElementById("pgtn"+iks));
+      menutabtn.remove();
+      var  tabcontent = document.getElementsByClassName("tabpage");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  
+      mainpage.style.display = "block";
+       
+      
+      });
+     var btnid= document.getElementById(btun);
+     addtabbtn.appendChild(pagebtn);
+      addtabbtn.appendChild(clsbtn);
+      btnid.parentNode.replaceChild(addtabbtn, btnid);
+      
+            
+		});
+    //
+    pview.addEventListener("click", function () {
+      var addtabbtn = document.createElement("div");
+        var clsbtn = document.createElement("button");
+        var iks=tabc++;
+        clsbtn.className="clsbtn";
+       
+      var pagebtn = document.createElement("button");
+        var menutabtn = document.createElement("div");
+        
+        menutabtn.className="tabpage";
+        addtabbtn.className="pgbtn";
+        addtabbtn.id="pgtn"+iks;
+        
+        pagebtn.className="addbtn";
+      var  tabcontent = document.getElementsByClassName("tabpage");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  menutabtn.style.display = "block";
+        menutabtn.style.position="absolute";
+        var wbv=document.createElement("iframe");
+        
+        menutabtn.style.width="100%";
+        menutabtn.style.height="100%";
+       
+        wbv.src="./pageview.html?"+folderpath+"";
+        wbv.style.width="100%";
+        wbv.style.height="100%";
+        menutabtn.appendChild(wbv);
+        act.appendChild(menutabtn);
+        pagebtn.innerHTML = "CustPage";
+      pagebtn.addEventListener('click', () => { 
+          menutabtn.className="tabpage";
+          pagebtn.className="addbtn";
+        var  tabcontent = document.getElementsByClassName("tabpage");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  menutabtn.style.display = "block";
+        
+   
+      });
+      clsbtn.addEventListener('click', () => { 
+      
+      addtabbtn.parentNode.removeChild(document.getElementById("pgtn"+iks));
+      menutabtn.remove();
+      var  tabcontent = document.getElementsByClassName("tabpage");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+    
+  }
+  
+      mainpage.style.display = "block";
+       
+      
+      });
+     var btnid= document.getElementById(btun);
+     addtabbtn.appendChild(pagebtn);
+      addtabbtn.appendChild(clsbtn);
+      btnid.parentNode.replaceChild(addtabbtn, btnid);
+      
+            
+		});
+    //
+    spage.addEventListener("click", function () {
+      var addtabbtn = document.createElement("div");
+        var clsbtn = document.createElement("button");
+        var iks=tabc++;
+        clsbtn.className="clsbtn";
+       
+      var pagebtn = document.createElement("button");
+        var menutabtn = document.createElement("div");
+        
+        menutabtn.className="tabpage";
+        addtabbtn.className="pgbtn";
+        addtabbtn.id="pgtn"+iks;
+        
+        pagebtn.className="addbtn";
+      var  tabcontent = document.getElementsByClassName("tabpage");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  menutabtn.style.display = "block";
+        menutabtn.style.position="absolute";
+        var wbv=document.createElement("iframe");
+        
+        menutabtn.style.width="100%";
+        menutabtn.style.height="100%";
+       
+        wbv.src="./spageon.html?"+folderpath+"";
+        wbv.style.width="100%";
+        wbv.style.height="100%";
+        menutabtn.appendChild(wbv);
+        act.appendChild(menutabtn);
+        pagebtn.innerHTML = "View";
+      pagebtn.addEventListener('click', () => { 
+          menutabtn.className="tabpage";
+          pagebtn.className="addbtn";
+        var  tabcontent = document.getElementsByClassName("tabpage");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  menutabtn.style.display = "block";
+        
+   
+      });
+      clsbtn.addEventListener('click', () => { 
+      
+      addtabbtn.parentNode.removeChild(document.getElementById("pgtn"+iks));
+      menutabtn.remove();
+      var  tabcontent = document.getElementsByClassName("tabpage");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  
+      mainpage.style.display = "block";
+       
+      
+      });
+     var btnid= document.getElementById(btun);
+     addtabbtn.appendChild(pagebtn);
+      addtabbtn.appendChild(clsbtn);
+      btnid.parentNode.replaceChild(addtabbtn, btnid);
+      
+            
+		});
+    //
+    tbmin.addEventListener("click", function () {
+      var addtabbtn = document.createElement("div");
+        var clsbtn = document.createElement("button");
+        var iks=tabc++;
+        clsbtn.className="clsbtn";
+       
+      var pagebtn = document.createElement("button");
+        var menutabtn = document.createElement("div");
+        
+        menutabtn.className="tabpage";
+        addtabbtn.className="pgbtn";
+        addtabbtn.id="pgtn"+iks;
+        
+        pagebtn.className="addbtn";
+      var  tabcontent = document.getElementsByClassName("tabpage");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  menutabtn.style.display = "block";
+        menutabtn.style.position="absolute";
+        var wbv=document.createElement("iframe");
+        
+        menutabtn.style.width="100%";
+        menutabtn.style.height="100%";
+       
+      //  wbv.src="./gridcreate.html?"+folderpath+"";
+      //wbv.src="./webapp/toolbost.html";
+      wbv.src="./tablespr.html";
+        wbv.style.width="100%";
+        wbv.style.height="100%";
+        menutabtn.appendChild(wbv);
+        act.appendChild(menutabtn);
+        pagebtn.innerHTML = "MinTable";
+      pagebtn.addEventListener('click', () => { 
+          menutabtn.className="tabpage";
+          pagebtn.className="addbtn";
+        var  tabcontent = document.getElementsByClassName("tabpage");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+    
+  }
+  menutabtn.style.display = "block";
+        
+   
+      });
+      clsbtn.addEventListener('click', () => { 
+      
+      addtabbtn.parentNode.removeChild(document.getElementById("pgtn"+iks));
+        menutabtn.remove();
+      var  tabcontent = document.getElementsByClassName("tabpage");
+  for (i = 0; i < tabcontent.length; i++) {
+    
+    tabcontent[i].style.display = "none";
+  }
+  
+      mainpage.style.display = "block";
+       
+      
+      });
+     var btnid= document.getElementById(btun);
+     addtabbtn.appendChild(pagebtn);
+      addtabbtn.appendChild(clsbtn);
+      btnid.parentNode.replaceChild(addtabbtn, btnid);
+      
+            
+		});
+    //
+    graph.addEventListener("click", function () {
+      var addtabbtn = document.createElement("div");
+        var clsbtn = document.createElement("button");
+        var iks=tabc++;
+        clsbtn.className="clsbtn";
+       
+      var pagebtn = document.createElement("button");
+        var menutabtn = document.createElement("div");
+        
+        menutabtn.className="tabpage";
+        addtabbtn.className="pgbtn";
+        addtabbtn.id="pgtn"+iks;
+        
+        pagebtn.className="addbtn";
+      var  tabcontent = document.getElementsByClassName("tabpage");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  menutabtn.style.display = "block";
+        menutabtn.style.position="absolute";
+        var wbv=document.createElement("iframe");
+        
+        menutabtn.style.width="100%";
+        menutabtn.style.height="100%";
+       
+        wbv.src="./chartmaker.html?"+folderpath+"";
+        wbv.style.width="100%";
+        wbv.style.height="100%";
+        menutabtn.appendChild(wbv);
+        act.appendChild(menutabtn);
+        pagebtn.innerHTML = "Graph";
+      pagebtn.addEventListener('click', () => { 
+          menutabtn.className="tabpage";
+          pagebtn.className="addbtn";
+        var  tabcontent = document.getElementsByClassName("tabpage");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  menutabtn.style.display = "block";
+        
+   
+      });
+      clsbtn.addEventListener('click', () => { 
+      
+      addtabbtn.parentNode.removeChild(document.getElementById("pgtn"+iks));
+      menutabtn.remove();
+      var  tabcontent = document.getElementsByClassName("tabpage");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  
+      mainpage.style.display = "block";
+       
+      
+      });
+     var btnid= document.getElementById(btun);
+     addtabbtn.appendChild(pagebtn);
+      addtabbtn.appendChild(clsbtn);
+      btnid.parentNode.replaceChild(addtabbtn, btnid);
+      
+            
+		});
+    //
+    customize.addEventListener("click", function () {
+      var addtabbtn = document.createElement("div");
+        var clsbtn = document.createElement("button");
+        var iks=tabc++;
+        clsbtn.className="clsbtn";
+       
+      var pagebtn = document.createElement("button");
+        var menutabtn = document.createElement("div");
+        
+        menutabtn.className="tabpage";
+        addtabbtn.className="pgbtn";
+        addtabbtn.id="pgtn"+iks;
+        
+        pagebtn.className="addbtn";
+      var  tabcontent = document.getElementsByClassName("tabpage");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  menutabtn.style.display = "block";
+        menutabtn.style.position="absolute";
+        var wbv=document.createElement("iframe");
+        
+        menutabtn.style.width="100%";
+        menutabtn.style.height="100%";
+       
+        wbv.src="./custable.html";
+        wbv.style.width="100%";
+        wbv.style.height="100%";
+        menutabtn.appendChild(wbv);
+        act.appendChild(menutabtn);
+        pagebtn.innerHTML = "Table H&F";
+      pagebtn.addEventListener('click', () => { 
+          menutabtn.className="tabpage";
+          pagebtn.className="addbtn";
+        var  tabcontent = document.getElementsByClassName("tabpage");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  menutabtn.style.display = "block";
+        
+   
+      });
+      clsbtn.addEventListener('click', () => { 
+      
+      addtabbtn.parentNode.removeChild(document.getElementById("pgtn"+iks));
+      menutabtn.remove();
+      var  tabcontent = document.getElementsByClassName("tabpage");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  
+      mainpage.style.display = "block";
+       
+      
+      });
+     var btnid= document.getElementById(btun);
+     addtabbtn.appendChild(pagebtn);
+      addtabbtn.appendChild(clsbtn);
+      btnid.parentNode.replaceChild(addtabbtn, btnid);
+      
+            
+		});
+    //
+
+    tbmas.addEventListener("click", function () {
+      var addtabbtn = document.createElement("div");
+        var clsbtn = document.createElement("button");
+        var iks=tabc++;
+        clsbtn.className="clsbtn";
+       
+      var pagebtn = document.createElement("button");
+        var menutabtn = document.createElement("div");
+        
+        menutabtn.className="tabpage";
+        addtabbtn.className="pgbtn";
+        addtabbtn.id="pgtn"+iks;
+        
+        pagebtn.className="addbtn";
+      var  tabcontent = document.getElementsByClassName("tabpage");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  menutabtn.style.display = "block";
+        menutabtn.style.position="absolute";
+        var wbv=document.createElement("iframe");
+        
+        menutabtn.style.width="100%";
+        menutabtn.style.height="100%";
+       
+
+      wbv.src="./tableminchoon.html";
+        wbv.style.width="100%";
+        wbv.style.height="100%";
+        menutabtn.appendChild(wbv);
+        act.appendChild(menutabtn);
+        pagebtn.innerHTML = "MinView";
+      pagebtn.addEventListener('click', () => { 
+          menutabtn.className="tabpage";
+          pagebtn.className="addbtn";
+        var  tabcontent = document.getElementsByClassName("tabpage");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  menutabtn.style.display = "block";
+        
+   
+      });
+      clsbtn.addEventListener('click', () => { 
+      
+      addtabbtn.parentNode.removeChild(document.getElementById("pgtn"+iks));
+      menutabtn.remove();
+      var  tabcontent = document.getElementsByClassName("tabpage");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  
+      mainpage.style.display = "block";
+       
+      
+      });
+     var btnid= document.getElementById(btun);
+     addtabbtn.appendChild(pagebtn);
+      addtabbtn.appendChild(clsbtn);
+      btnid.parentNode.replaceChild(addtabbtn, btnid);
+      
+            
+		});
+    //
+    mathbut.addEventListener("click", function () {
+			mathpage.style.display = "block";
+      leftpage.style.display = "none";
+     
+            
+		});
+    formbtn.addEventListener("click", function () {
+			mathpage.style.display = "none";
+      leftpage.style.display = "block";
+      
+            
+		});
+    //
+    var thcount="";
+    function ads(){
+
+$.ajax({
+            url: "/mmkl/adsw.json",            
+            type: 'GET',
+cache: false,
+            beforeSend: function(xhr){
+              if (xhr.overrideMimeType)
+              {
+                xhr.overrideMimeType("application/json");
+              }
+            },
+            dataType: 'json',
+            data: null,
+            success:  function(data, textStatus, request) {
+              let slideIndex=0;
+              let slideIndex2=0;
+            
+                 var so =data;
+                 var ar=[];
+                 var ar2=[];
+                 if(so.length!==0){
+                  for(var d=0;d<so.length;d++){
+                    if(so[d]['global']==true ||so[d]['country']==thcount ){
+                      ar.push(so[d]);
+                      
+                    }
+                    if(so[d]['lurl']){
+                      if(so[d]['global']==true ||so[d]['country']==thcount ){
+                      ar2.push(so[d]);
+                      
+                    }
+                    }
+                  }
+                  showSlides();
+                  showSlides2();
+
+function showSlides() {
+if (slideIndex > ar.length-1) {
+  slideIndex = 0;
+
+}   
+sessionStorage.setItem('ad',slideIndex)
+document.getElementById('adsif3').onclick = function(){
+    if (confirm("Open ?")) {
+  var btn = sessionStorage.getItem("ad");
+  window.open(ar[btn]["web"]);
+  }
+}
+
+// prm.src=so[slideIndex]["url"];
+document.getElementById('adsif3').src=ar[slideIndex]["url"];
+
+
+
+slideIndex++;
+
+
+
+
+setTimeout(showSlides, 5000); // Change image every 2 seconds
+}
+function showSlides2() {
+if (slideIndex2 > ar2.length-1) {
+  slideIndex2 = 0;
+
+}   
+sessionStorage.setItem('ad',slideIndex2)
+
+document.getElementById('adsif2').onclick = function(){
+  if (confirm("Open ?")) {
+  var btn = sessionStorage.getItem("ad");
+  window.open(ar2[btn]["web"]);
+  }
+}
+document.getElementById('adsif').onclick = function(){
+  if (confirm("Open ?")) {
+  var btn = sessionStorage.getItem("ad");
+  window.open(ar2[btn]["web"]);
+  }
+}
+// prm.src=so[slideIndex]["url"];
+document.getElementById('adsif').src=ar2[slideIndex2]["lurl"];
+document.getElementById('adsif2').src=ar2[slideIndex2]["lurl"];
+
+
+
+slideIndex2++;
+
+
+
+
+setTimeout(showSlides2, 5000); // Change image every 2 seconds
+}
+                 }
+                 else{
+            }
+               },error: function (request, status, error) {
+            }
+          });  
+}
+var json = JSON.parse(sessionStorage.getItem('datajson'))
+var mcount=0;
+    var rowmath=[];
+    var frfn=[];
+    var svdfrm=[];
+    var ul = document.createElement("ul");
+    ul.className="svfcl";
+dltformula.addEventListener("click", function () {
+      labelmath.innerHTML="";
+      dispmath.innerHTML="";
+      fmname=[];
+      arfn=[];
+      rowmath=[];
+      ncar=[];
+      frfn=[];
+      formula.value="";
+      formulaname.value="";
+      clformula.value="";
+      clformulaname.value="";
+      mcount=0;
+      refr();
+            
+		});
+    clrformula.addEventListener("click", function () {
+      labelmath.innerHTML="";
+      dispmath.innerHTML="";
+      fmname=[];
+      arfn=[];
+      rowmath=[];
+      ncar=[];
+      frfn=[];
+      formula.value="";
+      formulaname.value="";
+      clformula.value="";
+      clformulaname.value="";
+      mcount=0;
+      
+      try {
+        sessionStorage.removeItem('tmathjs');
+} catch(err) {
+ 
+}
+refr();
+            
+		});
+    var ncar=[];
+    addformula.addEventListener("click", function () {
+      if(clformulaname.value.toString()=="new()" || clformula.value.toString()=="new()"){
+        var obfm={};
+        var obfa={};
+      obfm["name"]=formulaname.value.toString();
+     obfm["frm"]=formula.value.toString();
+     ncar.push(obfm);     
+     obfa["title"]=formulaname.value.toString();
+     obfa["frm"]=formula.value.toString();
+    
+     var text = document.createElement("label");
+    text.innerHTML = "- "+formulaname.value+" : "+formula.value +"<br>"; 
+     labelmath.appendChild(text);
+    dispmath.appendChild(labelmath);
+    if (svdfrm.some(e => e['title'] === formulaname.value)) {
+    
+  }
+  else{
+    if(!localStorage.getItem('active')){
+      if(svdfrm.length<=2){
+        svdfrm.push(obfa);
+    sessionStorage.setItem('tmathjson', JSON.stringify(svdfrm));
+    var txtvar = document.createElement("li");  
+// var br = document.createElement("br"); 
+txtvar.innerHTML=formulaname.value.toString()+": "+formula.value.toString();
+txtvar.addEventListener('click', function () {
+var btn=event.target;
+var idx= svdfrm.map(e => e.title).indexOf(btn.innerHTML.substring(0, btn.innerHTML.lastIndexOf(":")));
+
+formulaname.value=svdfrm[idx]["title"];
+if(svdfrm[idx]["name"] && svdfrm[idx]["frmpl"]){
+  
+     clformulaname.value=svdfrm[idx]["name"];
+     clformula.value=svdfrm[idx]["frmpl"];
+    }
+    
+    
+     formula.value=svdfrm[idx]["frm"];
+    
+});
+
+ul.appendChild(txtvar);
+savedformula.appendChild(ul); 
+      }
+      else{
+        alert('Update To Premium To Save Formulas');
+      }}
+      else{
+     svdfrm.push(obfa);
+    sessionStorage.setItem('tmathjson', JSON.stringify(svdfrm));
+ 
+    var txtvar = document.createElement("li");  
+// var br = document.createElement("br"); 
+txtvar.innerHTML=formulaname.value.toString()+": "+formula.value.toString();
+txtvar.addEventListener('click', function () {
+var btn=event.target;
+var idx= svdfrm.map(e => e.title).indexOf(btn.innerHTML.substring(0, btn.innerHTML.lastIndexOf(":")));
+
+formulaname.value=svdfrm[idx]["title"];
+if(svdfrm[idx]["name"] && svdfrm[idx]["frmpl"]){
+  
+     clformulaname.value=svdfrm[idx]["name"];
+     clformula.value=svdfrm[idx]["frmpl"];
+    }
+    
+    
+     formula.value=svdfrm[idx]["frm"];
+});
+
+ul.appendChild(txtvar);
+savedformula.appendChild(ul); 
+   } }
+  
+     formula.value="";
+      formulaname.value="";
+      clformula.value="";
+      clformulaname.value="";
+      obfm={};
+      obfa={};
+      }else if(clformulaname.value.toString()=="" || clformula.value.toString()==""){
+        var obfm={};
+      obfm["title"]=formulaname.value.toString();  
+     obfm["frm"]=formula.value.toString();
+     if (svdfrm.some(e => e['title'] === formulaname.value)) {
+    
+  }
+  else{ 
+    if(!localStorage.getItem('active')){
+      if(svdfrm.length<=2){
+        svdfrm.push(obfm);
+    sessionStorage.setItem('tmathjson', JSON.stringify(svdfrm));
+ 
+    var txtvar = document.createElement("li");  
+// var br = document.createElement("br"); 
+txtvar.innerHTML=formulaname.value.toString()+": "+formula.value.toString();
+txtvar.addEventListener('click', function () {
+var btn=event.target;
+var idx= svdfrm.map(e => e.title).indexOf(btn.innerHTML.substring(0, btn.innerHTML.lastIndexOf(":")));
+
+formulaname.value=svdfrm[idx]["title"];
+if(svdfrm[idx]["name"] && svdfrm[idx]["frmpl"]){
+  
+     clformulaname.value=svdfrm[idx]["name"];
+     clformula.value=svdfrm[idx]["frmpl"];
+    }
+    
+    
+     formula.value=svdfrm[idx]["frm"];
+  
+});
+
+ul.appendChild(txtvar);
+savedformula.appendChild(ul);
+      
+      }
+      else{
+        alert('Update To Premium To Save Formulas');
+      }
+    }
+    else{  
+    svdfrm.push(obfm);
+    sessionStorage.setItem('tmathjson', JSON.stringify(svdfrm));
+  
+    var txtvar = document.createElement("li");  
+// var br = document.createElement("br"); 
+txtvar.innerHTML=formulaname.value.toString()+": "+formula.value.toString();
+txtvar.addEventListener('click', function () {
+var btn=event.target;
+var idx= svdfrm.map(e => e.title).indexOf(btn.innerHTML.substring(0, btn.innerHTML.lastIndexOf(":")));
+
+formulaname.value=svdfrm[idx]["title"];
+if(svdfrm[idx]["name"] && svdfrm[idx]["frmpl"]){
+  
+     clformulaname.value=svdfrm[idx]["name"];
+     clformula.value=svdfrm[idx]["frmpl"];
+    }
+    
+    
+     formula.value=svdfrm[idx]["frm"];
+});
+
+ul.appendChild(txtvar);
+savedformula.appendChild(ul); 
+       } } 
+   
+
+
+    
+   
+      formula.value="";
+      formulaname.value="";
+      clformula.value="";
+      clformulaname.value="";
+      obfm={};
+      }
+      else{
+      var obfm={};
+      obfm["title"]=formulaname.value.toString();
+     obfm["name"]=clformulaname.value.toString();
+     obfm["frmpl"]=clformula.value.toString();
+     obfm["frm"]=formula.value.toString();
+     frfn.push(obfm);
+     
+     var keylist;
+     if(json.length>0){
+      keylist=Object.keys(json[0]);
+     }
+     else{
+      keylist=Object.keys(head[0]);
+     }
+     var cidx=keylist.indexOf(clformula.value.toString());
+     var cidxn=keylist.indexOf(clformulaname.value.toString());
+	for(i=0;i<keylist.length;i++){
+    var hdr= keylist[i];
+    
+    var itm="var cell"+mcount+i+" = row"+mcount+".insertCell("+i+");";
+    
+    arfn.push(itm);
+  }
+
+     var tfrow="var row"+mcount+"= table.insertRow("+mcount+");";
+     var tfcelln='cell'+mcount+cidxn+'.innerHTML = "'+formulaname.value+'";';
+     if(Array.isArray(clformula.value.split("\n"))===true){
+      
+      fmname.push(tfcelln);  
+      var lar=formula.value.split("\n");
+      var clf=clformula.value.split("\n");
+      for(var i=0;i<lar.length;i++){
+        var cidx=keylist.indexOf(clf[i].toString());
+       
+     var tfcell='cell'+mcount+cidx+'.innerHTML = cal(`'+lar[i]+'`);';
+     
+     fmname.push(tfcell);  
+    }
+      
+     }
+     else{
+     var tfcelln='cell'+mcount+cidxn+'.innerHTML = "'+formulaname.value+'";';
+     var tfcell='cell'+mcount+cidx+'.innerHTML = cal(`'+formula.value.toString()+'`);';
+     fmname.push(tfcelln+tfcell);
+    }
+   
+     rowmath.push(tfrow);
+     
+     var text = document.createElement("label");
+    text.innerHTML = formulaname.value+" : "+formula.value +"<br>"; 
+     labelmath.appendChild(text);
+    dispmath.appendChild(labelmath);
+       
+    if (svdfrm.some(e => e['title'] === formulaname.value)) {
+    
+  }
+  else{ 
+    if(!localStorage.getItem('active')){
+      if(svdfrm.length<=2){
+    svdfrm.push(obfm);
+    sessionStorage.setItem('tmathjson', JSON.stringify(svdfrm));
+
+    var txtvar = document.createElement("li");  
+// var br = document.createElement("br"); 
+txtvar.innerHTML=formulaname.value.toString()+": "+formula.value.toString();
+txtvar.addEventListener('click', function () {
+var btn=event.target;
+var idx= svdfrm.map(e => e.title).indexOf(btn.innerHTML.substring(0, btn.innerHTML.lastIndexOf(":")));
+
+formulaname.value=svdfrm[idx]["title"];
+if(svdfrm[idx]["name"] && svdfrm[idx]["frmpl"]){
+  
+     clformulaname.value=svdfrm[idx]["name"];
+     clformula.value=svdfrm[idx]["frmpl"];
+    }
+    
+    
+     formula.value=svdfrm[idx]["frm"];
+    
+});
+
+ul.appendChild(txtvar);
+savedformula.appendChild(ul);
+      }
+      else{
+        alert('Update To Premium To Save Formulas');
+      }
+    } 
+    else{ 
+    svdfrm.push(obfm);
+    sessionStorage.setItem('tmathjson', JSON.stringify(svdfrm));
+
+    var txtvar = document.createElement("li");  
+// var br = document.createElement("br"); 
+txtvar.innerHTML=formulaname.value.toString()+": "+formula.value.toString();
+txtvar.addEventListener('click', function () {
+var btn=event.target;
+var idx= svdfrm.map(e => e.title).indexOf(btn.innerHTML.substring(0, btn.innerHTML.lastIndexOf(":")));
+
+formulaname.value=svdfrm[idx]["title"];
+if(svdfrm[idx]["name"] && svdfrm[idx]["frmpl"]){
+  
+     clformulaname.value=svdfrm[idx]["name"];
+     clformula.value=svdfrm[idx]["frmpl"];
+    }
+    
+    
+     formula.value=svdfrm[idx]["frm"];
+});
+
+ul.appendChild(txtvar);
+savedformula.appendChild(ul); 
+  }
+  }    
+      formula.value="";
+      formulaname.value="";
+      clformula.value="";
+      clformulaname.value="";
+      obfm={};
+    mcount++;
+  }       
+		});
+    var json=[];
+    saveformula.addEventListener("click", function () {
+      json=JSON.parse(sessionStorage.getItem('datajson'));
+      var sl=[];
+			if(ncar.length>0){
+        var top="function nl(){var s=";
+        var btm=";   return s;}"
+       
+        var scd=JSON.parse(sessionStorage.getItem('tncmathjson'));
+var fn = window['nl']; 
+
+if (scd) {  
+var lls=ncar;		              			      
+      sl=scd;
+      
+      if (sl.length == 0){            
+        var ls=[];                   
+          for(var p=0;p<lls.length;p++){
+            sl.push(lls[p]);
+          }
+          sessionStorage.setItem('tncmathjson', JSON.stringify(sl)); 
+          newcl(sl);                            
+        ncar=[];
+        ls=[];
+        lls=[];
+      // }
+      sl=[];
+      }
+      else{
+        sl=scd;
+        var ls=[];                 
+          for(var p=0;p<lls.length;p++){
+            sl.push(lls[p]);
+          }
+          try{
+            sessionStorage.setItem('tncmathjson', JSON.stringify(sl));
+          newcl(sl);
+        }
+        catch(e){
+          
+        }
+         
+          ncar=[];
+        ls=[];
+        lls=[];
+      // }
+      sl=[];                     
+      }
+     
+		
+    
+    
+			
+	}else{
+    try{
+      sessionStorage.setItem('tncmathjson', JSON.stringify(ncar));
+                        newcl(ncar); 
+                        ncar=[];
+        }
+        catch(e){
+          
+        }
+                     
+                       
+             
+                        
+
+
+}
+                    
+    
+      }
+      
+      var topf="function cr_foot(ll,selector){var tfoot=$('<tfoot/>');";
+      var topmath="function cr_foot(ll){var table = document.getElementById('excelDataTable').createTFoot();";
+      var topivomath="function ckf(){var s=";
+     var bottomf="}";
+     var bottompivo=";  return s;}"
+  //  var keylist=Object.keys(head[0]);
+	// for(i=0;i<keylist.length;i++){
+  //   var hdr= keylist[i];
+  //   var itm="var $"+i +"= []"
+  //   var sl="$"+i +".push(ll[i]['"+keylist[i]+"']); ";
+  //   arfn.push(itm);
+  //   frfn.push(sl);
+  // }
+    var fmnamej=fmname.join('');
+    var arfnj=arfn.join("");
+    var rowmathj=rowmath.join("");
+    
+    var formulasave=topmath+rowmathj+arfnj+fmnamej+bottomf+topivomath+JSON.stringify(frfn)+bottompivo;
+    sessionStorage.setItem('tmathjs', formulasave);
+    // fs.copyFileSync("./etc/math.js", "./project/"+folderpath+"/math.js");
+    labelmath.innerHTML="";
+      dispmath.innerHTML="";
+      fmname=[];
+      arfn=[];
+      rowmath=[];
+      obfm={};
+      frfn=[];
+      ncar=[];
+      formula.value="";
+      formulaname.value="";
+      clformula.value="";
+      clformulaname.value="";
+      mcount=0;     
+      refr();
+      
+		});
+    dltobtn.addEventListener("click", function () {
+      var dl=dltob.value;
+      json=JSON.parse(sessionStorage.getItem('datajson'));
+      const pl=dl;
+      for(var i=0;i<json.length;i++){
+  delete json[i][dl];
+  
+}
+
+var scd=sessionStorage.getItem('tncmathjson');
+
+if (scd) {
+  var newArr=[];
+
+data=JSON.parse(scd);
+for(var i=0;i<data.length;i++){
+  
+  if(data[i]['name']!==pl){
+    newArr.push(data[i]);
+    
+    
+  }
+}
+
+sessionStorage.setItem('tncmathjson', JSON.stringify(newArr));
+sessionStorage.setItem('datajson', JSON.stringify(json))
+
+}
+// fs.writeFileSync(filepath, JSON.stringify(json));
+dltob.value="";
+dl="";
+newArr=[];
+
+refr();
+
+    });
+dltsfm.addEventListener("click", function () {
+ var idx= svdfrm.map(e => e.title).indexOf(formulaname.value);
+ $('.svfcl').children().eq(idx).remove();
+ svdfrm=svdfrm.filter(function(el) { return el.title != formulaname.value; })
+  
+    sessionStorage.setItem('tmathjson', JSON.stringify(svdfrm));
+    });  
+    window.onerror = function(error, url, line) {
+    
+};
+        </script>
+    </body></html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<style>
+         html { 
+    height:100%;
+    width: 100%;
+    font-family: sans-serif;
+
+}
+body{
+    height:100%;
+    width: 100%;
+    margin:0;
+    overflow: hidden;
+    
+}
+.mdl{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (min-width: 601px) {
+    #tp{
+    font-weight: bold;
+    font-size: xx-large;
+}
+#vl{
+    font-weight: bold;
+    font-size: xxx-large;
+}
+#exp{
+    font-size: x-large;
+}
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 600px) {
+    #tp{
+    font-weight: bold;
+    font-size: x-large;
+}
+#vl{
+    font-weight: bold;
+    font-size: xx-large;
+}
+#exp{
+    font-size: large;
+}
+}
+@media only screen and (min-width: 768px) {
+    #tp{
+    font-weight: bold;
+    font-size: xx-large;
+}
+#vl{
+    font-weight: bold;
+    font-size: xxx-large;
+}
+#exp{
+    font-size: x-large;
+}
+}
+#refr{
+    margin-left: 5px;
+    font-size: x-large;
+  
+  transform: rotate(-180deg);
+  background-color: transparent;
+  border-style: none;
+}
+#refr:hover{
+    cursor: pointer;
+}
+</style>
+    </head>
+    <body >
+        <div class="mdl"style="height:30%;">
+        <label id="tp">TOP</label>
+        </div>
+        <div class="mdl" style="height:50%; overflow-x: auto;overflow-y: hidden;">
+            <label id="vl">4348394839834</label>
+            
+        </div>
+        <div class="mdl" style="height:10%;">
+            <label id="exp">dsskks</label>
+            
+        </div>
+        <div style="display: flex;justify-content: right;margin-right: 2%;">
+            <label id="lst" style="font-size: small;justify-content: center;display: flex;align-items: center;">dsskks</label>
+            <button id="refr">&#8635;</button>
+        </div>
+<script src="math.js"></script>
+<script src="jquery/jquery.min.js"></script>
+        <script>
+var l=[];
+var mnf=[];
+var cnf=[];
+// const testFolder = sessionStorage.getItem("project");
+// const testFolder = "af";
+var refr=document.getElementById('refr');
+var lst=document.getElementById('lst');
+function timestampToDatetimeInputString(timestamp) {
+    const date = new Date((timestamp + _getTimeZoneOffsetInMs()));
+    // slice(0, 19) includes seconds
+    return date.toISOString().slice(0, 19);
+  }
+  function _getTimeZoneOffsetInMs() {
+    return new Date().getTimezoneOffset() * -60 * 1000;
+  }
+lst.innerHTML="Last Updated :"+timestampToDatetimeInputString(Date.now());
+
+                 mnf=JSON.parse(sessionStorage.getItem('papr.json'));
+                  
+
+                 cnf=JSON.parse(sessionStorage.getItem('savedform.json'));
+        
+                    // if(mnf[i]["mind"]==true){
+                    // var s = document.createElement("script");
+                    // s.type = "text/javascript";
+                    // s.src = "./project/"+testFolder+"/"+mnf[i]["fnm"]+"pvvar.js";
+                    // $("head").append(s);
+                    //     var fn = window['mindata']; 
+                    //     if(typeof fn === 'function') {
+                    //     l=mindata(data);
+                    // }
+                    // }
+                    // else{
+                    //     l=data;
+                    // }
+                    l=JSON.parse(sessionStorage.getItem('datajson'));;
+                 
+            var tp=document.getElementById('tp');
+            var vl=document.getElementById('vl');
+            var exp=document.getElementById('exp');
+            var i=location.search.substring(1);
+          
+            tp.innerHTML=mnf[i]["top"] ;
+            vl.innerHTML=calc(mnf[i]["mdl"]) ;
+            exp.innerHTML=mnf[i]["ep"] ;
+            // document.body.style.backgroundColor=mnf[i]["bgl"];
+            document.body.style.color=mnf[i]["fcl"];
+            document.getElementById('refr').style.color=mnf[i]["bgl"];
+            function calc(nm){
+
+for(var j=0;j<cnf.length;j++){
+    if(nm.includes(cnf[j]["vrb"])){
+        var s=cnf[j]["vrb"];
+        var f=cnf[j]["fm"];
+        var reg = new RegExp(s, "g");
+    nm = nm.replace(reg, f);
+
+    }
+}
+
+var fl= eval(nm);
+
+return fl;
+}
+                  
+       
+                refr.addEventListener('click', function () {
+location.reload();
+                  });
+           
+
+        </script>
+    </body>
+</html>

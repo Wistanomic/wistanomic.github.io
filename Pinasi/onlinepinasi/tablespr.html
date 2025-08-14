@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+<style>
+      html { 
+    height:100%;
+    width: 100%;
+    font-family: sans-serif;
+
+}
+body{
+    height:100%;
+    width: 100%;
+    margin:0;
+    overflow: hidden;
+    
+}
+::-webkit-scrollbar {
+  width: 8px;height:8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background:  #009879; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background:  #05b894; 
+}
+#home{
+  height:100%;
+    width: 100%;
+    display: inline-flex;
+    background-color: #f2efda;
+    overflow: hidden;
+}
+#saveside{
+  width: 30%;
+  height: 100%;
+  padding: 10px;
+  background-color: #f2efda;
+  float: left;
+  display: block;
+  border-right:1px solid #009879 ;
+}
+#divedit{
+    width: 100%;
+  height: 93%;
+  
+  background-color: #f2efda;
+  
+  overflow: overlay;
+  overflow: auto;
+  }
+  #divbtn{
+    width: 100%;
+  height: 5%;
+  
+ 
+  }
+#griddisp{
+  position: static;
+  overflow: overlay;
+  height: 100%;
+  width: 70%;
+  background-color: #f2efda;
+  margin-left: 5px;
+  
+  
+}
+
+#title{
+  margin-top: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #009879; 
+}
+
+#savebtn{
+    margin-top: 0px;
+    margin-left: 10px;
+    padding-bottom: 20px;
+    padding-top: 5px;
+    height: 30px;
+    font-size: 15px;
+    width: 90%;
+    border-radius: 10px;
+    border: 0px solid ;
+    background-color: #009879;
+    color: white;
+    cursor: pointer;
+}
+        #savebtn:hover {
+        background-color: #5e9393;
+        }
+      
+#fragrid{
+  height: 100%;
+width: 100%;
+border:0;
+margin: 0;
+}
+.var{
+  margin: 3px;
+  margin-left: 0;
+}
+.listvar{
+  height: 100px;
+  width: 300px;
+  overflow: overlay;
+}
+.addbtn{
+  width: 80px;
+  height: 25px;
+  margin: 5px;
+  margin-left: 0;
+  font-size: large;
+  border-style: none;
+  background-color: #009879;
+  color: white;
+  border-radius: 50px;
+}
+#flnm{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.ads:hover{
+cursor: pointer;
+}
+</style>
+</head>
+<body>
+  <script src="jquery/jquery.min.js"></script>
+<div id="home">
+<div id="saveside">
+  <div id="divedit">
+    <label>File Name :</label>
+    <br>
+    <input type="text" id="flnm">
+ <br>
+    <label >Variable Name :</label><br>
+    <input type="text" id="mvar" class="var">
+    <br>
+    <label >Data Name :</label><br>
+    <input type="text" id="dvar" class="var"><input type="checkbox" id="rng"><label for="rng">Range</label>
+    <br>
+   
+   
+    
+</div>
+<div id="divbtn">
+<button id="savebtn">Save</button>
+</div>
+</div>
+<div id="griddisp">
+  <iframe src="tabledb.html" style="height: 77%;width: 97%;"></iframe>
+  <img id="adsif" class="ads" style="object-fit: contain;display: none; position: relative; height: 20%; width: 98%;bottom: 25px;margin-top: 30px;"></img>
+</div>
+</div>
+<script>
+  // var fs =require('fs');
+    var folderpath=sessionStorage.getItem("project");
+    //
+  var savebtn = document.getElementById('savebtn');
+  var mvar = document.getElementById('mvar');
+  var dvar = document.getElementById('dvar');
+  var rng = document.getElementById('rng');
+  
+  var adsif= document.getElementById('adsif');
+  var flnm= document.getElementById('flnm');
+  
+var calvar =[];
+var grpvar =[];
+
+
+  document.getElementById("adsif").style.display="block";  
+  ads();    
+
+
+var thcount="";
+function ads(){
+
+$.ajax({
+            url: "/mmkl/adsw.json",
+       type: 'GET',
+cache: false,
+            beforeSend: function(xhr){
+              if (xhr.overrideMimeType)
+              {
+                xhr.overrideMimeType("application/json");
+              }
+            },
+            dataType: 'json',
+            data: null,
+            success:  function(data, textStatus, request) {
+              let slideIndex=0;
+            
+                 var so =data;
+                 var ar=[];
+                 if(so.length!==0){
+                  for(var d=0;d<so.length;d++){
+                    if(so[d]['global']==true ||so[d]['country']==thcount ){
+                      ar.push(so[d]);
+                      
+                    }
+                  }
+                  
+                  showSlides();
+
+function showSlides() {
+if (slideIndex > ar.length-1) {
+  slideIndex = 0;
+
+}   
+sessionStorage.setItem('ad',slideIndex)
+document.getElementById('adsif').onclick = function(){
+    if (confirm("Open ?")) {
+  var btn = sessionStorage.getItem("ad");
+  // window.open(ar[btn]["web"],'popup','width=600,height=600');
+  var url = ar[btn]["web"];
+  window.open(ar[btn]["web"]);
+  }
+}
+
+
+// prm.src=so[slideIndex]["url"];
+document.getElementById('adsif').src=ar[slideIndex]["url"];
+
+
+
+slideIndex++;
+
+
+
+
+setTimeout(showSlides, 5000); // Change image every 2 seconds
+}
+                 }
+                 else{
+            }
+               },error: function (request, status, error) {
+            }
+          });  
+}   
+
+  
+  savebtn.addEventListener('click', function () {
+    
+   
+if(rng.checked==true){
+  var dcm="function mindata(arr){var ay=[];for(var i=0;i<arr.length;i++){var data=arr[i]['"+mvar.value +"']; if("+dvar.value +"){ay.push(arr[i]);}}return ay;}function savemindata(arr,fld){var ay=[];var ay2=[];for(var i=0;i<arr.length;i++){var data=arr[i]['"+mvar.value +"']; if("+dvar.value +"){ay.push(arr[i]);ay2.push(i);}} fs.writeFileSync( fld+'mindata.json', JSON.stringify(ay));fs.writeFileSync( fld+'mindx.json', JSON.stringify(ay2));}function minidx(arr){var ay=[];for(var i=0;i<arr.length;i++){var data=arr[i]['"+mvar.value +"']; if("+dvar.value +"){ay.push(i);}}return ay;}"
+}
+else{
+  var dcm="function mindata(arr){var ay=[];for(var i=0;i<arr.length;i++){if(arr[i]['"+mvar.value +"']=='"+dvar.value +"'){ay.push(arr[i]);}}return ay;}function savemindata(arr,fld){var ay=[];var ay2=[];for(var i=0;i<arr.length;i++){if(arr[i]['"+mvar.value +"']=='"+dvar.value +"'){ay.push(arr[i]);ay2.push(i);}} fs.writeFileSync( fld+'mindata.json', JSON.stringify(ay));fs.writeFileSync( fld+'mindx.json', JSON.stringify(ay2));}function minidx(arr){var ay=[];for(var i=0;i<arr.length;i++){if(arr[i]['"+mvar.value +"']=='"+dvar.value +"'){ay.push(i);}}return ay;}"  
+}
+var tbldbnm='<!DOCTYPE html><html><head><meta charset="utf-8" /><link rel="stylesheet" href="table2.css"><title></title></head><body ><div id="home"><div id="set"  ><button id="refresh" onclick="refresh();" >&#8635;</button><button id="setting"  ><div id="leftchev"></div></button><button id="search" ><div id="rightchev"></div></button><button onclick="dropsett()" class="dropseting" >&#9881;</button><label   id="slid" class="switch"><input id="slid1" type="checkbox"><span id ="slid2"class="slider round"></span></label><input type="text" id="searcttxt" onkeyup="tablesrch();"  ></div><div id="tabdiv" ><div  id="setdrop" class="dropset"><input type="checkbox" id="scrc" name="scrc" value="scrc"><label for="scrc">Scroll Cell</label><br><input type="checkbox" id="cwb" name="cwb" value="cwb"><label for="cwb">Cell Fit</label><br><input type="checkbox" id="revs" name="revs" value="revs"><label for="revs">Reverse</label></div><table id="excelDataTable" class="styled-table" ><tfoot id="tfot"></tfoot></table></div></div><script src="jquery/jquery.min.js"><\/script><script src="tmath.js"><\/script><script src="math.js"><\/script><script >'+dcm+'  var stbl="'+flnm.value+'";<\/script><script src="tmath.js"><\/script><script src="mindata.js"><\/script><\/body><\/html>';
+ 
+
+ var tblstnm='<!DOCTYPE html><html><head><meta charset="utf-8" /><link rel="stylesheet" href="table2.css"><title></title></head><body ><div id="home"><div id="set"  ><button id="refresh" onclick="refresh();" >&#8635;</button><button id="setting"  ><div id="leftchev"></div></button><button id="search" ><div id="rightchev"></div></button><button onclick="dropsett()" class="dropseting" >&#9881;</button><label   id="slid" class="switch"><input id="slid1" type="checkbox"><span id ="slid2"class="slider round"></span></label><input type="text" id="searcttxt" onkeyup="tablesrch();"  ></div><div id="tabdiv" ><div  id="setdrop" class="dropset"><input type="checkbox" id="scrc" name="scrc" value="scrc"><label for="scrc">Scroll Cell</label><br><input type="checkbox" id="cwb" name="cwb" value="cwb"><label for="cwb">Cell Fit</label><br><input type="checkbox" id="revs" name="revs" value="revs"><label for="revs">Reverse</label></div><table id="excelDataTable" class="styled-table" ><tfoot id="tfot"></tfoot></table></div></div><script src="jquery/jquery.min.js"><\/script><script src="tmath.js"><\/script><script src="math.js"><\/script><script >'+dcm+' var stbl="'+flnm.value+'";<\/script><script src="tmath.js"><\/script><script src="mindatast.js"><\/script><\/body><\/html>';
+if(sessionStorage.getItem("minhgljson")){
+        
+            
+            var d=JSON.parse(sessionStorage.getItem("minhgljson"));
+            var dkey=Object.keys(d);
+              for(var s=0;s<dkey.length;s++){
+                if(d[dkey[s]][flnm.value]){
+                  delete d[[dkey[s]]]                  
+                }}
+                sessionStorage.setItem("minhgljson", JSON.stringify(d));
+          }
+  
+
+  sessionStorage.setItem(flnm.value+"ctabjs", dcm);
+  sessionStorage.setItem(flnm.value+"tableminhtml", tbldbnm);
+  // fs.writeFileSync( "./project/"+folderpath+"/"+flnm.value+"tableminst.html", tblstnm);
+
+  // fs.copyFileSync("./etc/mindata.js", "./project/"+folderpath+"/mindata.js");
+  // fs.copyFileSync("./etc/mindatast.js", "./project/"+folderpath+"/mindatast.js");
+  
+  var p=[];
+         
+         if(sessionStorage.getItem('filear')){
+          p =JSON.parse(sessionStorage.getItem('filear'));
+          p.push(flnm.value+"tableminhtml");
+         }
+         else{
+          p.push(flnm.value+"tableminhtml");
+         }
+         sessionStorage.setItem("filear", JSON.stringify(p));
+  sessionStorage.setItem("tabletype", flnm.value+"tableminhtml");
+
+ alert("success");
+ window.location.href = 'tablepageon.html'; 
+
+  });
+ 
+</script>
+</body>
+</html>

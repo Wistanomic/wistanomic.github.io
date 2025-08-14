@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="table2.css">
+    <title></title>
+ 
+</head>
+    
+<body >
+    <div id="home">
+    <div id="set" style="display: none;">
+      <button id="refresh" onclick="refresh();" >&#8635;</button>
+      <button id="setting"  ><div id="leftchev"></div></button>
+      <button id="search" ><div id="rightchev"></div></button>
+      <button onclick="dropsett()" class="dropseting" >&#9881;</button>
+        <label   id="slid" class="switch">
+          <input id="slid1" type="checkbox">
+          <span id ="slid2"class="slider round"></span>
+        </label>
+        <input type="text" id="searcttxt" onkeyup="tablesrch();"  > 
+        
+        </div>
+
+    <div id="tabdiv" >
+      <div id="setdrop" class="dropset" style="display: none;">
+               
+        <input type="checkbox" id="scrc" name="scrc" value="scrc">
+        <label for="scrc">Scroll Cell</label>
+        <br>
+        <input type="checkbox" id="cwb" name="cwb" value="cwb">
+        <label for="cwb">Cell Fit</label>
+        <br>
+        <input type="checkbox" id="revs" name="revs" value="revs">
+        <label for="revs">Reverse</label>
+      </div>
+        <table id="excelDataTable" class="styled-table" >
+          
+  <tfoot id="tfot">
+
+  </tfoot>
+        </table>
+</div>
+</div>
+        <script src="jquery/jquery.min.js"></script>
+        <script src="tmath.js"></script>
+        <script src="math.js"></script>
+        <script src="tncmath.js"></script>
+
+<script>
+       
+       
+       var pagi=document.getElementById('slid1');var nextPage=document.getElementById('search');var prevPage=document.getElementById('setting');var glimit=10;function next(){nextPage.click();}
+       var revs=document.getElementById('revs');
+       var scrolldiv =false;
+       var cfit =false;
+       var idrow=false;
+       var rev=false;
+       var revb=false;
+       var fst=false;
+       var num;
+       var scrc=document.getElementById('scrc');
+       var cwb=document.getElementById('cwb');
+       function prev(){prevPage.click();}
+       function page(){pagi.checked=true;idrow=true;}
+       function scd(){scrolldiv=true;cwb.disabled=true;if(pagi.checked==true){fst=true;}pagi.checked=false;idrow=false; srefc();}
+       function scdnorm(){scrolldiv=false;cwb.disabled=false;if(pagi.checked==true){fst=true;}pagi.checked=false;idrow=false;srefc();}
+       function celfit(){cfit=true;scrc.disabled=true;if(pagi.checked==true){fst=true;}pagi.checked=false;idrow=false;srefc();}
+       function celfitnorm(){cfit=false;scrc.disabled=false;if(pagi.checked==true){fst=true;}pagi.checked=false;idrow=false;srefc();}
+       function dropsett(){
+  document.getElementById("setdrop").classList.toggle("show");
+}
+       function limit(val){glimit= val;}
+       function hidebar(){document.getElementById('set').style.display='none';}
+       function norm(){src();pagi.checked=false;idrow=false;}
+function pagbt(){pagination();pagi.checked=true;idrow=true;}
+function revar(){idrow=false;rev=true;srefc();if(pagi.checked==true){fst=true;}pagi.checked=false;}
+function revnom(){idrow=false;rev=false;if(pagi.checked==true){fst=true;}pagi.checked=false;srefc();}
+           var l =[];
+           var k=[];
+          var foot=true;
+           ru();
+           scrc.addEventListener('change', function() {
+  if(scrc.checked==true){scd();}
+else{scdnorm();}});   
+cwb.addEventListener('change', function() {
+  if(cwb.checked==true){celfit();}
+else{celfitnorm();}});  
+revs.addEventListener('change', function() {
+  if(revs.checked==true){revar();}
+else{revnom();}});   
+  var curPage = 1;
+  
+  function pagination(){
+    idrow=true;
+    const pageSize = glimit;
+$('#excelDataTable').html("");   
+                   k=  l.filter((row, index) => {
+      let start = (curPage-1)*pageSize;
+      let end =curPage*pageSize;
+      if(index >= start && index < end) return true;
+});
+buildHtmlTable(k); 
+    if(fst==true){
+      
+  return
+}else{
+  
+    idrow=true;
+    const pageSize = glimit;
+$('#excelDataTable').html("");   
+                   k=  l.filter((row, index) => {
+      let start = (curPage-1)*pageSize;
+      let end =curPage*pageSize;
+      if(index >= start && index < end) return true;
+});
+buildHtmlTable(k); 
+
+
+nextPage.addEventListener("click", function () { 
+  if((curPage * pageSize) < l.length) curPage++;
+  k=  l.filter((row, index) => {
+      let start = (curPage-1)*pageSize;
+      let end =curPage*pageSize;
+      if(index >= start && index < end) return true;
+});
+
+$('#excelDataTable').html("");
+buildHtmlTable(k); 
+ 
+},false);  
+//
+prevPage.addEventListener("click", function () { 
+  if(curPage > 1) curPage--;
+  k=  l.filter((row, index) => {
+      let start = (curPage-1)*pageSize;
+      let end =curPage*pageSize;
+      if(index >= start && index < end) return true;
+});
+
+$('#excelDataTable').html("");
+buildHtmlTable(k); 
+ 
+},false); 
+//   
+}
+  }
+  //
+  var scp=document.createElement('script');
+ scp.innerHTML=sessionStorage.getItem('tmathjs');
+document.head.appendChild(scp);
+  //
+function ru(){
+                       l=JSON.parse(sessionStorage.getItem('datajson'));
+                       num=l.length;
+                        if (l== "[]" || (typeof l == "object" && l.length == 0)){
+    l = null;
+   
+              
+                  
+                       l=JSON.parse(sessionStorage.getItem('headerjson'));
+            
+             
+                     
+                       foot=false;
+                       
+                       buildHtmlTable(l); 
+             
+  
+          
+                  
+              
+  }
+  if(pagi.checked == true){
+                idrow=true;
+                pagination();
+} 
+else{
+  
+  idrow=false;
+  revs.checked=false;
+  rev=false;
+  $('#excelDataTable').html("");
+  buildHtmlTable(l); 
+}       
+  pagi.addEventListener("change", function () { 
+    if(pagi.checked == true){
+      idrow=true; 
+               pagination();
+} 
+else{
+  fst=true;
+  idrow=false;
+  revs.checked=false;
+  rev=false;
+ $('#excelDataTable').html("");
+ buildHtmlTable(l); 
+}
+  });
+           
+
+ 
+          
+                 
+            }
+            
+// Builds the HTML Table out of myList.
+function buildHtmlTable(ll) {
+ 
+  
+  if(rev==true && revb==false){    
+ ll=ll.reverse();
+  revb=true;
+  // if(idrow==true){
+  //   ll=ll.reverse();
+  // }
+  }
+  if(rev==false && revb==true){
+    ll=ll.reverse();
+    revb=false;
+  }
+ var selector = document.getElementById("excelDataTable");
+  var columns = addAllColumnHeaders(ll, selector);
+ 
+var tbod=$('<tbody/>');
+
+  for (var i = 0; i < ll.length; i++) {
+    var row$ = $('<tr/>');
+    if(scrolldiv==true){
+    for (var colIndex = 0; colIndex < columns.length; colIndex++) {
+      var dr=document.createElement('div');
+      var cellValue = ll[i][columns[colIndex]];
+      if (cellValue == null) cellValue = "";
+      dr.append(cellValue);
+      row$.append($('<td/>').html(dr));
+      
+
+    }
+   
+    $(selector).append(tbod.append(row$));
+    $("table td").css("max-width", "100px");
+  }
+  if(cfit==true){
+    for (var colIndex = 0; colIndex < columns.length; colIndex++) {
+      var dr=document.createElement('div');
+      var cellValue = ll[i][columns[colIndex]];
+      if (cellValue == null) cellValue = "";
+      dr.append(cellValue);
+      row$.append($('<td/>').html(dr));
+      
+
+    }
+   
+    $(selector).append(tbod.append(row$));
+    $("table td").css("word-break", "break-all");
+    $("table td").css("max-width", "100px");
+  }
+  if(cfit==false && scrolldiv==false){
+    for (var colIndex = 0; colIndex < columns.length; colIndex++) {
+      var cellValue = ll[i][columns[colIndex]];
+      if (cellValue == null) cellValue = "";
+      row$.append($('<td/>').html(cellValue));
+    }
+    $(selector).append(tbod.append(row$));
+  }
+    
+
+  }
+
+    if(foot==true){
+    var fn = window['cr_foot']; 
+if(typeof fn === 'function') {
+  cr_foot(ll);
+}
+} 
+  var dd=[];
+  var trs = document.querySelectorAll("tr");
+ 
+  markhgl(ll);
+}
+
+// Adds a header row to the table and returns the set of columns.
+// Need to do union of keys from all records as some records may not contain
+// all records.
+function addAllColumnHeaders(myList, selector) {
+  var columnSet = [];
+  var headerTr$ = $('<tr/>');
+ var theads=$('<thead/>');
+  for (var i = 0; i < myList.length; i++) {
+    var rowHash = myList[i];
+    for (var key in rowHash) {
+      if ($.inArray(key, columnSet) == -1) {
+        columnSet.push(key);
+        headerTr$.append($('<th/>').html(key));
+      }
+    }
+  }
+  $(selector).append(theads.append(headerTr$));
+
+  return columnSet;
+}
+
+
+
+
+function refresh(){
+  cwb.checked =false;scrc.checked =false;
+  
+  
+  if(pagi.checked==true){fst=true;idrow=false;pagi.checked=false;}
+  location.reload(); 
+  revs.checked=false;
+  
+} 
+window.addEventListener("click", function(event) {
+  
+  if (!event.target.matches('.dropseting')) {
+    var dropdowns = document.getElementsByClassName("dropset");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+
+});
+function tablesrch() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("searcttxt");
+  filter = input.value.toUpperCase();
+  if(pagi.checked==true){
+    if(filter==""){
+      pagination();
+    }
+    else{
+src();
+table = document.getElementById("excelDataTable");
+  tr = table.getElementsByTagName("tr");
+ 
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    tds = tr[i].getElementsByTagName("td")
+    var foundInRow = false
+    for(j=0; j<tds.length; j++){
+    if(foundInRow)
+        continue
+    td = tr[i].getElementsByTagName("td")[j];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        foundInRow = true
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }      
+    }
+  }
+    }
+  }
+  else{
+    table = document.getElementById("excelDataTable");
+    tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    tds = tr[i].getElementsByTagName("td")
+    var foundInRow = false
+    for(j=0; j<tds.length; j++){
+    if(foundInRow)
+        continue
+    td = tr[i].getElementsByTagName("td")[j];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        foundInRow = true
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }      
+    }
+  }
+  }
+}  
+function src(){
+  $('#excelDataTable').html("");
+  buildHtmlTable(l); 
+  idrow=false;
+  fst=true;
+}
+function srefc(){
+  $('#excelDataTable').html("");
+  buildHtmlTable(l); 
+}
+function srchout(input) {
+  // Declare variables
+  var  filter, table, tr, td, i, txtValue;
+  
+  filter = input.value.toUpperCase();
+  if(pagi.checked==true){
+    if(filter==""){
+      pagination();
+    }
+    else{
+src();
+table = document.getElementById("excelDataTable");
+tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    tds = tr[i].getElementsByTagName("td")
+    var foundInRow = false
+    for(j=0; j<tds.length; j++){
+    if(foundInRow)
+        continue
+    td = tr[i].getElementsByTagName("td")[j];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        foundInRow = true
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }      
+    }
+  }
+}
+  }
+  else{
+    table = document.getElementById("excelDataTable");
+    tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    tds = tr[i].getElementsByTagName("td")
+    var foundInRow = false
+    for(j=0; j<tds.length; j++){
+    if(foundInRow)
+        continue
+    td = tr[i].getElementsByTagName("td")[j];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        foundInRow = true
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }      
+    }
+  }
+
+  }
+  
+} 
+function hidefoot(){
+        foot=false;
+        
+        
+        
+
+        
+           }
+           function markhgl(ll){
+          var hgl=JSON.parse(sessionStorage.getItem('hgljson'));
+                  if(hgl==null){
+                    
+                  } else{   
+            
+                       obhgl=hgl;
+                       var hjs="";
+                       var horg="";
+                       
+                       var dkey=Object.keys(hgl);
+                       if(rev==true){
+                        
+                        // dkey=dkey.reverse();
+                        for(var s=0;s<dkey.length;s++){
+                   
+                    
+                   hjs=dkey[s];
+                   
+                   var x = document.getElementById("excelDataTable").getElementsByTagName("tbody")[0].getElementsByTagName('tr');
+                   if(idrow==true){     
+                    
+     if(x.length<12){
+      if(num>(curPage)*10 ){
+       if((~~hjs)>Math.abs(num-(curPage)*10) &&(~~hjs)<=Math.abs(num-(curPage-1)*10 )){
+   
+    
+     var ids=ll.indexOf(~~newnum);
+     var newnum= (num-(~~hjs))-((curPage-1)*10);
+   if(newnum<=x.length){
+     
+   x[Math.abs((num-~~hjs)-((curPage-1)*10) )].style.backgroundColor = hgl[hjs] ;
+   
+   }
+   }
+  }
+   if(num<(curPage)*10 ){
+    if((~~hjs)<=Math.abs(num-((curPage-1)*10) ) ){
+      
+      var newnum= (num-(~~hjs))-((curPage-1)*10);
+      if(newnum<=x.length){
+        x[newnum].style.backgroundColor = hgl[hjs] ;
+      }
+    }
+      }
+
+ }
+
+ 
+    }else{
+     var ids=ll.indexOf(~~hjs);
+  
+     x[x.length-~~hjs].style.backgroundColor = hgl[hjs] ; 
+   
+   
+
+    }
+     
+                 
+                 }
+                       }
+                       else{
+                       
+                  for(var s=0;s<dkey.length;s++){
+                   
+                    
+                    hjs=dkey[s];
+                    
+                    var x = document.getElementById("excelDataTable").getElementsByTagName("tbody")[0].getElementsByTagName('tr');
+                    if(idrow==true){      
+      if(x.length<12){
+        if((~~hjs)<=(curPage)*10 &&(~~hjs)>(curPage-1)*10 ){
+      var newnum= (~~hjs)-((curPage-1)*10);
+      var ids=ll.indexOf(~~newnum);
+    
+    if(newnum<=x.length){
+      
+    x[newnum-1].style.backgroundColor = hgl[hjs] ;
+    
+    }
+    }
+    if((curPage)*10<11){
+       var newnum= (~~hjs);
+      var ids=ll.indexOf(~~newnum);
+    
+    if(newnum<=x.length){
+  
+    x[newnum-1].style.backgroundColor = hgl[hjs] ;
+    
+      
+    }
+    
+    }
+  }
+ 
+  
+     }else{
+      var ids=ll.indexOf(~~hjs);
+   
+      x[~~hjs-1].style.backgroundColor = hgl[hjs] ; 
+    
+    
+
+     }
+      
+                  
+                  }
+                }
+              }
+                  
+}
+window.onerror = function(error, url, line) {
+  //alert(error+' URL:'+url+' L:'+line);
+};
+</script>
+
+</body>
+</html>

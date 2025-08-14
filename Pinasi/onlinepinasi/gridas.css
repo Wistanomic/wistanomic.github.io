@@ -1,0 +1,23 @@
+html { height:100%;width: 100%; font-family: sans-serif;}
+body{height:100%;width: 100%;margin:0;}
+.grid-item:hover{ cursor: pointer;}
+iframe{
+    overflow: visible;
+    border-style: none;
+}
+iframe html{
+    overflow: hidden;
+}
+
+@media print {
+ 
+      
+      
+      
+    .grid-container {height:auto; width:fit-content;display: grid;grid-template-columns: repeat(1, 21.6cm);
+        grid-auto-rows: 27.9cm;justify-content: center;padding-top: 0;padding-bottom: 0;gap: 1cm 1cm;} }
+
+        @media only screen and (max-width:319px) {.grid-container {display: grid;grid-template-columns: repeat(auto-fill, calc( 150px / 3));grid-auto-rows: calc( 150px / 3);justify-content: center;padding-top: 10px;padding-bottom: 10px;gap: 13px 13px;}}@media only screen and (min-width : 320px) {.grid-container {display: grid;grid-template-columns: repeat(auto-fill, calc( 150px / 1.5));grid-auto-rows: calc( 150px / 1.5);justify-content: center;padding-top: 10px;padding-bottom: 10px;gap: 13px 13px;}}@media only screen and (min-width : 480px) {.grid-container {display: grid;grid-template-columns: repeat(4, calc( 150px / 1.5));grid-auto-rows: calc( 150px / 1.5);justify-content: center;padding-top: 10px;padding-bottom: 10px;gap: 13px 13px;}}
+        @media only screen and (min-width : 768px) {
+            .grid-container {
+                display: grid;grid-template-columns: repeat(1, 20cm);grid-auto-rows: 20cm;justify-content: center;padding-top: 10px;padding-bottom: 10px;gap: 40px 130px;}}@media only screen and (min-width : 992px) {.grid-container {display: grid;grid-template-columns: repeat(4, calc( 150px));grid-auto-rows: calc( 150px);justify-content: center;padding-top: 10px;padding-bottom: 10px;gap: 20px 20px;}}@media only screen and (min-width : 1200px) {.grid-container {display: grid;grid-template-columns: repeat(1, 20cm);grid-auto-rows: 20cm;justify-content: center;padding-top: 10px;padding-bottom: 10px;gap: 40px 130px;}}.grid-item {background-color: #ffffff;position: relative ;text-align: center;justify-content: center;height: 100%;width: 100%;overflow: visible;}.grid-item img{height: 100%;width: 100%;margin: 0;object-fit: fill;border-radius: 50%;}

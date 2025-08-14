@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <link rel="stylesheet" href="search.css">  
+  </head>
+  <style>
+   html { 
+    height:100%;
+    width: 100%;
+}
+body{
+    height:100%;
+    width: 100%;
+    margin:0;
+    overflow: hidden;
+}
+#homes{
+  width: 100%;
+    height: 100%;
+    position: relative;
+    margin-top: 1%;
+}
+#opt{
+    height: auto;
+    width: 5%;
+    background-color: blanchedalmond;
+    overflow-x: auto;
+}
+#page{
+    height: 100%;
+    width: 100%;
+    background-color: aqua;
+}
+#frame{
+   width: 100%;
+   height: 100%; 
+   border: 0px solid;
+   background-color: rgb(50, 51, 50);
+}
+.btnopt{
+    width: 100px;
+    height: 100%;
+    overflow: hidden;
+}
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  height: auto;
+    width: 5%;
+  border: none;
+  cursor: pointer;
+  min-width: 50px;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+#tdiv{
+  width: 100%;
+height: 89%;
+background-color: rgb(76, 80, 75);
+display: inline-block;
+
+margin-bottom: 2%;
+margin-top: -1%;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 3;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+
+
+
+
+  </style>
+  
+  <body>
+    
+    <div id="homes">
+        <div id="set"  >
+          <button onclick="backward()" class="bckwr" hidden>Back</button>  
+          <button onclick="dropbtn()" class="dropbtn" >Copy</button>
+
+            <button id="refresh" onclick="refr();" style="display: none;">&#8635;</button>
+           
+            <div  style="position: relative; height: 20px; width: 250px;margin-left: 60%;margin-top:0.5%; display: none; ">
+                
+                <button  title="Zoom Out" id="zomm" class="zombtn" style="font-size: medium; margin-right: 2%;border-radius: 60px 0px 0px 60px; height:auto; width:30%;justify-content: center;display: flex;align-items: center;">-</button>
+                <button  title="Normal" id="zomn" class="zombtn" style="height:auto; width:30%;justify-content: center;display: flex;align-items: center;">&#9633;</button>
+            
+                <button  title="Zoom In"id="zomp" class="zombtn" style="font-size: medium; margin-left: 2%;border-radius: 0px 60px 60px 0px;height:auto; width:30%;justify-content: center;display: flex;align-items: center;">+</button>
+                
+              </div>
+            
+            </div>
+    
+        <div id="tdiv" >
+            <div id="myDropdown" class="dropdown-content">
+                <a href="#rtime"id="rtdata" style="display: none;" >Real-Time</a>
+                <a href="#static" id="statdata" style="display: none;">Static</a>
+                <a href="#"  id="ohtml">Page Only</a>
+              </div>
+              <div id="plu"  style="width: 100%; height: 100%; overflow: hidden;z-index: 2;position: relative;">
+              
+            <iframe id="frame" style="width: 100%; height: 100%; position: absolute;transform-origin: left top;"></iframe>
+          
+        </div>
+    </div>
+    </div>
+    <script src="jquery/jquery.min.js"></script>
+    <script src="argrida.js"></script>
+    <script src="argridas.js"></script>
+<script>
+ const testFolder = sessionStorage.getItem("project");
+ 
+// const fs = require('fs');
+// var path = require("path");
+var idx=0;
+var ifrm=document.getElementById('frame');
+var paper=document.getElementById('paper');
+var zomn= document.getElementById('zomn');
+        var zomm= document.getElementById('zomm');
+        var zomp= document.getElementById('zomp');
+var ohtml=document.getElementById('ohtml');
+ // document.getElementById("searcttxt").addEventListener("keyup", myFunction );
+
+var arfile=[];
+var src=sessionStorage.getItem("custype");
+frame.srcdoc=sessionStorage.getItem(src);
+
+var statdata=document.getElementById("statdata");
+var rtdata=document.getElementById("rtdata");
+var uniqu=[];
+var zom=100;
+zomn.addEventListener('click', function() {
+  frame.style.transform='scale(1)';
+  frame.style.height="150%";
+  frame.style.width="150%";
+zom=100;
+
+
+});
+zomm.addEventListener('click', function() {
+  var vl=zom-=10;
+  frame.style.transform='scale('+(vl)/100+')';
+  if((50+(100*((vl)/100)))<=150){
+  frame.style.width=50+(100)+"%";
+ frame.style.height=50+(100)+"%";
+  }
+  else{
+    frame.style.width=50+(100*((vl)/100))+"%";
+  frame.style.height=50+(100*((vl)/100))+"%";
+  }
+ 
+});
+zomp.addEventListener('click', function() {
+  var vl=zom+=10;
+  
+  frame.style.transform='scale('+(vl)/100+')';
+  if((50+(100*((vl)/100)))>=150){
+  frame.style.width=50+(100*((vl)/100))+"%";
+  frame.style.height=50+(100*((vl)/100))+"%";
+}
+ 
+});
+if(sessionStorage.getItem("gridastatus")=="active"){
+  document.getElementById('frame').addEventListener("load", hidebar);
+}
+if(sessionStorage.getItem("gridastatus")=="none"){
+  
+}
+if(sessionStorage.getItem("gridasstatus")=="active"){
+  document.getElementById('frame').addEventListener("load", hidebar);
+}
+if(sessionStorage.getItem("gridasstatus")=="none"){
+  
+}
+function dropbtn() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+function hidebar(){
+  document.getElementById('frame').contentWindow.hide() ;
+}
+function refr(){
+  document.getElementById('frame').contentWindow.refresh() ;
+}
+
+
+const homedir = require('os').homedir();
+if (!fs.existsSync(homedir+"/Pinasi")){
+            fs.mkdirSync(homedir+"/Pinasi");
+
+           }
+           const { promises: fls } = require("fs")
+            async function copyDir(src, dest) {
+    await fls.mkdir(dest, { recursive: true });
+    let entries = await fls.readdir(src, { withFileTypes: true });
+
+    for (let entry of entries) {
+        let srcPath = path.join(src, entry.name);
+        let destPath = path.join(dest, entry.name);
+
+        entry.isDirectory() ?
+            await copyDir(srcPath, destPath) :
+            await fls.copyFile(srcPath, destPath);
+    }
+}
+statdata.addEventListener("click", function () {
+  
+});
+rtdata.addEventListener("click", function () {
+});   
+//fs.readdir(testFolder, (err, files) => {
+  //files.forEach(file => {
+     
+        
+       
+    
+  //});
+ 
+//});
+//
+
+//
+function printPageArea(){
+ 
+            window.print(); 
+}
+function backward(){
+ 
+  history.back();
+}
+ohtml.addEventListener("click", function () {
+  document.getElementById('frame').contentWindow.print();
+});
+function print() {
+ document.getElementById('tdiv').contentWindow.print();
+};
+window.onerror = function(error, url, line) {
+    
+};
+</script>
+  </body></html>

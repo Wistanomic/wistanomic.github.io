@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <link rel="stylesheet" href="search.css">  
+  </head>
+  <style>
+   html { 
+    height:100%;
+    width: 100%;
+}
+body{
+    height:100%;
+    width: 100%;
+    margin:0;
+    overflow: hidden;
+}
+#homes{
+  width: 100%;
+    height: 100%;
+    position: relative;
+    margin-top: 1%;
+}
+#opt{
+    height: auto;
+    width: 5%;
+    background-color: blanchedalmond;
+    overflow-x: auto;
+}
+#page{
+    height: 100%;
+    width: 100%;
+    background-color: aqua;
+}
+#frame{
+   width: 100%;
+   height: 100%; 
+   border: 0px solid;
+   background-color: rgb(30, 255, 0);
+}
+.btnopt{
+    width: 100px;
+    height: 100%;
+    overflow: hidden;
+}
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  height: auto;
+    width: 5%;
+  border: none;
+  cursor: pointer;
+  min-width: 50px;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+.dropseting{
+  width: 5%;
+    height: 100%;
+    background-color: #ccc;
+    margin-top: 0px;
+    border: 0px solid ;
+    align-items: center;
+    margin-left: 5px;
+    border-radius: 5px ;
+    min-width: 40px;
+    display: flex;
+justify-content: center;
+cursor: pointer;
+font-size: larger;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+#tdiv{
+  width: 100%;
+height: 92%;
+background-color: rgb(82, 201, 66);
+display: inline-block;
+
+margin-bottom: 2%;
+margin-top: -1%;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+.dropset
+{
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  margin-left: 20%;
+}
+
+.dropset a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropset a:hover {background-color: #ddd;}
+.show {display: block;}
+
+
+
+
+  </style>
+  
+  <body>
+    
+    <div id="homes">
+        <div id="set"  >
+            <button onclick="dropbtn()" class="dropbtn" >Copy</button>
+
+            <button id="refresh" onclick="refr();" >&#8635;</button>
+            <button id="setting"  ><div id="leftchev"></div></button>
+            <button id="search" ><div id="rightchev"></div></button>
+            <button onclick="dropsett()" class="dropseting" >&#9881;</button>
+            <label   id="slid" class="switch">
+              <input id="slid1" type="checkbox">
+              <span id ="slid2"class="slider round"></span>
+            </label>
+            <input type="text" id="searcttxt"  > 
+            
+            </div>
+    
+        <div id="tdiv" >
+            <div id="myDropdown" class="dropdown-content">               
+                <a href="#"  id="ohtml">Page Only</a>
+              </div>
+              <div id="setdrop" class="dropset">
+              
+                <input type="checkbox" id="scrc" name="scrc" value="scrc">
+                <label for="scrc">Scroll Cell</label>
+                <br>
+                <input type="checkbox" id="cwb" name="cwb" value="cwb">
+                <label for="cwb">Cell Fit</label>
+                <br>
+                <input type="checkbox" id="revs" name="revs" value="revs">
+                <label for="revs">Reverse</label>
+              </div>
+            <iframe id="frame"></iframe>
+     
+    </div>
+    </div>
+    <script src="jquery/jquery.min.js"></script>
+    <script src="artable.js"></script>
+    
+<script>
+ const testFolder = sessionStorage.getItem("project");
+ 
+
+
+var ifrm=document.getElementById('frame');
+
+var ohtml=document.getElementById('ohtml');
+  document.getElementById("searcttxt").addEventListener("keyup", myFunction );
+  var lbtn=document.getElementById('setting');
+  var rbtn=document.getElementById('search');
+  var pagbtn=document.getElementById('slid1');
+  var scrc=document.getElementById('scrc');
+  var cwb=document.getElementById('cwb');
+  var revs=document.getElementById('revs');
+var arfile=[];
+var src=sessionStorage.getItem("tabletype");
+if(src=="tabledb.html"){
+  frame.src=src;  
+}else{
+frame.srcdoc=sessionStorage.getItem(src);
+}
+var uniqu=[];
+document.getElementById('frame').addEventListener("load", hidebar);
+if(sessionStorage.getItem("tablestatus")=="active"){
+  document.getElementById('frame').addEventListener("load", hidebar);
+}
+
+
+function dropbtn() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+function dropsett(){
+  document.getElementById("setdrop").classList.toggle("show");
+}
+function hidebar(){
+  document.getElementById('frame').contentWindow.hidebar() ;
+}
+function scrolldiv(){
+  pagbtn.checked=false;
+  cwb.disabled=true;
+  document.getElementById('frame').contentWindow.scd() ;
+}
+function scrollnorm(){
+  pagbtn.checked=false;
+  cwb.disabled=false;
+  document.getElementById('frame').contentWindow.scdnorm() ;
+}
+function cfit(){
+  pagbtn.checked=false;
+  scrc.disabled=true;
+  document.getElementById('frame').contentWindow.celfit() ;
+}
+function cfitnorm(){
+  pagbtn.checked=false;
+  scrc.disabled=false;
+  document.getElementById('frame').contentWindow.celfitnorm() ;
+}
+
+function refr(){
+  cwb.checked =false;scrc.checked =false;
+  cwb.disabled =false;scrc.disabled =false;
+  document.getElementById('frame').contentWindow.refresh() ;
+  pagbtn.checked=false;
+  revs.checked=false;
+}
+function myFunction() {
+    var val=document.getElementById('searcttxt');
+   
+    document.getElementById('frame').contentWindow.srchout(val);
+    
+}
+function nextp(){
+ document.getElementById('frame').contentWindow.next() ;
+
+}
+function prevp(){
+ document.getElementById('frame').contentWindow.prev() ;
+
+}
+function pag(){
+
+document.getElementById('frame').contentWindow.pagbt();
+}
+function normal(){
+
+document.getElementById('frame').contentWindow.norm();
+}
+function reve(){
+
+document.getElementById('frame').contentWindow.revar();
+}
+function revn(){
+
+document.getElementById('frame').contentWindow.revnom();
+}
+rbtn.addEventListener("click", nextp);
+lbtn.addEventListener("click", prevp);
+pagbtn.addEventListener('change', function() {if(pagbtn.checked == true){pag();} else{normal();}});
+
+scrc.addEventListener('change', function() {
+  if(scrc.checked==true){scrolldiv();}
+else{scrollnorm();}});
+cwb.addEventListener('change', function() {
+  if(cwb.checked==true){cfit();}
+else{cfitnorm();}}); 
+revs.addEventListener('change', function() {
+  if(revs.checked==true){reve();pagbtn.checked=false;}
+else{revn();pagbtn.checked=false;}}); 
+window.addEventListener("click", function(event) {
+  
+  if (!event.target.matches('.dropseting')) {
+    var dropdowns = document.getElementsByClassName("dropset");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+
+});
+
+function printPageArea(){
+ 
+            window.print(); 
+}
+ohtml.addEventListener("click", function () {
+  document.getElementById('frame').contentWindow.print();
+});
+function print() {
+ document.getElementById('tdiv').contentWindow.print();
+};
+window.onerror = function(error, url, line) {
+  
+};
+</script>
+  </body></html>

@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+<style>
+      html { 
+    height:100%;
+    width: 100%;
+    font-family: sans-serif;
+
+}
+body{
+    height:100%;
+    width: 100%;
+    margin:0;
+    overflow: hidden;
+    
+}
+::-webkit-scrollbar {
+  width: 8px;height:8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background:  #009879; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background:  #05b894; 
+}
+#home{
+  height:100%;
+    width: 100%;
+    display: inline-flex;
+    background-color: #f2efda;
+    overflow: hidden;
+}
+#saveside{
+  width: 30%;
+  height: 100%;
+  padding: 10px;
+  background-color: #f2efda;
+  float: left;
+  display: block;
+  border-right:1px solid #009879 ;
+}
+#divedit{
+    width: 100%;
+  height: 93%;
+  
+  background-color: #f2efda;
+  
+  overflow: overlay;
+  overflow: auto;
+  }
+  #divbtn{
+    width: 100%;
+  height: 5%;
+  
+ 
+  }
+#griddisp{
+  position: static;
+  overflow: overlay;
+  height: 100%;
+  width: 70%;
+  background-color: #f2efda;
+  margin-left: 15px;
+  margin-top: 15px;
+  
+}
+.gstyle > input{ /* Menyembunyikan radio button */
+  
+          visibility: hidden; 
+          position: absolute; 
+        }
+        .gstyle > input + img{ /* style gambar */
+          cursor:pointer;
+          border:2px solid black;
+        }
+        .gstyle > input:checked + img{ /* (RADIO CHECKED) style gambar */
+          border:2px solid #009879 ;
+        }
+.opti{
+  margin-bottom: 15px;
+  margin-top: 10px;
+  
+  margin-right: auto;
+  
+  
+}
+.opti > input{ /* Menyembunyikan radio button */
+  
+  visibility: hidden; 
+  position: absolute; 
+ 
+}
+.opti > input + div{ /* style gambar */
+  cursor:pointer;
+  border:2px solid black;
+  width: 100px;
+  height: 20px;
+  text-align: center;
+}
+
+.opti > input:checked + div{ /* (RADIO CHECKED) style gambar */
+  border:2px solid #009879 ;
+   width: 100px;
+  height: 20px;
+  text-align: center;
+}
+.opb > input{ /* Menyembunyikan radio button */
+  
+  visibility: hidden; 
+  position: absolute; 
+ 
+}
+.opb > input + div{ /* style gambar */
+  cursor:pointer;
+  border:2px solid black;
+  width: 170px;
+  height: 20px;
+  text-align: center;
+}
+
+.opb > input:checked + div{ /* (RADIO CHECKED) style gambar */
+  border:2px solid #009879 ;
+   width: 170px;
+  height: 20px;
+  text-align: center;
+}
+.opitm{
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+.opitm > input{ /* Menyembunyikan radio button */
+  
+  visibility: hidden; 
+  position: absolute; 
+ 
+}
+.opitm > input + div{ /* style gambar */
+  cursor:pointer;
+  border:2px solid black;
+  width: 75px;
+  height: 20px;
+  text-align: center;
+}
+
+.opitm > input:checked + div{ /* (RADIO CHECKED) style gambar */
+  border:2px solid #009879 ;
+   width: 75px;
+  height: 20px;
+  text-align: center;
+}
+.mod{
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+.mod > input{ /* Menyembunyikan radio button */
+  
+  visibility: hidden; 
+  position: absolute; 
+ 
+}
+.mod > input + div{ /* style gambar */
+  cursor:pointer;
+  border:2px solid black;
+  width: 100px;
+  height: 20px;
+  text-align: center;
+}
+
+.mod > input:checked + div{ /* (RADIO CHECKED) style gambar */
+  border:2px solid #009879 ;
+   width: 100px;
+  height: 20px;
+  text-align: center;
+}
+#title{
+  margin-top: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #009879; 
+}
+#bgcolor{
+  
+  margin-bottom: 15px;
+}
+#nm{
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+#cl1{
+  height: 100px;
+  width: 100%;
+  margin-bottom: 20px;
+  overflow: scroll;
+  background-color: #e3e0cb;
+}
+#cl1l{
+  height: 100%;
+  width: 40%;
+  float: left;
+  
+}
+#cl1r{
+  height: 100%;
+  width: 60%;
+  float: right;
+ 
+}
+#cl2{
+
+  width: 100%;
+  overflow: overlay;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#savebtn{
+    margin-top: 0px;
+    margin-left: 10px;
+    padding-bottom: 20px;
+    padding-top: 5px;
+    height: 30px;
+    font-size: 15px;
+    width: 90%;
+    border-radius: 10px;
+    border: 0px solid ;
+    background-color: #009879;
+    color: white;
+    cursor: pointer;
+}
+        #savebtn:hover {
+        background-color: #5e9393;
+        }
+        #preview{
+  width: 98%;
+background-color: #555;
+height: 90%;
+overflow: hidden;
+position: relative;
+justify-content: center;
+display: flex;
+align-items: center;
+}
+#fragrid{
+  height: 100%;
+width: 100%;
+border:0;
+margin: 0;
+}
+.zombtn{
+  border-style: none;
+background-color: #009879;
+color: white;
+
+}
+.zombtn:hover{
+ 
+background-color: #5e9393;
+
+}
+#flnm{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+</style>
+</head>
+<body>
+
+<div id="home">
+<div id="saveside">
+  <div id="divedit">
+    <label>File Name :</label>
+    <br>
+    <input type="text" id="flnm">
+ <br>
+    <label >Item Size :</label><br>
+    <select id="pgsz" name="pgsz" style="width: 200px; margin-bottom: 15px; margin-top: 10px;">
+      <option value="None" selected>None</option>
+      <option value="legal landscape"  selected>Legal 'Landscape'</option>
+    <option value="legal">Legal 'Portrait'</option>
+    <option value="letter landscape">Letter 'Landscape'</option>
+    <option value="letter">Letter 'Portrait'</option>
+    <option value="tabloid landscape">Tabloid 'Landscape'</option>
+    <option value="tabloid">Tabloid 'Portrait'</option>
+    <option value="a0 landscape">A0 'Landscape'</option>
+    <option value="a0">A0 'Portrait'</option>
+    <option value="a1 landscape">A1 'Landscape'</option>
+    <option value="a1">A1 'Portrait'</option>
+    <option value="a2 landscape">A2 'Landscape'</option>
+    <option value="a2">A2 'Portrait'</option>
+    <option value="a3 landscape">A3 'Landscape'</option>
+    <option value="a3">A3 'Portrait'</option>
+    <option value="a4 landscape">A4 'Landscape'</option>
+    <option value="a4">A4 'Portrait'</option>
+    <option value="a5 landscape">A5 'Landscape'</option>
+    <option value="a5">A5 'Portrait'</option>
+    <option value="rfid landscape">RFID Card 'Landscape'</option>
+    <option value="rfid">RFID Card 'Portrait'</option>
+    </select><br>
+    <input type="checkbox" id="cusz" name="cusz" value="cusz" style="margin-bottom: 15px;">
+    <label for="cusz"> Custom Item Size</label><br>
+    <label id="tz">Item Size :</label><br>
+    <div style="display:inline-flex ; width: 350px; margin-bottom: 15px; margin-top: 10px;" >
+      <input type="number" placeholder="Height" id="hsize" style="width: 150px;" disabled>
+      <input type="number" placeholder="Width" id="wsize" style="width: 150px;" disabled>
+      <small style="margin-left: 5px;">(cm)</small>
+      </div>
+    
+    <br>
+
+<div id="cl2" style="overflow-x: hidden;">
+  <label >Background :</label><br>
+  <div style="display: inline-flex; margin-top: 10px; overflow-x: hidden;">
+    <div id="cl2l">
+  <label class="opb" >
+    <input type="radio" id="opbgc" name="opb" class ="opb" value="color" checked >
+    <div width="100px" height="30px" >Color</div>
+</label>
+<input type="color" id="bgcolor" value="#ffffff" style="margin-top:0px; width:100%;">
+</div>
+<div id="cl2r">
+<label class="opb" >
+  <input type="radio" id="opbgp" name="opb" class ="opb" value="picture" >
+  <div width="100px" height="30px" >Picture</div>
+</label>
+<input type="file" id="bgpic" disabled>
+</div>
+</div>
+<br> 
+</div>
+
+
+<label id="tz">Gap Size :</label><br>
+<div style="display:inline-flex ; width: 350px; margin-bottom: 15px; margin-top: 10px;" >
+  <input type="number" placeholder="Height" id="ghsize" style="width: 150px;" >
+  <input type="number" placeholder="Width" id="gwsize" style="width: 150px;" >
+  <small style="margin-left: 5px;">(cm)</small>
+  </div>
+
+<br>
+
+<label>Item/Row :</label><br>
+<input type="number" placeholder="1" id="nm" style="border: 1px solid #009879; "><br>
+
+<label>Border-color :</label><br>
+  <input type="color"id="bdcolor" style="margin-bottom: 15px;"><br>
+<input type="checkbox" id="border" name="border" value="border">
+<label for="border"> Border</label>
+
+<input type="checkbox" id="reverse" name="reverse" value="reverse">
+<label for="reverse"> Reverse</label>
+<input type="checkbox" id="ctrl" name="ctrl" value="ctrl">
+<label for="ctrl"> Control Panel</label> 
+<br>
+<input type="checkbox" id="ftp" name="ftp" value="ftp">
+<label for="ftp"> Fit To Page (Print)</label>
+</div>
+<div id="divbtn">
+<button id="savebtn" title="Download Desktop Version" disabled>Save</button>
+</div>
+</div>
+<div id="griddisp">
+    <div id="preview" >
+      <iframe id="fragrid" name="fragrid"></iframe>
+</div>
+<div  style="position: relative; height: 20px; width: 250px;margin-left: 40%; display: flex; ">
+<button title="Zoom Out" id="zomm" class="zombtn" style="font-size: medium; margin-right: 2%;border-radius: 60px 0px 0px 60px; height:auto; width:30%;justify-content: center;display: flex;align-items: center;">-</button>
+    <button title="Normal" id="zomn" class="zombtn" style="height:auto; width:30%;justify-content: center;display: flex;align-items: center;">&#9633;</button>
+
+    <button title="Zoom In"id="zomp" class="zombtn" style="font-size: medium; margin-left: 2%;border-radius: 0px 60px 60px 0px;height:auto; width:30%;justify-content: center;display: flex;align-items: center;">+</button>
+    <button title="Preview" id="prev" class="zombtn" style="height:auto; width:30%;justify-content: center;display: flex;align-items: center; margin-left: 5px;">Print</button>
+   </div> 
+</div>
+<script>
+  //  var fs =require('fs');
+   var folderpath=sessionStorage.getItem("project");
+    //
+   
+    //
+var savebtn=document.getElementById("savebtn");
+
+var zomn= document.getElementById('zomn');
+        var zomm= document.getElementById('zomm');
+        var zomp= document.getElementById('zomp');
+        var prev= document.getElementById('prev');
+
+var optxt=document.getElementById("optxt");
+var opimg=document.getElementById("opimg");
+var bgcolor=document.getElementById("bgcolor");
+var itmcolor=document.getElementById("itmcolor");
+var bdcolor=document.getElementById("bdcolor");
+var nm=document.getElementById("nm");
+var opsmall=document.getElementById("opsmall");
+var opmed=document.getElementById("opmed");
+var opbig=document.getElementById("opbig");
+var opcust=document.getElementById("opcust");
+var hsize= document.getElementById("hsize");
+var wsize=  document.getElementById("wsize");
+var fncolor=document.getElementById("fncolor");
+var fbgcolor=document.getElementById("fbgcolor");
+var grd=document.getElementById("grd");
+var lst=document.getElementById("lst");
+var flb=document.getElementById("flb");
+var opbgc=document.getElementById("opbgc");
+var opbgp=document.getElementById("opbgp");
+var bgpic=document.getElementById("bgpic");
+var border=document.getElementById("border");
+var shadow=document.getElementById("shadow");
+var ctrl=document.getElementById("ctrl");
+var ftp=document.getElementById("ftp");
+var reverse=document.getElementById("reverse");
+var fragrid=document.getElementById("fragrid");
+var pgsz=document.getElementById("pgsz");
+var cusz=document.getElementById("cusz");
+var flnm = document.getElementById('flnm');
+var arname=[];
+//
+const filef = document.querySelector('#bgpic');
+//
+
+
+var sthead2=""
+var csshead="";
+var total="";
+var fpath="";
+var fpname="";
+var cssbody="";
+var opb=document.getElementsByName('opb');
+var opitm=document.getElementsByName('opitm');
+nm.value=4;
+ghsize.value=1;
+gwsize.value=1;
+if(window.navigator.onLine==false){
+  if(!localStorage.getItem('active')){
+      document.getElementById("flnm").disabled=true;
+      document.getElementById("flnm").title="UPDATE TO PREMIUM : to access offline";
+  }
+}
+
+for (var i = 0; i < opb.length; i++) {
+    opb[i].addEventListener('change', function() {
+if(opbgp.checked == true){
+bgcolor.disabled=true;
+bgpic.disabled=false;
+}
+if(opbgc.checked == true){
+  bgcolor.disabled=false;
+bgpic.disabled=true;
+}
+    })};
+ 
+  
+    for (var i = 0; i < opitm.length; i++) {
+    opitm[i].addEventListener('change', function() {
+if(this.value=="cust"){
+  document.getElementById("hsize").disabled=false;
+  document.getElementById("wsize").disabled=false;
+
+}
+else{
+  document.getElementById("hsize").disabled=true;
+  document.getElementById("wsize").disabled=true;
+}
+    })}
+    //
+filef.addEventListener("change", function(evt) {
+        // When we reach this point, it means the user has selected a file,
+        // so invoke readKeys().
+        // this.value contains the path to the selected file
+        // fpath=this.value;
+        // fpname=fpath.split('\\').pop().split('/').pop();
+        const file_reader = new FileReader();
+  file_reader.addEventListener("load", () => {
+    const uploaded_image = file_reader.result;
+    var dif=document.getElementById('fragrid').contentWindow.document.getElementById("bgimg").style.backgroundImage = `url(${uploaded_image})`;
+    // var dif=document.getElementById('fragrid').contentWindow.document.getElementsByClassName("difr");
+    for(var i=0;i<dif.length;i++){
+    dif[i].style.backgroundImage = `url(${uploaded_image})`;
+  }
+  });
+  file_reader.readAsDataURL(this.files[0]);
+    }, false); 
+  
+            
+            ////
+
+
+            hsize.addEventListener ('keyup', function() {
+
+  document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridAutoRows=this.value+"cm";
+});
+wsize.addEventListener ('keyup', function() {
+ 
+  document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridTemplateColumns="repeat("+nm.value+","+this.value+"cm)";
+});
+ghsize.addEventListener ('keyup', function() {
+      
+  document.getElementById('fragrid').contentWindow.document.getElementById('grid').style.gridRowGap=this.value+"cm";
+});
+gwsize.addEventListener ('keyup', function() {
+      
+  document.getElementById('fragrid').contentWindow.document.getElementById('grid').style.gridColumnGap=this.value+"cm";
+     });
+     nm.addEventListener ('keyup', function() {
+      
+  document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridTemplateColumns="repeat("+this.value+","+wsize.value+"cm)";
+});
+hsize.addEventListener ('change', function() {
+  
+  document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridAutoRows=this.value+"cm";
+});
+wsize.addEventListener ('change', function() {
+ 
+  document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridTemplateColumns="repeat("+nm.value+","+this.value+"cm)";
+});
+ghsize.addEventListener ('change', function() {
+      
+  document.getElementById('fragrid').contentWindow.document.getElementById('grid').style.gridRowGap=this.value+"cm";
+});
+gwsize.addEventListener ('change', function() {
+      
+  document.getElementById('fragrid').contentWindow.document.getElementById('grid').style.gridColumnGap=this.value+"cm";
+     });
+     nm.addEventListener ('change', function() {
+      
+  document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridTemplateColumns="repeat("+this.value+","+wsize.value+"cm)";
+});
+bgcolor.addEventListener ('change', function() {
+      
+  document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.backgroundColor=this.value;
+    });
+    bdcolor.addEventListener ('change', function() {
+      
+      var  elmnt = document.getElementById('fragrid').contentWindow.document.getElementsByClassName("grid-item");
+  for (i = 0; i < elmnt.length; i++) {
+    elmnt[i].style.borderColor= this.value;
+    
+  }
+        });
+        border.addEventListener ('change', function() {
+          if(border.checked == true){
+            var  elmnt = document.getElementById('fragrid').contentWindow.document.getElementsByClassName("grid-item");
+  for (i = 0; i < elmnt.length; i++) {
+    elmnt[i].style.borderWidth= "1px";
+    elmnt[i].style.borderStyle= "solid";
+  }
+         }
+         else{
+          var  elmnt = document.getElementById('fragrid').contentWindow.document.getElementsByClassName("grid-item");
+  for (i = 0; i < elmnt.length; i++) {
+   
+    elmnt[i].style.borderStyle= "none";
+  }
+         }  });
+        reverse.addEventListener ('change', function() {
+      
+      document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.borderColor=this.value;
+        });
+        ctrl.addEventListener ('change', function() {
+         if(ctrl.checked == true){
+      document.getElementById('fragrid').contentWindow.document.getElementById("set").style.display="inline-flex";
+         }
+         else{
+          document.getElementById('fragrid').contentWindow.document.getElementById("set").style.display="none";
+         }    
+    });
+    pgsz.addEventListener('change', function() {
+    var ddid=sessionStorage.getItem('elsel');
+    if(this.value=="None"){
+alert("No Item Size");
+    }
+    if(this.value=="legal"){
+      document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridAutoRows="35.6cm";
+      document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridTemplateColumns="repeat("+nm.value+", 21.6cm)";
+  hsize.value=35.6;
+  wsize.value=21.6;
+     
+    }
+    if(this.value=="letter"){
+      document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridAutoRows="27.9cm";
+      document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridTemplateColumns="repeat("+nm.value+", 21.6cm)";
+  hsize.value=27.9;
+  wsize.value=21.6;
+    }
+    if(this.value=="tabloid"){
+      document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridAutoRows="43.2cm";
+      document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridTemplateColumns="repeat("+nm.value+", 27.9cm)";
+  hsize.value=43.2;
+  wsize.value=27.9;
+    }
+     if(this.value=="a0"){
+      document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridAutoRows="118.9cm";
+      document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridTemplateColumns="repeat("+nm.value+", 84.1cm)";
+  hsize.value=118.9;
+  wsize.value=84.1;
+    }
+    if(this.value=="a1"){
+      document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridAutoRows="84.1cm";
+      document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridTemplateColumns="repeat("+nm.value+", 59.4cm)";
+      hsize.value=84.1;
+  wsize.value=59.4;
+    }
+    if(this.value=="a2"){
+      document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridAutoRows="59.4cm";
+      document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridTemplateColumns="repeat("+nm.value+", 42.0cm)";
+  hsize.value=59.4;
+  wsize.value=42.0;
+    }
+     if(this.value=="a3"){
+      document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridAutoRows="42.0cm";
+      document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridTemplateColumns="repeat("+nm.value+", 29.7cm)";
+  hsize.value=42.0;
+  wsize.value=29.7;
+    }
+    if(this.value=="a4"){
+      document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridAutoRows="29.7cm";
+      document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridTemplateColumns="repeat("+nm.value+", 21cm)";
+      wsize.value=21;
+  hsize.value=29.7;
+    }
+    if(this.value=="a5"){
+      document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridAutoRows="21cm";
+      document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridTemplateColumns="repeat("+nm.value+", 14.8cm)";
+  hsize.value=21.0;
+  wsize.value=14.8;
+    }
+    if(this.value=="rfid"){
+    document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridAutoRows="8.5cm";
+      document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridTemplateColumns="repeat("+nm.value+", 5.4cm)";
+  hsize.value=8.5;
+  wsize.value=5.4;
+    }
+    if(this.value=="legal landscape"){
+     
+      document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridAutoRows="21.6cm";
+      document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridTemplateColumns="repeat("+nm.value+", 35.6cm)";
+  wsize.value=35.6;
+  hsize.value=21.6;
+   
+ }
+ if(this.value=="letter landscape"){
+  document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridAutoRows="21.6cm";
+      document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridTemplateColumns="repeat("+nm.value+", 27.9cm)";
+  wsize.value=27.9;
+  hsize.value=21.6;
+ 
+ }
+ if(this.value=="tabloid landscape"){
+  document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridAutoRows="27.9cm";
+      document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridTemplateColumns="repeat("+nm.value+", 43.2cm)";
+  wsize.value=43.2;
+  hsize.value=27.9;
+
+   
+ }
+  if(this.value=="a0 landscape"){
+    document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridAutoRows="84.1cm";
+      document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridTemplateColumns="repeat("+nm.value+", 118.9cm)";
+  wsize.value=118.9;
+  hsize.value=84.1;
+     
+ }
+ if(this.value=="a1 landscape"){
+  document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridAutoRows="59.4cm";
+      document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridTemplateColumns="repeat("+nm.value+", 84.1cm)";
+  wsize.value=84.1;
+  hsize.value=59.4;
+   
+ }
+ if(this.value=="a2 landscape"){
+  document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridAutoRows="42.0cm";
+      document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridTemplateColumns="repeat("+nm.value+", 59.4cm)";
+  wsize.value=59.4;
+  hsize.value=42.0;
+   
+ }
+  if(this.value=="a3 landscape"){
+    document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridAutoRows="29.7cm";
+      document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridTemplateColumns="repeat("+nm.value+", 42.0cm)";
+  wsize.value=42.0;
+  hsize.value=29.7;
+   
+ }
+ if(this.value=="a4 landscape"){
+  document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridAutoRows="21cm";
+      document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridTemplateColumns="repeat("+nm.value+", 29.7cm)";
+  wsize.value=29.7;
+  hsize.value=21;
+
+ }
+ if(this.value=="a5 landscape"){
+  document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridAutoRows="14.8cm";
+      document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridTemplateColumns="repeat("+nm.value+", 21cm)";
+  wsize.value=21.0;
+  hsize.value=14.8;
+   
+ }
+ if(this.value=="rfid landscape"){
+  document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridAutoRows="5.4cm";
+      document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.gridTemplateColumns="repeat("+nm.value+", 8.5cm)";
+  wsize.value=8.5;
+  hsize.value=5.4; 
+ }
+
+  });
+  cusz.addEventListener ('change', function() {
+      
+     if(cusz.checked==true){
+      wsize.disabled=false;
+      hsize.disabled=false;
+      pgsz.disabled=true;
+      
+     }
+     else{
+      wsize.disabled=true;
+      hsize.disabled=true;
+      pgsz.disabled=false;
+      
+     }
+        });
+     fragrid.src="gridasmaster.html";
+    /////
+    flnm.addEventListener('keyup', function() {
+             prevname();
+            });
+            ///
+            function prevname() {
+    var val=document.getElementById('flnm');
+    document.getElementById('fragrid').contentWindow.finm(val.value);
+
+  }
+     
+            ////
+
+            var zom=100;
+zomn.addEventListener('click', function() {
+  document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.transformOrigin= "left top";
+  document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.transform='scale(1)';
+  document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.height="100%";
+  document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.width="100%";
+zom=100;
+
+});
+zomm.addEventListener('click', function() {
+  var vl=zom-=10;
+  document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.transformOrigin= "left top";
+  document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.transform='scale('+(vl)/100+')';
+  document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.width=50+(100*((vl)/100))+"%";
+  document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.height=50+(100*((vl)/100))+"%";
+
+});
+zomp.addEventListener('click', function() {
+  var vl=zom+=10;
+  document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.transformOrigin= "left top";
+  document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.transform='scale('+(vl)/100+')';
+  document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.width=50+(100*((vl)/100))+"%";
+  document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.height=50+(100*((vl)/100))+"%";
+
+ 
+});
+//
+prev.addEventListener("click", function () {
+  document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.transformOrigin= "left top";
+  document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.transform='scale(1)';
+  document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.height="100%";
+  document.getElementById('fragrid').contentWindow.document.getElementById("grid").style.width="100%";
+zom=100;
+  var prv=document.getElementById('fragrid').contentWindow;
+  //document.getElementById('fragrid').contentWindow.Printdiv();
+  //var stp=document.getElementById('fragrid').contentWindow.document.getElementsByTagName('style')[0];
+  //console.log(stp);
+  PrintElem2(prv);
+ //document.getElementById('fragrid').contentWindow.focus();
+ //document.getElementById("fragrid").contentWindow.print();
+});
+function PrintElem2(elem)
+   {
+       var mywindow = window.open('', 'PRINT','height=400,width=600');
+   mywindow.document.write(elem.document.getElementsByTagName('html')[0].innerHTML);
+   if(ftp.checked==true){
+   mywindow.document.write("<style> @media print { #grid{display:block;} .grid-item{height:"+hsize.value +"cm;width:"+ wsize.value+"cm;}</style>");
+   }
+   var actContents = mywindow.document.getElementById('grid').innerHTML;
+  // mywindow.document.body.innerHTML = actContents;  
+   const myTimeout = setTimeout(myGreeting, 5000);
+
+function myGreeting() {
+  var actContents = mywindow.document.getElementById('grid').innerHTML;
+  if (confirm("Print ?")) {
+ 
+      
+  mywindow.focus();
+    mywindow.print();  
+               mywindow.document.body.style.margin=0;
+                
+                              
+                myStopFunction();  
+              }
+}
+
+function myStopFunction() {
+  clearTimeout(myTimeout);
+}
+       mywindow.document.close(); // necessary for IE >= 10
+       mywindow.focus(); // necessary for IE >= 10*/
+   
+      // mywindow.print();
+      //mywindow.close();
+   
+       return true;
+   }
+function PrintElem(elem){var mywindow = window.open('', 'PRINT', 'height=400,width=600');mywindow.document.write(elem.document.getElementsByTagName('html')[0].innerHTML);
+mywindow.document.write(`<style> 
+  html{
+    overflow:hidden;
+    margin:0;
+  }
+  body{
+    margin:0;
+overflow:hidden;
+  }
+  iframe{
+    overflow:hidden;
+  }
+  @media print {
+    html{
+      margin:0;
+    }
+  body {
+    margin:0;
+  
+  }
+ 
+  .grid-item{
+    overflow:hidden;
+    margin:0;
+    
+  }
+
+}</style>`);
+mywindow.document.write(`<button onclick=" var actContents = document.getElementById('grid').innerHTML;
+   var lld=document.body.innerHTML;
+   
+               document.body.innerHTML = actContents;      
+             
+              const myTimeout = setTimeout(myGreeting, 5000);
+
+function myGreeting() {
+      
+    window.focus();
+               window.print();  
+                document.body.style.margin=0;
+                
+                document.body.innerHTML = lld;                
+                myStopFunction();  
+}
+
+function myStopFunction() {
+  clearTimeout(myTimeout);
+}
+              
+            
+               
+                 
+            " style="z-index: 2; position: absolute; top:0;">Print</button>`);
+mywindow.document.close(); mywindow.focus(); return true;}
+//
+
+savebtn.addEventListener("click", function () {
+  
+  //
+var sthead,shead,msthead,mshead;
+
+
+      if(ftp.checked==true){
+        sthead='<!DOCTYPE html><html><head> <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"><style>@media print {html{margin:0;padding-top: 0;height: 100%;width: 100%;overflow: visible;position: relative;}body {margin: 0;padding-top: 0;padding-bottom: 0;display: block;position: relative;overflow: visible;}@page {margin: 0;}.grid-item{overflow:hidden !important;;margin:0 !important;width: '+wsize.value+'cm !important;height: '+hsize.value+'cm !important;position: relative !important;}#grid{margin: 0;position: relative;display: block;}.difr{overflow:hidden;margin:0;page-break-after: always;page-break-inside: avoid;display: block;margin-bottom: 1px;position: relative;}#tabdiv{margin: 0;overflow: visible !important;position: relative;}#lay{margin: 0;position: relative;}#home{margin: 0;position: relative;}br{display: none;}}</style><link rel="stylesheet" href="'+flnm.value+'gridas/gridas.css"><link rel="stylesheet" href="search.css"></head><body><div id="bgimg"  style="position: fixed;height: 100%;width: 100%;"></div><div id="home"><div id="set" style="display: none;"  ><button id="refresh" onclick="refresh();" >&#8635;</button><button id="setting"  ><div id="leftchev"></div></button><button id="search" ><div id="rightchev"></div></button><label   id="slid" class="switch"><input id="slid1" type="checkbox"><span id ="slid2"class="slider round"></span></label><input type="text" id="searcttxt" onkeyup="srch();"  ></div><br><div id="tabdiv" ><div id="lay"><div class="grid-container" id="grid" style="margin-bottom: 3%;"><link rel="stylesheet" href="'+flnm.value+'gridas/gridas.css"><script src="jquery/jquery.min.js"><\/script><script src="'+flnm.value+'gridas/gridas.js"><\/script><script src="'+flnm.value+'gridas/grid.js"><\/script><script src="fr.js"><\/script><script src="ls.js"><\/script></div></div></div></div><script >sessionStorage.setItem("gridasstatus", "none");';
+    
+     shead='<!DOCTYPE html><html><head> <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"><style>@media print {html{margin:0;padding-top: 0;height: 100%;width: 100%;overflow: visible;position: relative;}body {margin: 0;padding-top: 0;padding-bottom: 0;display: block;position: relative;overflow: visible;}@page {margin: 0;}.grid-item{overflow:hidden !important;;margin:0 !important;width: '+wsize.value+'cm !important;height: '+hsize.value+'cm !important;position: relative !important;}#set{display:none;}#grid{margin: 0;position: relative;display: block;}.difr{overflow:hidden;margin:0;page-break-after: always;page-break-inside: avoid;display: block;margin-bottom: 1px;position: relative;}#tabdiv{margin: 0;overflow: visible !important;position: relative;}#lay{margin: 0;position: relative;}#home{margin: 0;position: relative;}br{display: none;}}</style><link rel="stylesheet" href="'+flnm.value+'gridas/gridas.css"><link rel="stylesheet" href="search.css"></head><body><div id="bgimg"  style="position: fixed;height: 100%;width: 100%;"></div><div id="home"><div id="set"   ><button id="refresh" onclick="refresh();" >&#8635;</button><button id="setting"  ><div id="leftchev"></div></button><button id="search" ><div id="rightchev"></div></button><label   id="slid" class="switch"><input id="slid1" type="checkbox"><span id ="slid2"class="slider round"></span></label><input type="text" id="searcttxt" onkeyup="srch();"  ></div><br><div id="tabdiv" ><div id="lay"><div class="grid-container" id="grid" style="margin-bottom: 3%;"><link rel="stylesheet" href="'+flnm.value+'gridas/gridas.css"><script src="jquery/jquery.min.js"><\/script><script src="'+flnm.value+'gridas/gridas.js"><\/script><script src="'+flnm.value+'gridas/grid.js"><\/script><script src="fr.js"><\/script><script src="ls.js"><\/script></div></div></div></div><script >sessionStorage.setItem("gridasstatus", "active");';
+  
+
+     msthead='<!DOCTYPE html><html><head> <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"><style>@media print {html{margin:0;padding-top: 0;height: 100%;width: 100%;overflow: visible;position: relative;}body {margin: 0;padding-top: 0;padding-bottom: 0;display: block;position: relative;overflow: visible;}@page {margin: 0;}.grid-item{overflow:hidden !important;;margin:0 !important;width: '+wsize.value+'cm !important;height: '+hsize.value+'cm !important;position: relative !important;}#grid{margin: 0;position: relative;display: block;}.difr{overflow:hidden;margin:0;page-break-after: always;page-break-inside: avoid;display: block;margin-bottom: 1px;position: relative;}#tabdiv{margin: 0;overflow: visible !important;position: relative;}#lay{margin: 0;position: relative;}#home{margin: 0;position: relative;}br{display: none;}}</style><link rel="stylesheet" href="'+flnm.value+'gridas/gridas.css"><link rel="stylesheet" href="search.css"></head><body><div id="bgimg"  style="position: fixed;height: 100%;width: 100%;"></div><div id="home"><div id="set" style="display: none;"  ><button id="refresh" onclick="refresh();" >&#8635;</button><button id="setting"  ><div id="leftchev"></div></button><button id="search" ><div id="rightchev"></div></button><label   id="slid" class="switch"><input id="slid1" type="checkbox"><span id ="slid2"class="slider round"></span></label><input type="text" id="searcttxt" onkeyup="srch();"  ></div><br><div id="tabdiv" ><div id="lay"><div class="grid-container" id="grid" style="margin-bottom: 3%;"><link rel="stylesheet" href="'+flnm.value+'gridas/gridas.css"><script src="jquery/jquery.min.js"><\/script><script src="'+flnm.value+'gridas/gridasmaster.js"><\/script><script src="'+flnm.value+'gridas/grid.js"><\/script><script src="fr.js"><\/script><script src="ls.js"><\/script></div></div></div></div><script >sessionStorage.setItem("gridasstatus", "none");';
+  
+     mshead='<!DOCTYPE html><html><head> <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"><style>@media print {html{margin:0;padding-top: 0;height: 100%;width: 100%;overflow: visible;position: relative;}body {margin: 0;padding-top: 0;padding-bottom: 0;display: block;position: relative;overflow: visible;}@page {margin: 0;}.grid-item{overflow:hidden !important;;margin:0 !important;width: '+wsize.value+'cm !important;height: '+hsize.value+'cm !important;position: relative !important;}#set{display:none;}#grid{margin: 0;position: relative;display: block;}.difr{overflow:hidden;margin:0;page-break-after: always;page-break-inside: avoid;display: block;margin-bottom: 1px;position: relative;}#tabdiv{margin: 0;overflow: visible !important;position: relative;}#lay{margin: 0;position: relative;}#home{margin: 0;position: relative;}br{display: none;}}</style><link rel="stylesheet" href="'+flnm.value+'gridas/gridas.css"><link rel="stylesheet" href="search.css"></head><body><div id="bgimg"  style="position: fixed;height: 100%;width: 100%;"></div><div id="home"><div id="set"   ><button id="refresh" onclick="refresh();" >&#8635;</button><button id="setting"  ><div id="leftchev"></div></button><button id="search" ><div id="rightchev"></div></button><label   id="slid" class="switch"><input id="slid1" type="checkbox"><span id ="slid2"class="slider round"></span></label><input type="text" id="searcttxt" onkeyup="srch();"  ></div><br><div id="tabdiv" ><div id="lay"><div class="grid-container" id="grid" style="margin-bottom: 3%;"><link rel="stylesheet" href="'+flnm.value+'gridas/gridas.css"><script src="jquery/jquery.min.js"><\/script><script src="'+flnm.value+'gridas/gridasmaster.js"><\/script><script src="'+flnm.value+'gridas/grid.js"><\/script><script src="fr.js"><\/script><script src="ls.js"><\/script></div></div></div></div><script >sessionStorage.setItem("gridasstatus", "active");';
+  
+  }
+  else{
+   sthead='<!DOCTYPE html><html><head> <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"><style>@media print {html{margin:0;padding-top: 0;height: 100%;width: 100%;overflow: visible;position: relative;}body {margin: 0;padding-top: 0;padding-bottom: 0;display: block;position: relative;overflow: visible;}@page {margin: 0;}.grid-item{overflow:hidden !important;;margin:0 !important;width: '+wsize.value+'cm !important;height: '+hsize.value+'cm !important;position: relative !important;}#grid{margin: 0;position: relative;}.difr{overflow:hidden;margin:0;page-break-after: always;page-break-inside: avoid;display: block;margin-bottom: 1px;position: relative;}#tabdiv{margin: 0;overflow: visible !important;position: relative;}#lay{margin: 0;position: relative;}#home{margin: 0;position: relative;}br{display: none;}}</style><link rel="stylesheet" href="'+flnm.value+'gridas/gridas.css"><link rel="stylesheet" href="search.css"></head><body><div id="bgimg"  style="position: fixed;height: 100%;width: 100%;"></div><div id="home"><div id="set" style="display: none;"  ><button id="refresh" onclick="refresh();" >&#8635;</button><button id="setting"  ><div id="leftchev"></div></button><button id="search" ><div id="rightchev"></div></button><label   id="slid" class="switch"><input id="slid1" type="checkbox"><span id ="slid2"class="slider round"></span></label><input type="text" id="searcttxt" onkeyup="srch();"  ></div><br><div id="tabdiv" ><div id="lay"><div class="grid-container" id="grid" style="margin-bottom: 3%;"><link rel="stylesheet" href="'+flnm.value+'gridas/gridas.css"><script src="jquery/jquery.min.js"><\/script><script src="'+flnm.value+'gridas/gridas.js"><\/script><script src="'+flnm.value+'gridas/grid.js"><\/script><script src="fr.js"><\/script><script src="ls.js"><\/script></div></div></div></div><script >sessionStorage.setItem("gridasstatus", "none");';
+  msthead='<!DOCTYPE html><html><head> <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"><style>@media print {html{margin:0;padding-top: 0;height: 100%;width: 100%;overflow: visible;position: relative;}body {margin: 0;padding-top: 0;padding-bottom: 0;display: block;position: relative;overflow: visible;}@page {margin: 0;}.grid-item{overflow:hidden !important;;margin:0 !important;width: '+wsize.value+'cm !important;height: '+hsize.value+'cm !important;position: relative !important;}#grid{margin: 0;position: relative;}.difr{overflow:hidden;margin:0;page-break-after: always;page-break-inside: avoid;display: block;margin-bottom: 1px;position: relative;}#tabdiv{margin: 0;overflow: visible !important;position: relative;}#lay{margin: 0;position: relative;}#home{margin: 0;position: relative;}br{display: none;}}</style><link rel="stylesheet" href="'+flnm.value+'gridas/gridas.css"><link rel="stylesheet" href="search.css"></head><body><div id="bgimg"  style="position: fixed;height: 100%;width: 100%;"></div><div id="home"><div id="set" style="display: none;"  ><button id="refresh" onclick="refresh();" >&#8635;</button><button id="setting"  ><div id="leftchev"></div></button><button id="search" ><div id="rightchev"></div></button><label   id="slid" class="switch"><input id="slid1" type="checkbox"><span id ="slid2"class="slider round"></span></label><input type="text" id="searcttxt" onkeyup="srch();"  ></div><br><div id="tabdiv" ><div id="lay"><div class="grid-container" id="grid" style="margin-bottom: 3%;"><link rel="stylesheet" href="'+flnm.value+'gridas/gridas.css"><script src="jquery/jquery.min.js"><\/script><script src="'+flnm.value+'gridas/gridasmaster.js"><\/script><script src="'+flnm.value+'gridas/grid.js"><\/script><script src="fr.js"><\/script><script src="ls.js"><\/script></div></div></div></div><script >sessionStorage.setItem("gridasstatus", "none");';
+      shead='<!DOCTYPE html><html><head> <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"><style>@media print {html{margin:0;padding-top: 0;height: 100%;width: 100%;overflow: visible;position: relative;}body {margin: 0;padding-top: 0;padding-bottom: 0;display: block;position: relative;overflow: visible;}@page {margin: 0;}.grid-item{overflow:hidden !important;;margin:0 !important;width: '+wsize.value+'cm !important;height: '+hsize.value+'cm !important;position: relative !important;}#set{display:none;}#grid{margin: 0;position: relative;}.difr{overflow:hidden;margin:0;page-break-after: always;page-break-inside: avoid;display: block;margin-bottom: 1px;position: relative;}#tabdiv{margin: 0;overflow: visible !important;position: relative;}#lay{margin: 0;position: relative;}#home{margin: 0;position: relative;}br{display: none;}}</style><link rel="stylesheet" href="'+flnm.value+'gridas/gridas.css"><link rel="stylesheet" href="search.css"></head><body><div id="bgimg"  style="position: fixed;height: 100%;width: 100%;"></div><div id="home"><div id="set"   ><button id="refresh" onclick="refresh();" >&#8635;</button><button id="setting"  ><div id="leftchev"></div></button><button id="search" ><div id="rightchev"></div></button><label   id="slid" class="switch"><input id="slid1" type="checkbox"><span id ="slid2"class="slider round"></span></label><input type="text" id="searcttxt" onkeyup="srch();"  ></div><br><div id="tabdiv" ><div id="lay"><div class="grid-container" id="grid" style="margin-bottom: 3%;"><link rel="stylesheet" href="'+flnm.value+'gridas/gridas.css"><script src="jquery/jquery.min.js"><\/script><script src="'+flnm.value+'gridas/gridas.js"><\/script><script src="'+flnm.value+'gridas/grid.js"><\/script><script src="fr.js"><\/script><script src="ls.js"><\/script></div></div></div></div><script >sessionStorage.setItem("gridasstatus", "active");';
+        mshead='<!DOCTYPE html><html><head> <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"><style>@media print {html{margin:0;padding-top: 0;height: 100%;width: 100%;overflow: visible;position: relative;}body {margin: 0;padding-top: 0;padding-bottom: 0;display: block;position: relative;overflow: visible;}@page {margin: 0;}.grid-item{overflow:hidden !important;;margin:0 !important;width: '+wsize.value+'cm !important;height: '+hsize.value+'cm !important;position: relative !important;}#set{display:none;}#grid{margin: 0;position: relative;}.difr{overflow:hidden;margin:0;page-break-after: always;page-break-inside: avoid;display: block;margin-bottom: 1px;position: relative;}#tabdiv{margin: 0;overflow: visible !important;position: relative;}#lay{margin: 0;position: relative;}#home{margin: 0;position: relative;}br{display: none;}}</style><link rel="stylesheet" href="'+flnm.value+'gridas/gridas.css"><link rel="stylesheet" href="search.css"></head><body><div id="bgimg"  style="position: fixed;height: 100%;width: 100%;"></div><div id="home"><div id="set"   ><button id="refresh" onclick="refresh();" >&#8635;</button><button id="setting"  ><div id="leftchev"></div></button><button id="search" ><div id="rightchev"></div></button><label   id="slid" class="switch"><input id="slid1" type="checkbox"><span id ="slid2"class="slider round"></span></label><input type="text" id="searcttxt" onkeyup="srch();"  ></div><br><div id="tabdiv" ><div id="lay"><div class="grid-container" id="grid" style="margin-bottom: 3%;"><link rel="stylesheet" href="'+flnm.value+'gridas/gridas.css"><script src="jquery/jquery.min.js"><\/script><script src="'+flnm.value+'gridas/gridasmaster.js"><\/script><script src="'+flnm.value+'gridas/grid.js"><\/script><script src="fr.js"><\/script><script src="ls.js"><\/script></div></div></div></div><script >sessionStorage.setItem("gridasstatus", "active");';
+        }
+  
+var stfootm="function PrintElem2(){var actContents = document.getElementById('lay').innerHTML;var lld=document.body.innerHTML;document.body.innerHTML = actContents;document.body.style.margin=0;const myTimeout = setTimeout(myGreeting, 5000);function myGreeting() {if (confirm('Print ?')) {window.focus();window.print();myStopFunction();}}function myStopFunction() {clearTimeout(myTimeout);document.body.innerHTML = lld;}window.document.close(); window.focus();return true;}<\/script></body></html>";
+  var stfoot="function PrintElem2(){var actContents = document.getElementById('lay').innerHTML;var lld=document.body.innerHTML;document.body.innerHTML = actContents;document.body.style.margin=0;const myTimeout = setTimeout(myGreeting, 5000);function myGreeting() {if (confirm('Print ?')) {window.focus();window.print();myStopFunction();}}function myStopFunction() {clearTimeout(myTimeout);document.body.innerHTML = lld;}window.document.close(); window.focus();return true;}<\/script></body></html>";
+  var gridasjs=`window.addEventListener('load', function() {var queryString = location.search.substring(1);$.ajax({url: "gridasfile.json",type: 'GET',cache: false,beforeSend: function(xhr){if (xhr.overrideMimeType){xhr.overrideMimeType("application/json");}},dataType: 'json',data: null,success:  function(data, textStatus, request) {l=data; var k=[];const pageSize = glimit||10;var curPage = 1; if(pagi.checked == true){pagination();} else{$('#grid').html(""); grid(l,"`+flnm.value+`");}}});  });function pagination(){var k=[];const pageSize = glimit||10;var curPage = 1; $('#grid').html("");   k=  l.filter((row, index) => {let start = (curPage-1)*pageSize;let end =curPage*pageSize;if(index >= start && index < end) return true;});grid(k);nextPage.addEventListener("click", function () { if((curPage * pageSize) < l.length) curPage++;k=  l.filter((row, index) => {let start = (curPage-1)*pageSize;let end =curPage*pageSize;if(index >= start && index < end) return true;});$('#grid').html(""); grid(k);},false);  prevPage.addEventListener("click", function () { if(curPage > 1) curPage--;k=  l.filter((row, index) => {let start = (curPage-1)*pageSize;let end =curPage*pageSize;if(index >= start && index < end) return true;});$('#grid').html(""); grid(k);},false); } function src() {$('#grid').html(""); grid(l,"`+flnm.value+`");}` ;
+var gridasjsreverse=`window.addEventListener('load', function() {var queryString = location.search.substring(1);$.ajax({url: "gridasfile.json",type: 'GET',cache: false,beforeSend: function(xhr){if (xhr.overrideMimeType){xhr.overrideMimeType("application/json");}},dataType: 'json',data: null,success:  function(data, textStatus, request) {l=data; var k=[];const pageSize = glimit||10;var curPage = 1; if(pagi.checked == true){pagination();} else{$('#grid').html(""); grid(l,"`+flnm.value+`","reverse");}}});  });function pagination(){var k=[];const pageSize = glimit||10;var curPage = 1; $('#grid').html("");   k=  l.filter((row, index) => {let start = (curPage-1)*pageSize;let end =curPage*pageSize;if(index >= start && index < end) return true;});grid(k,"reverse");nextPage.addEventListener("click", function () { if((curPage * pageSize) < l.length) curPage++;k=  l.filter((row, index) => {let start = (curPage-1)*pageSize;let end =curPage*pageSize;if(index >= start && index < end) return true;});$('#grid').html(""); grid(k,"reverse");},false);  prevPage.addEventListener("click", function () { if(curPage > 1) curPage--;k=  l.filter((row, index) => {let start = (curPage-1)*pageSize;let end =curPage*pageSize;if(index >= start && index < end) return true;});$('#grid').html(""); grid(k,"reverse");},false); } function src() {$('#grid').html(""); grid(l,"`+flnm.value+`","reverse");}` ;
+var gridasjsm=`window.addEventListener('load', function() {var queryString = location.search.substring(1);$.ajax({url: "http://localhost:3000/dta",type: 'GET',cache: false,beforeSend: function(xhr){if (xhr.overrideMimeType){xhr.overrideMimeType("application/json");}},dataType: 'json',data: null,success:  function(data, textStatus, request) {l=data; var k=[];const pageSize = glimit||10;var curPage = 1; if(pagi.checked == true){pagination();} else{$('#grid').html(""); grid(l,"`+flnm.value+`");}}});  });function pagination(){var k=[];const pageSize = glimit||10;var curPage = 1; $('#grid').html("");   k=  l.filter((row, index) => {let start = (curPage-1)*pageSize;let end =curPage*pageSize;if(index >= start && index < end) return true;});grid(k);nextPage.addEventListener("click", function () { if((curPage * pageSize) < l.length) curPage++;k=  l.filter((row, index) => {let start = (curPage-1)*pageSize;let end =curPage*pageSize;if(index >= start && index < end) return true;});$('#grid').html(""); grid(k);},false);  prevPage.addEventListener("click", function () { if(curPage > 1) curPage--;k=  l.filter((row, index) => {let start = (curPage-1)*pageSize;let end =curPage*pageSize;if(index >= start && index < end) return true;});$('#grid').html(""); grid(k);},false); } function src() {$('#grid').html(""); grid(l,"`+flnm.value+`");}` ;
+var gridasjsreversem=`window.addEventListener('load', function() {var queryString = location.search.substring(1);$.ajax({url: "http://localhost:3000/dta",type: 'GET',cache: false,beforeSend: function(xhr){if (xhr.overrideMimeType){xhr.overrideMimeType("application/json");}},dataType: 'json',data: null,success:  function(data, textStatus, request) {l=data; var k=[];const pageSize = glimit||10;var curPage = 1; if(pagi.checked == true){pagination();} else{$('#grid').html(""); grid(l,"`+flnm.value+`","reverse");}}});  });function pagination(){var k=[];const pageSize = glimit||10;var curPage = 1; $('#grid').html("");   k=  l.filter((row, index) => {let start = (curPage-1)*pageSize;let end =curPage*pageSize;if(index >= start && index < end) return true;});grid(k,"reverse");nextPage.addEventListener("click", function () { if((curPage * pageSize) < l.length) curPage++;k=  l.filter((row, index) => {let start = (curPage-1)*pageSize;let end =curPage*pageSize;if(index >= start && index < end) return true;});$('#grid').html(""); grid(k,"reverse");},false);  prevPage.addEventListener("click", function () { if(curPage > 1) curPage--;k=  l.filter((row, index) => {let start = (curPage-1)*pageSize;let end =curPage*pageSize;if(index >= start && index < end) return true;});$('#grid').html(""); grid(k,"reverse");},false); } function src() {$('#grid').html(""); grid(l,"`+flnm.value+`","reverse");}` ;
+
+
+// if (!fs.existsSync("./project/"+folderpath+"/"+flnm.value+"gridas")){
+//             fs.mkdirSync("./project/"+folderpath+"/"+flnm.value+"gridas");
+
+//            } 
+//            fs.copyFileSync("./etc/grid.js", "./project/"+folderpath+"/"+flnm.value+"gridas/grid.js"); 
+          
+var final="";
+   
+    var final2="";
+    var mfinal="";
+   
+   var mfinal2="";
+   var p320="";
+ var p480="";
+ var p768="";
+ var p992 ="";
+ var u320="";
+ 
+    var numb = wsize.value.match(/\d/g);
+numb = numb.join("");
+
+      u320 = "auto-fill";
+    
+  if(nm.value * (numb / 1.5)>=  320){
+      p320 = "auto-fill";
+    }
+    else{
+      p320=nm.value;
+    }
+    if(nm.value * (numb / 1.5) >=  480){
+      var p480 = "auto-fill";
+    }
+    else{
+      p480=nm.value;
+    }
+    if(nm.value * numb >=  768){
+      var p768 = "auto-fill";
+    }
+    else{
+      p768=nm.value;
+    }
+    if(nm.value * numb >=  992){
+      var p992 = "auto-fill";
+    }
+    else{
+      p992=nm.value;
+    }
+  
+    //fs.copyFileSync("./etc/grid.js", "./project/"+folderpath+"/"+flnm.value+"gridas/grid.js");
+    if(reverse.checked == true){
+     
+// final=sthead+gridasjsreversem+stfoot;
+// final2=shead+stfoot;
+mfinal=msthead+gridasjsreversem+stfootm;
+mfinal2=mshead+gridasjsreversem+stfootm;
+// sessionStorage.setItem(flnm.value+"gridas/gridas.js", gridasjsreverse);
+// sessionStorage.setItem(flnm.value+"gridas/gridasmaster.js", gridasjsreversem);
+}
+else{
+ 
+// final=sthead+stfoot;
+// final2=shead+stfoot;
+mfinal=msthead+gridasjsm+stfootm;
+mfinal2=mshead+gridasjsm+stfootm;
+// sessionStorage.setItem(flnm.value+"gridas/gridas.js", gridasjs);
+// sessionStorage.setItem(flnm.value+"gridas/gridasmaster.js", gridasjsm);
+  
+}
+  if(opbgp.checked == true){
+  csshead="html { height:100%;width: 100%; font-family: sans-serif;}body{height:100%;width: 100%;margin:0;background-image: url('./"+flnm.value+"pinimg/"+fpname+"');background-size: cover;background-repeat: no-repeat;background-attachment: fixed;}.grid-item:hover{  cursor: pointer;}";
+  }
+   if(opbgc.checked == true){
+  csshead="html { height:100%;width: 100%; font-family: sans-serif;}body{height:100%;width: 100%;margin:0;background-color:"+ bgcolor.value+";}.grid-item:hover{ cursor: pointer;}";
+  }
+  //
+ 
+  
+ 
+    cssbody="@media print {.grid-container {margin: 0;height:auto; width:fit-content;display: grid;grid-template-columns: repeat("+p768+", calc( "+wsize.value+"cm));grid-auto-rows: calc( "+hsize.value+"cm);justify-content: center;padding-top: 0;padding-bottom: 0;gap: "+ghsize.value+"cm "+gwsize.value+"cm;} }@media only screen and (max-width:319px) {.grid-container {display: grid;grid-template-columns: repeat("+u320+", calc( "+wsize.value+"cm / 3));grid-auto-rows: calc( "+hsize.value+"cm / 3);justify-content: center;padding-top: 10px;padding-bottom: 10px; gap: "+ghsize.value/3+"cm "+gwsize.value/3+"cm;}}@media only screen and (min-width : 320px) {.grid-container {display: grid;grid-template-columns: repeat("+p320+", calc( "+wsize.value+"cm / 1.5));grid-auto-rows: calc( "+hsize.value+"cm / 1.5);justify-content: center;padding-top: 10px;padding-bottom: 10px;gap: "+ghsize.value/1.5+"cm "+gwsize.value/1.5+"cm;}}@media only screen and (min-width : 480px) {.grid-container {display: grid;grid-template-columns: repeat("+p480+", calc( "+wsize.value+"cm / 1.5));grid-auto-rows: calc( "+hsize.value+"cm / 1.5);justify-content: center;padding-top: 10px;padding-bottom: 10px;gap: "+ghsize.value/1.5+"cm "+gwsize.value/1.5+"cm;}}@media only screen and (min-width : 768px) {.grid-container {display: grid;grid-template-columns: repeat("+p768+", calc( "+wsize.value+"cm));grid-auto-rows: calc( "+hsize.value+"cm);justify-content: center;padding-top: 10px;padding-bottom: 10px;gap: "+ghsize.value+"cm "+gwsize.value+"cm;}}@media only screen and (min-width : 992px) {.grid-container {display: grid;grid-template-columns: repeat("+p992+", calc( "+wsize.value+"cm));grid-auto-rows: calc( "+hsize.value+"cm);justify-content: center;padding-top: 10px;padding-bottom: 10px;gap: "+ghsize.value+"cm "+gwsize.value+"cm;}}@media only screen and (min-width : 1200px) {.grid-container {display: grid;grid-template-columns: repeat("+nm.value+", calc( "+wsize.value+"cm));grid-auto-rows: calc( "+hsize.value+"cm);justify-content: center;padding-top: 10px;padding-bottom: 10px;gap: "+ghsize.value+"cm "+gwsize.value+"cm;}}.grid-item {height: 100%;width: 100%;overflow: visible;position: relative ;text-align: center;justify-content: center;}";
+  
+    //
+  var cssetc="";
+if(border.checked == true){
+cssetc=".grid-item { border: 1px solid "+bdcolor.value+";}";
+}
+else{
+  cssetc=".grid-item { border-style: none;}";
+}
+
+
+  var csstotal=csshead+cssbody+cssetc;
+  if(opbgp.checked == true){
+  //fs.copyFileSync(fpath, "./project/"+folderpath+"/"+flnm.value+"pinimg/"+fpath.split("/").pop());
+  }
+  if(ctrl.checked == true){
+  // sessionStorage.setItem(flnm.value +"gridas.html", final2);
+  sessionStorage.setItem(flnm.value +"gridasmaster.html", mfinal2);
+  }
+  else{
+    // sessionStorage.setItem(flnm.value +"gridas.html", final);
+    sessionStorage.setItem(flnm.value +"gridasmaster.html", mfinal);
+  }
+  var arfunct='function argridas(){var s=['+arname+']; return s; }'
+sessionStorage.setItem(flnm.value +"argridas.js", arfunct);
+       sessionStorage.setItem(flnm.value+"gridas/gridas.css", csstotal);
+       //fs.copyFileSync("./etc/fr.js", "./project/"+folderpath+"/fr.js");
+ //fs.copyFileSync("./etc/ls.js", "./project/"+folderpath+"/ls.js");
+ //fs.copyFileSync("./etc/search.css", "./project/"+folderpath+"/search.css");
+ sessionStorage.setItem("type", flnm.value +"gridasmaster.html");
+
+var p=[];
+         
+         if(sessionStorage.getItem('filear')){
+          p =JSON.parse(sessionStorage.getItem('filear'));
+          p.push(flnm.value +"gridasmaster.html");
+         }
+         else{
+          p.push(flnm.value +"gridasmaster.html");
+         }
+         sessionStorage.setItem("filear", JSON.stringify(p));
+         sessionStorage.setItem("type",flnm.value +"gridasmaster.html");
+        alert("success");
+        window.location.href = 'gridpage.html';  
+		});
+
+
+    window.onerror = function(error, url, line) {
+      //alert(error+' URL:'+url+' L:'+line);
+};
+     
+</script>
+</body>
+</html>
+
+
+

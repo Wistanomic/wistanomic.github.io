@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+<style>
+      html { 
+    height:100%;
+    width: 100%;
+    font-family: sans-serif;
+
+}
+body{
+    height:100%;
+    width: 100%;
+    margin:0;
+    overflow: hidden;
+    
+}
+::-webkit-scrollbar {
+  width: 8px;height:8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background:  #009879; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background:  #05b894; 
+}
+#home{
+  height:100%;
+    width: 100%;
+    display: inline-flex;
+    background-color: #f2efda;
+    overflow: hidden;
+}
+#saveside{
+  width: 30%;
+  height: 100%;
+  padding: 10px;
+  background-color: #f2efda;
+  float: left;
+  display: block;
+  border-right:1px solid #009879 ;
+}
+.svfcl{
+  list-style-position: inside;
+}
+.svfcl li:hover{
+  cursor:pointer;
+  color: #009879;
+}
+#divedit{
+    width: 100%;
+  height: 93%;
+  
+  background-color: #f2efda;
+  
+  overflow: overlay;
+  overflow: auto;
+  }
+  #divbtn{
+    width: 100%;
+  height: 5%;
+  
+ 
+  }
+#griddisp{
+  position: static;
+  overflow: overlay;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 70%;
+  background-color: #f2efda;
+  margin-left: 5px;
+  
+  
+}
+
+#title{
+  margin-top: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #009879; 
+}
+
+#savebtn{
+    margin-top: 0px;
+    margin-left: 10px;
+    padding-bottom: 20px;
+    padding-top: 5px;
+    height: 30px;
+    font-size: 15px;
+    width: 90%;
+    border-radius: 10px;
+    border: 0px solid ;
+    background-color: #009879;
+    color: white;
+    cursor: pointer;
+}
+        #savebtn:hover {
+        background-color: #5e9393;
+        }
+      
+#fragrid{
+  height: 100%;
+width: 100%;
+border:0;
+margin: 0;
+}
+.var{
+  margin: 3px;
+  margin-left: 0;
+}
+.listvar{
+  height: 100px;
+  width: 300px;
+  overflow: overlay;
+}
+.addbtn{
+  width: 80px;
+  height: 25px;
+  margin: 5px;
+  margin-left: 0;
+  font-size: large;
+  border-style: none;
+  background-color: #009879;
+  color: white;
+  border-radius: 50px;
+}
+fieldset{
+    display:block;
+    padding: 3px;
+    border: 1px solid #1e9e6d;
+}
+.varf{
+  height: 20px;
+  width: 80%;
+}
+#expg{
+  height: 50%;
+  width: 80%;
+  background-color: #009879;
+}
+
+.mdl{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (min-width: 601px) {
+    #tp{
+    font-weight: bold;
+    font-size: xx-large;
+}
+#vl{
+    font-weight: bold;
+    font-size: xxx-large;
+}
+#exp{
+    font-size: x-large;
+}
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 600px) {
+    #tp{
+    font-weight: bold;
+    font-size: x-large;
+}
+#vl{
+    font-weight: bold;
+    font-size: xx-large;
+}
+#exp{
+    font-size: large;
+}
+}
+@media only screen and (min-width: 768px) {
+    #tp{
+    font-weight: bold;
+    font-size: xx-large;
+}
+#vl{
+    font-weight: bold;
+    font-size: xxx-large;
+}
+#exp{
+    font-size: x-large;
+}
+}
+#refr{
+    margin-left: 5px;
+    font-size: x-large;
+  
+  transform: rotate(-180deg);
+  background-color: transparent;
+  border-style: none;
+}
+#refr:hover{
+    cursor: pointer;
+}
+#flnm{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.clrr{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100px;
+}
+.ads:hover{
+cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<div id="home">
+<div id="saveside">
+  <div id="divedit">
+    <label>File Name :</label>
+    <br>
+    <input type="text" id="flnm">
+ <br>
+ <fieldset class="divgr">
+  <legend>Min Data</legend>
+ <br>
+ <label >Variable Name :</label><br>
+ <input type="text" id="varn" class="var">
+ <br>
+ <label >Data Name :</label><br>
+ <input type="text" id="dvar" class="var"><input type="checkbox" id="rng"><label for="rng">Range</label>
+ </fieldset>
+ <br>
+    <label >Title :</label><br>
+    <input type="text" id="tvar" class="var">
+    <br>
+    <label >Formula :</label><br>
+    <textarea id="fvar" class="varf"></textarea>
+    <br>
+    <label >Bottom :</label><br>
+    <input type="text" id="bvar" class="var">
+    <br>
+    <label >Saved Variable :</label><br>
+    <input type="text" id="svvar" class="var">
+    <br>
+    <label >Saved Formula :</label><br>
+    <textarea  id="sfvar" class="varf"></textarea>
+    <br>
+    <button id="addbtnc" class="addbtn">+</button><button id="dltbtnc" class="addbtn">-</button>
+    <div id="listvarcalc" class="listvar">
+    
+      
+    </div>
+   
+    <br>
+    <label>Background-Color :</label> <br>
+    <input type="color" id="backg" class="clrr" value="#009879"><br>
+    <label>Font-Color :</label> <br>
+    <input type="color" class="clrr" id="fnt"><br>
+    <label>Format Number :</label> <br>
+    <select class="clrr" id="frn">
+      <option value=""></option>
+      <option value="en-US">en-US</option>
+      <option value="es-ES">es-ES</option>
+      <option value="fr-FR">fr-FR</option>            
+      <option value="ja-JP">ja-JP</option>
+      <option value="de-DE">de-DE</option>
+    </select><br>
+    <label>Abbreviate Number :</label> <br>
+    <select class="clrr" id="frab">
+      <option value=""></option>
+      <option value="size">K-M-G-T</option>
+      <option value="norm">K-M-B-T</option>    
+    </select><br>
+
+    
+</div>
+<div id="divbtn">
+<button id="savebtn">Save</button>
+</div>
+</div>
+<div id="griddisp">
+ <div id="expg">
+  <div class="mdl"style="height:30%;">
+    <label id="tp">Top</label>
+    </div>
+    <div class="mdl" style="height:50%; overflow-x: auto;overflow-y: hidden;">
+        <label id="vl">4348394839834</label>
+        
+    </div>
+    <div class="mdl" style="height:10%;">
+        <label id="exp">Bottom</label>
+        
+    </div>
+    <div style="display: flex;justify-content: right;margin-right: 2%;">
+        <label id="lst" style="font-size: small;justify-content: center;display: flex;align-items: center;">Last Updated :</label>
+        <button id="refr">&#8635;</button>
+    </div>
+ </div>
+ 
+</div>
+<img id="adsif" class="ads" style="object-fit: contain;display: none; position: relative; position: fixed;width: 67%;height: 20%;right: 5px;bottom: 5px;"></img>
+</div>
+<script src="jquery/jquery.min.js"></script>
+<script>
+  // var fs =require('fs');
+    var folderpath=sessionStorage.getItem("project");
+    //
+  var savebtn = document.getElementById('savebtn');
+  var dvar = document.getElementById('dvar');
+  var varn = document.getElementById('varn');
+  var tvar = document.getElementById('tvar');
+  var fvar = document.getElementById('fvar');
+  var bvar = document.getElementById('bvar');
+  var svvar = document.getElementById('svvar');
+  var sfvar = document.getElementById('sfvar');
+  var rng = document.getElementById('rng');
+  
+  var adsif= document.getElementById('adsif');
+  var frn= document.getElementById('frn');
+  var frab= document.getElementById('frab');
+  
+
+  var backg = document.getElementById('backg');
+  var fnt = document.getElementById('fnt');
+
+  var listvargroup= document.getElementById('listvargroup');
+  
+  var listvarcalc= document.getElementById('listvarcalc');
+  var addbtnc= document.getElementById('addbtnc');
+  var dltbtnc= document.getElementById('dltbtnc');
+  var flnm= document.getElementById('flnm');
+var calvar =[];
+var grpvar =[];
+
+
+  document.getElementById("adsif").style.display="block";      
+  ads();
+
+var thcount="";
+function ads(){
+
+$.ajax({
+            url: "/mmkl/adsw.json",
+       type: 'GET',
+cache: false,
+            beforeSend: function(xhr){
+              if (xhr.overrideMimeType)
+              {
+                xhr.overrideMimeType("application/json");
+              }
+            },
+            dataType: 'json',
+            data: null,
+            success:  function(data, textStatus, request) {
+              let slideIndex=0;
+            
+                 var so =data;
+                 var ar=[];
+                 if(so.length!==0){
+                  for(var d=0;d<so.length;d++){
+                    if(so[d]['global']==true ||so[d]['country']==thcount ){
+                      ar.push(so[d]);
+                      
+                    }
+                  }
+                  
+                  showSlides();
+
+function showSlides() {
+if (slideIndex > ar.length-1) {
+  slideIndex = 0;
+
+}   
+sessionStorage.setItem('ad',slideIndex)
+document.getElementById('adsif').onclick = function(){
+  if (confirm("Open ?")) {
+  var btn = sessionStorage.getItem("ad");
+  var url = ar[btn]["web"];
+  window.open(ar[btn]["web"]);
+  }
+}
+
+
+// prm.src=so[slideIndex]["url"];
+document.getElementById('adsif').src=ar[slideIndex]["url"];
+
+
+
+slideIndex++;
+
+
+
+
+setTimeout(showSlides, 5000); // Change image every 2 seconds
+}
+                 }
+                 else{
+            }
+               },error: function (request, status, error) {
+            }
+          });  
+}  
+var ul = document.createElement("ul");
+    ul.className="svfcl"; 
+if(sessionStorage.getItem("savedform.json")) {
+calvar=JSON.parse(sessionStorage.getItem("savedform.json"));
+
+for(var i=0;i<calvar.length;i++){
+    var txtvar = document.createElement("li"); 
+
+txtvar.innerHTML=calvar[i]['vrb']+": "+calvar[i]['fm'];
+txtvar.addEventListener('click', function () {
+var btn=event.target;
+svvar.value=btn.innerHTML.substring(0, btn.innerHTML.lastIndexOf(":"));
+sfvar.value=btn.innerHTML.split(': ').pop();
+});
+ul.appendChild(txtvar);
+listvarcalc.appendChild(ul);
+}
+}
+
+dltbtnc.addEventListener('click', function () {
+  var dkey=Object.keys(calvar);
+  for(var i=0;i<calvar.length;i++){
+    if(calvar[i]["vrb"]==svvar.value.split(' ').pop()){
+      
+      calvar.splice(i, 1);
+    }
+  }
+  sessionStorage.setItem("savedform.json", JSON.stringify(calvar));
+  alert("Deleted");
+  location.reload();
+});
+  addbtnc.addEventListener('click', function () {
+    if(!localStorage.getItem('active')){
+      if(calvar.length<=2){
+        var txtvar = document.createElement("li"); 
+// var br = document.createElement("br");
+var newf={};
+newf['vrb']=svvar.value;
+newf['fm']=sfvar.value;
+if (calvar.some(e => e['vrb'] === svvar.value)) {
+  alert('Variable Already Exists');
+  }
+  else{
+calvar.push(newf);
+txtvar.innerHTML=svvar.value+": "+sfvar.value;
+
+txtvar.addEventListener('click', function () {
+var btn=event.target;
+svvar.value=btn.innerHTML.substring(0, btn.innerHTML.lastIndexOf(":"));
+sfvar.value=btn.innerHTML.split(': ').pop();
+});
+ul.appendChild(txtvar);
+listvarcalc.appendChild(ul);
+svvar.value="";
+sfvar.value="";
+sessionStorage.setItem("savedform.json", JSON.stringify(calvar));
+ } 
+      }
+      else{
+        alert('Update To Premium To Save Formulas');
+      }}
+      else{
+    var txtvar = document.createElement("li"); 
+// var br = document.createElement("br");
+var newf={};
+newf['vrb']=svvar.value;
+newf['fm']=sfvar.value;
+if (calvar.some(e => e['vrb'] === svvar.value)) {
+  alert('Variable Already Exists');
+  }
+  else{
+calvar.push(newf);
+txtvar.innerHTML=svvar.value+": "+sfvar.value;
+
+txtvar.addEventListener('click', function () {
+var btn=event.target;
+svvar.value=btn.innerHTML.substring(0, btn.innerHTML.lastIndexOf(":"));
+sfvar.value=btn.innerHTML.split(': ').pop();
+});
+ul.appendChild(txtvar);
+listvarcalc.appendChild(ul);
+svvar.value="";
+sfvar.value="";
+sessionStorage.setItem("savedform.json", JSON.stringify(calvar));
+ } 
+}});
+
+  backg.addEventListener('change', function () {
+    document.getElementById('expg').style.backgroundColor=this.value;
+  });
+  fnt.addEventListener('change', function () {
+    document.getElementById('expg').style.color=this.value;
+    document.getElementById('refr').style.color=this.value;
+  });
+
+
+
+  savebtn.addEventListener('click', function () {
+    var newfor={};
+
+if(dvar.value !=="" && varn.value!==""){
+  if(rng.checked==true){
+  
+  var dcm=" function mindata(arr){var ay=[];for(var i=0;i<arr.length;i++){var data=arr[i]['"+mvar.value +"']; if("+dvar.value +"){ay.push(arr[i]);}}return ay;}"
+}
+else{
+  var dcm=" function mindata(arr){var ay=[];for(var i=0;i<arr.length;i++){if(arr[i]['"+varn.value +"']=='"+dvar.value +"'){ay.push(arr[i]);}}return ay;}"
+}
+  
+  sessionStorage.setItem("pminar.js", dcm);
+}
+
+
+newfor['top']=tvar.value;
+newfor['mdl']=fvar.value;
+newfor['ep']=bvar.value;
+
+newfor['bgl']=backg.value;
+newfor['fcl']=fnt.value;
+newfor['fnm']=flnm.value;
+
+if(dvar.value !=="" && varn.value!==""){
+  newfor['mind']=true;
+}
+else{
+  newfor['mind']=false;
+}
+if(frn.value!=""){
+  newfor['location']=frn.value;
+}
+if(frab.value!=""){
+  newfor['simply']=frab.value;
+}
+
+
+if(sessionStorage.getItem("papr.json")){
+                    var ld=[];
+                    ld=JSON.parse(sessionStorage.getItem("papr.json"));
+ld.push(newfor);
+sessionStorage.setItem("papr.json", JSON.stringify(ld));
+ld=[];
+
+
+tvar.value="";
+fvar.value="";
+bvar.value="";
+flnm.value="";
+frn.value="";
+frab.value="";
+var p=[];
+if(sessionStorage.getItem('filear')){
+          p =JSON.parse(sessionStorage.getItem('filear'));
+          p.push("papr.json");
+         }
+         else{
+          p.push("papr.json");
+         }
+         sessionStorage.setItem("filear", JSON.stringify(p));
+  alert("success");
+                  }else{
+                  var f=[];
+                  f.push(newfor);
+                  sessionStorage.setItem("papr.json", JSON.stringify(f));
+                  
+
+tvar.value="";
+fvar.value="";
+bvar.value="";
+flnm.value="";
+
+
+var p=[];
+         
+         if(sessionStorage.getItem('filear')){
+          p =JSON.parse(sessionStorage.getItem('filear'));
+          p.push("papr.json");
+         }
+         else{
+          p.push("papr.json");
+         }
+         sessionStorage.setItem("filear", JSON.stringify(p));
+  alert("success");  
+                }
+
+                });
+  
+
+
+//   sessionStorage.setItem("tabletype", flnm.value+"tablepivo.html");
+//   window.location.href = '/tablepage.html'; 
+ 
+  
+  window.onerror = function(error, url, line) {
+    //alert(error+' URL:'+url+' L:'+line);  
+};
+</script>
+</body>
+</html>

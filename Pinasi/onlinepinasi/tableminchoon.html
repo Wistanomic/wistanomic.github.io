@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+  </head>
+  <style>
+  html { 
+    height:100%;
+    width: 100%;
+}
+body{
+    height:100%;
+    width: 100%;
+    margin:0;
+    overflow: hidden;
+}
+#opt{
+    height: 30px;
+    width: 100%;
+    background-color: #f7f5ed;
+    overflow-x: auto;
+    align-items: center;
+display: flex;
+}
+#page{
+    height: 95%;
+    width: 100%;
+    background-color: #f2efda;;
+}
+#frame{
+   width: 100%;
+   height: 77%; 
+   border: 0px solid;
+}
+.btnopt{
+  width: 60px;
+height: 20px;
+background-color: #009879;
+
+border: 0px solid #cccccc;
+color: white;
+text-align: center;
+font-size: 13px;
+margin-left: 3px;
+margin-right: 3px;
+cursor: pointer;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#set{
+  float: left;
+width: 25px;
+height: 25px;
+margin-right: 5px;
+cursor: pointer;
+background-color: #009879;
+border-radius: 50%;
+border: 0px solid #cccccc;
+color: white;
+margin-left: 5px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.ads:hover{
+cursor: pointer;
+}
+  </style>
+  <body>
+<div id="opt">
+  <button id="set"> &#9650;</button>
+  
+</div>
+<div id="page">
+    <iframe id="frame"></iframe>
+    <img id="adsif" class="ads" style="object-fit: contain;position: fixed;height: 18%;  width: 100%;display: block;bottom: 5px;margin-top:3px;"></img>
+    <script src="jquery/jquery.min.js"></script>
+</div>
+<script>
+ 
+ 
+
+var opt = document.getElementById("opt");
+var frame = document.getElementById("frame");
+var set = document.getElementById("set");
+
+var arfile=[];
+
+set.addEventListener("click", function () {
+opt.style.display="none";
+frame.style.height="83%";
+});
+
+var fileNames = JSON.parse(sessionStorage.getItem('filear'));
+ 
+    ads();
+               
+                fileNames.forEach(file => {
+    
+                  if(file.includes(".html")){
+      if(file.includes("tablemin.html")){
+        
+        var btn = document.createElement("button");
+       btn.className="btnopt";
+        btn.innerHTML=file.replace('tablemin.html','');
+        btn.addEventListener('click', () => { 
+          sessionStorage.setItem("tablemintype", file);
+frame.src="tableminmasterol.html";
+        });
+        opt.appendChild(btn);
+      }
+    }
+  });
+                   
+  var thcount="";
+function ads(){
+
+$.ajax({
+            url: "http://wistanomic.com/mmkl/adsw.json",
+       type: 'GET',
+cache: false,
+            beforeSend: function(xhr){
+              if (xhr.overrideMimeType)
+              {
+                xhr.overrideMimeType("application/json");
+              }
+            },
+            dataType: 'json',
+            data: null,
+            success:  function(data, textStatus, request) {
+              let slideIndex=0;
+            
+                 var so =data;
+                 var ar=[];
+                 if(so.length!==0){
+                  for(var d=0;d<so.length;d++){
+                    if(so[d]['global']==true ||so[d]['country']==thcount ){
+                      ar.push(so[d]);
+                      
+                    }
+                  }
+                  
+                  showSlides();
+
+function showSlides() {
+if (slideIndex > ar.length-1) {
+  slideIndex = 0;
+
+}   
+sessionStorage.setItem('ad',slideIndex)
+document.getElementById('adsif').onclick = function(){
+    if (confirm("Open ?")) {
+  var btn = sessionStorage.getItem("ad");
+  window.open(ar[btn]["web"]);
+  }
+}
+
+
+// prm.src=so[slideIndex]["url"];
+document.getElementById('adsif').src=ar[slideIndex]["url"];
+
+
+
+slideIndex++;
+
+
+
+
+setTimeout(showSlides, 5000); // Change image every 2 seconds
+}
+                 }
+                 else{
+            }
+               },error: function (request, status, error) {
+            }
+          });  
+}        
+
+
+window.onerror = function(error, url, line) {
+    
+};
+</script>
+  </body></html>

@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <link rel="stylesheet" href="search.css">  
+  </head>
+  <style>
+    
+   html { 
+    height:100%;
+    width: 100%;
+}
+body{
+    height:100%;
+    width: 100%;
+    margin:0;
+    overflow: hidden;
+}
+#homes{
+  width: 100%;
+    height: 100%;
+    position: relative;
+    margin-top: 1%;
+}
+#opt{
+    height: auto;
+    width: 5%;
+    background-color: blanchedalmond;
+    overflow-x: auto;
+}
+#page{
+    height: 100%;
+    width: 100%;
+    background-color: aqua;
+}
+#frame{
+    width: 100%;
+  height: 100%;
+  border: 0px solid;
+  display: grid;
+  grid-template-columns: repeat(2, 40%);
+  grid-auto-rows: 60%;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  gap: 10px 10px;
+  overflow: overlay;
+}
+.btnopt{
+    width: 100px;
+    height: 100%;
+    overflow: hidden;
+}
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  height: auto;
+    width: 5%;
+  border: none;
+  cursor: pointer;
+  min-width: 50px;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+#tdiv{
+  width: 100%;
+height: 92%;
+
+display: inline-block;
+
+margin-bottom: 2%;
+margin-top: -1%;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+
+.ifcl{
+    height: 100%;
+    width: 100%;
+}
+.dvch{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.chk{
+    
+    display: none;
+}
+@media only screen and (max-width : 499px) {
+    #searcttxt{
+    
+        margin-left: 20%;
+}
+  }
+  @media only screen and (min-width : 500px) {
+    #searcttxt{
+    
+    margin-left: 50%;
+}
+  }
+  @media only screen and (min-width : 690px) {
+    #searcttxt{
+    
+        margin-left: 70%;
+}
+  }
+#save{
+  width: 5%;
+    height: 100%;
+    background-color: #ccc;
+    margin-top: 0px;
+    border: 0px solid ;
+    align-items: center;
+ 
+    border-radius: 5px ;
+    
+    
+justify-content: center;
+ cursor: pointer;  
+ font-size: large;
+color: #808080;  
+}
+#cancel{
+  width: 5%;
+    height: 100%;
+    background-color: #ccc;
+    margin-top: 0px;
+    border: 0px solid ;
+    align-items: center;
+ 
+    border-radius: 5px ;
+    
+    margin-left: 10px;
+justify-content: center;
+ cursor: pointer;  
+ font-size: large;
+color: #808080;  
+}
+#delete{
+  width: 5%;
+    height: 100%;
+    background-color: #ccc;
+    margin-top: 0px;
+    border: 0px solid ;
+    align-items: center;
+ 
+    border-radius: 5px ;
+    
+    
+justify-content: center;
+ cursor: pointer;  
+ font-size: large;
+color: #808080;  
+}
+.cbt:hover{
+  cursor: pointer;
+}
+.mdv{
+    height:100%;
+    width: 100%;
+    margin:0;
+    overflow: hidden;
+    
+}
+.mdl{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#vl{
+ width: 88%;
+ overflow: auto;
+ display: flex;
+ justify-content: center;
+  align-items :center;  
+}
+@media screen and (min-width: 601px) {
+    #tp{
+    font-weight: bold;
+    font-size: xx-large;
+}
+#vl{
+    font-weight: bold;
+    font-size: xxx-large;
+}
+#exp{
+    font-size: x-large;
+}
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 600px) {
+    #tp{
+    font-weight: bold;
+    font-size: x-large;
+}
+#vl{
+    font-weight: bold;
+    font-size: xx-large;
+}
+#exp{
+    font-size: large;
+}
+}
+@media only screen and (min-width: 768px) {
+    #tp{
+    font-weight: bold;
+    font-size: xx-large;
+}
+#vl{
+    font-weight: bold;
+    font-size: xxx-large;
+}
+#exp{
+    font-size: x-large;
+}
+}
+::-webkit-scrollbar {
+  width: 8px;height:8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background:  #009879; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background:  #05b894; 
+}
+  </style>
+  
+  <body>
+    
+    <div id="homes">
+        <div id="set"  >
+            <button onclick="dropbtn()" class="dropbtn" >Copy</button>
+
+            <button id="refresh" onclick="refr();" >&#8635;</button>
+            <button id="save" onclick="save();" style="display: none;" >Save</button>
+            <button id="delete" onclick="Dlt();" style="display: none;" >Delete</button>
+            <button id="cancel" onclick="cancl();" style="display: none;" >Cancel</button>
+            
+            <input type="text" id="searcttxt"  > 
+            
+            </div>
+    
+        <div id="tdiv" >
+            <div id="myDropdown" class="dropdown-content">
+                <a class="cbt"  id="rtdata" style="display: none;">Real-Time</a>
+                <a  class="cbt" id="rtsdata" style="display: none;">Real-Time Select</a>
+                <a id="statdata" style="display: none;">Static</a>
+                <a  class="cbt" id="dltdata" >Delete Select</a>
+                <a href="#" class="cbt" id="ohtml">Page Only</a>
+              </div>
+            <div id="frame"></div>
+     
+    </div>
+    <img id="adsif" class="ads" style="display: none; position: fixed;object-fit: contain;width: 100%;height: 18%;right: 5px;bottom: 5px;overflow: hidden;cursor: pointer;"></img>
+    </div>
+    <script src="math.js"></script>
+    <script src="jquery/jquery.min.js"></script>
+    
+<script>
+ const testFolder = sessionStorage.getItem("project");
+// const fs = require('fs');
+// var path = require("path");
+var rts=false;
+var sts=false;
+var l=[];
+var ifrm=document.getElementById('frame');
+var adsif= document.getElementById('adsif');
+var ohtml=document.getElementById('ohtml');
+ 
+
+
+  document.getElementById("adsif").style.display="block";      
+  ads();
+
+if(localStorage.getItem('active')){
+  ifrm.style.height="92%";
+}
+var thcount="";
+function ads(){
+
+$.ajax({
+            url: "/mmkl/adsw.json",
+       type: 'GET',
+cache: false,
+            beforeSend: function(xhr){
+              if (xhr.overrideMimeType)
+              {
+                xhr.overrideMimeType("application/json");
+              }
+            },
+            dataType: 'json',
+            data: null,
+            success:  function(data, textStatus, request) {
+              let slideIndex=0;
+            
+                 var so =data;
+                 var ar=[];
+                 if(so.length!==0){
+                  for(var d=0;d<so.length;d++){
+                    if(so[d]['global']==true ||so[d]['country']==thcount ){
+                      ar.push(so[d]);
+                      
+                    }
+                  }
+                  
+                  showSlides();
+
+function showSlides() {
+if (slideIndex > ar.length-1) {
+  slideIndex = 0;
+
+}   
+sessionStorage.setItem('ad',slideIndex)
+document.getElementById('adsif').onclick = function(){
+  if (confirm("Open ?")) {
+  var btn = sessionStorage.getItem("ad");
+  var url = ar[btn]["web"];
+  window.open(ar[btn]["web"]);
+  }
+}
+
+
+// prm.src=so[slideIndex]["url"];
+document.getElementById('adsif').src=ar[slideIndex]["url"];
+
+
+
+slideIndex++;
+
+
+
+
+setTimeout(showSlides, 5000); // Change image every 2 seconds
+}
+                 }
+                 else{
+            }
+               },error: function (request, status, error) {
+            }
+          });  
+}  
+  
+var arfile=[];
+var src=sessionStorage.getItem("type");
+var data=JSON.parse(sessionStorage.getItem('papr.json'));
+                    for(var i=0;i<data.length;i++){
+                        var dv=document.createElement("div");
+                        var fdc=document.createElement("iframe");
+                        var chek=document.createElement("input");
+                        chek.className="chk";
+                        dv.className="dvch";
+                       
+                        chek.type="checkbox";
+
+// fdc.src="papereal.html?"+i;
+fdc.className="ifcl";
+paper(data,i);
+// dv.appendChild(fdc);
+// dv.appendChild(chek);
+// frame.appendChild(dv);
+
+                    }
+
+                  
+  //                 document.getElementById("searcttxt").addEventListener("keyup", function () {
+  //                   var input, filter, table, tr, td, i, txtValue;;filter = this.value.toUpperCase();   li = document.getElementsByClassName("ifcl");dv = document.getElementsByClassName("dvch");for (i = 0; i < li.length; i++) {td = li[i];if (td) {txtValue = td.contentWindow.document.getElementById('tp').textContent || td.contentWindow.document.getElementById('tp').innerText ;if (txtValue.toUpperCase().indexOf(filter) > -1) {li[i].style.display = "";dv[i].style.display = "";} else {li[i].style.display = "none";dv[i].style.display = "none";}}}
+  // } );
+  document.getElementById("searcttxt").addEventListener("keyup", function () {
+                    var input, filter, table, tr, td,dv,sch, i, txtValue;;filter = this.value.toUpperCase();   li = document.getElementsByClassName("mdv"); dv = document.getElementsByClassName("dvch");sch = document.getElementsByClassName("sch");for (i = 0; i < li.length; i++) {td = sch[i];if (td) {txtValue = td.textContent || td.innerText ;if (txtValue.toUpperCase().indexOf(filter) > -1) {li[i].style.display = "";dv[i].style.display = "";} else {li[i].style.display = "none";dv[i].style.display = "none";}}}
+  } );
+var statdata=document.getElementById("statdata");
+var rtdata=document.getElementById("rtdata");
+var rtsdata=document.getElementById("rtsdata");
+var uniqu=[];
+
+ohtml.addEventListener("click", function () {
+ 
+  document.getElementById('frame').contentWindow.PrintElem2();
+ 
+});
+if(sessionStorage.getItem("gridasstatus")=="active"){
+  document.getElementById('frame').addEventListener("load", hidebar);
+}
+if(sessionStorage.getItem("gridasstatus")=="none"){
+  
+}
+if(sessionStorage.getItem("gridasstatus")=="active"){
+  document.getElementById('frame').addEventListener("load", hidebar);
+}
+if(sessionStorage.getItem("gridasstatus")=="none"){
+  
+}
+// const { promises: fls } = require("fs")
+//             async function copyDir(src, dest) {
+//     await fls.mkdir(dest, { recursive: true });
+//     let entries = await fls.readdir(src, { withFileTypes: true });
+
+//     for (let entry of entries) {
+//         let srcPath = path.join(src, entry.name);
+//         let destPath = path.join(dest, entry.name);
+
+//         entry.isDirectory() ?
+//             await copyDir(srcPath, destPath) :
+//             await fls.copyFile(srcPath, destPath);
+//     }
+// }
+function save(){
+    
+
+
+$.ajax({
+                  url: "./project/"+testFolder+"/"+"papr.json",
+             type: 'GET',
+    cache: false,
+                  beforeSend: function(xhr){
+                    if (xhr.overrideMimeType)
+                    {
+                      xhr.overrideMimeType("application/json");
+                    }
+                  },
+                  dataType: 'json',
+                  data: null,
+                  success:  function(data, textStatus, request) {
+                    var ck=document.getElementsByClassName('chk');
+    var s=[];
+                    for(var i=0;i<ck.length;i++){
+    if(ck[i].checked==true){
+        
+        var ar=[];
+          // alert(data[i]["fnm"])
+          const homedir = require('os').homedir();
+          var rlpath=homedir+"/Pinasi/"+testFolder+"/"+data[i]["fnm"]+"rtbydatabase";
+    if (!fs.existsSync(rlpath)){
+            fs.mkdirSync(rlpath, { recursive: true });
+
+           }
+           ar.push(data[i]);
+    fs.writeFileSync(rlpath+"/papr.json", JSON.stringify(ar));
+    fs.copyFileSync("./project/"+testFolder+"/savedform.json",rlpath+"/savedform.json");
+    fs.copyFileSync("./etc/math.js",rlpath+"/math.js");
+    fs.copyFileSync("./etc/paperealon.html",rlpath+"/paperealon.html");
+    if (fs.existsSync("./project/"+testFolder+"/"+data[i]["fnm"]+"pminar.js")){
+                fs.copyFileSync("./project/"+testFolder+"/"+data[i]["fnm"]+"pminar.js", rlpath+"/"+data[i]["fnm"]+"pminar.js");
+              } 
+              fs.copyFileSync("./etc/sda.php", rlpath+"/sda.php");
+              copyDir("./jquery", rlpath+"/jquery");
+    ar=[];
+        }
+       
+       
+    
+    
+}
+document.getElementById('save').style.display="none";
+document.getElementById('cancel').style.display="none";
+var ck=document.getElementsByClassName('chk');
+for(var i=0;i<ck.length;i++){
+  ck[i].checked=false;  
+  ck[i].style.display='none';
+}
+rts=false;
+sts=false;
+alert('success');
+                  }});
+
+}
+function dropbtn() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+function hidebar(){
+  document.getElementById('frame').contentWindow.hide() ;
+}
+
+function sc(){
+  document.getElementById('frame').contentWindow.src() ;
+}
+function refr(){
+  location.reload();
+}
+function myFunction() {
+    var val=document.getElementById('searcttxt');
+   
+    document.getElementById('frame').contentWindow.srchout(val);
+    
+}
+function cancl(){
+ 
+  document.getElementById('save').style.display="none";
+  document.getElementById('delete').style.display="none";
+  document.getElementById('cancel').style.display="none";
+var ck=document.getElementsByClassName('chk');
+for(var i=0;i<ck.length;i++){
+  ck[i].checked=false;  
+  ck[i].style.display='none';
+}
+rts=false;
+}
+function Dlt(){
+  var data=JSON.parse(sessionStorage.getItem('papr.json'));
+                    var ck=document.getElementsByClassName('chk');
+    var s=[];
+                    for(var i=0;i<ck.length;i++){
+    if(ck[i].checked==true){
+        
+        var ar=[];
+          // alert(data[i]["fnm"])
+  
+          data.splice(i, 1);
+    sessionStorage.setItem("papr.json", JSON.stringify(data));
+   
+    ar=[];
+        }
+       
+       
+    
+    
+}
+document.getElementById('delete').style.display="none";
+document.getElementById('cancel').style.display="none";
+var ck=document.getElementsByClassName('chk');
+for(var i=0;i<ck.length;i++){
+  ck[i].checked=false;  
+  ck[i].style.display='none';
+}
+rts=false;
+alert('Deleted');
+refr();
+                  
+}
+function prip(){
+ document.getElementById('frame').contentWindow.dd() ;
+ 
+
+}
+function pag(){
+
+document.getElementById('frame').contentWindow.pagbt();
+}
+function normal(){
+
+document.getElementById('frame').contentWindow.norm();
+}
+
+// const homedir = require('os').homedir();
+// if (!fs.existsSync(homedir+"/Pinasi")){
+//             fs.mkdirSync(homedir+"/Pinasi");
+
+//            }
+//            const { promises: fls } = require("fs")
+//             async function copyDir(src, dest) {
+//     await fls.mkdir(dest, { recursive: true });
+//     let entries = await fls.readdir(src, { withFileTypes: true });
+
+//     for (let entry of entries) {
+//         let srcPath = path.join(src, entry.name);
+//         let destPath = path.join(dest, entry.name);
+
+//         entry.isDirectory() ?
+//             await copyDir(srcPath, destPath) :
+//             await fls.copyFile(srcPath, destPath);
+//     }
+// }
+// var spnm = src.replace('gridasmaster.html','');
+
+// var s = document.createElement("script");
+// s.type = "text/javascript";
+// s.src = "./project/"+testFolder+"/"+spnm+"argridas.js";
+// $("head").append(s);
+// var urfile="./project/"+testFolder+"/file.json";
+statdata.addEventListener("click", function () {
+
+$.ajax({url: urfile,type: 'GET',cache: false,beforeSend: function(xhr){if (xhr.overrideMimeType){xhr.overrideMimeType("application/json");}},dataType: 'json',data: null,success:  function(data, textStatus, request) {l=data; 
+ 
+
+
+ 
+  var gridaspath=homedir+"/Pinasi/"+testFolder+"/"+spnm+"gridasstatis";
+    if (!fs.existsSync(gridaspath)){
+            fs.mkdirSync(gridaspath, { recursive: true });
+
+           }
+    fs.writeFileSync(gridaspath+"/gridasfile.json", JSON.stringify(l));
+    fs.copyFileSync("./etc/fr.js", gridaspath+"/fr.js");
+              fs.copyFileSync("./etc/ls.js", gridaspath+"/ls.js");
+              fs.copyFileSync("./etc/search.css",gridaspath+"/search.css");
+              fs.copyFileSync("./project/"+testFolder+"/"+spnm+"preview.html",gridaspath+"/"+spnm+"preview.html");
+              fs.copyFileSync("./project/"+testFolder+"/arayast.js",gridaspath+"/arayast.js");
+              fs.copyFileSync("./project/"+testFolder+"/"+spnm+"spedata.js",gridaspath+"/"+spnm+"spedata.js");
+              fs.copyFileSync("./project/"+testFolder+"/"+spnm+"gridas.html",gridaspath+"/"+spnm+"gridas.html");
+              
+              copyDir("./jquery", gridaspath+"/jquery");
+              copyDir("./project/"+testFolder+"/"+spnm+"gridas", gridaspath+"/"+spnm+"gridas");
+              copyDir("./project/"+testFolder+"/uploads", gridaspath+"/uploads");
+              copyDir("./project/"+testFolder+"/"+spnm+"pinimg", gridaspath+"/"+spnm+"pinimg");
+    alert("Success");
+  // } 
+    }});
+});
+//
+rtsdata.addEventListener("click", function () {
+var ck=document.getElementsByClassName('chk');
+for(var i=0;i<ck.length;i++){
+    ck[i].style.display='block';
+}
+document.getElementById('save').style.display="flex";
+document.getElementById('cancel').style.display="flex";
+rts=true;
+});
+dltdata.addEventListener("click", function () {
+var ck=document.getElementsByClassName('chk');
+for(var i=0;i<ck.length;i++){
+    ck[i].style.display='block';
+}
+document.getElementById('delete').style.display="flex";
+document.getElementById('cancel').style.display="flex";
+
+});
+//
+rtdata.addEventListener("click", function () {
+  //
+
+$.ajax({
+                  url: "./project/"+testFolder+"/"+"papr.json",
+             type: 'GET',
+    cache: false,
+                  beforeSend: function(xhr){
+                    if (xhr.overrideMimeType)
+                    {
+                      xhr.overrideMimeType("application/json");
+                    }
+                  },
+                  dataType: 'json',
+                  data: null,
+                  success:  function(data, textStatus, request) {
+
+  const homedir = require('os').homedir();
+          var rlpath=homedir+"/Pinasi/"+testFolder+"/"+"rtbydatabase";
+    if (!fs.existsSync(rlpath)){
+            fs.mkdirSync(rlpath, { recursive: true });
+
+           }
+           
+           fs.copyFileSync("./project/"+testFolder+"/papr.json",rlpath+"/papr.json");
+    fs.copyFileSync("./project/"+testFolder+"/savedform.json",rlpath+"/savedform.json");
+    fs.copyFileSync("./etc/math.js",rlpath+"/math.js");
+    fs.copyFileSync("./onlinefile/realpageon.html",rlpath+"/realpageon.html");
+    fs.copyFileSync("./etc/search.css",rlpath+"/search.css");
+    fs.copyFileSync("./etc/sda.php", rlpath+"/sda.php");
+    for(var i=0;i<data.length;i++){
+      if (fs.existsSync("./project/"+testFolder+"/"+data[i]["fnm"]+"pminar.js")){
+                fs.copyFileSync("./project/"+testFolder+"/"+data[i]["fnm"]+"pminar.js", rlpath+"/"+data[i]["fnm"]+"pminar.js");
+              } 
+   
+    }
+    
+              copyDir("./jquery", rlpath+"/jquery");
+   
+    alert("Success");
+            }});
+  // } 
+});   
+
+function PrintElem2(elem)
+   {
+       var mywindow = window.open('', 'PRINT','height=400,width=600');
+   mywindow.document.write(elem.document.getElementsByTagName('html')[0].innerHTML);
+ 
+   var actContents = mywindow.document.getElementById('grid').innerHTML;
+  // mywindow.document.body.innerHTML = actContents;  
+   const myTimeout = setTimeout(myGreeting, 5000);
+
+function myGreeting() {
+  var actContents = mywindow.document.getElementById('grid').innerHTML;
+  if (confirm("Print ?")) {
+ 
+      
+  mywindow.focus();
+    mywindow.print();  
+               mywindow.document.body.style.margin=0;
+                
+                              
+                myStopFunction();  
+              }
+}
+
+function myStopFunction() {
+  clearTimeout(myTimeout);
+}
+       mywindow.document.close(); // necessary for IE >= 10
+       mywindow.focus(); // necessary for IE >= 10*/
+   
+      // mywindow.print();
+      //mywindow.close();
+   
+       return true;
+   }
+function printPageArea(){
+ 
+            window.print(); 
+}
+
+function PrintElem(elem){var mywindow = window.open('', 'PRINT', 'height=400,width=600');
+mywindow.document.write(elem.document.getElementsByTagName('html')[0].innerHTML);
+mywindow.document.write('<link rel=stylesheet href=./project/'+testFolder+'/gridas/gridas.css type=text/css />');
+mywindow.document.write('<script src=`jquery/jquery.min.js`><\/script><script src=`./project/'+testFolder+'/gridas/gridasmaster.js`><\/script><script src=`./project/'+testFolder+'/gridas/grid.js`><\/script><script src=`fr.js`><\/script><script src=`ls.js`><\/script>');
+mywindow.document.write(`<button onclick=" var actContents = document.getElementById('grid').innerHTML;
+   var lld=document.body.innerHTML;
+               document.body.innerHTML = actContents;
+               const myTimeout = setTimeout(myGreeting, 5000);
+
+function myGreeting() {
+  window.focus();
+                window.print();
+                document.body.innerHTML = lld;
+                myStopFunction();  
+}
+
+function myStopFunction() {
+  clearTimeout(myTimeout);
+}
+              
+            
+               
+                 
+            " style="z-index: 2; position: absolute; top:0;">Print</button>`);
+mywindow.document.close(); mywindow.focus(); return true;}
+//function print() {
+ //document.getElementById('tdiv').contentWindow.print();
+//};
+function paper(mnf,num){
+  var dvm = document.createElement('div');
+  var dv1 = document.createElement('div');
+  var dv2 = document.createElement('div');
+  var dv3 = document.createElement('div');
+  var dv4 = document.createElement('div');
+  
+  var lbl1 = document.createElement('label');
+  var lbl2 = document.createElement('label');
+  var lbl3 = document.createElement('label');
+  var lbl4 = document.createElement('label');
+
+  var chek=document.createElement("input");
+  var dv=document.createElement("div");
+                        chek.className="chk";
+                        dv.className="dvch";
+                       
+                        chek.type="checkbox";
+
+  dvm.className="mdv";
+  dv1.classList.add('mdl', 'sch'); 
+  dv2.className="mdl";dv3.className="mdl";dv4.className="mdl";
+  dv1.style.height="30%";
+  dv2.style.height="50%";
+  dv2.style.overflowX="auto";
+  dv2.style.overflowY="hidden";
+  // dv2.style.justifyContent="center";
+  // dv2.style.alignItems="center";
+  // dv2.style.display="flex";
+  dv3.style.height="10%";
+  dv4.style.display="flex";
+  dv4.style.justifyContent="right";
+  dv4.style.marginRight="2%";
+
+  lbl1.id="tp";
+  lbl2.id="vl";
+  lbl3.id="exp";
+  lbl4.id="lst";
+
+  lbl4.style.fontSize="small";
+  lbl4.style.justifyContent="center";
+  lbl4.style.display="flex";
+  lbl4.style.alignItems="center";
+  lbl4.style.marginRight="2%";
+
+  dvm.style.border="1px solid black";
+
+  dv1.appendChild(lbl1);
+  dv2.appendChild(lbl2);
+  dv3.appendChild(lbl3);
+  dv4.appendChild(lbl4);
+
+  dvm.appendChild(dv1);
+  dvm.appendChild(dv2);
+  dvm.appendChild(dv3);
+  dvm.appendChild(dv4);
+  dv.appendChild(dvm)
+  dv.appendChild(chek);
+  frame.appendChild(dv);
+
+  
+
+var cnf=[];
+// const testFolder = sessionStorage.getItem("project");
+// const testFolder = "af";
+
+function timestampToDatetimeInputString(timestamp) {
+    const date = new Date((timestamp + _getTimeZoneOffsetInMs()));
+    // slice(0, 19) includes seconds
+    return date.toISOString().slice(0, 19);
+  }
+  function _getTimeZoneOffsetInMs() {
+    return new Date().getTimezoneOffset() * -60 * 1000;
+  }
+lbl4.innerHTML="Last Updated :"+timestampToDatetimeInputString(Date.now());
+                if(sessionStorage.getItem('savedform.json')){
+                 cnf=JSON.parse(sessionStorage.getItem('savedform.json'));
+                }
+   var tp=lbl1;
+            var vl=lbl2;
+            var exp=lbl3;
+            var i=num;
+                    if(mnf[i]["mind"]==true){
+                    var s = document.createElement("script");
+                    s.type = "text/javascript";
+                    s.src = "./project/"+testFolder+"/"+mnf[i]["fnm"]+"pminar.js";
+                    $("head").append(s);
+                        var fn = window['mindata']; 
+                        if(typeof fn === 'function') {
+                        l=mindata(JSON.parse(sessionStorage.getItem('datajson')));
+                    }
+                    }
+                    else{
+                        l=JSON.parse(sessionStorage.getItem('datajson'));
+                    }
+                    //  l=data;
+                 
+          
+          
+            tp.innerHTML=mnf[i]["top"] ;
+            if(mnf[i]["location"]){
+              const options = {
+  style: 'decimal',  // Other options: 'currency', 'percent', etc.
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+};
+vl.innerHTML=calc(mnf[i]["mdl"]).toLocaleString(mnf[i]["location"],options) ;
+
+            }
+           else if(mnf[i]["simply"]){
+              var SI_SYMBOL;
+              if(mnf[i]["simply"]=="size"){
+              SI_SYMBOL = ["", "k", "M", "G", "T", "P", "E"];
+            }
+            if(mnf[i]["simply"]=="norm")
+            { SI_SYMBOL = ["", "k", "M", "B", "T", "QA", "QI"];}
+function abbreviateNumber(number){
+
+    // what tier? (determines SI symbol)
+    var tier = Math.log10(Math.abs(number)) / 3 | 0;
+
+    // if zero, we don't need a suffix
+    if(tier == 0) return number;
+
+    // get suffix and determine scale
+    var suffix = SI_SYMBOL[tier];
+    var scale = Math.pow(10, tier * 3);
+
+    // scale the number
+    var scaled = number / scale;
+
+    // format number and add suffix
+    return scaled.toFixed(1) + suffix;
+}
+vl.innerHTML=abbreviateNumber(calc(mnf[i]["mdl"])) ;
+        
+}
+            else{
+            vl.innerHTML=calc(mnf[i]["mdl"]) ;
+          }
+            exp.innerHTML=mnf[i]["ep"] ;
+            dvm.style.backgroundColor=mnf[i]["bgl"];
+            dvm.style.color=mnf[i]["fcl"];
+          
+            function calc(nm){
+
+for(var j=0;j<cnf.length;j++){
+  
+    if(nm.includes(cnf[j]["vrb"])){
+        var s=cnf[j]["vrb"];
+        var f=cnf[j]["fm"];
+        var reg = new RegExp(s, "g");
+    nm = nm.replace(reg, f);
+
+    }
+}
+
+var fl= eval(nm);
+
+return fl;
+}
+                  
+}
+window.onerror = function(error, url, line) {
+  //alert(error+' URL:'+url+' L:'+line); 
+};
+</script>
+  </body></html>

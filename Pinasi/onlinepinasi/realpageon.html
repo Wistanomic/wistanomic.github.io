@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <link rel="stylesheet" href="search.css">  
+  </head>
+  <style>
+    
+   html { 
+    height:100%;
+    width: 100%;
+}
+body{
+    height:100%;
+    width: 100%;
+    margin:0;
+    overflow: hidden;
+}
+#homes{
+  width: 100%;
+    height: 100%;
+    position: relative;
+    margin-top: 1%;
+}
+#opt{
+    height: auto;
+    width: 5%;
+    background-color: blanchedalmond;
+    overflow-x: auto;
+}
+#page{
+    height: 100%;
+    width: 100%;
+    background-color: aqua;
+}
+#frame{
+    width: 100%;
+  height: 100%;
+  border: 0px solid;
+  display: grid;
+  grid-template-columns: repeat(2, 40%);
+  grid-auto-rows: 60%;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  gap: 10px 10px;
+  overflow: overlay;
+}
+.btnopt{
+    width: 100px;
+    height: 100%;
+    overflow: hidden;
+}
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  height: auto;
+    width: 5%;
+  border: none;
+  cursor: pointer;
+  min-width: 50px;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+#tdiv{
+  width: 100%;
+height: 92%;
+
+display: inline-block;
+
+margin-bottom: 2%;
+margin-top: -1%;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+
+.ifcl{
+    height: 100%;
+    width: 100%;
+}
+.dvch{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.chk{
+    
+    display: none;
+}
+@media only screen and (max-width : 499px) {
+    #searcttxt{
+    
+        margin-left: 20%;
+}
+  }
+  @media only screen and (min-width : 500px) {
+    #searcttxt{
+    
+    margin-left: 50%;
+}
+  }
+  @media only screen and (min-width : 690px) {
+    #searcttxt{
+    
+        margin-left: 70%;
+}
+  }
+#save{
+  width: 5%;
+    height: 100%;
+    background-color: #ccc;
+    margin-top: 0px;
+    border: 0px solid ;
+    align-items: center;
+ 
+    border-radius: 5px ;
+    
+    
+justify-content: center;
+ cursor: pointer;  
+ font-size: large;
+color: #808080;  
+}
+.mdv{
+    height:100%;
+    width: 100%;
+    margin:0;
+    overflow: hidden;
+    
+}
+.mdl{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#vl{
+ width: 88%;
+ overflow: auto;
+ display: flex;
+ justify-content: center;
+  align-items :center;  
+}
+@media screen and (min-width: 601px) {
+    #tp{
+    font-weight: bold;
+    font-size: xx-large;
+}
+#vl{
+    font-weight: bold;
+    font-size: xxx-large;
+}
+#exp{
+    font-size: x-large;
+}
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 600px) {
+    #tp{
+    font-weight: bold;
+    font-size: x-large;
+}
+#vl{
+    font-weight: bold;
+    font-size: xx-large;
+}
+#exp{
+    font-size: large;
+}
+}
+@media only screen and (min-width: 768px) {
+    #tp{
+    font-weight: bold;
+    font-size: xx-large;
+}
+#vl{
+    font-weight: bold;
+    font-size: xxx-large;
+}
+#exp{
+    font-size: x-large;
+}
+}
+::-webkit-scrollbar {
+  width: 8px;height:8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background:  #009879; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background:  #05b894; 
+}
+  </style>
+  
+  <body>
+    
+    <div id="homes">
+        <div id="set"  >
+            <button onclick="dropbtn()" class="dropbtn" style="display: none;" >Copy</button>
+
+            <button id="refresh" onclick="refr();" >&#8635;</button>
+            <button id="save" onclick="save();" style="display: none;" >Save</button>
+            <input type="text" id="searcttxt"  > 
+            
+            </div>
+    
+        <div id="tdiv" >
+            <div id="myDropdown" class="dropdown-content">
+                <a   id="rtdata">Real-Time</a>
+                <a   id="rtsdata">Real-Time Select</a>
+                <a id="statdata" style="display: none;">Static</a>
+                <a   id="stsdata" style="display: none;">Static Select</a>
+                <a href="#"  id="ohtml">Page Only</a>
+              </div>
+            <div id="frame"></div>
+     
+    </div>
+    </div>
+    <script src="math.js"></script>
+    <script src="jquery/jquery.min.js"></script>
+    
+<script>
+
+var rts=false;
+var sts=false;
+var ifrm=document.getElementById('frame');
+var l=[];
+var ohtml=document.getElementById('ohtml');
+ 
+  
+var arfile=[];
+var src=sessionStorage.getItem("type");
+$.ajax({
+                  url: "papr.json",
+             type: 'GET',
+    cache: false,
+                  beforeSend: function(xhr){
+                    if (xhr.overrideMimeType)
+                    {
+                      xhr.overrideMimeType("application/json");
+                    }
+                  },
+                  dataType: 'json',
+                  data: null,
+                  success:  function(data, textStatus, request) {
+                    for(var i=0;i<data.length;i++){
+                        var dv=document.createElement("div");
+                        var fdc=document.createElement("iframe");
+                        var chek=document.createElement("input");
+                        chek.className="chk";
+                        dv.className="dvch";
+                       
+                        chek.type="checkbox";
+
+// fdc.src="papereal.html?"+i;
+paper(data,i);
+fdc.className="ifcl";
+
+// dv.appendChild(fdc);
+// dv.appendChild(chek);
+// frame.appendChild(dv);
+
+                    }
+
+                  }});
+
+var uniqu=[];
+document.getElementById("searcttxt").addEventListener("keyup", function () {
+                    var input, filter, table, tr, td, i, txtValue;;filter = this.value.toUpperCase();   li = document.getElementsByClassName("mdv"); dv = document.getElementsByClassName("sch");for (i = 0; i < li.length; i++) {td = dv[i];if (td) {txtValue = td.textContent || td.innerText ;if (txtValue.toUpperCase().indexOf(filter) > -1) {li[i].style.display = "";} else {li[i].style.display = "none";}}}
+  } );
+
+function refr(){
+  location.reload();
+}
+
+//function print() {
+ //document.getElementById('tdiv').contentWindow.print();
+//};
+function paper(mnf,num){
+  var dvm = document.createElement('div');
+  var dv1 = document.createElement('div');
+  var dv2 = document.createElement('div');
+  var dv3 = document.createElement('div');
+  var dv4 = document.createElement('div');
+  
+  var lbl1 = document.createElement('label');
+  var lbl2 = document.createElement('label');
+  var lbl3 = document.createElement('label');
+  var lbl4 = document.createElement('label');
+
+  dvm.className="mdv";
+  dv1.classList.add('mdl', 'sch'); 
+  dv2.className="mdl";dv3.className="mdl";dv4.className="mdl";
+  dv1.style.height="30%";
+  dv2.style.height="50%";
+  dv2.style.overflowX="auto";
+  dv2.style.overflowY="hidden";
+  dv3.style.height="10%";
+  dv4.style.display="flex";
+  dv4.style.justifyContent="right";
+  dv4.style.marginRight="2%";
+
+  lbl1.id="tp";
+  lbl2.id="vl";
+  lbl3.id="exp";
+  lbl4.id="lst";
+
+  lbl4.style.fontSize="small";
+  lbl4.style.justifyContent="center";
+  lbl4.style.display="flex";
+  lbl4.style.alignItems="center";
+  lbl4.style.marginRight="2%";
+
+  dvm.style.border="1px solid black";
+
+  dv1.appendChild(lbl1);
+  dv2.appendChild(lbl2);
+  dv3.appendChild(lbl3);
+  dv4.appendChild(lbl4);
+
+  dvm.appendChild(dv1);
+  dvm.appendChild(dv2);
+  dvm.appendChild(dv3);
+  dvm.appendChild(dv4);
+  frame.appendChild(dvm);
+
+  
+
+var cnf=[];
+
+function timestampToDatetimeInputString(timestamp) {
+    const date = new Date((timestamp + _getTimeZoneOffsetInMs()));
+    // slice(0, 19) includes seconds
+    return date.toISOString().slice(0, 19);
+  }
+  function _getTimeZoneOffsetInMs() {
+    return new Date().getTimezoneOffset() * -60 * 1000;
+  }
+lbl4.innerHTML="Last Updated :"+timestampToDatetimeInputString(Date.now());
+
+$.ajax({
+                  url: "savedform.json",
+             type: 'GET',
+    cache: false,
+                  beforeSend: function(xhr){
+                    if (xhr.overrideMimeType)
+                    {
+                      xhr.overrideMimeType("application/json");
+                    }
+                  },
+                  dataType: 'json',
+                  data: null,
+                  success:  function(data, textStatus, request) {
+                 cnf=data
+                  }});
+$.ajax({
+  url: "sda.php",
+             type: 'GET',
+    cache: false,
+                  beforeSend: function(xhr){
+                    if (xhr.overrideMimeType)
+                    {
+                      xhr.overrideMimeType("application/json");
+                    }
+                  },
+                  dataType: 'json',
+                  data: null,
+                  success:  function(data, textStatus, request) {
+                          
+            var tp=lbl1;
+            var vl=lbl2;
+            var exp=lbl3;
+            var i=num;
+                    if(mnf[i]["mind"]==true){
+                    var s = document.createElement("script");
+                    s.type = "text/javascript";
+                    s.src = mnf[i]["fnm"]+"pminar.js";
+                    $("head").append(s);
+                        var fn = window['mindata']; 
+                        if(typeof fn === 'function') {
+                        l=mindata(data);
+                    }
+                    }
+                    else{
+                        l=data;
+                    }
+                   
+           
+          
+            tp.innerHTML=mnf[i]["top"] ;
+            if(mnf[i]["location"]){
+              const options = {
+  style: 'decimal',  // Other options: 'currency', 'percent', etc.
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+};
+vl.innerHTML=calc(mnf[i]["mdl"]).toLocaleString(mnf[i]["location"],options) ;
+
+            }
+           else if(mnf[i]["simply"]){
+              var SI_SYMBOL;
+              if(mnf[i]["simply"]=="size"){
+              SI_SYMBOL = ["", "k", "M", "G", "T", "P", "E"];
+            }
+            if(mnf[i]["simply"]=="norm")
+            { SI_SYMBOL = ["", "k", "M", "B", "T", "QA", "QI"];}
+function abbreviateNumber(number){
+
+    // what tier? (determines SI symbol)
+    var tier = Math.log10(Math.abs(number)) / 3 | 0;
+
+    // if zero, we don't need a suffix
+    if(tier == 0) return number;
+
+    // get suffix and determine scale
+    var suffix = SI_SYMBOL[tier];
+    var scale = Math.pow(10, tier * 3);
+
+    // scale the number
+    var scaled = number / scale;
+
+    // format number and add suffix
+    return scaled.toFixed(1) + suffix;
+}
+vl.innerHTML=abbreviateNumber(calc(mnf[i]["mdl"])) ;
+        
+}
+            else{
+            vl.innerHTML=calc(mnf[i]["mdl"]) ;
+          }
+            exp.innerHTML=mnf[i]["ep"] ;
+            dvm.style.backgroundColor=mnf[i]["bgl"];
+            dvm.style.color=mnf[i]["fcl"];
+            
+            function calc(nm){
+
+for(var j=0;j<cnf.length;j++){
+    if(nm.includes(cnf[j]["vrb"])){
+        var s=cnf[j]["vrb"];
+        var f=cnf[j]["fm"];
+        var reg = new RegExp(s, "g");
+    nm = nm.replace(reg, f);
+
+    }
+}
+
+var fl= eval(nm);
+
+return fl;
+}
+                  }});
+}
+window.onerror = function(error, url, line) {
+  // //alert(error+' URL:'+url+' L:'+line); 
+};
+</script>
+  </body></html>

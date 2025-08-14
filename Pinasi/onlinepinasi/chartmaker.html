@@ -1,0 +1,2074 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+      html { 
+    height:100%;
+    width: 100%;
+    font-family: sans-serif;
+}
+body{
+    height:100%;
+    width: 100%;
+    margin:0;
+    overflow: hidden;
+}
+::-webkit-scrollbar {
+  width: 8px;height:8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background:  #009879; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background:  #05b894; 
+}
+#home{
+  height:100%;
+    width: 100%;
+    display: inline-flex;
+    background-color: #f2efda;
+    overflow: hidden;
+}
+#saveside{
+  width: 30%;
+  height: 100%;
+  padding: 10px;
+  background-color: #f2efda;
+  float: left;
+  display: block;
+  border-right:1px solid #009879 ;
+}
+#divedit{
+    width: 100%;
+  height: 93%;
+  
+  background-color: #f2efda;
+  
+  overflow: overlay;
+  overflow: auto;
+  }
+  #divbtn{
+    width: 100%;
+  height: 5%;
+  
+ 
+  }
+#griddisp{
+  position: static;
+  height: 100%;
+  width: 70%;
+  background-color: #f2efda;
+  margin-left: 15px;
+  margin-top: 15px;
+  overflow: overlay;
+}
+.gstyle > input{ /* Menyembunyikan radio button */
+          visibility: hidden; 
+          position: absolute; 
+        }
+        .gstyle > input + img{ /* style gambar */
+          cursor:pointer;
+          border:2px solid black;
+        }
+        .gstyle > input:checked + img{ /* (RADIO CHECKED) style gambar */
+          border:2px solid #009879 ;
+        }
+.opti{
+  margin-bottom: 15px;
+  margin-top: 15px;
+  
+  margin-right: auto;
+  
+  
+}
+.opb > input{ /* Menyembunyikan radio button */
+  
+  visibility: hidden; 
+  position: absolute; 
+ 
+}
+.opb > input + div{ /* style gambar */
+  cursor:pointer;
+  border:2px solid black;
+  width: 170px;
+  height: 20px;
+  text-align: center;
+}
+
+.opb > input:checked + div{ /* (RADIO CHECKED) style gambar */
+  border:2px solid #009879 ;
+   width: 170px;
+  height: 20px;
+  text-align: center;
+}
+.opitm{
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+.opitm > input{ /* Menyembunyikan radio button */
+  
+  visibility: hidden; 
+  position: absolute; 
+ 
+}
+.opitm > input + div{ /* style gambar */
+  cursor:pointer;
+  border:2px solid black;
+  width: 100px;
+  height: 20px;
+  text-align: center;
+}
+
+.opitm > input:checked + div{ /* (RADIO CHECKED) style gambar */
+  border:2px solid #009879 ;
+   width: 100px;
+  height: 20px;
+  text-align: center;
+}
+.mod{
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+.mod > input{ /* Menyembunyikan radio button */
+  
+  visibility: hidden; 
+  position: absolute; 
+ 
+}
+.mod > input + div{ /* style gambar */
+  cursor:pointer;
+  border:2px solid black;
+  width: 100px;
+  height: 20px;
+  text-align: center;
+}
+
+.mod > input:checked + div{ /* (RADIO CHECKED) style gambar */
+  border:2px solid #009879 ;
+   width: 100px;
+  height: 20px;
+  text-align: center;
+}
+.db{
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+.db > input{ /* Menyembunyikan radio button */
+  
+  visibility: hidden; 
+  position: absolute; 
+ 
+}
+.db > input + div{ /* style gambar */
+  cursor:pointer;
+  border:2px solid black;
+  width: 150px;
+  height: 20px;
+  text-align: center;
+}
+
+.db > input:checked + div{ /* (RADIO CHECKED) style gambar */
+  border:2px solid #009879 ;
+   width: 150px;
+  height: 20px;
+  text-align: center;
+}
+.nvl{
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+.nvl > input{ /* Menyembunyikan radio button */
+  
+  visibility: hidden; 
+  position: absolute; 
+ 
+}
+.nvl > input + div{ /* style gambar */
+  cursor:pointer;
+  border:2px solid black;
+  width: 100px;
+  height: 20px;
+  text-align: center;
+}
+
+.nvl > input:checked + div{ /* (RADIO CHECKED) style gambar */
+  border:2px solid #009879 ;
+   width: 100px;
+  height: 20px;
+  text-align: center;
+}
+.nvly{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.nvly > input{ /* Menyembunyikan radio button */
+  
+  visibility: hidden; 
+  position: absolute; 
+ 
+}
+.nvly > input + div{ /* style gambar */
+  cursor:pointer;
+  border:2px solid black;
+  width: 100px;
+  height: 20px;
+  text-align: center;
+}
+
+.nvly > input:checked + div{ /* (RADIO CHECKED) style gambar */
+  border:2px solid #009879 ;
+   width: 100px;
+  height: 20px;
+  text-align: center;
+}
+#fill{
+  
+  margin-bottom: 15px;
+}
+#nm{
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+#cl2{
+
+width: 100%;
+overflow: hidden;
+margin-top: 10px;
+margin-bottom: 10px;
+}
+#cl2:hover{
+
+
+overflow: overlay;
+
+}
+
+#inputdiv{
+  margin-top: 10px;
+  margin-bottom: 15px;
+height:30px;
+width: 100%;
+background-color: #f2efda;
+overflow: hidden;
+}
+#inputdiv:hover{
+ 
+
+}
+#inputdivy{
+  margin-top: 10px;
+  margin-bottom: 15px;
+height:30px;
+width: 100%;
+background-color: #f2efda;
+overflow: hidden;
+}
+#inputdivy:hover{
+ 
+overflow: overlay;
+overflow: auto;
+}
+#add{
+  height: 100%;
+  width: 5%; 
+  margin-left: 5px;
+  margin-left: 10px;
+   
+    border-radius: 10px;
+    border: 0px solid ;
+    background-color: #009879;
+    color: white;
+    cursor: pointer;
+}
+#datadiv{
+ 
+height:100%;
+width: 90%;
+background-color: #f2efda;
+overflow: hidden;
+}
+#datadiv:hover{
+ 
+overflow: overlay;
+}
+#dbtn{
+    
+    margin-left: 10px;
+    padding-bottom: 20px;
+    padding-top: 5px;
+    height: 30px;
+    font-size: 15px;
+    width: 90%;
+    border-radius: 10px;
+    border: 0px solid ;
+    background-color: #009879;
+    color: white;
+    cursor: pointer;
+}
+#coldiv{
+  width:100%;
+  height:100px;
+  overflow: auto;
+  background-color: #f2efda;;
+  display: inline-flex;
+}
+#clrdiv{
+width:35%;
+height: 100%;
+
+display: inline-block;
+text-align: center;
+}
+
+#clrdiv3{
+width:30%;
+height: 100%;
+display: inline-block;
+
+}
+#colordiv{
+width:100%;
+height: 100%;
+
+display: grid;
+border-right: 1px solid #009879;
+}
+
+#colordiv3{
+width:100%;
+height: 100%;
+margin-left: 5px;
+display: grid;
+overflow: overlay;
+}
+#lbcl{
+  width:100%;
+height: 40px;
+
+font-size: 1.0vw;
+text-align: center; 
+}
+#lbcl2{
+  width:100%;
+height:  40px;
+
+font-size: 1.0vw;
+text-align: center; 
+}
+#lbcl3{
+  width:100%;
+
+
+font-size: 1.0vw;
+text-align: center; 
+}
+        #dbtn:hover {
+        background-color: #5e9393;
+        }
+        .inp{
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+        fieldset{
+    display:block;
+    padding: 3px;
+    border: 1px solid #1e9e6d;
+}
+#flnm{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+</style>
+</head>
+<body>
+
+<div id="home">
+<div id="saveside">
+  <div id="divedit">
+    <label>File Name :</label>
+    <br>
+    <input type="text" id="flnm">
+ <br>
+ <fieldset class="divgr">
+  <legend>Min Data</legend>
+ <br>
+ <label >Variable Name :</label><br>
+ <input type="text" id="varn" class="var">
+ <br>
+ <label >Data Name :</label><br>
+ <input type="text" id="dvar" class="var"><input type="checkbox" id="rng"><label for="rng">Range</label>
+ </fieldset>
+ <br>
+<label>Title :</label><br>
+<input type="text" id="titlech" placeholder="Title">
+<input type="text" id="xtitlech" placeholder="X Title">
+<input type="text" id="ytitlech" placeholder="Y Title">
+<br style="margin-bottom: 12px;">
+<label id="tz"  >Model :</label><br>
+<div style="display: inline-flex; ">
+<label class="nvl" >
+  <input type="radio" id="nvlin" name="nvl" class ="nvl" value="input" checked>
+  <div width="100px" height="30px" >Input</div>
+</label>
+<label class="nvl" >
+  <input type="radio" id="nvlnum" name="nvl" class ="nvl" value="number" >
+  <div width="100px" height="30px" >Number</div>
+</label>
+<label class="nvl" >
+  <input type="radio" id="nvld" name="nvl" class ="nvl" value="date">
+  <div width="100px" height="30px" >Date</div>
+</label>
+</div><br>
+<div id="inputdiv">
+    
+</div>
+<div style="display: inline-flex; ">
+  
+  <label class="nvly" >
+    <input type="radio" id="nvlynum" name="nvly" class ="nvly" value="number" >
+    <div width="100px" height="30px" >Number</div>
+  </label>
+  <label class="nvly" >
+    <input type="radio" id="nvlyd" name="nvly" class ="nvly" value="date">
+    <div width="100px" height="30px" >Date</div>
+  </label>
+  </div><br>
+  <div id="inputdivy">
+      
+  </div>
+<br>
+<div style="display: inline-flex; ">
+<label class="db" >
+  <input type="radio" id="sdata" name="db" class ="db" value="sdata" checked>
+  <div width="200px" height="30px" >Single Data</div>
+</label>
+<label class="db" >
+  <input type="radio" id="mdata" name="db" class ="db" value="mdata" >
+  <div width="200px" height="30px" >Multiple Data</div>
+</label>
+
+</div><br>
+<div style="width: 100%; height: 50px; display: inline-flex; margin-bottom: 15px;">
+<div id="datadiv">
+    
+</div>
+<button id="add" disabled>+</button>
+</div>
+<br>
+<div id="coldiv">
+
+<div id="clrdiv"><label id="lbcl">Color</label><br><div id="colordiv"></div></div>
+<div id="clrdiv3"><img id="lbcl3"> </img><br><div id="colordiv3"></div></div>
+</div>
+<br>
+<div id="cl2">
+  
+  <div style="display: inline-flex; margin-top: 10px;">
+    <div id="cl2l">
+  
+    <input type="checkbox" id="fill" name="fill" value="fill">
+    <label for="fill"> Fill</label><br>
+
+</div>
+<div id="cl2r">
+  <input type="checkbox" id="symbol" name="symbol" value="symbol">
+  <label for="symbol"> legend</label><br>
+</div>
+<div id="cl21r">
+  <input type="checkbox" id="scrollx" name="scrollx" value="scrollx">
+  <label for="scrollx">scroll-x</label><br>
+</div>
+<div id="cl22r">
+  <input type="checkbox" id="accu" name="accu" value="accu">
+  <label for="accu">Pivot Data</label><br>
+</div>
+</div>
+<br> 
+</div>
+</div>
+<div id="divbtn">
+<button id="dbtn">Save</button>
+</div>
+</div>
+<div id="griddisp">
+  <label class="gstyle" >
+    <input type="radio"  name="grist" id="square"  value='scatter'>
+    <img  width="200px" height="200px" title="Scatter" style="object-fit: cover;" src="./img/scatt.png">
+</label>
+<label class="gstyle" >
+    <input type="radio" name="grist" id="circle" checked value="line">
+    <img  width="200px" height="200px" title="Line" style="object-fit: cover;" src="./img/linech.png">
+</label>
+<label class="gstyle" >
+    <input type="radio" name="grist" id="lsquare" value="pie">
+    <img  width="200px" height="200px" title="Pie" style="object-fit: cover;" src="./img/piech.png">
+</label>
+<label class="gstyle" >
+  <input type="radio" name="grist" id="wsquare" value="bar">
+  <img  width="200px" height="200px" title="Bar" style="object-fit: cover;" src="./img/barch.png">
+</label>
+ <label class="gstyle" >
+     <input type="radio"  name="grist" id="roundsq" value="doughnut">
+     <img  width="200px" height="200px" title="Doughnut" style="object-fit: cover;" src="./img/circlech.png">
+ </label>
+</div>
+</div>
+<script>
+    // var fs =require('fs');
+    var folderpath=sessionStorage.getItem("project");
+    //
+    var square=document.getElementById("square");
+    var circle=document.getElementById("circle");
+    var lsquare=document.getElementById("lsquare");
+    var roundsq=document.getElementById("roundsq");
+    var wsquare=document.getElementById("wsquare");
+    //
+var add=document.getElementById("add");
+var dbtn=document.getElementById("dbtn");
+var idiv=document.getElementById("inputdiv");
+var idiy=document.getElementById("inputdivy");
+var ddiv=document.getElementById("datadiv");
+var colordiv=document.getElementById("colordiv");
+var colordiv3=document.getElementById("colordiv3");
+var lblcl=document.getElementById("lblcl");
+var inpxmin=document.getElementById("inpxmin");
+var inpxmax=document.getElementById("inpxmax");
+
+var dvar = document.getElementById('dvar');
+  var varn = document.getElementById('varn');
+
+var flnm = document.getElementById('flnm');
+var rng = document.getElementById('rng');
+
+var fill=document.getElementById("fill");
+var symb=document.getElementById("symbol");
+var accu=document.getElementById("accu");
+var titlech=document.getElementById("titlech");
+var xtitlech=document.getElementById("xtitlech");
+var ytitlech=document.getElementById("ytitlech");
+var mySelect=document.getElementById('mySelect');
+var mySelecty=document.getElementById('mySelecty');
+//
+const filef = document.querySelector('#symbol');
+//
+
+
+var csshead="";
+var total="";
+var fpath="";
+var fpname="";
+var ylistval="";
+var xlistval="";
+var csspath="";
+var borderrad=document.querySelector('input[name="grist"]:checked').value;
+var rad=document.getElementsByName('grist');
+var nvl=document.getElementsByName('nvl');
+var nvly=document.getElementsByName('nvly');
+var datab=document.getElementsByName('db');
+
+
+var jsp={};
+var datc="";
+
+var keys ;
+var prev = null;
+var filvar="false";
+var accuf=false;
+//
+
+if(window.navigator.onLine==false){
+  if(!localStorage.getItem('active')){
+      document.getElementById("flnm").disabled=true;
+      document.getElementById("flnm").title="UPDATE TO PREMIUM : to access offline";
+      document.getElementById("rng").disabled=true;
+      document.getElementById("rng").title="UPDATE TO PREMIUM : to access offline";
+      document.getElementById("varn").disabled=true;
+      document.getElementById("varn").title="UPDATE TO PREMIUM : to access offline";
+      document.getElementById("dvar").disabled=true;
+      document.getElementById("dvar").title="UPDATE TO PREMIUM : to access offline";
+  }
+  
+}
+//
+fill.addEventListener('change', function() {
+if(fill.checked==true){
+filvar="true";
+}
+else{
+  filvar="false";
+}
+});
+///
+accu.addEventListener('change', function() {
+if(accu.checked==true){
+accuf=true;
+}
+else{
+accuf=false;
+}
+});
+//
+function disbg(){
+  ddiv.innerHTML="";
+      colordiv.innerHTML="";
+      
+      colordiv3.innerHTML="";
+        document.getElementById("sdata").checked = true;
+        document.getElementById("mdata").disabled = true;
+        var idx=1;
+var dt=document.createElement("input");
+        dt.type="text";
+        dt.name="inp";
+        dt.style.width="40%";
+        dt.placeholder="Data";
+        dt.onfocus=focuspie("data"+idx);
+        var dt2=document.createElement("input");
+        dt2.type="text";
+        dt2.name="ilbl";
+        dt2.style.width="40%";
+        dt2.placeholder="Label";
+        ddiv.appendChild(dt);
+        ddiv.appendChild(dt2);
+       
+}
+function abbg(){
+  ddiv.innerHTML="";
+      colordiv.innerHTML="";
+     
+      colordiv3.innerHTML="";
+        document.getElementById("sdata").checked = true;
+        document.getElementById("mdata").disabled = false;
+        var idx=1;
+var dt=document.createElement("input");
+        dt.type="text";
+        dt.name="inp";
+        dt.style.width="40%";
+        dt.placeholder="Data";
+        dt.onfocus=focus("data"+idx);
+        var dt2=document.createElement("input");
+        dt2.type="text";
+        dt2.name="ilbl";
+        dt2.style.width="40%";
+        dt2.placeholder="Label";
+        ddiv.appendChild(dt);
+        ddiv.appendChild(dt2);
+        
+         
+        
+       
+}
+//
+function focus(ids){
+  var incol=document.createElement("input");
+  var lblincol=document.createElement("label");
+  incol.type="color";
+  incol.id=ids+"bg";
+  incol.value="#ffffff";
+  incol.style.width="100%";
+  incol.name="incol";
+  
+ lblincol.innerHTML=ids;
+  
+  colordiv.appendChild(incol);
+ 
+ 
+  colordiv3.appendChild(lblincol);
+console.log(ids);
+}
+function focuspie(ids){
+  var incol=document.createElement("input");
+  var lblincol=document.createElement("label");
+  var incol2=document.createElement("input");
+  var lblincol2=document.createElement("label");
+  incol.type="color";
+  incol.id="stbg";
+  incol.value="#ffffff";
+  incol.style.width="100%";
+  incol.name="incol";
+  
+ lblincol.innerHTML="Start Color";
+ incol2.type="color";
+  incol2.id="ebg";
+  incol2.value="#ffffff";
+  incol2.style.width="100%";
+  incol2.name="incol";
+  
+ lblincol2.innerHTML="End Color";
+  
+  colordiv.appendChild(incol);
+ 
+ 
+  colordiv3.appendChild(lblincol);
+  colordiv.appendChild(incol2);
+ 
+ 
+  colordiv3.appendChild(lblincol2);
+console.log(ids);
+}
+//
+
+for (var i = 0; i < nvl.length; i++) {
+    nvl[i].addEventListener('change', function() {
+var tvl =this.value;
+
+
+if(tvl=="input"){
+  console.log(borderrad);
+  idiv.innerHTML="";
+  
+  var inpt=document.createElement("input");
+        inpt.type="text";
+        inpt.id="xval";
+        inpt.style.width="100%";
+        inpt.placeholder="X value";
+        
+        idiv.appendChild(inpt);
+        
+        
+}
+else if(tvl=="number"){
+  idiv.innerHTML="";
+  var inptmin=document.createElement("input");
+  var inptmax=document.createElement("input");
+  var inptstep=document.createElement("input");
+        inptmin.type="number";
+        inptmin.id="inpxmin";
+        inptmin.style.width="30%";
+        inptmin.placeholder="X Min value";
+        inptmax.type="number";
+        inptmax.id="inpxmax";
+        inptmax.style.width="30%";
+        inptmax.placeholder="X Max value";
+        inptstep.type="number";
+        inptstep.id="inpxstep";
+        inptstep.style.width="30%";
+        inptstep.placeholder="Step";
+        //
+        
+        idiv.appendChild(inptmin);
+        idiv.appendChild(inptmax);
+        idiv.appendChild(inptstep);
+     
+}
+else if(tvl=="date"){
+  
+  console.log(borderrad);
+  idiv.innerHTML="";
+  var inptmin=document.createElement("input");
+  
+  var inptmax=document.createElement("input");
+  var inptstep=document.createElement("input");    
+        inptmin.type="text";
+        inptmin.id="inpxmin";
+        inptmin.style.width="20%";
+        
+        inptmax.type="text";
+        inptmax.id="inpxmax";
+        inptmax.style.width="20%";
+        inptstep.type="number";
+        inptstep.id="inpxstep";
+        inptstep.style.width="20%";
+        inptstep.placeholder="Step";
+        //
+       
+        var selarray = ["Milisecond","Second","Minute","Hour","Day","Week","Month","Year"];
+
+//Create and append select list
+var selectList = document.createElement("select");
+selectList.id = "mySelect";
+selectList.style.width="30%";
+selectList.onchange=sellist;
+
+//Create and append the options
+for (var i = 0; i < selarray.length; i++) {
+    var option = document.createElement("option");
+    option.value = selarray[i];
+    option.text = selarray[i];
+    selectList.appendChild(option);
+}
+       
+      
+       
+        
+        idiv.appendChild(inptmin);
+       
+        idiv.appendChild(inptmax);
+        idiv.appendChild(inptstep);
+        idiv.appendChild(selectList);
+}
+})}
+//
+for (var i = 0; i < nvly.length; i++) {
+    nvly[i].addEventListener('change', function() {
+var tvl =this.value;
+
+
+if(tvl=="input"){
+  console.log(borderrad);
+  idiy.innerHTML="";
+  
+  var inpt=document.createElement("input");
+        inpt.type="text";
+        inpt.id="yval";
+        inpt.style.width="100%";
+        inpt.placeholder="Y value";
+        
+        idiy.appendChild(inpt);
+        
+        
+}
+else if(tvl=="number"){
+  idiy.innerHTML="";
+  var inptmin=document.createElement("input");
+  var inptmax=document.createElement("input");
+  var inptstep=document.createElement("input");
+        
+        inptmin.type="number";
+        inptmin.id="inpymin";
+        inptmin.style.width="30%";
+        inptmin.placeholder="Y Min value";
+        inptmax.type="number";
+        inptmax.id="inpymax";
+        inptmax.style.width="30%";
+        inptmax.placeholder="Y Max value";
+        inptstep.type="number";
+        inptstep.id="inpystep";
+        inptstep.style.width="30%";
+        inptstep.placeholder="Step";
+        //
+        
+        idiy.appendChild(inptmin);
+        idiy.appendChild(inptmax);
+        idiy.appendChild(inptstep);
+}
+else if(tvl=="date"){
+  console.log(borderrad);
+  idiy.innerHTML="";
+  var inptmin=document.createElement("input");
+  
+  var inptmax=document.createElement("input");
+  var inptstep=document.createElement("input");    
+        inptmin.type="text";
+        inptmin.id="inpymin";
+        inptmin.style.width="20%";
+        
+        inptmax.type="text";
+        inptmax.id="inpymax";
+        inptmax.style.width="20%";
+        inptstep.type="number";
+        inptstep.id="inpystep";
+        inptstep.style.width="20%";
+        inptstep.placeholder="Step";
+        //
+       
+        var selarray = ["Milisecond","Second","Minute","Hour","Day","Week","Month","Year"];
+
+//Create and append select list
+var selectList = document.createElement("select");
+selectList.id = "mySelecty";
+selectList.style.width="30%";
+selectList.onchange=sellisty;
+
+//Create and append the options
+for (var i = 0; i < selarray.length; i++) {
+    var option = document.createElement("option");
+    option.value = selarray[i];
+    option.text = selarray[i];
+    selectList.appendChild(option);
+}
+       
+      
+       
+        
+        idiy.appendChild(inptmin);
+       
+        idiy.appendChild(inptmax);
+        idiy.appendChild(inptstep);
+        idiy.appendChild(selectList);
+        
+}
+})}
+//
+function sellist(){
+  xlistval=this.value;
+  var inpxmin=document.getElementById("inpxmin");
+var inpxmax=document.getElementById("inpxmax");
+    if(this.value=="Milisecond"||this.value=="Second"||this.value=="Minute"||this.value=="Hour"){
+      inpxmin.placeholder="00:00";
+      inpxmax.placeholder="10:00";
+    }
+    if(this.value=="Day"||this.value=="Week"){
+      inpxmin.placeholder="yyyy-mm-dd";
+      inpxmax.placeholder="yyyy-mm-dd";
+    }
+    if(this.value=="Month"){
+      inpxmin.placeholder="yyyy-mm";
+      inpxmax.placeholder="yyyy-mm";
+    }
+    if(this.value=="Quarter"){
+      inpxmin.placeholder="yyyy-mm";
+      inpxmax.placeholder="yyyy-mm";
+    }
+    if(this.value=="Year"){
+      inpxmin.placeholder="yyyy";
+      inpxmax.placeholder="yyyy";
+    }
+  
+}
+function sellisty(){
+  ylistval=this.value;
+  var inpymin=document.getElementById("inpymin");
+var inpymax=document.getElementById("inpymax");
+    if(this.value=="Milisecond"||this.value=="Second"||this.value=="Minute"||this.value=="Hour"){
+      inpymin.placeholder="00:00";
+      inpymax.placeholder="10:00";
+    }
+    if(this.value=="Day"||this.value=="Week"){
+      inpymin.placeholder="yyyy-mm-dd";
+      inpymax.placeholder="yyyy-mm-dd";
+    }
+    if(this.value=="Month"){
+      inpymin.placeholder="yyyy-mm";
+      inpymax.placeholder="yyyy-mm";
+    }
+    if(this.value=="Quarter"){
+      inpymin.placeholder="yyyy-mm";
+      inpymax.placeholder="yyyy-mm";
+    }
+    if(this.value=="Year"){
+      inpymin.placeholder="yyyy";
+      inpymax.placeholder="yyyy";
+    }
+  
+}
+//
+var radvl;
+for (var i = 0; i < rad.length; i++) {
+  rad[i].addEventListener('change', function() {
+    radvl= this.value;
+     
+  if(radvl == "scatter"){
+      idiv.innerHTML="";
+      idiy.innerHTML="";
+      document.getElementById("nvlnum").checked = true;
+      document.getElementById("nvlynum").checked = true;
+      var inptxmin=document.createElement("input");
+      var inptxmax=document.createElement("input");
+      var inptxstep=document.createElement("input");
+      
+        inptxmin.type="number";
+        inptxmin.id="inpxmin";
+        inptxmin.style.width="30%";
+        inptxmin.placeholder="X Min value";
+        inptxmax.type="number";
+        inptxmax.id="inpxmax";
+        inptxmax.style.width="30%";
+        inptxmax.placeholder="X Max value";
+        inptxstep.type="number";
+        inptxstep.id="inpxstep";
+        inptxstep.style.width="30%";
+        inptxstep.placeholder="Step";
+        //
+        
+        idiv.appendChild(inptxmin);
+        idiv.appendChild(inptxmax);
+        idiv.appendChild(inptxstep);
+
+        idiy.innerHTML="";
+        var inptmin=document.createElement("input");
+        var inptmax=document.createElement("input");
+        var inptstep=document.createElement("input");
+        
+        inptmin.type="number";
+        inptmin.id="inpymin";
+        inptmin.style.width="30%";
+        inptmin.placeholder="Y Min value";
+        inptmax.type="number";
+        inptmax.id="inpymax";
+        inptmax.style.width="30%";
+        inptmax.placeholder="Y Max value";
+        inptstep.type="number";
+        inptstep.id="inpystep";
+        inptstep.style.width="30%";
+        inptstep.placeholder="Step";
+        //
+        
+        idiy.appendChild(inptmin);
+        idiy.appendChild(inptmax);
+        idiy.appendChild(inptstep);
+      
+        
+        document.getElementById("mdata").disabled = false;
+        document.getElementById("sdata").checked = true;
+        ddiv.innerHTML="";
+        colordiv.innerHTML="";
+        colordiv3.innerHTML="";
+       
+        
+      
+
+        
+          idx=1;
+        add.disabled=true;
+        var dt=document.createElement("input");
+        var dt2=document.createElement("input");
+        dt.type="text";
+        dt.name="inp";
+        dt.style.width="30%";
+        dt.placeholder="Data X";
+        dt2.type="text";
+        dt2.name="inp2";
+        dt2.style.width="30%";
+        dt2.placeholder="Data Y";
+        dt.onfocus=focus("data"+idx);
+        var dt3=document.createElement("input");
+        dt3.type="text";
+        dt3.name="ilbl";
+        dt3.style.width="30%";
+        dt3.placeholder="Label";
+        ddiv.appendChild(dt);
+        ddiv.appendChild(dt2);
+        ddiv.appendChild(dt3);
+       
+      }
+  if(radvl == "line"){
+        idiv.innerHTML="";
+        idiy.innerHTML="";
+        document.getElementById("nvlin").checked = true;
+        document.getElementById("nvlynum").checked = true;
+        var inpt=document.createElement("input");
+       
+        inpt.type="text";
+        inpt.id="xval";
+        inpt.style.width="100%";
+        inpt.placeholder="X value";
+        idiy.innerHTML="";
+        var inptmin=document.createElement("input");
+        var inptmax=document.createElement("input");
+        var inptstep=document.createElement("input");
+        
+        inptmin.type="number";
+        inptmin.id="inpymin";
+        inptmin.style.width="30%";
+        inptmin.placeholder="Y Min value";
+        inptmax.type="number";
+        inptmax.id="inpymax";
+        inptmax.style.width="30%";
+        inptmax.placeholder="Y Max value";
+        inptstep.type="number";
+        inptstep.id="inpystep";
+        inptstep.style.width="30%";
+        inptstep.placeholder="Step";
+        //
+        
+        idiy.appendChild(inptmin);
+        idiy.appendChild(inptmax);
+        idiy.appendChild(inptstep);
+        idiv.appendChild(inpt);
+        
+        abbg();
+      }
+  if(radvl == "bar"){
+        idiv.innerHTML="";
+        idiv.innerHTML="";
+        document.getElementById("nvlin").checked = true;
+        document.getElementById("nvlynum").checked = true;
+        var inpt=document.createElement("input");
+        var inpt2=document.createElement("input");
+        inpt.type="text";
+        inpt.id="xval";
+        inpt.style.width="100%";
+        inpt.placeholder="X value";
+        idiy.innerHTML="";
+  var inptmin=document.createElement("input");
+  var inptmax=document.createElement("input");
+  var inptstep=document.createElement("input");
+        
+        inptmin.type="number";
+        inptmin.id="inpymin";
+        inptmin.style.width="30%";
+        inptmin.placeholder="Y Min value";
+        inptmax.type="number";
+        inptmax.id="inpymax";
+        inptmax.style.width="30%";
+        inptmax.placeholder="Y Max value";
+        inptstep.type="number";
+        inptstep.id="inpystep";
+        inptstep.style.width="30%";
+        inptstep.placeholder="Step";
+        //
+        
+        idiy.appendChild(inptmin);
+        idiy.appendChild(inptmax);
+        idiy.appendChild(inptstep);
+        idiv.appendChild(inpt);
+      
+        abbg();
+        
+      }
+  if(radvl == "pie"){
+       idiv.innerHTML="";
+       idiy.innerHTML="";
+       document.getElementById("nvlin").checked = true;
+      
+       for (var i = 0; i < nvl.length; i++) {
+        nvl[i].disabled=true;
+ 
+      }
+      for (var i = 0; i < nvly.length; i++) {
+      nvly[i].disabled=true;
+ 
+      }
+        var inpt=document.createElement("input");
+        
+        inpt.type="text";
+        inpt.id="xval";
+        inpt.style.width="100%";
+        inpt.placeholder="X value";
+       
+        idiv.appendChild(inpt);
+       disbg();
+
+      } 
+  if(radvl == "doughnut"){
+        idiv.innerHTML="";
+        idiy.innerHTML="";
+        document.getElementById("nvlin").checked = true;
+        for (var i = 0; i < nvl.length; i++) {
+        nvl[i].disabled=true;
+ 
+        }
+        for (var i = 0; i < nvly.length; i++) {
+        nvly[i].disabled=true;
+ 
+        }
+        var inpt=document.createElement("input");
+        
+        inpt.type="text";
+        inpt.id="xval";
+        inpt.style.width="100%";
+        inpt.placeholder="X value";
+       
+        idiv.appendChild(inpt);
+   
+       disbg();
+
+      }  
+      borderrad=document.querySelector('input[name="grist"]:checked').value;
+      if(borderrad=="scatter"){
+
+        document.getElementById('nvlin').disabled=true;
+        document.getElementById('nvlnum').disabled=false;
+        document.getElementById('nvld').disabled=false;
+        document.getElementById("scrollx").checked = false;
+        document.getElementById("scrollx").disabled = true;
+        document.getElementById("fill").checked = false;
+        document.getElementById("fill").disabled = false;
+        document.getElementById("symbol").checked = false;
+        document.getElementById("symbol").disabled = false;
+        document.getElementById("accu").disabled = true;
+        document.getElementById("accu").checked = false;
+        xtitlech.disabled=false;
+        ytitlech.disabled=false;
+
+      }
+      else if(borderrad=="pie"||borderrad=="doughnut"){
+        document.getElementById("scrollx").checked = false;
+        document.getElementById("scrollx").disabled = true;
+        document.getElementById("fill").checked = false;
+        document.getElementById("fill").disabled = true;
+        document.getElementById("symbol").checked = false;
+        document.getElementById("symbol").disabled = false;
+        document.getElementById("accu").disabled = false;
+        document.getElementById("accu").checked = false;
+        for (var i = 0; i < nvl.length; i++) {
+        nvl[i].disabled=true;
+ 
+        }
+        for (var i = 0; i < nvly.length; i++) {
+        nvly[i].disabled=true;
+ 
+        }
+        xtitlech.disabled=true;
+        ytitlech.disabled=true;
+      }
+      else{
+        document.getElementById("scrollx").checked = false;
+        document.getElementById("scrollx").disabled = false;
+        document.getElementById("fill").checked = false;
+        document.getElementById("fill").disabled = false;
+        document.getElementById("symbol").checked = false;
+        document.getElementById("symbol").disabled = false;
+        document.getElementById("accu").disabled = false;
+        document.getElementById("accu").checked = false;
+          for (var i = 0; i < nvl.length; i++) {
+            nvl[i].disabled=true;
+  
+          }
+          for (var i = 0; i < nvly.length; i++) {
+            nvly[i].disabled=false;
+          }
+          
+          xtitlech.disabled=false;
+        ytitlech.disabled=false;
+
+      }
+      console.log(borderrad);
+        
+
+    
+        
+          
+        
+    });
+}
+//
+var idx=1;
+var dt=document.createElement("input");
+  dt.type="text";
+  dt.name="inp";
+  dt.style.width="40%";
+  dt.placeholder="Data";
+  dt.onfocus=focus("data"+idx);
+  var dt2=document.createElement("input");
+  dt2.type="text";
+  dt2.name="ilbl";
+  dt2.style.width="40%";
+  dt2.placeholder="Label";
+  ddiv.appendChild(dt);
+  ddiv.appendChild(dt2);
+//
+
+//
+var inpt=document.createElement("input");
+document.getElementById("nvlynum").checked = true;
+  inpt.type="text";
+  inpt.id="xval";
+  inpt.style.width="100%";
+  inpt.placeholder="X value";
+  idiv.appendChild(inpt);
+idiy.innerHTML="";
+        var inptmin=document.createElement("input");
+        var inptmax=document.createElement("input");
+        var inptstep=document.createElement("input");
+        
+        inptmin.type="number";
+        inptmin.id="inpymin";
+        inptmin.style.width="30%";
+        inptmin.placeholder="Y Min value";
+        inptmax.type="number";
+        inptmax.id="inpymax";
+        inptmax.style.width="30%";
+        inptmax.placeholder="Y Max value";
+        inptstep.type="number";
+        inptstep.id="inpystep";
+        inptstep.style.width="30%";
+        inptstep.placeholder="Step";
+        idiy.appendChild(inptmin);
+        idiy.appendChild(inptmax);
+        idiy.appendChild(inptstep);
+        for (var i = 0; i < nvl.length; i++) {
+            nvl[i].disabled=true;
+  
+          }
+          for (var i = 0; i < nvly.length; i++) {
+            nvly[i].disabled=false;
+          }
+  
+//   
+for (var i = 0; i < datab.length; i++) {
+  
+    datab[i].addEventListener('change', function() {
+      ddiv.innerHTML="";
+      colordiv.innerHTML="";
+      colordiv3.innerHTML="";
+ var tdata=this.value;
+ if(borderrad =="pie"||borderrad =="doughnut"){
+  if(tdata=="sdata"){
+    idx=1;
+  add.disabled=true;
+  var dt=document.createElement("input");
+        dt.type="text";
+        dt.name="inp";
+        dt.style.width="40%";
+        dt.placeholder="Data";
+        dt.onfocus=focus("data"+idx);
+        var dt2=document.createElement("input");
+        dt2.type="text";
+        dt2.name="ilbl";
+        dt2.style.width="40%";
+        dt2.placeholder="Label";
+        ddiv.appendChild(dt);
+        ddiv.appendChild(dt2);
+        
+ }
+ }
+ else if(borderrad =="scatter"){
+if(tdata=="sdata"){
+  idx=1;
+  add.disabled=true;
+  var dt=document.createElement("input");
+  var dt2=document.createElement("input");
+        dt.type="text";
+        dt.name="inp";
+        dt.style.width="30%";
+        dt.placeholder="Data X";
+        dt2.type="text";
+        dt2.name="inp2";
+        dt2.style.width="30%";
+        dt2.placeholder="Data Y";
+        dt.onfocus=focus("data"+idx);
+        var dt3=document.createElement("input");
+        dt3.type="text";
+        dt3.name="ilbl";
+        dt3.style.width="30%";
+        dt3.placeholder="Label";
+        
+        ddiv.appendChild(dt);
+        ddiv.appendChild(dt2);
+        ddiv.appendChild(dt3);
+ }
+ if(tdata=="mdata"){
+  idx=1;
+  add.disabled=false;
+  var dt=document.createElement("input");
+        dt.type="text";
+       
+        dt.name="inp";
+        dt.style.width="30%";
+        dt.placeholder="Data X"+idx;
+        var dt2=document.createElement("input");
+        dt2.type="text";
+       
+        dt2.name="inp2";
+        dt2.style.width="30%";
+        dt2.placeholder="Data Y"+idx;
+        dt.onfocus=focus("data"+idx);
+        var dt3=document.createElement("input");
+        dt3.type="text";
+        dt3.name="ilbl";
+        dt3.style.width="30%";
+        dt3.placeholder="Label";
+        
+        ddiv.appendChild(dt);
+        ddiv.appendChild(dt2);
+        ddiv.appendChild(dt3);
+ }
+ }
+ else{
+ if(tdata=="sdata"){
+  idx=1;
+  add.disabled=true;
+  var dt=document.createElement("input");
+        dt.type="text";
+        dt.name="inp";
+        dt.style.width="40%";
+        dt.placeholder="Data";
+        dt.onfocus=focus("data"+idx);
+        var dt2=document.createElement("input");
+        dt2.type="text";
+        dt2.name="ilbl";
+        dt2.style.width="40%";
+        dt2.placeholder="Label";
+        ddiv.appendChild(dt);
+        ddiv.appendChild(dt2);
+        
+ }
+ if(tdata=="mdata"){
+  idx=1;
+  add.disabled=false;
+  var dt=document.createElement("input");
+        dt.type="text";
+       
+        dt.name="inp";
+        dt.style.width="40%";
+        dt.placeholder="Data"+idx;
+        dt.onfocus=focus("data"+idx);
+        var dt2=document.createElement("input");
+        dt2.type="text";
+        dt2.name="ilbl";
+        dt2.style.width="40%";
+        dt2.placeholder="Label";
+        ddiv.appendChild(dt);
+        ddiv.appendChild(dt2);
+
+ }
+}
+    })}
+    //
+
+    //
+   
+    //
+    var arname=[];
+    var pvar=[];
+    function cpv(baseUrl){
+             var words = baseUrl.split(/( )/);
+             
+              var ls=[];
+              var mySubString="";
+              var sd="";
+              var st="";
+              var sl="";
+              for (var j = 0; j < words.length - 1; j++) {
+               
+                if(words[j].includes('$(')&& words[j].includes(')')){
+                  mySubString = words[j].substring(
+                    words[j].indexOf("(") + 1, 
+                    words[j].lastIndexOf(")")
+                  );
+                  
+                  st = mySubString;
+                 
+                  // arname.push('"'+mySubString+'"');
+                 
+                }else {
+                  st = mySubString;
+                 
+                 
+                }
+              }
+              var slll= "'"+st+"'";
+            return slll;}
+function crr(baseUrl){
+             var words = baseUrl.split(/( )/);
+             
+              var ls=[];
+              var mySubString="";
+              var sd="";
+              var st="";
+              var sl="";
+              for (var j = 0; j < words.length - 1; j++) {
+               
+                if(words[j].includes('$(')&& words[j].includes(')')){
+                  mySubString = words[j].substring(
+                    words[j].indexOf("(") + 1, 
+                    words[j].lastIndexOf(")")
+                  );
+                  sd= '+"'+words[j].split(")").pop()+'"';
+       st = '"'+words[j].split('$')[0]+'"+';
+                 sl='"'+mySubString+'"';
+                //  arname.push('"'+mySubString+'"');
+                 words[j]=st+sl+sd;
+                }else {
+                  words[j]= '"'+words[j]+'"';
+                }
+              }
+              var slll= words.join("+");
+            return slll;}
+function scatt(baseUrl){
+             var words = baseUrl.split(/( )/);
+             
+              var ls=[];
+              var mySubString="";
+              var sd="";
+              var st="";
+              var sl="";
+             
+              for (var j = 0; j < words.length - 1; j++) {
+               
+                if(words[j].includes('$(')&& words[j].includes(')')){
+                  mySubString = words[j].substring(
+                    words[j].indexOf("(") + 1, 
+                    words[j].lastIndexOf(")")
+                  );
+                  sd= '+"'+words[j].split(")").pop()+'"';
+       st = '"'+words[j].split('$')[0]+'"+';
+                 sl=mySubString;
+                //  arname.push('"'+mySubString+'"');
+                 words[j]=sl;
+                 
+                 
+                }else {
+                  sl= words.slice(0, -2);
+                }
+              }
+             
+              var slll= sl;
+            return slll;}
+            ///
+            filef.addEventListener("change", function(evt) {
+        // When we reach this point, it means the user has selected a file,
+        // so invoke readKeys().
+        // this.value contains the path to the selected file
+        fpath=this.value;
+        fpname=fpath.split("/").pop();
+      
+    }, false); 
+    ///
+add.addEventListener("click", function () {
+      idx++;
+if(borderrad =="scatter"){
+
+  add.disabled=false;
+  var dt=document.createElement("input");
+        dt.type="text";
+       
+        dt.name="inp";
+        dt.style.width="30%";
+        dt.placeholder="Data X"+idx;
+        var dt2=document.createElement("input");
+        dt2.type="text";
+       
+        dt2.name="inp2";
+        dt2.style.width="30%";
+        dt2.placeholder="Data Y"+idx;
+        dt.onfocus=focus("data"+idx);
+        var dt3=document.createElement("input");
+        dt3.type="text";
+        dt3.name="ilbl";
+        dt3.style.width="30%";
+        dt3.placeholder="Label";
+        
+        ddiv.appendChild(dt);
+        ddiv.appendChild(dt2);
+        ddiv.appendChild(dt3);
+ 
+ }
+ else{
+      var dt=document.createElement("input");
+        dt.type="text";
+        dt.name="inp";
+        dt.style.width="40%";
+        dt.placeholder="Data"+idx;
+        dt.onfocus=focus("data"+idx);
+        var dt2=document.createElement("input");
+        dt2.type="text";
+        dt2.name="ilbl";
+        dt2.style.width="40%";
+        dt2.placeholder="Label";
+        
+        ddiv.appendChild(dt);
+        ddiv.appendChild(dt2);
+      }
+    });
+  var scin=0;
+    //
+    
+    //
+dbtn.addEventListener("click", function () {
+  var xvl=document.getElementById("xval");
+    var yvl=document.getElementById("yval");
+var sd=document.getElementsByName("inp");
+var sd2=document.getElementsByName("inp2");
+var bgc=document.getElementsByName("incol");
+var ilbl=document.getElementsByName("ilbl");
+var inpxmin=document.getElementById("inpxmin");
+    var inpxmax=document.getElementById("inpxmax");
+    var inpxstep=document.getElementById("inpxstep");
+    var inpymin=document.getElementById("inpymin");
+    var inpymax=document.getElementById("inpymax");
+    var inpystep=document.getElementById("inpystep");
+     var stbg=document.getElementById("stbg");
+     var ebg=document.getElementById("ebg");
+var col="";
+var bdcol;
+var objs="";
+var chtopt="";
+var optls="";
+var oplsx="";
+var piv=[];
+for(var i=0;i<sd.length;i++){
+  var baseUrl=sd[i].value+" ";
+  arname.push(cpv(baseUrl));
+  piv.push(cpv(baseUrl));
+  if(borderrad != "scatter"){
+  if(xvl.value !=""){
+    arname.push(cpv(xvl.value+" "));
+  }
+  }
+  
+}
+var htmlhead='<!DOCTYPE html><html><head><style>html { height:100%;width: 100%;font-family: sans-serif;}body{height:100%;width: 100%;margin:0;}</style></head><body><canvas id="myChart" style="width:100%;height:100%;"></canvas></div>';
+  var htmlheadscroll='<!DOCTYPE html><html><head><style>html { height:100%;width: 100%;font-family: sans-serif;}body{height:100%;width: 100%;margin:0;}#rightpnl{height: 30px;width: 30%;background-color: transparent;position:absolute;right: 0;align-items: center;display: flex;}#rightpnl:hover{background-color: #80808070;cursor: pointer;}#rightpnl:hover .rightchev{content: " ";display: inline-block;border-bottom: 5px solid grey;border-right: 5px solid grey;height: 10px;width: 10px;transform: rotate(-45deg);cursor: pointer;left: 50%;position: absolute;}#leftpnl{height: 30px;width: 30%;background-color: transparent;float: left;position: fixed;align-items: center;display: flex;}#leftpnl:hover{background-color: #80808070;cursor: pointer;}#leftpnl:hover .leftchev{content: " ";display: inline-block;border-bottom: 5px solid grey;border-right: 5px solid grey;height: 10px;width: 10px;transform: rotate(-225deg);cursor: pointer;right: 50%;position: absolute;}</style></head><body><div id="rightpnl"><div class="rightchev"></div></div><div id="leftpnl"><div class="leftchev"></div></div><canvas id="myChart" style="width:100%;height:100%;"></canvas>';
+var htmlheadpie='<!DOCTYPE html><html><head><style>html { height:100%;width: 100%;font-family: sans-serif;}body{height:100%;width: 100%;margin:0;}</style></head><body><div style="height: 50vh; width: 46vw;margin-left: 30vw;"><canvas id="myChart" style="width: 100%; height:100%"></canvas></div>';
+var htmlfoot="});}<\/script></body></html>";
+var htmlfootscroll="});document.getElementById('rightpnl').addEventListener('click',(event)=>{myChart.options.scales.x.min=myChart.options.scales.x.min+1;myChart.options.scales.x.max=myChart.options.scales.x.max+1;if(myChart.options.scales.x.max>=myChart.data.datasets[0].data.length){myChart.options.scales.x.min=myChart.data.datasets[0].data.length-8;myChart.options.scales.x.max=myChart.data.datasets[0].data.length;}myChart.update(); });document.getElementById('leftpnl').addEventListener('click',(event)=>{myChart.options.scales.x.min=myChart.options.scales.x.min-1;myChart.options.scales.x.max=myChart.options.scales.x.max-1;if(myChart.options.scales.x.min<=0){myChart.options.scales.x.min=0;myChart.options.scales.x.max=8;};myChart.update(); });}<\/script></body></html>";
+
+
+if(dvar.value !=="" && varn.value!==""){
+  if(rng.checked==true){
+  var dcm="function mindata(arr){var ay=[];for(var i=0;i<arr.length;i++){var data=arr[i]['"+varn.value +"']; if("+dvar.value +"){ay.push(arr[i]);}}return ay;}function savemindata(arr,fld){var ay=[];for(var i=0;i<arr.length;i++){var data=arr[i]['"+varn.value +"']; if("+dvar.value +"){ay.push(arr[i]);}} fs.writeFileSync( fld+'mindata.json', JSON.stringify(ay));}function minidx(arr){var ay=[];for(var i=0;i<arr.length;i++){var data=arr[i]['"+varn.value +"']; if("+dvar.value +"){ay.push(i);}}return ay;}"
+  if(accuf==true){
+  var htmlhead1=' <script src="pivotmk.js"><\/script><script>var scp=document.createElement("script");scp.innerHTML=sessionStorage.getItem("'+flnm.value+'pvvarchjs");document.head.appendChild(scp);<\/script><script src="Chart.min.js"><\/script><script src="jquery/jquery.min.js"><\/script><script src="moment.min.js"><\/script><script src="chartjs-adapter-moment.min.js"><\/script><script>var l; var data = JSON.parse(sessionStorage.getItem("'+flnm.value+'chartfile.json"));sl(data);function sl(input){l=pivotab(input,mvar(),pvar(),psum());function ar(input){var r=[];for(var i=0;i<l.length;i++){r.push(l[i][input]);}return r;}';
+var htmlhead2='<script src="pivotmk.js"><\/script><script>var scp=document.createElement("script");scp.innerHTML=sessionStorage.getItem("'+flnm.value+'pvvarchjs");document.head.appendChild(scp);<\/script><script src="Chart.min.js"><\/script><script src="jquery/jquery.min.js"><\/script><script>var l; var data = JSON.parse(sessionStorage.getItem("'+flnm.value+'chartfile.json"));sl(data);function sl(input){l=pivotab(input,mvar(),pvar(),psum());function ar(input){var r=[];for(var i=0;i<l.length;i++){r.push(l[i][input]);}return r;}';
+  var mhtmlhead1='<script src="pivotmk.js"><\/script><script>var scp=document.createElement("script");scp.innerHTML=sessionStorage.getItem("'+flnm.value+'pvvarchjs");document.head.appendChild(scp);<\/script><script src="Chart.min.js"><\/script><script src="jquery/jquery.min.js"><\/script><script src="moment.min.js"><\/script><script src="chartjs-adapter-moment.min.js"><\/script><script>function mindata(arr){var ay=[];for(var i=0;i<arr.length;i++){var data=arr[i]["'+varn.value +'"]; if('+dvar.value +'){ay.push(arr[i]);}}return ay;} var l;var data = JSON.parse(sessionStorage.getItem("datajson"));sl(data);function sl(input){l=pivotab(input,mvar(),pvar(),psum());function ar(input){var r=[];for(var i=0;i<l.length;i++){r.push(l[i][input]);}return r;}';
+var mhtmlhead2='<script src="pivotmk.js"><\/script><script>var scp=document.createElement("script");scp.innerHTML=sessionStorage.getItem("'+flnm.value+'pvvarchjs");document.head.appendChild(scp);<\/script><script src="Chart.min.js"><\/script><script src="jquery/jquery.min.js"><\/script><script>function mindata(arr){var ay=[];for(var i=0;i<arr.length;i++){var data=arr[i]["'+varn.value +'"]; if('+dvar.value +'){ay.push(arr[i]);}}return ay;} var l;var data = JSON.parse(sessionStorage.getItem("datajson"));sl(data);function sl(input){l=pivotab(input,mvar(),pvar(),psum());function ar(input){var r=[];for(var i=0;i<l.length;i++){r.push(l[i][input]);}return r;}';
+  if(borderrad != "scatter"){
+  var dcm="function mvar(){var s="+cpv(xvl.value+" ")+"; return s; }function psum(){var s=["+piv+"]; return s; }function pvar(){var s=[]; return s; }"
+  }
+  sessionStorage.setItem(flnm.value+"pvvarchjs", dcm);
+  //fs.copyFileSync("./etc/pivotmk.js", "./project/"+folderpath+"/pivotmk.js");
+}
+else{
+  var htmlhead1='<script src="Chart.min.js"><\/script><script src="jquery/jquery.min.js"><\/script><script src="moment.min.js"><\/script><script src="chartjs-adapter-moment.min.js"><\/script><script> var l; var data = JSON.parse(sessionStorage.getItem("'+flnm.value+'chartfile.json"));sl(data);function sl(input){l=input;function ar(input){var r=[];for(var i=0;i<l.length;i++){r.push(l[i][input]);}return r;}';
+var htmlhead2='<script src="Chart.min.js"><\/script><script src="jquery/jquery.min.js"><\/script><script> var l; var data = JSON.parse(sessionStorage.getItem("'+flnm.value+'chartfile.json"));sl(data);function sl(input){l=input;function ar(input){var r=[];for(var i=0;i<l.length;i++){r.push(l[i][input]);}return r;}';
+  var mhtmlhead1='<script src="Chart.min.js"><\/script><script src="jquery/jquery.min.js"><\/script><script src="moment.min.js"><\/script><script src="chartjs-adapter-moment.min.js"><\/script><script>function mindata(arr){var ay=[];for(var i=0;i<arr.length;i++){var data=arr[i]["'+varn.value +'"]; if('+dvar.value +'){ay.push(arr[i]);}}return ay;} var l;var data = JSON.parse(sessionStorage.getItem("datajson"));sl(data);function sl(input){l=input;function ar(input){var r=[];for(var i=0;i<l.length;i++){r.push(l[i][input]);}return r;}';
+var mhtmlhead2='<script src="Chart.min.js"><\/script><script src="jquery/jquery.min.js"><\/script><script>function mindata(arr){var ay=[];for(var i=0;i<arr.length;i++){var data=arr[i]["'+varn.value +'"]; if('+dvar.value +'){ay.push(arr[i]);}}return ay;} var l;var data = JSON.parse(sessionStorage.getItem("datajson"));sl(data);function sl(input){l=input;function ar(input){var r=[];for(var i=0;i<l.length;i++){r.push(l[i][input]);}return r;}';
+}
+
+}
+else{
+  if(accuf==true){
+  var htmlhead1=' <script src="pivotmk.js"><\/script><script>var scp=document.createElement("script");scp.innerHTML=sessionStorage.getItem("'+flnm.value+'pvvarchjs");document.head.appendChild(scp);<\/script><script src="Chart.min.js"><\/script><script src="jquery/jquery.min.js"><\/script><script src="moment.min.js"><\/script><script src="chartjs-adapter-moment.min.js"><\/script><script> var l; var data = JSON.parse(sessionStorage.getItem("'+flnm.value+'chartfile.json"));sl(data);function sl(input){l=pivotab(input,mvar(),pvar(),psum());function ar(input){var r=[];for(var i=0;i<l.length;i++){r.push(l[i][input]);}return r;}';
+var htmlhead2='<script src="pivotmk.js"><\/script><script>var scp=document.createElement("script");scp.innerHTML=sessionStorage.getItem("'+flnm.value+'pvvarchjs");document.head.appendChild(scp);<\/script><script src="Chart.min.js"><\/script><script src="jquery/jquery.min.js"><\/script><script> var l; var data = JSON.parse(sessionStorage.getItem("'+flnm.value+'chartfile.json"));sl(data);function sl(input){l=pivotab(input,mvar(),pvar(),psum());function ar(input){var r=[];for(var i=0;i<l.length;i++){r.push(l[i][input]);}return r;}';
+  var mhtmlhead1='<script src="pivotmk.js"><\/script><script>var scp=document.createElement("script");scp.innerHTML=sessionStorage.getItem("'+flnm.value+'pvvarchjs");document.head.appendChild(scp);<\/script><script src="Chart.min.js"><\/script><script src="jquery/jquery.min.js"><\/script><script src="moment.min.js"><\/script><script src="chartjs-adapter-moment.min.js"><\/script><script>function mindata(arr){var ay=[];for(var i=0;i<arr.length;i++){if(arr[i]["'+varn.value +'"]=="'+dvar.value +'"){ay.push(arr[i]);}}return ay;} var l;var data = JSON.parse(sessionStorage.getItem("datajson"));sl(mindata(data));function sl(input){l=pivotab(input,mvar(),pvar(),psum());function ar(input){var r=[];for(var i=0;i<l.length;i++){r.push(l[i][input]);}return r;}';
+var mhtmlhead2='<script src="pivotmk.js"><\/script><script>var scp=document.createElement("script");scp.innerHTML=sessionStorage.getItem("'+flnm.value+'pvvarchjs");document.head.appendChild(scp);<\/script><script src="Chart.min.js"><\/script><script src="jquery/jquery.min.js"><\/script><script>function mindata(arr){var ay=[];for(var i=0;i<arr.length;i++){if(arr[i]["'+varn.value +'"]=="'+dvar.value +'"){ay.push(arr[i]);}}return ay;} var l;var data = JSON.parse(sessionStorage.getItem("datajson"));sl(mindata(data));function sl(input){l=pivotab(input,mvar(),pvar(),psum());function ar(input){var r=[];for(var i=0;i<l.length;i++){r.push(l[i][input]);}return r;}';
+  if(borderrad != "scatter"){
+  var dcm="function mvar(){var s="+cpv(xvl.value+" ")+"; return s; }function psum(){var s=["+piv+"]; return s; }function pvar(){var s=[]; return s; }"
+  }
+  sessionStorage.setItem(flnm.value+"pvvarchjs", dcm);
+  //fs.copyFileSync("./etc/pivotmk.js", "./project/"+folderpath+"/pivotmk.js");
+}
+else{
+  
+  var htmlhead1='<script src="Chart.min.js"><\/script><script src="jquery/jquery.min.js"><\/script><script src="moment.min.js"><\/script><script src="chartjs-adapter-moment.min.js"><\/script><script>var l; var data = JSON.parse(sessionStorage.getItem("'+flnm.value+'chartfile.json"));sl(data);function sl(input){l=input;function ar(input){var r=[];for(var i=0;i<l.length;i++){r.push(l[i][input]);}return r;}';
+var htmlhead2='<script src="Chart.min.js"><\/script><script src="jquery/jquery.min.js"><\/script><script> var l; var data = JSON.parse(sessionStorage.getItem("'+flnm.value+'chartfile.json"));sl(data);function sl(input){l=input;function ar(input){var r=[];for(var i=0;i<l.length;i++){r.push(l[i][input]);}return r;}';
+  var mhtmlhead1='<script src="Chart.min.js"><\/script><script src="jquery/jquery.min.js"><\/script><script src="moment.min.js"><\/script><script src="chartjs-adapter-moment.min.js"><\/script><script>function mindata(arr){var ay=[];for(var i=0;i<arr.length;i++){if(arr[i]["'+varn.value +'"]=="'+dvar.value +'"){ay.push(arr[i]);}}return ay;} var l;var data = JSON.parse(sessionStorage.getItem("datajson"));sl(mindata(data));function sl(input){l=input;function ar(input){var r=[];for(var i=0;i<l.length;i++){r.push(l[i][input]);}return r;}';
+var mhtmlhead2='<script src="Chart.min.js"><\/script><script src="jquery/jquery.min.js"><\/script><script>function mindata(arr){var ay=[];for(var i=0;i<arr.length;i++){if(arr[i]["'+varn.value +'"]=="'+dvar.value +'"){ay.push(arr[i]);}}return ay;} var l;var data = JSON.parse(sessionStorage.getItem("datajson"));sl(mindata(data));function sl(input){l=input;function ar(input){var r=[];for(var i=0;i<l.length;i++){r.push(l[i][input]);}return r;}';
+}
+}
+}
+else{
+ 
+if(accuf==true){
+  var htmlhead1=' <script src="pivotmk.js"><\/script><script>var scp=document.createElement("script");scp.innerHTML=sessionStorage.getItem("'+flnm.value+'pvvarchjs");document.head.appendChild(scp);<\/script><script src="Chart.min.js"><\/script><script src="jquery/jquery.min.js"><\/script><script src="moment.min.js"><\/script><script src="chartjs-adapter-moment.min.js"><\/script><script>var l; var data = JSON.parse(sessionStorage.getItem("'+flnm.value+'chartfile.json"));sl(data);function sl(input){l=pivotab(input,mvar(),pvar(),psum());function ar(input){var r=[];for(var i=0;i<l.length;i++){r.push(l[i][input]);}return r;}';
+var htmlhead2='<script src="pivotmk.js"><\/script><script>var scp=document.createElement("script");scp.innerHTML=sessionStorage.getItem("'+flnm.value+'pvvarchjs");document.head.appendChild(scp);<\/script><script src="Chart.min.js"><\/script><script src="jquery/jquery.min.js"><\/script><script>var l; var data = JSON.parse(sessionStorage.getItem("'+flnm.value+'chartfile.json"));sl(data);function sl(input){l=pivotab(input,mvar(),pvar(),psum());function ar(input){var r=[];for(var i=0;i<l.length;i++){r.push(l[i][input]);}return r;}';
+  var mhtmlhead1='<script src="pivotmk.js"><\/script><script>var scp=document.createElement("script");scp.innerHTML=sessionStorage.getItem("'+flnm.value+'pvvarchjs");document.head.appendChild(scp);<\/script><script src="Chart.min.js"><\/script><script src="jquery/jquery.min.js"><\/script><script src="moment.min.js"><\/script><script src="chartjs-adapter-moment.min.js"><\/script><script>var l;var data = JSON.parse(sessionStorage.getItem("datajson"));sl(data);function sl(input){l=pivotab(input,mvar(),pvar(),psum());function ar(input){var r=[];for(var i=0;i<l.length;i++){r.push(l[i][input]);}return r;}';
+var mhtmlhead2='<script src="pivotmk.js"><\/script><script>var scp=document.createElement("script");scp.innerHTML=sessionStorage.getItem("'+flnm.value+'pvvarchjs");document.head.appendChild(scp);<\/script><script src="Chart.min.js"><\/script><script src="jquery/jquery.min.js"><\/script><script>var l;var data = JSON.parse(sessionStorage.getItem("datajson"));sl(data);function sl(input){l=pivotab(input,mvar(),pvar(),psum());function ar(input){var r=[];for(var i=0;i<l.length;i++){r.push(l[i][input]);}return r;}';
+  if(borderrad != "scatter"){
+  var dcm="function mvar(){var s="+cpv(xvl.value+" ")+"; return s; }function psum(){var s=["+piv+"]; return s; }function pvar(){var s=[]; return s; }"
+  }
+  sessionStorage.setItem(flnm.value+"pvvarchjs", dcm);
+  //fs.copyFileSync("./etc/pivotmk.js", "./project/"+folderpath+"/pivotmk.js");
+}
+else{
+  var htmlhead1='<script src="Chart.min.js"><\/script><script src="jquery/jquery.min.js"><\/script><script src="moment.min.js"><\/script><script src="chartjs-adapter-moment.min.js"><\/script><script>var l; var data = JSON.parse(sessionStorage.getItem("'+flnm.value+'chartfile.json"));sl(data);function sl(input){l=input;function ar(input){var r=[];for(var i=0;i<l.length;i++){r.push(l[i][input]);}return r;}';
+var htmlhead2='<script src="Chart.min.js"><\/script><script src="jquery/jquery.min.js"><\/script><script>var l; var data = JSON.parse(sessionStorage.getItem("'+flnm.value+'chartfile.json"));sl(data);function sl(input){l=input;function ar(input){var r=[];for(var i=0;i<l.length;i++){r.push(l[i][input]);}return r;}';
+  var mhtmlhead1='<script src="Chart.min.js"><\/script><script src="jquery/jquery.min.js"><\/script><script src="moment.min.js"><\/script><script src="chartjs-adapter-moment.min.js"><\/script><script>var l;var data = JSON.parse(sessionStorage.getItem("datajson"));sl(data);function sl(input){l=input;function ar(input){var r=[];for(var i=0;i<l.length;i++){r.push(l[i][input]);}return r;}';
+var mhtmlhead2='<script src="Chart.min.js"><\/script><script src="jquery/jquery.min.js"><\/script><script>var l;var data = JSON.parse(sessionStorage.getItem("datajson"));sl(data);function sl(input){l=input;function ar(input){var r=[];for(var i=0;i<l.length;i++){r.push(l[i][input]);}return r;}';
+}
+}
+
+var combdata="";
+var scar=[];
+var dtar=[];
+///
+for(var i=0;i<sd.length;i++){
+  var baseUrl=sd[i].value+" ";
+  var dt="ar("+crr(baseUrl).slice(0, -1)+")";
+  if(borderrad != "scatter"){
+  // crr(xvl.value+" ").slice(0, -1);
+}
+scin++;
+for(var j=0;j<ilbl.length;j++){
+
+
+if(borderrad=="pie"||borderrad=="doughnut"){
+        var htmlhead3='function gradient(startColor, endColor, steps) {var start = {"Hex"   : startColor,"R"     : parseInt(startColor.slice(1,3), 16),"G"     : parseInt(startColor.slice(3,5), 16),"B"     : parseInt(startColor.slice(5,7), 16)};var end = {"Hex"   : endColor,"R"     : parseInt(endColor.slice(1,3), 16),"G"     : parseInt(endColor.slice(3,5), 16),"B"     : parseInt(endColor.slice(5,7), 16)};diffR = end["R"] - start["R"];diffG = end["G"] - start["G"];diffB = end["B"] - start["B"];stepsHex  = new Array();stepsR    = new Array();stepsG    = new Array();stepsB    = new Array();for(var i = 0; i <= steps; i++) {stepsR[i] = start["R"] + ((diffR / steps) * i);stepsG[i] = start["G"] + ((diffG / steps) * i);stepsB[i] = start["B"] + ((diffB / steps) * i);stepsHex[i] = "#" + Math.round(stepsR[i]).toString(16) + "" + Math.round(stepsG[i]).toString(16) + "" + Math.round(stepsB[i]).toString(16);}return stepsHex;};new Chart("myChart", {type: "'+borderrad+'",data: {labels:ar("'+scatt(xvl.value+" ")+'") ,datasets: [';
+          
+
+        objs="{label:'"+ilbl[i].value+"',backgroundColor: gradient('"+stbg.value+"','"+ebg.value+"',l.length), data: ar('"+scatt(baseUrl)+"'),fill:"+filvar+",}"
+          
+          if(symb.checked==true){
+            chtopt=' ]},options: {responsive: true,layout:{padding:{right:18,top:40}},maintainAspectRatio: true,plugins:{title: {display: true,text: "'+titlech.value+'"},legend: { display: true,position:"right" }}}';
+
+          }
+          else{
+          chtopt=' ]},options: {responsive: true,layout:{padding:{right:18,top:40}},maintainAspectRatio: true,plugins:{title: {display: true,text: "'+titlech.value+'"},legend: { display: false,position:"right" }}}';
+        }
+}
+else if(borderrad=="bar"||borderrad=="line"){
+        //num
+        
+          if(document.getElementById("nvlynum").checked == true){
+            if(document.getElementById("scrollx").checked == true){
+              var htmlhead3='var myChart = new Chart(document.getElementById("myChart"), {type: "'+borderrad+'",data: {labels:ar("'+scatt(xvl.value+" ")+'") ,datasets: [';
+              optls=',scales: { yAxes: {display: true,title: {display: true,text: "'+ytitlech.value+'"},stacked: false,min: '+inpymin.value+', max: '+inpymax.value+', ticks:{stepSize: '+inpystep.value+'}},x: {min:0,max:8,ticks: {autoSkip: false,maxRotation: 90,minRotation: 0},display: true,title: {display: true,text: "'+xtitlech.value+'"},stacked: false}}}';
+
+            }
+            else{
+              var htmlhead3='new Chart("myChart", {type: "'+borderrad+'",data: {labels:ar("'+scatt(xvl.value+" ")+'") ,datasets: [';
+              optls=',scales: { yAxes: {display: true,title: {display: true,text: "'+ytitlech.value+'"},stacked: false,min: '+inpymin.value+', max: '+inpymax.value+', ticks:{stepSize: '+inpystep.value+'}},xAxes: {ticks: {autoSkip: false,maxRotation: 90,minRotation: 0},display: true,title: {display: true,text: "'+xtitlech.value+'"},stacked: false}}}';
+
+            }
+
+            for(var j=0;j<bgc.length;j++){
+        col=bgc[i].value;
+        objs="{label:'"+ilbl[i].value+"',backgroundColor: '"+col+"', data: ar('"+scatt(baseUrl)+"'),fill:"+filvar+",}"
+
+        }
+          
+
+        }
+        //date
+        else{
+          ///scrol
+          if(document.getElementById("scrollx").checked == true){
+            var htmlhead3='var myChart = new Chart(document.getElementById("myChart"), {type: "'+borderrad+'",data: {datasets: [';
+
+var datsc;
+for(var j=0;j<bgc.length;j++){
+col=bgc[i].value;
+  objs="{label:'"+ilbl[i].value+"',backgroundColor: '"+col+"',borderColor:'"+col+"', data: eval('ar"+scin+"'),fill:"+filvar+",}"
+  var dt2=scatt(xvl.value+" ");
+var dty=scatt(baseUrl);
+
+     datsc='var ar'+scin+'=[];for(var i=0;i<l.length;i++){var j={};j.y=ar("'+dty+'")[i];j.x=ar("'+dt2+'")[i];ar'+scin+'.push(j);}';
+
+}
+  
+  
+
+  
+  scar.push(datsc);
+  
+if(ylistval=="Milisecond"||ylistval=="Second"||ylistval=="Minute"||ylistval=="Hour"){
+  optls=',scales: { y: {type: "time",min:"'+inpymin.value+'",max:"'+inpymax.value+'",time: {unit: "hour",parser:"HH:mm",tooltipFormat: "HH:mm",stepSize: '+inpystep.value+',displayFormats: {"millisecond": "HH:mm:ss.SSS","second": "mm:ss","minute": "mm:SS","hour": "HH:mm","day": "DD-MMM-yyyy","week": "DD-MMM-yyyy","month": "MMM-yyyy","quarter": "MMM-yyyy","year": "yyyy",},},display: true,title: {display: true,text: "'+ytitlech.value+'"},stacked: false}}}';
+
+}
+else if(ylistval=="Day"){
+optls=',scales: { y: {type: "time",min:"'+inpymin.value+'",max:"'+inpymax.value+'",time: {unit: "day",tooltipFormat: "DD-MM-yyyy",stepSize: '+inpystep.value+',displayFormats: {"millisecond": "HH:mm:ss.SSS","second": "mm:ss","minute": "mm:SS","hour": "HH:mm","day": "DD-MMM-yyyy","week": "DD-MMM-yyyy","month": "MMM-yyyy","quarter": "MMM-yyyy","year": "yyyy",},},display: true,title: {display: true,text: "'+ytitlech.value+'"},stacked: false}}}';
+
+}
+else if(ylistval=="Week"){
+optls=',scales: { y: {type: "time",min:"'+inpymin.value+'",max:"'+inpymax.value+'",time: {unit: "week",tooltipFormat: "DD-MM-yyyy",stepSize: '+inpystep.value+',displayFormats: {"millisecond": "HH:mm:ss.SSS","second": "mm:ss","minute": "mm:SS","hour": "HH:mm","day": "DD-MMM-yyyy","week": "DD-MMM-yyyy","month": "MMM-yyyy","quarter": "MMM-yyyy","year": "yyyy",},},display: true,title: {display: true,text: "'+ytitlech.value+'"},stacked: false}}}';
+
+}
+else if(ylistval=="Month"){
+optls=',scales: { y: {type: "time",min:"'+inpymin.value+'",max:"'+inpymax.value+'",time: {unit: "month",tooltipFormat: "MM-yyyy",stepSize: '+inpystep.value+',displayFormats: {"millisecond": "HH:mm:ss.SSS","second": "mm:ss","minute": "mm:SS","hour": "HH:mm","day": "DD-MMM-yyyy","week": "DD-MMM-yyyy","month": "MMM-yyyy","quarter": "MMM-yyyy","year": "yyyy",},},display: true,title: {display: true,text: "'+ytitlech.value+'"},stacked: false}}}';
+
+}
+else if(ylistval=="Quarter"){
+optls=',scales: { y: {type: "time",min:"'+inpymin.value+'",max:"'+inpymax.value+'",time: {unit: "quarter",tooltipFormat: "MM-yyyy",stepSize: '+inpystep.value+',displayFormats: {"millisecond": "HH:mm:ss.SSS","second": "mm:ss","minute": "mm:SS","hour": "HH:mm","day": "DD-MMM-yyyy","week": "DD-MMM-yyyy","month": "MMM-yyyy","quarter": "MMM-yyyy","year": "yyyy",},},display: true,title: {display: true,text: "'+ytitlech.value+'"},stacked: false}}}';
+
+}
+else if(ylistval=="Year"){
+optls=',scales: { y: {type: "time",min:"'+inpymin.value+'",max:"'+inpymax.value+'",time: {unit: "year",tooltipFormat: "yyyy",stepSize: '+inpystep.value+',displayFormats: {"millisecond": "HH:mm:ss.SSS","second": "mm:ss","minute": "mm:SS","hour": "HH:mm","day": "DD-MMM-yyyy","week": "DD-MMM-yyyy","month": "MMM-yyyy","quarter": "MMM-yyyy","year": "yyyy",},},display: true,title: {display: true,text: "'+ytitlech.value+'"},stacked: false}}}';
+
+}
+  
+          }
+          //not scroll
+          else{
+          var htmlhead3='new Chart("myChart", {type: "'+borderrad+'",data: {datasets: [';
+
+          var datsc;
+          for(var j=0;j<bgc.length;j++){
+        col=bgc[i].value;
+            objs="{label:'"+ilbl[i].value+"',backgroundColor: '"+col+"',borderColor:'"+col+"', data: eval('ar"+scin+"'),fill:"+filvar+",}"
+            var dt2=scatt(xvl.value+" ");
+          var dty=scatt(baseUrl);
+          datsc='var ar'+scin+'=[];for(var i=0;i<l.length;i++){var j={};j.y=ar("'+dty+'")[i];j.x=ar("'+dt2+'")[i];ar'+scin+'.push(j);}';
+        
+          }
+            
+            
+
+            
+            scar.push(datsc);
+            
+          if(ylistval=="Milisecond"||ylistval=="Second"||ylistval=="Minute"||ylistval=="Hour"){
+            optls=',scales: { y: {type: "time",min:"'+inpymin.value+'",max:"'+inpymax.value+'",time: {unit: "hour",parser:"HH:mm",tooltipFormat: "HH:mm",stepSize: '+inpystep.value+',displayFormats: {"millisecond": "HH:mm:ss.SSS","second": "mm:ss","minute": "mm:SS","hour": "HH:mm","day": "DD-MMM-yyyy","week": "DD-MMM-yyyy","month": "MMM-yyyy","quarter": "MMM-yyyy","year": "yyyy",},},display: true,title: {display: true,text: "'+ytitlech.value+'"},stacked: false}}}';
+
+          }
+        else if(ylistval=="Day"){
+          optls=',scales: { y: {type: "time",min:"'+inpymin.value+'",max:"'+inpymax.value+'",time: {unit: "day",tooltipFormat: "DD-MM-yyyy",stepSize: '+inpystep.value+',displayFormats: {"millisecond": "HH:mm:ss.SSS","second": "mm:ss","minute": "mm:SS","hour": "HH:mm","day": "DD-MMM-yyyy","week": "DD-MMM-yyyy","month": "MMM-yyyy","quarter": "MMM-yyyy","year": "yyyy",},},display: true,title: {display: true,text: "'+ytitlech.value+'"},stacked: false}}}';
+
+        }
+        else if(ylistval=="Week"){
+          optls=',scales: { y: {type: "time",min:"'+inpymin.value+'",max:"'+inpymax.value+'",time: {unit: "week",tooltipFormat: "DD-MM-yyyy",stepSize: '+inpystep.value+',displayFormats: {"millisecond": "HH:mm:ss.SSS","second": "mm:ss","minute": "mm:SS","hour": "HH:mm","day": "DD-MMM-yyyy","week": "DD-MMM-yyyy","month": "MMM-yyyy","quarter": "MMM-yyyy","year": "yyyy",},},display: true,title: {display: true,text: "'+ytitlech.value+'"},stacked: false}}}';
+
+        }
+        else if(ylistval=="Month"){
+          optls=',scales: { y: {type: "time",min:"'+inpymin.value+'",max:"'+inpymax.value+'",time: {unit: "month",tooltipFormat: "MM-yyyy",stepSize: '+inpystep.value+',displayFormats: {"millisecond": "HH:mm:ss.SSS","second": "mm:ss","minute": "mm:SS","hour": "HH:mm","day": "DD-MMM-yyyy","week": "DD-MMM-yyyy","month": "MMM-yyyy","quarter": "MMM-yyyy","year": "yyyy",},},display: true,title: {display: true,text: "'+ytitlech.value+'"},stacked: false}}}';
+
+        }
+        else if(ylistval=="Quarter"){
+          optls=',scales: { y: {type: "time",min:"'+inpymin.value+'",max:"'+inpymax.value+'",time: {unit: "quarter",tooltipFormat: "MM-yyyy",stepSize: '+inpystep.value+',displayFormats: {"millisecond": "HH:mm:ss.SSS","second": "mm:ss","minute": "mm:SS","hour": "HH:mm","day": "DD-MMM-yyyy","week": "DD-MMM-yyyy","month": "MMM-yyyy","quarter": "MMM-yyyy","year": "yyyy",},},display: true,title: {display: true,text: "'+ytitlech.value+'"},stacked: false}}}';
+
+        }
+        else if(ylistval=="Year"){
+          optls=',scales: { y: {type: "time",min:"'+inpymin.value+'",max:"'+inpymax.value+'",time: {unit: "year",tooltipFormat: "yyyy",stepSize: '+inpystep.value+',displayFormats: {"millisecond": "HH:mm:ss.SSS","second": "mm:ss","minute": "mm:SS","hour": "HH:mm","day": "DD-MMM-yyyy","week": "DD-MMM-yyyy","month": "MMM-yyyy","quarter": "MMM-yyyy","year": "yyyy",},},display: true,title: {display: true,text: "'+ytitlech.value+'"},stacked: false}}}';
+
+        }
+      
+      }
+        }
+        if(document.getElementById("scrollx").checked == true){
+          if(symb.checked==true){
+          chtopt=' ]},options: {responsive: true,maxBarThickness: 150,layout:{padding:{right:18}},maintainAspectRatio: true,plugins: {title: {display: true,fontSize: 16,text: "'+titlech.value+'"},legend: {display: true}}';
+
+        }
+        else{
+          chtopt=' ]},options: {responsive: true,maxBarThickness: 150,layout:{padding:{right:18,top:30}},maintainAspectRatio: true,plugins: {title: {display: true,fontSize: 16,text: "'+titlech.value+'"},legend: {display: false}}';
+          }
+        }
+        else{
+        if(symb.checked==true){
+          chtopt=' ]},options: {plugins: {title: {display: true,fontSize: 16,text: "'+titlech.value+'"},legend: {display: true}}';
+
+        }
+        else{
+          chtopt=' ]},options: {plugins: {title: {display: true,fontSize: 16,text: "'+titlech.value+'"},legend: {display: false}}';
+          }
+        }
+}
+else if(borderrad=="scatter"){
+  var htmlhead3='new Chart("myChart", {type: "'+borderrad+'",data: {datasets: [';
+  for(var j=0;j<bgc.length;j++){
+        col=bgc[i].value;
+        console.log(bgc[i].value);
+        objs="{label:'"+ilbl[i].value+"',backgroundColor: '"+col+"',borderColor:'"+col+"', data: eval('ar"+scin+"'),fill:"+filvar+",}"
+        }
+        var datsc;
+        for(var k=0;k<sd2.length;k++){
+          var baseUrl2=sd2[i].value+" ";
+          arname.push(cpv(baseUrl2));
+      var dt2=scatt(baseUrl2);
+      var dt2y=scatt(baseUrl);
+
+          datsc='var ar'+scin+'=[];for(var i=0;i<l.length;i++){var j={};j.y=ar("'+dt2+'")[i];j.x=ar("'+dt2y+'")[i];ar'+scin+'.push(j);}';
+
+        }
+        scar.push(datsc);
+      
+  if(document.getElementById("nvlynum").checked == true ){
+       
+          optls=',scales: { yAxes: {display: true,title: {display: true,text: "'+ytitlech.value+'"},stacked: true,min: '+inpymin.value+', max: '+inpymax.value+', ticks:{stepSize: '+inpystep.value+'}}'
+      }
+      if(document.getElementById("nvlyd").checked == true){
+        if(ylistval=="Milisecond"||ylistval=="Second"||ylistval=="Minute"||ylistval=="Hour"){
+          optls=',scales: { y: {type: "time",min:"'+inpymin.value+'",max:"'+inpymax.value+'",time: {unit: "hour",parser:"HH:mm",tooltipFormat: "HH:mm",stepSize: '+inpystep.value+',displayFormats: {"millisecond": "HH:mm:ss.SSS","second": "mm:ss","minute": "mm:SS","hour": "HH:mm","day": "DD-MMM-yyyy","week": "DD-MMM-yyyy","month": "MMM-yyyy","quarter": "MMM-yyyy","year": "yyyy",},},display: true,title: {display: true,text: "'+ytitlech.value+'"},stacked: false}';
+
+          }
+        else if(ylistval=="Day"){
+          optls=',scales: { y: {type: "time",min:"'+inpymin.value+'",max:"'+inpymax.value+'",time: {unit: "day",tooltipFormat: "DD-MM-yyyy",stepSize: '+inpystep.value+',displayFormats: {"millisecond": "HH:mm:ss.SSS","second": "mm:ss","minute": "mm:SS","hour": "HH:mm","day": "DD-MMM-yyyy","week": "DD-MMM-yyyy","month": "MMM-yyyy","quarter": "MMM-yyyy","year": "yyyy",},},display: true,title: {display: true,text: "'+ytitlech.value+'"},stacked: false}';
+
+        }
+        else if(ylistval=="Week"){
+          optls=',scales: { y: {type: "time",min:"'+inpymin.value+'",max:"'+inpymax.value+'",time: {unit: "week",tooltipFormat: "DD-MM-yyyy",stepSize: '+inpystep.value+',displayFormats: {"millisecond": "HH:mm:ss.SSS","second": "mm:ss","minute": "mm:SS","hour": "HH:mm","day": "DD-MMM-yyyy","week": "DD-MMM-yyyy","month": "MMM-yyyy","quarter": "MMM-yyyy","year": "yyyy",},},display: true,title: {display: true,text: "'+ytitlech.value+'"},stacked: false}';
+
+        }
+        else if(ylistval=="Month"){
+          optls=',scales: { y: {type: "time",min:"'+inpymin.value+'",max:"'+inpymax.value+'",time: {unit: "month",tooltipFormat: "MM-yyyy",stepSize: '+inpystep.value+',displayFormats: {"millisecond": "HH:mm:ss.SSS","second": "mm:ss","minute": "mm:SS","hour": "HH:mm","day": "DD-MMM-yyyy","week": "DD-MMM-yyyy","month": "MMM-yyyy","quarter": "MMM-yyyy","year": "yyyy",},},display: true,title: {display: true,text: "'+ytitlech.value+'"},stacked: false}';
+
+        }
+        else if(ylistval=="Quarter"){
+          optls=',scales: { y: {type: "time",min:"'+inpymin.value+'",max:"'+inpymax.value+'",time: {unit: "quarter",tooltipFormat: "MM-yyyy",stepSize: '+inpystep.value+',displayFormats: {"millisecond": "HH:mm:ss.SSS","second": "mm:ss","minute": "mm:SS","hour": "HH:mm","day": "DD-MMM-yyyy","week": "DD-MMM-yyyy","month": "MMM-yyyy","quarter": "MMM-yyyy","year": "yyyy",},},display: true,title: {display: true,text: "'+ytitlech.value+'"},stacked: false}';
+
+        }
+        else if(ylistval=="Year"){
+          optls=',scales: { y: {type: "time",min:"'+inpymin.value+'",max:"'+inpymax.value+'",time: {unit: "year",tooltipFormat: "yyyy",stepSize: '+inpystep.value+',displayFormats: {"millisecond": "HH:mm:ss.SSS","second": "mm:ss","minute": "mm:SS","hour": "HH:mm","day": "DD-MMM-yyyy","week": "DD-MMM-yyyy","month": "MMM-yyyy","quarter": "MMM-yyyy","year": "yyyy",},},display: true,title: {display: true,text: "'+ytitlech.value+'"},stacked: false}';
+
+        }
+      }
+
+  if(document.getElementById("nvld").checked == true){
+       
+ 
+        
+        
+        if(xlistval=="Milisecond"||xlistval=="Second"||xlistval=="Minute"||xlistval=="Hour"){
+            oplsx=',x: {type: "time",min:"'+inpxmin.value+'",max:"'+inpxmax.value+'",time: {unit: "hour",parser:"HH:mm",tooltipFormat: "HH:mm",stepSize: '+inpxstep.value+',displayFormats: {"millisecond": "HH:mm:ss.SSS","second": "mm:ss","minute": "mm:SS","hour": "HH:mm","day": "DD-MMM-yyyy","week": "DD-MMM-yyyy","month": "MMM-yyyy","quarter": "MMM-yyyy","year": "yyyy",},},display: true,title: {display: true,text: "'+xtitlech.value+'"},ticks: {autoSkip: false,maxRotation: 90,minRotation: 0},stacked: false}}}';
+
+          }
+        else if(xlistval=="Day"){
+          oplsx=',x: {type: "time",min:"'+inpxmin.value+'",max:"'+inpxmax.value+'",time: {unit: "day",tooltipFormat: "DD-MM-yyyy",stepSize: '+inpxstep.value+',displayFormats: {"millisecond": "HH:mm:ss.SSS","second": "mm:ss","minute": "mm:SS","hour": "HH:mm","day": "DD-MMM-yyyy","week": "DD-MMM-yyyy","month": "MMM-yyyy","quarter": "MMM-yyyy","year": "yyyy",},},display: true,title: {display: true,text: "'+xtitlech.value+'"},ticks: {autoSkip: false,maxRotation: 90,minRotation: 0},stacked: false}}}';
+
+        }
+        else if(xlistval=="Week"){
+          oplsx=',x: {type: "time",min:"'+inpxmin.value+'",max:"'+inpxmax.value+'",time: {unit: "week",tooltipFormat: "DD-MM-yyyy",stepSize: '+inpxstep.value+',displayFormats: {"millisecond": "HH:mm:ss.SSS","second": "mm:ss","minute": "mm:SS","hour": "HH:mm","day": "DD-MMM-yyyy","week": "DD-MMM-yyyy","month": "MMM-yyyy","quarter": "MMM-yyyy","year": "yyyy",},},display: true,title: {display: true,text: "'+xtitlech.value+'"},ticks: {autoSkip: false,maxRotation: 90,minRotation: 0},stacked: false}}}';
+
+        }
+        else if(xlistval=="Month"){
+          oplsx=',x: {type: "time",min:"'+inpxmin.value+'",max:"'+inpxmax.value+'",time: {unit: "month",tooltipFormat: "MM-yyyy",stepSize: '+inpxstep.value+',displayFormats: {"millisecond": "HH:mm:ss.SSS","second": "mm:ss","minute": "mm:SS","hour": "HH:mm","day": "DD-MMM-yyyy","week": "DD-MMM-yyyy","month": "MMM-yyyy","quarter": "MMM-yyyy","year": "yyyy",},},display: true,title: {display: true,text: "'+xtitlech.value+'"},ticks: {autoSkip: false,maxRotation: 90,minRotation: 0},stacked: false}}}';
+
+        }
+        else if(xlistval=="Quarter"){
+          oplsx=',x: {type: "time",min:"'+inpxmin.value+'",max:"'+inpxmax.value+'",time: {unit: "quarter",tooltipFormat: "MM-yyyy",stepSize: '+inpxstep.value+',displayFormats: {"millisecond": "HH:mm:ss.SSS","second": "mm:ss","minute": "mm:SS","hour": "HH:mm","day": "DD-MMM-yyyy","week": "DD-MMM-yyyy","month": "MMM-yyyy","quarter": "MMM-yyyy","year": "yyyy",},},display: true,title: {display: true,text: "'+xtitlech.value+'"},ticks: {autoSkip: false,maxRotation: 90,minRotation: 0},stacked: false}}}';
+
+        }
+        else if(xlistval=="Year"){
+          oplsx=',x: {type: "time",min:"'+inpxmin.value+'",max:"'+inpxmax.value+'",time: {unit: "year",tooltipFormat: "yyyy",stepSize: '+inpxstep.value+',displayFormats: {"millisecond": "HH:mm:ss.SSS","second": "mm:ss","minute": "mm:SS","hour": "HH:mm","day": "DD-MMM-yyyy","week": "DD-MMM-yyyy","month": "MMM-yyyy","quarter": "MMM-yyyy","year": "yyyy",},},display: true,title: {display: true,text: "'+xtitlech.value+'"},ticks: {autoSkip: false,maxRotation: 90,minRotation: 0},stacked: false}}}';
+
+        }
+       
+      }
+      if(document.getElementById("nvlnum").checked == true ){
+    
+        oplsx=',xAxes: {display: true,title: {display: true,text: "'+xtitlech.value+'"},stacked: true,ticks: {autoSkip: false,maxRotation: 90,minRotation: 0,stepSize: '+inpxstep.value+'},min: '+inpxmin.value+', max: '+inpxmax.value+' }}}';
+       
+      }
+ 
+  
+        if(symb.checked==true){
+          chtopt='  ]},options: {plugins:{title: {display: true,fontSize: 16,text: "'+titlech.value+'"},legend: {display: true}}';
+
+        }
+    else{
+      chtopt='  ]},options: {plugins:{title: {display: true,fontSize: 16,text: "'+titlech.value+'"},legend: {display: false}}';
+      }
+  }
+
+dtar.push(objs);
+}
+  
+
+console.log(total);
+
+}
+
+console.log(objs);
+
+  var cssbody="";
+var jval=Object.values(jsp);
+var str="";
+var datatotal="";
+var cscol="";
+var star=[];
+var starimg=[];
+var csscol=[];
+var apar=[];
+var dms=document.querySelector('input[name="db"]:checked').value;
+if(dms=="sdata"){
+datatotal=objs;
+}
+if(dms=="mdata"){
+  datatotal=dtar.join(",");
+}
+
+
+if(borderrad=="line"){
+  if(document.getElementById("scrollx").checked == true){
+    if(document.getElementById("nvlynum").checked == true){
+          var total=htmlheadscroll+htmlhead2+htmlhead3+datatotal+chtopt+optls+htmlfootscroll;
+          var mtotal=htmlheadscroll+mhtmlhead2+htmlhead3+datatotal+chtopt+optls+htmlfootscroll;
+        }
+      else{
+        var total=htmlheadscroll+htmlhead1+scar.join("")+htmlhead3+datatotal+chtopt+optls+htmlfootscroll;
+        var mtotal=htmlheadscroll+mhtmlhead1+scar.join("")+htmlhead3+datatotal+chtopt+optls+htmlfootscroll;
+      }  
+    }
+    else{
+      if(document.getElementById("nvlynum").checked == true){
+          var total=htmlhead+htmlhead2+htmlhead3+datatotal+chtopt+optls+htmlfoot;
+          var mtotal=htmlhead+mhtmlhead2+htmlhead3+datatotal+chtopt+optls+htmlfoot;
+        
+        }
+      else{
+        var total=htmlhead+htmlhead1+scar.join("")+htmlhead3+datatotal+chtopt+optls+htmlfoot;
+        var mtotal=htmlhead+mhtmlhead1+scar.join("")+htmlhead3+datatotal+chtopt+optls+htmlfoot;
+      }
+    }
+      
+      console.log(total);
+}
+else if(borderrad=="scatter"){
+ 
+        var total=htmlhead+htmlhead1+scar.join("")+htmlhead3+datatotal+chtopt+optls+oplsx+htmlfoot;
+        var mtotal=htmlhead+mhtmlhead1+scar.join("")+htmlhead3+datatotal+chtopt+optls+oplsx+htmlfoot;
+
+      
+
+      
+      console.log(total);
+}
+else if(borderrad=="bar"){
+  
+  if(document.getElementById("scrollx").checked == true){
+    if(document.getElementById("nvlynum").checked == true){
+          var total=htmlheadscroll+htmlhead2+htmlhead3+datatotal+chtopt+optls+htmlfootscroll;
+          var mtotal=htmlheadscroll+mhtmlhead2+htmlhead3+datatotal+chtopt+optls+htmlfootscroll;
+        }
+      else{
+        var total=htmlheadscroll+htmlhead1+scar.join("")+htmlhead3+datatotal+chtopt+optls+htmlfootscroll;
+        var mtotal=htmlheadscroll+mhtmlhead1+scar.join("")+htmlhead3+datatotal+chtopt+optls+htmlfootscroll;
+      }  
+    }
+    else{
+      if(document.getElementById("nvlynum").checked == true){
+          var total=htmlhead+htmlhead2+htmlhead3+datatotal+chtopt+optls+htmlfoot;
+          var mtotal=htmlhead+mhtmlhead2+htmlhead3+datatotal+chtopt+optls+htmlfoot;
+        }
+      else{
+        var total=htmlhead+htmlhead1+scar.join("")+htmlhead3+datatotal+chtopt+optls+htmlfoot;
+        var mtotal=htmlhead+mhtmlhead1+scar.join("")+htmlhead3+datatotal+chtopt+optls+htmlfoot;
+      }
+    }
+    console.log(total);
+}
+else if(borderrad=="pie"||borderrad=="doughnut"){
+      var total=htmlheadpie+htmlhead2+htmlhead3+datatotal+chtopt+htmlfoot;
+      var mtotal=htmlheadpie+mhtmlhead2+htmlhead3+datatotal+chtopt+htmlfoot;
+    console.log(total);
+}
+
+var arfunct;
+if(dvar.value !=="" && varn.value!==""){
+if(rng.checked==true){
+  arfunct='function archart(){var s=['+arname+']; return s; } function mindatasave(arr){var ay=[];for(var i=0;i<arr.length;i++)var data=arr[i]["'+varn.value +'"]; if('+dvar.value +'){ay.push(arr[i]);}}return ay;}';
+}
+else{
+  arfunct='function archart(){var s=['+arname+']; return s; } function mindatasave(arr){var ay=[];for(var i=0;i<arr.length;i++){if(arr[i]["'+varn.value +'"]=="'+dvar.value +'"){ay.push(arr[i]);}}return ay;}';
+}
+}else{
+  arfunct='function archart(){var s=['+arname+']; return s; } ';
+}
+
+sessionStorage.setItem( flnm.value +"charts.html", total);
+sessionStorage.setItem( flnm.value +"chartsmaster.html", mtotal);
+sessionStorage.setItem( flnm.value +"archart.js", arfunct);
+// fs.copyFileSync("./chart/3.7.1(chart.min.js)/Chart.min.js", "./project/"+folderpath+"/Chart.min.js");
+// fs.copyFileSync("./chart/1.0.0(chartjs-adapter)/chartjs-adapter-moment.min.js", "./project/"+folderpath+"/chartjs-adapter-moment.min.js");
+// fs.copyFileSync("./chart/2.29.2(moment.min.js)/moment.min.js", "./project/"+folderpath+"/moment.min.js");
+
+// fs.copyFileSync("./chart/3.7.1(chart.min.js)/chartjs_license.txt", "./project/"+folderpath+"/chartjs_license.txt");
+// fs.copyFileSync("./chart/1.0.0(chartjs-adapter)/chartjs-adapter_license.txt", "./project/"+folderpath+"/chartjs-adapter_license.txt");
+// fs.copyFileSync("./chart/2.29.2(moment.min.js)/momentjs_license.txt", "./project/"+folderpath+"/momentjs_license.txt");
+ //fs.writeFileSync( "./"+folderpath+"/grida.css", csstot);
+ //fs.copyFileSync("./img/"+csspath, csspath);
+          
+         alert("success");
+         arname=[];
+         piv=[];
+         var p=[];
+         
+         if(sessionStorage.getItem('filear')){
+          p =JSON.parse(sessionStorage.getItem('filear'));
+          p.push(flnm.value +"chartsmaster.html");
+         }
+         else{
+          p.push(flnm.value +"chartsmaster.html");
+         }
+         sessionStorage.setItem("filear", JSON.stringify(p));
+         sessionStorage.setItem("charttype", flnm.value +"chartsmaster.html");
+          window.location.href = "chartpageon.html"; 
+          
+});
+
+
+window.onerror = function(error, url, line) {
+  //alert(error+' URL:'+url+' L:'+line);
+};
+
+</script>
+</body>
+</html>
+</script>
+</body>
+</html>
+
+

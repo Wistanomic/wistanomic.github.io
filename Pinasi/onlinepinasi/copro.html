@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+<title>Import Project</title>
+</head>
+<style>
+    html{
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        font-family: sans-serif;
+        overflow: hidden;
+    }
+    body{
+        height: 100%;
+width: 99%;
+overflow: hidden;
+justify-content: center;
+text-align: center;
+background-color: #f2efda;
+
+    }
+    .btn:hover{
+        background-color: #5e9393;
+    }
+    .btn{
+        width: 100%;
+height: 50px;
+margin-top: 10px;
+float: right;
+background-color: #009879;
+color: #f2efda;
+font-size: medium;
+border: 0px solid;
+border-radius: 25px;
+cursor: pointer;
+    }
+    #listp{
+        display: block;
+  height: 100%;
+  width: 70%;
+  margin-top: 5%;  
+    }
+    #prnm{
+        margin: 10px;
+    }
+    input[type="file"] {
+   display: none;
+}
+#fpath{
+    width: 100%;
+  height: 50%;
+  margin-top: 10px;
+  float: right;
+  border: 1px solid #009879;
+  color: #009879;
+  font-size: medium;
+  border: 0px solid;
+  border-radius: 25px;
+  overflow: overlay;
+}
+#loading{
+    position: absolute;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+#lload{
+    font-size: xxx-large;
+    color: aliceblue;
+}
+#fild{
+    width: 100%;
+    margin-top: 10px;
+    
+}
+#listp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+</style>
+<body>
+    <div id="loading"> <label id="lload">Loading. . . </label></div>
+    
+    <div id="listp">
+    
+    
+
+   
+    <br>
+    <button class="btn" id="save" style="margin: 10px;">Save Demo Project</button>
+   
+ 
+</div>
+<script>
+const testFolder = './project/'+sessionStorage.getItem("project")+"/";
+ 
+//  const fs = require('fs');
+//  var path = require("path"); 
+ var result=[];
+//  const { promises: fls } = require("fs")
+//             async function copyDir(src, dest) {
+//     await fls.mkdir(dest, { recursive: true });
+//     let entries = await fls.readdir(src, { withFileTypes: true });
+
+//     for (let entry of entries) {
+//         let srcPath = path.join(src, entry.name);
+//         let destPath = path.join(dest, entry.name);
+
+//         entry.isDirectory() ?
+//             await copyDir(srcPath, destPath) :
+//             await fls.copyFile(srcPath, destPath);
+//     }
+// }
+let storage = {}
+Object.keys(sessionStorage).forEach((key) => {
+    if(key !=="tabletype" ||key !=="charttype"){
+        try{
+    storage[key] = JSON.parse(sessionStorage.getItem(key));
+}catch(e){
+ storage[key] = sessionStorage.getItem(key);
+}
+    }
+});
+// console.log(storage)
+ var listp = document.getElementById("listp");
+ var loadingpage = document.getElementById("loading");
+        var save =document.getElementById('save');
+        
+        // var fpath =document.getElementById('fpath');
+        // var fild =document.getElementById('fild');
+var flar=[];
+// if(localStorage.getItem('active')){
+//     document.getElementById('lbs').innerHTML="Premium Version";
+// }
+// const homedir = require('os').homedir();
+
+// fild.value = sessionStorage.getItem("project");
+
+//    var ul=document.createElement('ul'); 
+// fs.readdir(testFolder, (err, files) => {
+//     flar=files;
+    
+//   files.forEach(file => {
+//     var li=document.createElement('li');
+//     li.appendChild(document.createTextNode(file));
+//     // flar.push(file);
+//     ul.appendChild(li);
+
+      
+// });
+// });
+// alert(flar);
+//     fpath.appendChild(ul);
+//     var fl=[];
+//     fs.readdir(testFolder, (err, files) => {
+//   files.forEach(file => {
+//     if(file.includes("papr.json")){
+//       var p={};
+//       p['fm']=file;  
+//       fl.push(p);
+//       }
+//     if(file.includes(".html")){
+//         var p={};
+//       p['fm']=file;
+//       fl.push(p);
+      
+//     }});});
+
+var myInterval,title;
+
+    save.addEventListener ("click", function() {
+      
+    //     var lhgl="<?php $raw_data = file_get_contents('http://localhost:3000/project/"+sessionStorage.getItem("project")+"/hgl.json');$data = json_decode($raw_data, true);echo json_encode($data); ?>"
+    //     var lmhgl='<?php $raw_data = file_get_contents("http://localhost:3000/project/'+sessionStorage.getItem("project")+'/minhgl.json");$data = json_decode($raw_data, true);echo json_encode($data); ?>'
+      
+    //    if (!fs.existsSync(fild.value)){
+    //         fs.mkdirSync(fild.value, { recursive: true });
+            
+    //        }
+    //     copyDir("./project/"+sessionStorage.getItem("project"), fild.value);
+    //     copyDir("./onlinefile", fild.value);
+    //     fs.writeFileSync( fild.value+"/listfile.json", JSON.stringify(fl));
+    //     fs.writeFileSync( fild.value+"/lhgl.php", lmhgl);
+    //     fs.writeFileSync( fild.value+"/lmhgl.php", lhgl);
+    //     if(!localStorage.getItem('active')){
+    //         fs.copyFileSync("./freeonline/onmainwin.html", fild.value+"/onmainwin.html");
+    //         fs.copyFileSync("./freeonline/spageon.html", fild.value+"/spageon.html");
+    //         fs.copyFileSync("./freeonline/tableminchoon.html", fild.value+"/tableminchoon.html");
+    //         fs.copyFileSync("./freeonline/ads.php", fild.value+"/ads.php");
+    //     }
+    //     else{
+    //         fs.copyFileSync("./premiumonline/onmainwin.html", fild.value+"/onmainwin.html");
+    //         fs.copyFileSync("./premiumonline/spageon.html", fild.value+"/spageon.html");
+    //         fs.copyFileSync("./premiumonline/tableminchoon.html", fild.value+"/tableminchoon.html");
+    //     }
+       
+    //     loadingpage.style.display='flex';
+    //    const myInterval =setInterval(success, 1000); 
+   
+downloadObjectAsJson(storage,sessionStorage.getItem("project"))
+
+  
+});
+function downloadObjectAsJson(exportObj, exportName){
+    var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportObj));
+    var downloadAnchorNode = document.createElement('a');
+    downloadAnchorNode.setAttribute("href",     dataStr);
+    downloadAnchorNode.setAttribute("download", exportName + ".json");
+    document.body.appendChild(downloadAnchorNode); // required for firefox
+    downloadAnchorNode.click();
+    downloadAnchorNode.remove();
+  }    
+// function success(){
+    
+//     if (fs.existsSync(fild.value+"/"+flar[~~flar.length-1])){
+//     alert("success");
+//     clearInterval(myInterval);
+//     fl=[];
+//   flar=[];
+//    location.reload();
+// }
+// }
+    
+    
+window.onerror = function(error, url, line) {
+    //alert(error+' URL:'+url+' L:'+line);  
+};
+   
+    
+
+
+
+
+</script>
+
+</body>
+</html> 

@@ -1,0 +1,110 @@
+<!DOCTYPE html><html><head> <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"><link rel="stylesheet" href="gridas.css"><link rel="stylesheet" href="search.css"> <style>@media print {
+    html{
+      margin:0;
+      height: 100%;
+      width: 100%;
+      overflow: visible;
+      
+      position: relative;
+    }
+  body {
+    margin: 0;
+    
+    position: relative;
+  overflow: visible;
+ 
+  }
+ 
+  .grid-item{
+    overflow:hidden;
+    margin:0;
+   
+    
+    
+    position: relative;
+  }
+  #grid{
+    margin: 0;
+    position: relative;
+   
+  
+    
+  }
+  .difr{
+    overflow:hidden;
+    margin:0;
+   
+    page-break-inside:  avoid;
+    margin-bottom: 1px;
+    position: relative;
+  }
+
+  #tabdiv{
+    margin: 0;
+    overflow: visible !important;
+    
+    position: relative;
+  
+  }
+  #lay{
+    margin: 0;
+    
+    position: relative;
+  }
+  #home{
+    margin: 0;
+    
+    position: relative;
+  }
+  br{
+    display: none;
+  }
+
+}</style></head><body><div id="bgimg" style="position: fixed;height: 100%;width: 100%;background-repeat: repeat-y;background-size: 100% 100%;z-index: -999;"></div><div id="home"><div id="set" style="display: none;"  ><button id="refresh" onclick="refresh();" >&#8635;</button><button id="setting"  ><div id="leftchev"></div></button><button id="search" ><div id="rightchev"></div></button><label   id="slid" class="switch"><input id="slid1" type="checkbox"><span id ="slid2"class="slider round"></span></label><input type="text" id="searcttxt" onkeyup="srch();"  ></div><br><div id="tabdiv" style="left: 0;position: absolute; overflow: auto;"><div id="lay" style="left: 0;top: 0;position: absolute; "><div class="grid-container" id="grid" style="margin-bottom: 3%;"><link rel="stylesheet" href="gridas.css"><link rel="stylesheet" href="search.css"><script src="jquery/jquery.min.js"></script><script src="gridasmaster.js"></script><script src="grid.js"></script><script src="fr.js"></script><script src="ls.js"></script></div></div></div></div>
+<script >sessionStorage.setItem("gridasstatus", "none");
+    function Printdiv()
+   {
+  
+   var actContents = document.getElementById('grid').innerHTML;
+   var lld=document.body.innerHTML;
+               document.body.innerHTML = actContents;
+               
+                const myTimeout = setTimeout(myGreeting, 5000);
+
+function myGreeting() {
+      
+    window.focus();
+               window.print();  
+                document.body.style.margin=0;
+                
+                document.body.innerHTML = lld;                
+                myStopFunction();  
+}
+
+function myStopFunction() {
+  clearTimeout(myTimeout);
+}
+   }
+   function PrintElem()
+   {
+       var mywindow = window.open('','height=400,width=600');
+   
+       mywindow.document.write('<html><head><title>' + document.title  + '</title>');
+   
+           //mywindow.document.write('<link rel="stylesheet" href="gridas/gridas.css" type="text/css" />');
+   
+       mywindow.document.write('</head><body >');
+       mywindow.document.write('<h1>' + document.title  + '</h1>');
+       mywindow.document.write(document.getElementById('grid').innerHTML);
+       mywindow.document.write('<script src="jquery/jquery.min.js"><\/script><script src="gridas/gridasmaster.js"><\/script><script src="gridas/grid.js"><\/script><script src="fr.js"><\/script><script src="ls.js"><\/script>');
+       mywindow.document.write('</body></html>');
+   
+       mywindow.document.close(); // necessary for IE >= 10
+       mywindow.focus(); // necessary for IE >= 10*/
+   
+       mywindow.print();
+       mywindow.close();
+   
+       return true;
+   }
+   </script></body></html>

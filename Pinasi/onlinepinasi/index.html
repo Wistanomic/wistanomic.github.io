@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <title>New Project</title>
+    </head>
+    <header>
+
+    </header>
+    <body >
+        <div id="eulapage" > <div style="display: block; width: 40%;height: 70%;"><iframe id="neweula" src="/Pinasi/Eula.pdf" style="width: 100%; height: 70%;"></iframe><div style="width: 100%;height: auto;"><input type="checkbox" id="newagre">I Agree</div><div style="width: 100%;height: auto;"><button class="btneul" id="cnl">Cancel</button><button class="btneul" id="nxt">Next</button></div></div></div>
+        <div id="notepage" > <div style="display: block; width: 42%;height: 70%;"><div id="neweula" style="overflow: auto; width: 100%; height: 70%; background-color: white;border: 1px solid black;"><h4 align="center"><span class="HwtZe" lang="en"><span class="jCAhz JxVs2d ChMk0b"><span class="ryNqvb">Pinasi Professional Demo V.1.0</span></span></span></h4><h4 align="center"><span class="HwtZe" lang="en"><span class="jCAhz JxVs2d ChMk0b"><span class="ryNqvb">Notes</span></span></span></h4><ol><li><font color="#000000"><span class="HwtZe" lang="en"><span class="jCAhz JxVs2d ChMk0b"><span class="ryNqvb">This demo version provides a brief overview of the features of the desktop version.</span></span></span></font></li><li><span class="HwtZe" lang="en"><span class="jCAhz ChMk0b"><span class="ryNqvb"><font color="#000000">This demo uses sessionstorage in the browser, so it will be deleted when the browser is closed.</font></span></span></span></li><li><font color="#000000"><span class="HwtZe" lang="en"><span class="jCAhz JxVs2d ChMk0b"><span class="ryNqvb">There are limitations in the amount of data that can be input (max. 25)</span></span></span></font></li><li><font color="#000000"><span class="HwtZe" lang="en"><span class="jCAhz JxVs2d ChMk0b"><span class="ryNqvb">there are weaknesses in the accuracy of decimal calculations and numbers more than 15 digits</span></span></span></font></li><li><font color="#000000"><span class="HwtZe" lang="en"><span class="jCAhz JxVs2d ChMk0b"><span class="ryNqvb">There are several features that are closed</span></span></span></font></li><li><font color="#000000"><span class="HwtZe" lang="en"><span class="jCAhz JxVs2d ChMk0b"><span class="ryNqvb">Pinasi demo data can only be opened on this demo website (currently cannot be opened for the desktop version).</span></span></span></font></li></ol><h4 align="center"><span class="HwtZe" lang="en"><span class="jCAhz JxVs2d ChMk0b"><span class="ryNqvb"><br></span></span></span></h4></div><div style="width: 100%;height: 40px;margin-top: 10px;margin-left: 15px;"><button class="btneul" id="nxt2" style="width: 84%;">Next</button></div></div></div>
+        <div id="uploadpage" > <div style="display: block; width: 40%;height: 70%;"><div id="neweula" style="border: 1px solid;overflow: auto; width: 100%; height: 70%; background-color: #48b088;cursor: default;"><div style="display: flex;justify-content: center;padding: 5px;font-family: sans serif;color: white;font-weight: bold;margin-top: 20px;"><label>JSON FILE UPLOAD</label></div><div style="width: 100%; height: 130px;display: flex;align-items: center;justify-content: center;"><div style="display: flex;justify-content: center;align-items: center;height: 100px; width: 300px;background-color: #3eaa80a6;color: white;border-radius: 15px;border: 1px solid white;"><label>Drag & Drop</label></div></div><div style="display: flex;justify-content: center;"><label>Or</label></div><div style=" cursor: default;width: 100%; height: 50px; justify-content: center; align-items: center;display: flex;margin-top: 10px;"><input type="file" name="file" id="filedrop" style="display: none;"><label for="filedrop"  id="filedroplabel" style="cursor: pointer; height: 90%; width: 300px;align-items: center;display: flex;justify-content: center; color: white;border-radius: 50px;border: 1px solid;">Upload</label></div></div><div style="display: flex;justify-content: center;"><label>Or</label></div><div style="width: 100%;height: 40px;margin-top: 10px;"><button class="btneul" id="cnl3">Cancel</button><button class="btneul" id="nxt3">Next</button></div></div></div>
+        <div id="loading"> <label id="lload">Loading. . . </label></div>
+        <div id="container">
+            <div id="displayform">
+                <div id="coverdisplay"><label class="edittext">Edit</div>
+                    <div id="hddiv">  <header id="hdtitle"></header></div><br>
+                    <div id="inputform">
+                  
+                </div> 
+            </div>
+            <div id="half-container">
+                <div id="split-right-half-container">
+                 
+                 <div id="setname">
+                <label id="inputtitle">None</label><br>
+                <input type="hidden" id="indx">
+                 <label id="name">Name :</label><br>
+                 <input type="text" id="nametxt" name="nametext" class="inp inp2" /><br>
+                 <label id="required">Required </label>
+                  <input id="requiredcheck" type="checkbox" /><br>
+                  <div id="settinginput">
+                 <label id="option" >Option :</label><br>
+                 <textarea id="optiontxt" name="optiontext" disabled class="inp inp2"></textarea><br>
+                 <label id="filter">Filter :</label><br>
+                 <select name="exten" id="exts" disabled >
+                    <option value="All" selected>All</option>
+                    <option value="Image">Image</option>
+                    <option value="Video" style="display:none">Video</option>
+                  </select><br>
+                  <label id="minl" >Min Length :</label><label id="maxl" >Max Length :</label><br>
+                  <input type="number" id="minltxt" name="minltext" disabled class="inp inp2" placeholder="min"/>
+                  <input type="number" id="maxltxt" name="maxltext" disabled class="inp inp2" placeholder="max"/>
+                 
+                 <br>
+                </div>
+                <br>
+                <div id="setbtn">
+                  
+                    <button id="add">ADD</button>
+                    <div id="divedit">
+                        <button id="canceledit">Cancel</button>
+                      <button id="editbtn">Edit</button>
+                      
+                    </div>
+                </div>
+               
+                 </div>
+                 <div id="variety">
+                <div id="covervariety"></div>
+             
+          <div class="col">  <button id="textbox"class="btt">Textbox</button> <input id="txtbox" type="text" placeholder="Text" disabled/><br></div>
+          <div class="col">  <button id="textareabox"class="btt"><label>Text Area</label></button> <textarea id="txtarbox"placeholder="Text" disabled></textarea><br></div>
+          <div class="col">  <button id="checkbox"class="btt">Checkbox</button><input id="chkbox" type="checkbox" disabled/> CheckBox<br></div>
+          <div class="col">       <button id="file"class="btt" title="Download Desktop Version" disabled>File</button><input id="flbox" type="file" disabled/><br></div>
+          <div class="col">       <button id="radiobtn"class="btt">Radio Button</button><input id="rbtn" type="radio" disabled/>Radio Button<br></div>
+          <div class="col">       <button id="email"class="btt">Email</button><input id="emailbox" type="email" placeholder="Text@Text.com" disabled/><br></div>
+          <div class="col">       <button id="serport"class="btt" title="Download Desktop Version" disabled>Serial Port 1</button><select disabled><option value="">Option</option></select><input type="text" disabled><br></div>
+          <div class="col" hidden>       <button id="serport2"class="btt" hidden>Serial Port 2</button><select disabled><option value="">Option</option></select><input type="text" disabled><br></div>
+          <div class="col" hidden>       <button id="serport3"class="btt" hidden>Serial Port 3</button><select disabled><option value="">Option</option></select><input type="text" disabled><br></div>
+          <div class="col">       <button id="number"class="btt">Number</button><input id="numberbox" type="number" placeholder="01234" disabled/><br></div>
+          <div class="col">       <button id="combobox"class="btt">Combobox</button><select disabled><option value="">Option</option></select><br></div>
+          <div class="col">       <button id="color"class="btt">Color</button><input id="colorbox" type="color" value="#ff0000" disabled/><br></div>
+          <div class="col">       <button id="date"class="btt">Date</button><input type="date" disabled><br></div>
+          <div class="col">       <button id="telp"class="btt">Telephone Number</button><input type="tel" id="phonebox" placeholder="01234567"  disabled><br></div>
+          <div class="col">       <button id="datetime"class="btt">Date Time Local</button><input type="datetime-local" id="dtlbox" disabled><br></div>
+          <div class="col">       <button id="label"class="btt">Label</button><label>Label</label><br></div>
+          <div class="col">       <button id="small"class="btt">Small</button><small>Small</small><br></div>
+         
+                </div>
+                </div>
+                <div id="saveside">
+                    <div id="coversave"> <label class="edittext">Edit</label></div>
+                    <div id="frmname">
+                        <label id="frname">Form Title</label>
+                        <input type="text" id="frtl" class="inp">
+                        <br>
+                        <button id="tutopj" class="btnnew">Tutorial</button>
+                <button id="licepj" class="btnnew">License</button>
+                    </div>
+                    <div id="prname">
+                    <label id="pname">Project Name</label>
+                    <input type="text" id="proname" class="inp"><br>
+                    <label class="ck" id="Id">ID</label><input id="idcheck" type="checkbox" title="Download Desktop Version" disabled  />
+                    <label  id="time">Submit Time</label><input id="timecheck" type="checkbox" title="Download Desktop Version" disabled/><br>
+                    <label class="ck" id="Non Duplicate">Non Duplicate</label><input id="nduplicate" type="checkbox" title="Download Desktop Version" disabled/> <label class="ck" id="autsub" >Auto Submit</label><input id="atsub" type="checkbox" title="Download Desktop Version" disabled/><br>
+                    <button id="savefile">Save</button><button  id="cncl">Cancel</button><br>
+                    <label class="ck"  >Project Path :</label><br>
+                    <input type="text" class="ck" id="filepath" placeholder="-" readonly><br>
+                </div>
+                </div>
+            </div>
+           
+        </div>
+
+        <script>
+            //  var fs =require('fs');
+            //  var path = require("path");
+            //
+             var displayform =document.getElementById("displayform");
+             var inputform =document.getElementById("inputform");
+             var indx =document.getElementById("indx");
+             var eulapage=document.getElementById("eulapage");
+             var notepage =document.getElementById("notepage");
+             var uploadpage =document.getElementById("uploadpage");
+             var nxt =document.getElementById("nxt");
+             var nxt2 =document.getElementById("nxt2");
+             var nxt3 =document.getElementById("nxt3");
+             var cnl =document.getElementById("cnl");
+             var cnl2 =document.getElementById("cnl2");
+             var cnl3 =document.getElementById("cnl3");
+             
+             //
+             var coversave =document.getElementById("coversave");
+             var coverdisplay =document.getElementById("coverdisplay");
+             var covervariety =document.getElementById("covervariety");
+             var variety =document.getElementById("variety");
+             var hdtitle =document.getElementById('hdtitle');
+            //variety
+             var textbox = document.getElementById("textbox");
+             var textareabox = document.getElementById("textareabox");
+             var checkbox = document.getElementById("checkbox");
+             var files = document.getElementById("file");
+             var radiobtn = document.getElementById("radiobtn");
+             var email = document.getElementById("email");
+             var serport = document.getElementById("serport");
+             var serport2 = document.getElementById("serport2");
+             var serport3 = document.getElementById("serport3");
+             var number = document.getElementById("number");
+             var combobox = document.getElementById("combobox");
+             var color = document.getElementById("color");
+             var date = document.getElementById("date");
+             var telp = document.getElementById("telp");
+             var datetime = document.getElementById("datetime");
+             var label = document.getElementById("label");
+             var small = document.getElementById("small");
+             //input
+             var add = document.getElementById("add");
+             var exts = document.getElementById("exts");
+             var optiontxt = document.getElementById("optiontxt");
+             var requiredcheck = document.getElementById("requiredcheck");
+             var nametxt = document.getElementById("nametxt");
+             var inputtitle = document.getElementById("inputtitle");
+             var minltxt = document.getElementById("minltxt");
+             var maxltxt = document.getElementById("maxltxt");
+             var divedit = document.getElementById("divedit");
+             var canceledit = document.getElementById("canceledit");
+             var editbtn = document.getElementById("editbtn");
+             var editstatus= document.getElementById("editstatus");
+             var inp2= document.getElementsByClassName("inp2");
+             //save side
+             var saveside = document.getElementById("saveside");
+             var cncl = document.getElementById("cncl");
+             var proname = document.getElementById("proname");
+             var idcheck = document.getElementById("idcheck");
+             var timecheck = document.getElementById("timecheck");
+             var savefile = document.getElementById("savefile");
+             var nduplicate = document.getElementById("nduplicate");
+             var atsub = document.getElementById("atsub");
+             var filepath = document.getElementById("filepath");
+             var loadingpage = document.getElementById("loading");
+             var frtl = document.getElementById('frtl');
+            //  filepath.value = process.cwd()+"/project/";
+             //var
+             var jenis = "";
+             var arry=[];
+             var aredit=[];
+             var objedit={};
+             var header={};
+             var nameval=nametxt.value;
+             //
+             var serp=false;
+             var serp2=false;
+             var serp3=false;
+             //
+             var prolist=[];
+//              fs.readdir("./project/", (err, files) => {
+//     if (err) throw err;
+//     files.map(function (filePath) {
+// prolist.push(filePath);
+
+//     })})
+    
+             //
+            var s1='<!DOCTYPE html> <html> <head> <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8" /><link rel="stylesheet" href="form.css"> <title></title> </head> <body> <div id="bod"><form name="forms" id="forms">';
+		    var s2='<br><button type="submit" id="btnsubmit">Submit</button> </form></div> ' ;
+		    var s3='<script src="jquery/jquery.min.js"> <\/script>' ;
+		    var s4='<script src="control.js"> <\/script> <\/body> <\/html>';
+            var s4ed='<script src="edit.js"> <\/script> <\/body> <\/html>';
+            var s1ed='<!DOCTYPE html> <html> <head> <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8" /> <link rel="stylesheet" href="form.css"><title>EDIT</title> </head> <body> <div id="bod"><script>queryString = sessionStorage.getItem("edit").substring(1).split("&")[0];data=JSON.parse(sessionStorage.getItem("datajson"));l=data;        dtt();formElement.addEventListener("submit", handler) <\/script> <div id="frm">  <form name="forms" id="forms">';
+            var s2ed='<br><button type="submit" id="btnsubmit">Edit</button> </form><button id="delete">Delete</button><button id="cancel">Cancel</button> </div></div> '           
+            //btn
+            textbox.addEventListener("click", function () {
+			jenis = "textbox";
+            exts.disabled=true;
+            optiontxt.disabled=true;
+            minltxt.disabled=false;
+            maxltxt.disabled=false;
+			inputtitle.innerHTML = 'Textbox';
+            document.getElementById('name').innerHTML='Name :';
+            document.getElementById('option').innerHTML='Option :'; 
+		    });
+            textareabox.addEventListener("click", function () {
+			jenis = "textareabox";
+            exts.disabled=true;
+            optiontxt.disabled=true;
+            minltxt.disabled=false;
+            maxltxt.disabled=false;
+			inputtitle.innerHTML = 'Text Area Box';
+            document.getElementById('name').innerHTML='Name :';
+            document.getElementById('option').innerHTML='Option :'; 
+		    });
+            checkbox.addEventListener("click", function () {
+			jenis = "checkbox";
+            exts.disabled=true;
+            optiontxt.disabled=true;
+            minltxt.disabled=true;
+            maxltxt.disabled=true;
+			inputtitle.innerHTML = 'Checkbox';
+            document.getElementById('name').innerHTML='Name :';
+            document.getElementById('option').innerHTML='Option :'; 
+		    });
+            files.addEventListener("click", function () {
+			jenis = "files";
+            exts.disabled=false;
+            optiontxt.disabled=true;
+            minltxt.disabled=true;
+            maxltxt.disabled=true;
+			inputtitle.innerHTML = 'File';
+            document.getElementById('name').innerHTML='Name :';
+            document.getElementById('option').innerHTML='Option :'; 
+		    });
+            radiobtn.addEventListener("click", function () {
+			jenis = "radiobtn";
+			exts.disabled=true;
+            optiontxt.disabled=false;
+            minltxt.disabled=true;
+            maxltxt.disabled=true;
+            inputtitle.innerHTML = 'Radio Button';
+            document.getElementById('name').innerHTML='Name :';
+            document.getElementById('option').innerHTML='Option :'; 
+		    });
+            email.addEventListener("click", function () {
+			jenis = "email";
+            exts.disabled=true;
+            optiontxt.disabled=true;
+            minltxt.disabled=true;
+            maxltxt.disabled=true;
+			inputtitle.innerHTML = 'Email';
+            document.getElementById('name').innerHTML='Name :';
+            document.getElementById('option').innerHTML='Option :'; 
+		    });
+            serport.addEventListener("click", function () {
+			jenis = "serport";
+            exts.disabled=true;
+            optiontxt.disabled=false;
+            minltxt.disabled=true;
+            maxltxt.disabled=true;            
+			inputtitle.innerHTML ='Serial Port 1';
+            document.getElementById('name').innerHTML='Separator :';
+            document.getElementById('option').innerHTML='Input Name :';
+            
+		    });
+            serport2.addEventListener("click", function () {
+			jenis = "serport2";
+            exts.disabled=true;
+            optiontxt.disabled=true;
+            minltxt.disabled=true;
+            maxltxt.disabled=true; 
+			inputtitle.innerHTML ='Serial Port 2';
+		    });
+            serport3.addEventListener("click", function () {
+			jenis = "serport3";
+            exts.disabled=true;
+            optiontxt.disabled=true;
+            minltxt.disabled=true;
+            maxltxt.disabled=true;
+			inputtitle.innerHTML ='Serial Port 3';
+		    });
+            number.addEventListener("click", function () {
+			jenis = "number";
+            exts.disabled=true;
+            optiontxt.disabled=true;
+            minltxt.disabled=false;
+            maxltxt.disabled=false;
+			inputtitle.innerHTML = 'Number';
+            document.getElementById('name').innerHTML='Name :';
+            document.getElementById('option').innerHTML='Option :'; 
+		    });
+            combobox.addEventListener("click", function () {
+			jenis = "combobox";
+            exts.disabled=true;
+            optiontxt.disabled=false;
+            minltxt.disabled=true;
+            maxltxt.disabled=true;
+			inputtitle.innerHTML = 'Combobox';
+            document.getElementById('name').innerHTML='Name :';
+            document.getElementById('option').innerHTML='Option :'; 
+		    });
+            color.addEventListener("click", function () {
+			jenis = "color";
+            exts.disabled=true;
+            optiontxt.disabled=true;
+            minltxt.disabled=true;
+            maxltxt.disabled=true;
+			inputtitle.innerHTML = 'Color';
+            document.getElementById('name').innerHTML='Name :';
+            document.getElementById('option').innerHTML='Option :'; 
+		    });
+            date.addEventListener("click", function () {
+			jenis = "date";
+            exts.disabled=true;
+            optiontxt.disabled=true;
+            minltxt.disabled=true;
+            maxltxt.disabled=true;
+			inputtitle.innerHTML = 'Date';
+            document.getElementById('name').innerHTML='Name :';
+            document.getElementById('option').innerHTML='Option :'; 
+		    });
+            telp.addEventListener("click", function () {
+			jenis = "telp";
+            exts.disabled=true;
+            optiontxt.disabled=true;
+            minltxt.disabled=false;
+            maxltxt.disabled=false;
+			inputtitle.innerHTML = 'Telephone Number';
+            document.getElementById('name').innerHTML='Name :';
+            document.getElementById('option').innerHTML='Option :'; 
+		    });
+            datetime.addEventListener("click", function () {
+			jenis = "datetime";
+            exts.disabled=true;
+            optiontxt.disabled=true;
+            minltxt.disabled=true;
+            maxltxt.disabled=true;
+			inputtitle.innerHTML = 'Date Time Local';
+            document.getElementById('name').innerHTML='Name :';
+            document.getElementById('option').innerHTML='Option :'; 
+		    });
+            label.addEventListener("click", function () {
+			jenis = "label";
+            exts.disabled=true;
+            optiontxt.disabled=true;
+            minltxt.disabled=true;
+            maxltxt.disabled=true;
+			inputtitle.innerHTML = 'Label';
+            document.getElementById('name').innerHTML='Name :';
+            document.getElementById('option').innerHTML='Option :'; 
+		    });
+            small.addEventListener("click", function () {
+			jenis = "small";
+            exts.disabled=true;
+            optiontxt.disabled=true;
+            minltxt.disabled=true;
+            maxltxt.disabled=true;
+			inputtitle.innerHTML = 'Small';
+            document.getElementById('name').innerHTML='Name :';
+            document.getElementById('option').innerHTML='Option :'; 
+		    });
+            //
+           
+            function addbtn(type, nametype,opt="",filt="",minle="",maxle="",jen="",req=false){
+            
+			
+			arry.push("<br>"+ type);
+            
+                
+            aredit.push({name:nametype,option:opt,filter:filt,minl:minle,maxl:maxle,jenistyp:jen,req:req});
+            for(var o=0;o<inp2.length;o++){
+            inp2[o].value="";
+
+        }
+        requiredcheck.checked=false;
+            console.log(aredit);
+            bttn();
+           
+				
+                   
+                    
+            }
+            //
+            function editar(type, nametype,opt="",filt="",minle="",maxle="",jen="",req=false){
+                var indexar=indx.value;
+
+                if (indexar !== -1) {
+                arry[indexar] = "<br>"+ type;
+                aredit[indexar]={name:nametype,option:opt,filter:filt,minl:minle,maxl:maxle,jenistyp:jen,req:req};
+                
+            }
+            console.log(aredit);
+            bttn();    
+            
+                
+            
+            
+            }
+            //
+            function bttn(){
+                const thm = document.createElement("label");
+                inputform.innerHTML="";
+                            thm.innerHTML="";
+                            header={};
+                for (let i = 0; i < arry.length; i++) {
+                           var btn = document.createElement("button");
+                           var dltbtn = document.createElement("button");
+                           var t = document.createTextNode(arry[i]);
+                           btn.innerHTML = "Edit";
+                           dltbtn.innerHTML="Delete"
+                           var idx = arry.indexOf(arry[i]);
+                           var text = document.createElement("label");
+                           text.innerHTML = text.innerHTML + arry[i]; 
+                           let namehead = aredit.map( (item) => item.name);
+                           header[namehead[idx]]="";
+                           
+                           btn.addEventListener('click', () => { 
+                            var idx = arry.indexOf(arry[i]);
+                            let name = aredit.map( (item) => item.name);
+                            let opti = aredit.map( (item) => item.option);
+                            let filtt = aredit.map( (item) => item.filter);
+                            let minlen = aredit.map( (item) => item.minl);
+                            let maxlen = aredit.map( (item) => item.maxl);
+                            let jensi = aredit.map( (item) => item.jenistyp);
+                            let requ = aredit.map( (item) => item.req);
+                            
+                            nametxt.value=name[idx];
+                            optiontxt.value=opti[idx];
+                            exts.value=filtt[idx];
+                            minltxt.value=minlen[idx];
+                            maxltxt.value=maxlen[idx];
+                            jenis=jensi[idx];
+                            requiredcheck.checked=requ[idx];
+                            indx.value=idx;
+                            
+                            
+                            switch(jenis){
+                                case "textbox":
+                                exts.disabled=true;
+                                optiontxt.disabled=true;
+                                minltxt.disabled=false;
+                                maxltxt.disabled=false; 
+                                inputtitle.innerHTML = 'Textbox'; 
+                                document.getElementById('name').innerHTML='Name :';
+                                document.getElementById('option').innerHTML='Option :';          
+                                break;
+                                case "textareabox":
+                                exts.disabled=true;
+                                optiontxt.disabled=true;
+                                minltxt.disabled=false;
+                                maxltxt.disabled=false;
+                                inputtitle.innerHTML = 'Text Area Box';
+                                document.getElementById('name').innerHTML='Name :';
+                                document.getElementById('option').innerHTML='Option :'; 
+                                break;
+                                case "checkbox":
+                                exts.disabled=true;
+                                optiontxt.disabled=true;
+                                minltxt.disabled=true;
+                                maxltxt.disabled=true;
+                                inputtitle.innerHTML = 'Checkbox';
+                                document.getElementById('name').innerHTML='Name :';
+                                document.getElementById('option').innerHTML='Option :'; 
+                                break;
+                                case "files":
+                                exts.disabled=false;
+                                optiontxt.disabled=true;
+                                minltxt.disabled=true;
+                                maxltxt.disabled=true;
+                                inputtitle.innerHTML = 'File';
+                                document.getElementById('name').innerHTML='Name :';
+                                document.getElementById('option').innerHTML='Option :'; 
+                                break;
+                                case "radiobtn":
+                                exts.disabled=true;
+                                optiontxt.disabled=false;
+                                minltxt.disabled=true;
+                                maxltxt.disabled=true;
+                                inputtitle.innerHTML = 'Radio Button';
+                                document.getElementById('name').innerHTML='Name :';
+                                document.getElementById('option').innerHTML='Option :'; 
+                                break;
+                                case "email":
+                                exts.disabled=true;
+                                optiontxt.disabled=true;
+                                minltxt.disabled=true;
+                                maxltxt.disabled=true;
+                                inputtitle.innerHTML = 'Email';
+                                document.getElementById('name').innerHTML='Name :';
+                                document.getElementById('option').innerHTML='Option :'; 
+                                break;
+                                case "serport":
+                                exts.disabled=true;
+                                optiontxt.disabled=false;
+                                minltxt.disabled=true;
+                                maxltxt.disabled=true;
+                                inputtitle.innerHTML = 'Serial Port 1';
+                                document.getElementById('name').innerHTML='Separator :';
+                                document.getElementById('option').innerHTML='Name :';
+                                break;
+                                case "serport2":
+                                exts.disabled=true;
+                                optiontxt.disabled=true;
+                                minltxt.disabled=true;
+                                maxltxt.disabled=true;
+                                inputtitle.innerHTML = 'Serial Port 2';
+                                break;
+                                case "serport3":
+                                exts.disabled=true;
+                                optiontxt.disabled=true;
+                                minltxt.disabled=true;
+                                maxltxt.disabled=true;
+                                inputtitle.innerHTML = 'Serial Port 3';
+                                break;
+                                case "number":
+                                exts.disabled=true;
+                                optiontxt.disabled=true;
+                                minltxt.disabled=false;
+                                maxltxt.disabled=false;
+                                inputtitle.innerHTML = 'Number';
+                                document.getElementById('name').innerHTML='Name :';
+                                document.getElementById('option').innerHTML='Option :'; 
+                                break;
+                                case "combobox":
+                                exts.disabled=true;
+                                optiontxt.disabled=false;
+                                minltxt.disabled=true;
+                                maxltxt.disabled=true;
+                                inputtitle.innerHTML = 'Combobox';
+                                document.getElementById('name').innerHTML='Name :';
+                                document.getElementById('option').innerHTML='Option :'; 
+                                break;
+                                case "color":
+                                exts.disabled=true;
+                                optiontxt.disabled=true;
+                                minltxt.disabled=true;
+                                maxltxt.disabled=true;
+                                inputtitle.innerHTML = 'Color';
+                                document.getElementById('name').innerHTML='Name :';
+                                document.getElementById('option').innerHTML='Option :'; 
+                                break;
+                                case "date":
+                                exts.disabled=true;
+                                optiontxt.disabled=true;
+                                minltxt.disabled=true;
+                                maxltxt.disabled=true;
+                                inputtitle.innerHTML = 'Date';
+                                document.getElementById('name').innerHTML='Name :';
+                                document.getElementById('option').innerHTML='Option :'; 
+                                break;
+                                case "telp":
+                                exts.disabled=true;
+                                optiontxt.disabled=true;
+                                minltxt.disabled=false;
+                                maxltxt.disabled=false;
+                                inputtitle.innerHTML = 'Telephone Number';
+                                document.getElementById('name').innerHTML='Name :';
+                                document.getElementById('option').innerHTML='Option :'; 
+                                break;
+                                case "datetime":
+                                exts.disabled=true;
+                                optiontxt.disabled=true;
+                                minltxt.disabled=true;
+                                maxltxt.disabled=true;
+                                inputtitle.innerHTML = 'Date Time Local';
+                                document.getElementById('name').innerHTML='Name :';
+                                document.getElementById('option').innerHTML='Option :'; 
+                                break;
+                                case "label":
+                                exts.disabled=true;
+                                optiontxt.disabled=true;
+                                minltxt.disabled=true;
+                                maxltxt.disabled=true;
+                                inputtitle.innerHTML = 'Label';
+                                document.getElementById('name').innerHTML='Name :';
+                                document.getElementById('option').innerHTML='Option :'; 
+                                break;
+                                case "small":
+                                exts.disabled=true;
+                                optiontxt.disabled=true;
+                                minltxt.disabled=true;
+                                maxltxt.disabled=true;
+                                inputtitle.innerHTML = 'Small';
+                                document.getElementById('name').innerHTML='Name :';
+                                document.getElementById('option').innerHTML='Option :'; 
+                                break;
+                                default:
+                                console.log("Empty");
+                                break;
+                                }
+                                
+                           
+                            coverdisplay.style.display="block";
+                           
+                            coversave.style.display="block";
+                           
+                            add.style.display="none";
+                            divedit.style.display="block";
+                            // editstatus.hidden=false;
+                            });
+                           dltbtn.addEventListener('click', () => { const index = arry.indexOf(arry[i]);
+                            if (index > -1) {
+                              // only splice array when item is found
+                            arry.splice(index, 1); // 2nd parameter means remove one item only
+                            aredit.splice(index,1);
+                            
+                            inputform.innerHTML="";
+                            thm.innerHTML="";
+                            }
+                            console.log(arry);
+                            console.log(aredit);
+                            if(serp==false){
+                             serport.disabled=false;   
+                            }
+                            if(serp2==false){
+                             serport2.disabled=false;   
+                            }
+                            if(serp3==false){
+                             serport3.disabled=false;   
+                            }
+                          bttn();  
+                            });
+                            thm.appendChild(text);
+                        thm.appendChild(btn);
+                        thm.appendChild(dltbtn);
+                        inputform.appendChild(thm);
+                        console.log(header);
+                        
+                        }
+                       
+                        
+                        
+                }
+                //
+                function afteredit(){
+                    if(inputtitle.innerHTML =='Serial Port 1' || inputtitle.innerHTML =='Serial Port 2' || inputtitle.innerHTML =='Serial Port 3'){
+                        jenis = "";
+            exts.disabled=false;
+            optiontxt.disabled=false;
+            minltxt.disabled=false;
+            maxltxt.disabled=false;
+			inputtitle.innerHTML = '';
+            }
+            
+                    covervariety.style.display="none";
+                
+                coverdisplay.style.display="none";
+                
+                coversave.style.display="none";
+                
+                add.style.display="block";
+                divedit.style.display="none";
+                for(var o=0;o<inp2.length;o++){
+            inp2[o].value="";
+
+        }
+        requiredcheck.checked=false;
+                // editstatus.hidden=true;
+                }
+            //
+            canceledit.addEventListener("click", function () {
+               afteredit();      
+		});
+        //
+
+        //
+        editbtn.addEventListener("click", function () {
+            if(nametxt.value==""){
+                    alert("Name Is Empty")
+                }
+                else{
+                    switch (jenis) {
+            case "textbox":
+            if(requiredcheck.checked == true){
+                var str=nametxt.value+':<br><input type="text" name="'+nametxt.value+'" minlength="'+ minltxt.value+'"maxlength="'+ maxltxt.value+'" required /><label >*</label>';  
+                editar(str,nametxt.value,null,null,minle=minltxt.value,maxle=maxltxt.value,jen=jenis,true);
+
+            } 
+            else{
+                var str=nametxt.value+':<br><input type="text" name="'+nametxt.value+'" minlength="'+ minltxt.value+'"maxlength="'+ maxltxt.value+'"/>';  
+                editar(str,nametxt.value,null,null,minle=minltxt.value,maxle=maxltxt.value,jen=jenis,false);
+            }
+            
+            break;
+            case "textareabox":
+            if(requiredcheck.checked == true){
+                var str1=nametxt.value+':<br><textarea name="'+nametxt.value+'" minlength="'+ minltxt.value+'"maxlength="'+ maxltxt.value+'" required ></textarea><label >*</label>';  
+                editar(str1,nametxt.value,null,null,minle=minltxt.value,maxle=maxltxt.value,jen=jenis,true);
+
+            } 
+            else{
+                var str1=nametxt.value+':<br><textarea  name="'+nametxt.value+'" minlength="'+ minltxt.value+'"maxlength="'+ maxltxt.value+'"></textarea>';  
+                editar(str1,nametxt.value,null,null,minle=minltxt.value,maxle=maxltxt.value,jen=jenis,false);
+
+            }
+            break;
+            case "checkbox":
+            if(requiredcheck.checked == true){
+                var str2='<input type="checkbox" name="'+nametxt.value+'" value="'+nametxt.value+'" required /><label >*</label>'+nametxt.value;
+                editar(str2,nametxt.value,null,null,null,null,jen=jenis,true);
+
+            }
+            else{
+                var str2='<input type="checkbox" name="'+nametxt.value+'" value="'+nametxt.value+'" />'+nametxt.value;
+                editar(str2,nametxt.value,null,null,null,null,jen=jenis,false);
+            }
+            
+            break;
+            case "files":
+            if(requiredcheck.checked == true){
+               if(exts.value=="All"){
+                var str3=nametxt.value+':<br><input class= "'+nametxt.value+'"name="'+nametxt.value+'" type="file" multiple required /><label >*</label>';
+
+               }
+               if(exts.value=="Image"){
+                var str3=nametxt.value+':<br><input class= "'+nametxt.value+'"name="'+nametxt.value+'" type="file" accept="image/*" multiple required /><label >*</label>';
+
+               }
+               if(exts.value=="Video"){
+                var str3=nametxt.value+':<br><input class= "'+nametxt.value+'"name="'+nametxt.value+'" type="file" accept="video/*" multiple required /><label >*</label>';
+
+                }
+                editar(str3,nametxt.value,null,filt=exts.value,null,null,jen=jenis,true);
+
+            }
+            else{
+                if(exts.value=="All"){
+                var str3=nametxt.value+':<br><input class= "'+nametxt.value+'"name="'+nametxt.value+'" type="file" multiple />';
+
+                }
+                if(exts.value=="Image"){
+                    var str3=nametxt.value+':<br><input class= "'+nametxt.value+'"name="'+nametxt.value+'" type="file" accept="image/*" multiple />';
+
+                }
+                if(exts.value=="Video"){
+                    var str3=nametxt.value+':<br><input class= "'+nametxt.value+'"name="'+nametxt.value+'" type="file" accept="video/*" multiple />';
+
+                }
+                editar(str3,nametxt.value,null,filt=exts.value,null,null,jen=jenis,false);
+
+ 
+            }
+            break;
+            case "radiobtn":
+                if(optiontxt.value==""){
+                    alert("Option Is Empty");
+                }
+                else{
+                    if(requiredcheck.checked == true){
+               
+               var arrd = optiontxt.value.split('\n');
+               var joarad=[]; 
+               console.log(arrd);
+               for (let i = 0; i < arrd.length; i++) {
+                  var artext= '<br><input type="radio" name="'+nametxt.value+'" id="'+ arrd[i]+'" value="'+arrd[i]+'" required ><label for="'+arrd[i]+'">'+arrd[i]+'</label><label >*</label>';
+                   joarad.push(artext);
+               }
+               var jovar=joarad.join("");
+               editar(jovar,nametxt.value,optiontxt.value,null,null,null,jen=jenis,true);
+           }
+           else{
+               var arrd = optiontxt.value.split('\n');
+               var joarad=[]; 
+               for (let i = 0; i < arrd.length; i++) {
+                   var artext= '<br><input type="radio" name="'+nametxt.value+'" id="'+ arrd[i]+'" value="'+arrd[i]+'"><label for="'+arrd[i]+'">'+arrd[i]+'</label>';
+                   joarad.push(artext);
+               }
+               var jovar=joarad.join("");
+               editar(jovar,nametxt.value,optiontxt.value,null,null,null,jen=jenis,false);
+           }
+         
+           console.log(jovar);
+                }
+            
+            break;
+            case "email":
+            if(requiredcheck.checked == true){
+                var str5=nametxt.value+':<br><input type="email" name="'+nametxt.value+'"  required /><label >*</label>';
+                editar(str5,nametxt.value,null,null,null,null,jen=jenis,true);
+
+            }
+            else{
+                var str5=nametxt.value+':<br><input type="email" name="'+nametxt.value+'"  />';
+                editar(str5,nametxt.value,null,null,null,null,jen=jenis,false);
+            }
+            
+            break;
+            case "serport":
+            if(requiredcheck.checked == true){
+                var ser='<select class="seport" id="serport1" ></select><br><br>';
+                    var arr = optiontxt.value.split('\n');
+                var joar=[]; 
+                for (let i = 0; i < arr.length; i++) {
+                   
+                   var artext=arr[i]+':<br><input type="text" id="'+nametxt.value+'" class="seportin" name="'+arr[i]+'" required /><label >*</label><br>';
+                   joar.push(artext);
+                }
+                
+                var str6= ser+joar.join("");
+              
+                editar(str6,nametxt.value,optiontxt.value,null,null,null,jen=jenis,true);
+
+            }
+            else{
+                var ser='<select class="seport" id="serport1" ></select><br><br>';
+                    var arr = optiontxt.value.split('\n');
+                var joar=[]; 
+                for (let i = 0; i < arr.length; i++) {
+                   
+                   var artext=arr[i]+':<br><input type="text" id="'+nametxt.value+'" class="seportin" name="'+arr[i]+'"/><br>';
+                   joar.push(artext);
+                }
+                
+                var str6= ser+joar.join("");
+               
+             
+                editar(str6,nametxt.value,optiontxt.value,null,null,null,jen=jenis,false);
+            }
+            
+            break;
+            case "serport2":
+            if(requiredcheck.checked == true){
+                var str6=nametxt.value+':<br><select class="seport" id="serport2" required ><input type="text" class="seportin" id="serportin2" name="'+nametxt.value+'" required /><label >*</label>';
+                editar(str6,nametxt.value,null,null,null,null,jen=jenis,true);
+
+            }
+            else{
+                var str6=nametxt.value+':<br><select class="seport" id="serport2" ><input type="text" class="seportin" id="serportin2" name="'+nametxt.value+'"  />';
+                editar(str6,nametxt.value,null,null,null,null,jen=jenis,false);
+            }
+            
+            break;
+            case "serport3":
+            if(requiredcheck.checked == true){
+                var str6=nametxt.value+':<br><select class="seport" id="serport3" required ><input type="text" class="seportin" id="serportin3" name="'+nametxt.value+'" required /><label >*</label>';
+                editar(str6,nametxt.value,null,null,null,null,jen=jenis,true);
+
+            }
+            else{
+                var str6=nametxt.value+':<br><select class="seport" id="serport3" ><input type="text" class="seportin" id="serportin3" name="'+nametxt.value+'"  />';
+                editar(str6,nametxt.value,null,null,null,null,jen=jenis,false);
+            }
+            
+            break;
+            case "number":
+            if(requiredcheck.checked == true){
+                var str7=nametxt.value+':<br><input type="number" name="'+nametxt.value+'" minlength="'+ minltxt.value+'"maxlength="'+ maxltxt.value+'"required /><label >*</label>';
+                editar(str7,nametxt.value,null,null,null,null,jen=jenis,true);
+
+            }
+            else{
+                var str7=nametxt.value+':<br><input type="number" name="'+nametxt.value+'" minlength="'+ minltxt.value+'"maxlength="'+ maxltxt.value+'" />';
+                editar(str7,nametxt.value,null,null,null,null,jen=jenis,false);
+            }
+            
+            break;
+            case "combobox":
+            if(optiontxt.value==""){
+                    alert("Option Is Empty");
+            }
+    else{
+    if(requiredcheck.checked == true){
+                var str8=nametxt.value+':<br><select name="'+nametxt.value+'" required ><label >*</label>';
+                var arr = optiontxt.value.split('\n');
+                var joar=[]; 
+                for (let i = 0; i < arr.length; i++) {
+                   var artext= '<option value="'+arr[i]+'">'+ arr[i]+'</option>';
+                    joar.push(artext);
+                }
+                var str8close='</select><br>';
+                var selectvar= str8+joar.join("")+str8close;
+                editar(selectvar,nametxt.value,optiontxt.value,null,null,null,jen=jenis,true);
+            }
+            else{
+                var str8=nametxt.value+':<br><select name="'+nametxt.value+'" >';
+                var arr = optiontxt.value.split('\n');
+                var joar=[]; 
+                for (let i = 0; i < arr.length; i++) {
+                   var artext= '<option value="'+arr[i]+'">'+ arr[i]+'</option>';
+                    joar.push(artext);
+                }
+                var str8close='</select>';
+                var selectvar= str8+joar.join("")+str8close;
+                editar(selectvar,nametxt.value,optiontxt.value,null,null,null,jen=jenis,false);
+            }
+            
+            }
+            
+            break;
+            case "color":
+            if(requiredcheck.checked == true){
+                var str9=nametxt.value+':<br><input type="color" name="'+nametxt.value+'" required /><label >*</label>';
+                editar(str9,nametxt.value,null,null,null,null,jen=jenis,true);
+            }
+            else{
+                var str9=nametxt.value+':<br><input type="color" name="'+nametxt.value+'"  />';
+                editar(str9,nametxt.value,null,null,null,null,jen=jenis,false);
+            }
+            
+            break;
+            case "date":
+            if(requiredcheck.checked == true){
+                var str10=nametxt.value+':<br><input type="date" name="'+nametxt.value+'" required /><label >*</label>';
+                editar(str10,nametxt.value,null,null,null,null,jen=jenis,true);
+
+            }
+            else{
+                var str10=nametxt.value+':<br><input type="date" name="'+nametxt.value+'"  />';
+                editar(str10,nametxt.value,null,null,null,null,jen=jenis,false);
+            }
+            
+            break;
+            case "telp":
+            if(maxltxt.value==""){
+                alert("Max Length Is Empty");
+            }
+            else{
+
+            
+            if(requiredcheck.checked == true){
+                var str11=nametxt.value+':<br><input type="tel" pattern="[0-9]{'+ maxltxt.value+'}" name="'+nametxt.value+'" minlength="'+ minltxt.value+'"maxlength="'+ maxltxt.value+'"required /><label >*</label>';
+                editar(str11,nametxt.value,null,null,minle=minltxt.value,maxle=maxltxt.value,jen=jenis,true);
+
+            }
+            else{
+                var str11=nametxt.value+':<br><input type="tel" pattern="[0-9]{'+ maxltxt.value+'}" name="'+nametxt.value+'" minlength="'+ minltxt.value+'"maxlength="'+ maxltxt.value+'" />';
+                editar(str11,nametxt.value,null,null,minle=minltxt.value,maxle=maxltxt.value,jen=jenis,false);
+
+            }
+        }
+            break;
+            case "datetime":
+            if(requiredcheck.checked == true){
+                var str12=nametxt.value+':<br><input type="datetime-local" name="'+nametxt.value+'" required /><label >*</label>';
+                editar(str12,nametxt.value,null,null,null,null,jen=jenis,true);
+
+            }
+            else{
+                var str12=nametxt.value+':<br><input type="datetime-local" name="'+nametxt.value+'"  />';
+                editar(str12,nametxt.value,null,null,null,null,jen=jenis,false);
+            }
+            
+            break;
+            case "label":
+            var str13='<label>'+nametxt.value+'</label>';
+            editar(str13,nametxt.value,null,null,null,null,jen=jenis,false);
+            break;
+            case "small":
+            var str14='<small>'+nametxt.value+'</small>';
+            editar(str14,nametxt.value,null,null,null,null,jen=jenis,false);
+            break;
+            default:
+            console.log("Empty");
+            break;
+        }
+                }
+                afteredit();            
+		});
+        //
+        
+            //
+            add.addEventListener("click", function () {
+                if(nametxt.value==""){
+                    alert("Name Is Empty")
+                }
+                else{
+                    switch (jenis) {
+            case "textbox":
+            if(requiredcheck.checked == true){
+                var str=nametxt.value+':<br><input type="text" name="'+nametxt.value+'" minlength="'+ minltxt.value+'"maxlength="'+ maxltxt.value+'" required /><label >*</label>';  
+                addbtn(str,nametxt.value,null,null,minle=minltxt.value,maxle=maxltxt.value,jen=jenis,true);
+
+            } 
+            else{
+                var str=nametxt.value+':<br><input type="text" name="'+nametxt.value+'" minlength="'+ minltxt.value+'"maxlength="'+ maxltxt.value+'"/>';  
+                addbtn(str,nametxt.value,null,null,minle=minltxt.value,maxle=maxltxt.value,jen=jenis,false);
+            }
+            
+            break;
+            case "textareabox":
+            if(requiredcheck.checked == true){
+                var str1=nametxt.value+':<br><textarea name="'+nametxt.value+'" minlength="'+ minltxt.value+'"maxlength="'+ maxltxt.value+'" required ></textarea><label >*</label>';  
+                addbtn(str1,nametxt.value,null,null,minle=minltxt.value,maxle=maxltxt.value,jen=jenis,true);
+
+            } 
+            else{
+                var str1=nametxt.value+':<br><textarea  name="'+nametxt.value+'" minlength="'+ minltxt.value+'"maxlength="'+ maxltxt.value+'"></textarea>';  
+                addbtn(str1,nametxt.value,null,null,minle=minltxt.value,maxle=maxltxt.value,jen=jenis,false);
+
+            }
+            break;
+            case "checkbox":
+            if(requiredcheck.checked == true){
+                var str2='<input type="checkbox" name="'+nametxt.value+'" value="'+nametxt.value+'" required /><label >*</label>'+nametxt.value;
+                addbtn(str2,nametxt.value,null,null,null,null,jen=jenis,true);
+
+            }
+            else{
+                var str2='<input type="checkbox" name="'+nametxt.value+'" value="'+nametxt.value+'" />'+nametxt.value;
+                addbtn(str2,nametxt.value,null,null,null,null,jen=jenis,false);
+            }
+            
+            break;
+            case "files":
+            if(requiredcheck.checked == true){
+               if(exts.value=="All"){
+                var str3=nametxt.value+':<br><input class= "'+nametxt.value+'"name="'+nametxt.value+'" type="file" multiple required /><label >*</label>';
+
+               }
+               if(exts.value=="Image"){
+                var str3=nametxt.value+':<br><input class= "'+nametxt.value+'"name="'+nametxt.value+'" type="file" accept="image/*" multiple required /><label >*</label>';
+
+               }
+               if(exts.value=="Video"){
+                var str3=nametxt.value+':<br><input class= "'+nametxt.value+'"name="'+nametxt.value+'" type="file" accept="video/*" multiple required /><label >*</label>';
+
+                }
+                addbtn(str3,nametxt.value,null,filt=exts.value,null,null,jen=jenis,true);
+
+            }
+            else{
+                if(exts.value=="All"){
+                var str3=nametxt.value+':<br><input class= "'+nametxt.value+'"name="'+nametxt.value+'" type="file" multiple />';
+
+                }
+                if(exts.value=="Image"){
+                    var str3=nametxt.value+':<br><input class= "'+nametxt.value+'"name="'+nametxt.value+'" type="file" accept="image/*" multiple />';
+
+                }
+                if(exts.value=="Video"){
+                    var str3=nametxt.value+':<br><input class= "'+nametxt.value+'"name="'+nametxt.value+'" type="file" accept="video/*" multiple />';
+
+                }
+                addbtn(str3,nametxt.value,null,filt=exts.value,null,null,jen=jenis,false);
+
+ 
+            }
+            break;
+            case "radiobtn":
+                if(optiontxt.value==""){
+                    alert("Option Is Empty");
+                }
+                else{
+                    if(requiredcheck.checked == true){
+               
+               var arrd = optiontxt.value.split('\n');
+               var joarad=[]; 
+               console.log(arrd);
+               for (let i = 0; i < arrd.length; i++) {
+                  var artext= '<br><input type="radio" name="'+nametxt.value+'" id="'+ arrd[i]+'" value="'+arrd[i]+'" required ><label for="'+arrd[i]+'">'+arrd[i]+'</label><label >*</label>';
+                   joarad.push(artext);
+               }
+               var jovar=joarad.join("");
+           addbtn(jovar,nametxt.value,optiontxt.value,null,null,null,jen=jenis,true);
+           }
+           else{
+               var arrd = optiontxt.value.split('\n');
+               var joarad=[]; 
+               for (let i = 0; i < arrd.length; i++) {
+                   var artext= '<br><input type="radio" name="'+nametxt.value+'" id="'+ arrd[i]+'" value="'+arrd[i]+'"><label for="'+arrd[i]+'">'+arrd[i]+'</label>';
+                   joarad.push(artext);
+               }
+               var jovar=joarad.join("");
+           addbtn(jovar,nametxt.value,optiontxt.value,null,null,null,jen=jenis,false);
+           }
+         
+           console.log(jovar);
+                }
+            
+            break;
+            case "email":
+            if(requiredcheck.checked == true){
+                var str5=nametxt.value+':<br><input type="email" name="'+nametxt.value+'"  required /><label >*</label>';
+                addbtn(str5,nametxt.value,null,null,null,null,jen=jenis,true);
+
+            }
+            else{
+                var str5=nametxt.value+':<br><input type="email" name="'+nametxt.value+'"  />';
+                addbtn(str5,nametxt.value,null,null,null,null,jen=jenis,false);
+            }
+            
+            break;
+            case "serport":
+            if(requiredcheck.checked == true){
+                var ser='<select class="seport" id="serport1" ></select><br><br>';
+                    var arr = optiontxt.value.split('\n');
+                var joar=[]; 
+                for (let i = 0; i < arr.length; i++) {
+                   
+                   var artext=arr[i]+':<br><input type="text" id="'+nametxt.value+'" class="seportin" name="'+arr[i]+'" required /><label >*</label><br>';
+                   joar.push(artext);
+                }
+                
+                var str6= ser+joar.join("");
+              
+                addbtn(str6,nametxt.value,optiontxt.value,null,null,null,jen=jenis,true);
+
+            }
+            else{
+                var ser='<select class="seport" id="serport1" ></select><br><br>';
+                    var arr = optiontxt.value.split('\n');
+                var joar=[]; 
+                for (let i = 0; i < arr.length; i++) {
+                   
+                   var artext=arr[i]+':<br><input type="text" id="'+nametxt.value+'" class="seportin" name="'+arr[i]+'"/><br>';
+                   joar.push(artext);
+                }
+                
+                var str6= ser+joar.join("");                
+                addbtn(str6,nametxt.value,optiontxt.value,null,null,null,jen=jenis,false);
+            }
+            
+                serport.disabled=true;
+            serp1=true;
+            jenis = "";
+            exts.disabled=false;
+            optiontxt.disabled=false;
+            minltxt.disabled=false;
+            maxltxt.disabled=false;
+			inputtitle.innerHTML = '';
+           
+            break;
+            case "serport2":
+            if(requiredcheck.checked == true){
+                var str6=nametxt.value+':<br><select class="seport" id="serport2" ><input type="text" class="seportin" id="serportin2" name="'+nametxt.value+'" required /><label >*</label>';
+                addbtn(str6,nametxt.value,null,null,null,null,jen=jenis,true);
+
+            }
+            else{
+                var str6=nametxt.value+':<br><select class="seport" id="serport2" ><input type="text" class="seportin" id="serportin2" name="'+nametxt.value+'"  />';
+                addbtn(str6,nametxt.value,null,null,null,null,jen=jenis,false);
+            }
+           
+                serport2.disabled=true;
+            serp2=true;
+            jenis = "";
+            exts.disabled=false;
+            optiontxt.disabled=false;
+            minltxt.disabled=false;
+            maxltxt.disabled=false;
+			inputtitle.innerHTML = '';
+           
+            break;
+            case "serport3":
+            if(requiredcheck.checked == true){
+                var str6=nametxt.value+':<br><select class="seport" id="serport3" ><input type="text" class="seportin" id="serportin3" name="'+nametxt.value+'" required /><label >*</label>';
+                addbtn(str6,nametxt.value,null,null,null,null,jen=jenis,true);
+
+            }
+            else{
+                var str6=nametxt.value+':<br><select class="seport" id="serport3" ><input type="text" class="seportin" id="serportin3" name="'+nametxt.value+'"  />';
+                addbtn(str6,nametxt.value,null,null,null,null,jen=jenis,false);
+            }
+        
+                serport3.disabled=true;
+            serp3=true;
+            jenis = "";
+            exts.disabled=false;
+            optiontxt.disabled=false;
+            minltxt.disabled=false;
+            maxltxt.disabled=false;
+			inputtitle.innerHTML = '';
+            break;
+            case "number":
+            if(requiredcheck.checked == true){
+                var str7=nametxt.value+':<br><input type="number" name="'+nametxt.value+'" minlength="'+ minltxt.value+'"maxlength="'+ maxltxt.value+'"required /><label >*</label>';
+                addbtn(str7,nametxt.value,null,null,null,null,jen=jenis,true);
+
+            }
+            else{
+                var str7=nametxt.value+':<br><input type="number" name="'+nametxt.value+'" minlength="'+ minltxt.value+'"maxlength="'+ maxltxt.value+'" />';
+                addbtn(str7,nametxt.value,null,null,null,null,jen=jenis,false);
+            }
+            
+            break;
+            case "combobox":
+            if(optiontxt.value==""){
+                    alert("Option Is Empty");
+            }
+    else{
+    if(requiredcheck.checked == true){
+                var str8=nametxt.value+':<br><select name="'+nametxt.value+'" required ><label >*</label>';
+                var arr = optiontxt.value.split('\n');
+                var joar=[]; 
+                for (let i = 0; i < arr.length; i++) {
+                   var artext= '<option value="'+arr[i]+'">'+ arr[i]+'</option>';
+                    joar.push(artext);
+                }
+                var str8close='</select><br>';
+                var selectvar= str8+joar.join("")+str8close;
+            addbtn(selectvar,nametxt.value,optiontxt.value,null,null,null,jen=jenis,true);
+            }
+            else{
+                var str8=nametxt.value+':<br><select name="'+nametxt.value+'" >';
+                var arr = optiontxt.value.split('\n');
+                var joar=[]; 
+                for (let i = 0; i < arr.length; i++) {
+                   var artext= '<option value="'+arr[i]+'">'+ arr[i]+'</option>';
+                    joar.push(artext);
+                }
+                var str8close='</select>';
+                var selectvar= str8+joar.join("")+str8close;
+            addbtn(selectvar,nametxt.value,optiontxt.value,null,null,null,jen=jenis,false);
+            }
+            
+            }
+            
+            break;
+            case "color":
+            if(requiredcheck.checked == true){
+                var str9=nametxt.value+':<br><input type="color" name="'+nametxt.value+'" required /><label >*</label>';
+                addbtn(str9,nametxt.value,null,null,null,null,jen=jenis,true);
+            }
+            else{
+                var str9=nametxt.value+':<br><input type="color" name="'+nametxt.value+'"  />';
+                addbtn(str9,nametxt.value,null,null,null,null,jen=jenis,false);
+            }
+            
+            break;
+            case "date":
+            if(requiredcheck.checked == true){
+                var str10=nametxt.value+':<br><input type="date" name="'+nametxt.value+'" required /><label >*</label>';
+                addbtn(str10,nametxt.value,null,null,null,null,jen=jenis,true);
+
+            }
+            else{
+                var str10=nametxt.value+':<br><input type="date" name="'+nametxt.value+'"  />';
+                addbtn(str10,nametxt.value,null,null,null,null,jen=jenis,false);
+            }
+            
+            break;
+            case "telp":
+            if(maxltxt.value==""){
+                alert("Max Length Is Empty");
+            }
+            else{
+
+            
+            if(requiredcheck.checked == true){
+                var str11=nametxt.value+':<br><input type="tel" pattern="[0-9]{'+ maxltxt.value+'}" name="'+nametxt.value+'" minlength="'+ minltxt.value+'"maxlength="'+ maxltxt.value+'"required /><label >*</label>';
+                addbtn(str11,nametxt.value,null,null,minle=minltxt.value,maxle=maxltxt.value,jen=jenis,true);
+
+            }
+            else{
+                var str11=nametxt.value+':<br><input type="tel" pattern="[0-9]{'+ maxltxt.value+'}" name="'+nametxt.value+'" minlength="'+ minltxt.value+'"maxlength="'+ maxltxt.value+'" />';
+                addbtn(str11,nametxt.value,null,null,minle=minltxt.value,maxle=maxltxt.value,jen=jenis,false);
+
+            }
+        }
+            break;
+            case "datetime":
+            if(requiredcheck.checked == true){
+                var str12=nametxt.value+':<br><input type="datetime-local" name="'+nametxt.value+'" required /><label >*</label>';
+                addbtn(str12,nametxt.value,null,null,null,null,jen=jenis,true);
+
+            }
+            else{
+                var str12=nametxt.value+':<br><input type="datetime-local" name="'+nametxt.value+'"  />';
+                addbtn(str12,nametxt.value,null,null,null,null,jen=jenis,false);
+            }
+            
+            break;
+            case "label":
+            var str13='<label>'+nametxt.value+'</label>';
+            addbtn(str13,nametxt.value,null,null,null,null,jen=jenis,false);
+            break;
+            case "small":
+            var str14='<small>'+nametxt.value+'</small>';
+            addbtn(str14,nametxt.value,null,null,null,null,jen=jenis,false);
+            break;
+            default:
+            console.log("Empty");
+            break;
+        }
+                }
+       
+		    });
+            //
+            frtl.addEventListener("keyup", function () {
+                hdtitle.innerHTML=this.value;
+            });
+            //
+            cncl.addEventListener("click", function () {
+                window.location.replace('home.html');
+            });
+            //
+//             const { promises: fls } = require("fs")
+//             async function copyDir(src, dest) {
+//     await fls.mkdir(dest, { recursive: true });
+//     let entries = await fls.readdir(src, { withFileTypes: true });
+
+//     for (let entry of entries) {
+//         let srcPath = path.join(src, entry.name);
+//         let destPath = path.join(dest, entry.name);
+
+//         entry.isDirectory() ?
+//             await copyDir(srcPath, destPath) :
+//             await fls.copyFile(srcPath, destPath);
+//     }
+// }
+window.onerror = function(error, url, line) {
+    
+};
+            //
+            idcheck.addEventListener("change", function () {
+                if(idcheck.checked==true){
+                    nduplicate.disabled=true;
+                }
+                else{
+                    nduplicate.disabled=false;
+                }
+            });
+            timecheck.addEventListener("change", function () {
+                if(timecheck.checked==true){
+                    nduplicate.disabled=true;
+                }
+                else{
+                    nduplicate.disabled=false;
+                }
+            });
+            nduplicate.addEventListener("change", function () {
+                if(nduplicate.checked==true){
+                    timecheck.disabled=true;
+                    idcheck.disabled=true;
+                }
+                else{
+                    timecheck.disabled=false;
+                    idcheck.disabled=false;
+                }
+            });
+            //
+            proname.addEventListener("keyup", function () {
+                for(var i=0;i<prolist.length;i++){
+                    if(this.value==prolist[i]){
+                        alert("Project Name Already Exists");
+                    }
+                }
+            });
+            //saveside
+            savefile.addEventListener("click", function () {
+                var headtitle='<div id="hddiv">  <header id="hdtitle">'+frtl.value+'</header></div><br style="margin-bottom:5px;">';
+                var arjoin= arry.join("");
+                var autosub;
+                if(atsub.checked==true){
+                    
+                    s2='<br><button type="submit" id="btnsubmit">Submit</button><input type="checkbox" id="atsub" ><label>Auto</label> </form></div> ';
+                }
+            if(idcheck.checked == true){
+                var uid='<input type="hidden" id="Id" name="Id" >';
+                var total=s1+headtitle+uid+arjoin+s2+s3+s4;
+                var totaled=s1ed+headtitle+uid+arjoin+s2ed+s3+s4ed;
+            }
+            if(timecheck.checked == true){
+                var stime='<input type="hidden" id="SubmitTime" name="SubmitTime" >';
+                var total=s1+headtitle+stime+arjoin+s2+s3+s4;
+                var totaled=s1ed+headtitle+stime+arjoin+s2ed+s3+s4ed;
+               
+            }
+            if(idcheck.checked == true && timecheck.checked == true){
+                var uid='<input type="hidden" id="Id" name="Id" >';
+                var stime='<input type="hidden" id="SubmitTime" name="SubmitTime" >';
+                var total=s1+headtitle+uid+stime+arjoin+s2+s3+s4;
+                var totaled=s1ed+headtitle+uid+stime+arjoin+s2ed+s3+s4ed;
+            }
+            if(idcheck.checked == false && timecheck.checked == false){
+                var total=s1+headtitle+arjoin+s2+s3+s4;
+                var totaled=s1ed+headtitle+arjoin+s2ed+s3+s4ed;
+            
+        }
+			
+			var dir = proname.value;
+
+        //     if (!fs.existsSync('./project')){
+        //     fs.mkdirSync('./project');
+
+        //    }
+    // if (!fs.existsSync('./project/'+dir)){
+    //         fs.mkdirSync('./project/'+dir);
+    //         if(nduplicate.checked == true){
+    //         copyDir("./main2", "./project/"+dir+"/");
+    //        }
+    //        else{
+
+           
+    //        copyDir("./main", "./project/"+dir+"/");
+           
+    //        }
+        // copyDir("./jquery", "./project/"+dir+"/jquery");
+           sessionStorage.setItem("form.html", total);
+        //    fs.mkdirSync("./project/"+dir+"/uploads");
+			var head=[header];
+            var json=[];
+			sessionStorage.setItem("headerjson", JSON.stringify(head));
+            sessionStorage.setItem("edit.html",totaled);
+            sessionStorage.setItem("datajson",JSON.stringify(json));
+            
+            
+            sessionStorage.setItem("project", dir);
+            
+    // }
+    loadingpage.style.display='flex';
+    setTimeout(() => success(), 10000); 
+
+		});
+     
+function success(){
+    alert("success");
+            window.location.href = 'onmainwin.html';
+}
+document.getElementById("tutopj").onclick = function(){
+    window.open('/pinasiweb/tutopina.html','popup','width=600,height=600');
+}
+document.getElementById("licepj").onclick = function(){
+    window.open('/pinasiweb/licensepin.html','popup','width=600,height=600');
+}
+cnl3.onclick = function(){
+uploadpage.style.display="none";
+document.getElementById("eulapage").style.display="flex";
+}
+
+    cnl.onclick = function(){
+        document.getElementById("eulapage").style.display="none";
+        notepage.style.display="flex";
+    }
+nxt3.onclick = function(){
+uploadpage.style.display="none";
+}
+nxt2.onclick = function(){
+document.getElementById("eulapage").style.display="flex";
+notepage.style.display="none";
+}
+    nxt.onclick = function(){
+    if(newagre.checked==true){
+      
+  document.getElementById("eulapage").style.display="none";
+  newagre.checked=false;
+  uploadpage.style.display="flex";
+  
+    }
+    else{
+  alert('Click "I Agree" to continue')
+}
+}
+uploadpage.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    handleFileSelect(e);
+});
+document.getElementById('filedrop').addEventListener('change', (e) => {
+        // document.getElementById('filedrop').files = e.dataTransfer.files;
+       handleFileSelect(e);
+        
+    });
+    function handleFileSelect(event) {
+  const reader = new FileReader()
+  reader.onload = handleFileLoad;
+  reader.readAsText(event.target.files[0])
+
+}
+
+function handleFileLoad(event) {
+//   console.log(JSON.parse(event.target.result));
+  var sestor=JSON.parse(event.target.result);
+  
+
+  for(var i=0;i<Object.keys(sestor).length;i++){  
+    if(typeof sestor[Object.keys(sestor)[i]]== "object"){
+        sessionStorage.setItem(Object.keys(sestor)[i],JSON.stringify(sestor[Object.keys(sestor)[i]]))
+    }  
+    else{
+        sessionStorage.setItem(Object.keys(sestor)[i],sestor[Object.keys(sestor)[i]])
+    }
+    
+  }
+  loadingpage.style.display='flex';
+  setTimeout(() => success(), 10000); 
+//   document.getElementById('fileContent').textContent = event.target.result;
+}
+uploadpage.addEventListener('drop', (e) => {
+    
+        // document.getElementById('filedrop').files = e.dataTransfer.files;
+        e.preventDefault();
+        // console.log(e.dataTransfer.files)
+        
+        const reader = new FileReader()
+  reader.onload = handleFileLoad;
+  reader.readAsText(e.dataTransfer.files[0])
+    
+   
+});
+
+        </script>
+    </body>
+  
+    </html>
